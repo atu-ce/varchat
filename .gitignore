@@ -1,0 +1,15 @@
+# Gizli bilgiler — API anahtarı asla repoya girmemeli
+.env
+
+# Python sanal ortamı
+.venv/
+venv/
+
+# Python derleme/cache dosyaları
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Editör / IDE
+.vscode/
+.idea/
