@@ -146,6 +146,7 @@ Kullanıcı mesajı
 - **Model (beyin):** Model-bağımsız tasarım — istediğimiz zaman değiştiririz. Geliştirmede küçük/hızlı (qwen2.5:3b, CPU); final kalitede GPU'da büyük model. Dış API yok, Ollama ile yerel.
 - **Yönlendirici (router):** Mesajın niyetini ayırır. Pratikte: basit kurallar (bariz selamlamalar) + model (gerisi).
 - **Validasyon:** Sohbet dilindeki yazım hatalarını model bağlamdan anlar; ama **varyant/gen kimliğini** referansa (gen listesi / VEP) karşı doğrularız — yanlış gen yanlış sonuç getirir.
+- **Güvenlik (prompt injection):** Kullanıcı "kuralları yok say / admin ol" gibi denemeler (jailbreak) yapabilir; hiçbir LLM %100 bağışık değildir. Zarar tasarımla sınırlanır: konu-dışı yanıtı **kod** (LLM değil) sabit döndürür, üretim **grounded**'dır (yalnızca makalelere dayanır), sistemin **tehlikeli bir yetkisi yoktur**. İleride adversarial testlerle ölçülecek.
 
 ### 5.3 Retrieval stratejisi (özet → tam metin)
 
@@ -180,7 +181,7 @@ PubMed ve VEP ücretsiz API'lerle kullanılıyor; ama **ikisi de indirilip yerel
 | Faz | İş | Durum |
 |---|---|---|
 | 1 | RAG hattı (anlamlandırma + retrieval + üretim + sohbet) | ✅ büyük ölçüde bitti |
-| 2 | Yönlendirici + validasyon (sohbet katmanı) | plan |
+| 2 | Yönlendirici + validasyon (sohbet katmanı) | ✅ bitti |
 | 3 | Eğitim verisi (distillation + hazır setler) | sıradaki |
 | 4 | Fine-tune (LoRA) → GGUF → Ollama | sonra |
 | 5 | Fine-tune'lu modeli hatta tak | sonra |
@@ -202,7 +203,8 @@ PubMed ve VEP ücretsiz API'lerle kullanılıyor; ama **ikisi de indirilip yerel
 | 1 | `c01_makale_getir.py` | **Retrieval (bulucu):** varyantı PubMed'de aratıp makale başlık+özetlerini çeker (NCBI E-utilities). |
 | 2 | `c02_varyant_anlamlandir.py` | **Anlamlandırma:** koordinatı (`chr1:...` / `GRCh38:...`) VEP ile gen / rsID / etkiye çevirir. |
 | 3 | `c03_varchat_gemini.py` | **Sohbet eden RAG (Gemini):** özet + takip soruları + koordinat yönlendirme. Ortak yardımcılar burada. |
-| 4 | `c04_varchat_ollama.py` | **ANA UYGULAMA:** sohbet eden RAG, **tamamen yerel** (Ollama/qwen2.5) — dış API yok. |
+| 4 | `c04_varchat_ollama.py` | **ANA UYGULAMA:** yönlendirici + validasyon + sohbet + RAG, **tamamen yerel** (Ollama/qwen2.5) — dış API yok. |
+| 5 | `c05_gen_validasyon.py` | **Validasyon:** gen kimliği geçerli mi? Yanlış yazımı (BRFA→BRAF) HGNC listesi + Jaro-Winkler ile yakalar; `genler.txt`'yi bir kez indirir. |
 
 ### `arsiv/` — öğrenme / test dosyaları
 
@@ -212,6 +214,7 @@ PubMed ve VEP ücretsiz API'lerle kullanılıyor; ama **ikisi de indirilip yerel
 | 2 | `a02_varchat_sohbetsiz_test.py` | Sohbetsiz (tek-atışlık) VarChat denemesi — Gemini (eski `varchat.py`). |
 | 3 | `a03_sohbet_test.py` | Sohbet hafızasının çalıştığını gösteren test. |
 | 4 | `a04_ollama_test.py` | Yerel modelin (Ollama) çalıştığını gösteren test. |
+| 5 | `a05_yonlendirici_test.py` | Niyet sınıflandırıcı (router) izole testi. |
 
 ### Şimdiye kadar tamamlananlar
 
@@ -219,4 +222,6 @@ PubMed ve VEP ücretsiz API'lerle kullanılıyor; ama **ikisi de indirilip yerel
 - ✅ VEP ile varyant anlamlandırma (koordinat girişi desteği)
 - ✅ Gemini ile RAG: tek-atışlık + sohbet eden (takip soruları)
 - ✅ Tamamen **yerel** sohbet (Ollama / qwen2.5:7b) — internetsiz, gizli
+- ✅ Yönlendirici (router): niyet sınıflandırma + sohbet katmanı (selamlama / konu-dışı / varyant)
+- ✅ Validasyon: yanlış gen yazımını yakalama + öneri (HGNC + Jaro-Winkler)
 - ✅ Fine-tune mekaniği (Colab, LoRA — küçük demo)
