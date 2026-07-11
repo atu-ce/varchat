@@ -13,3 +13,6 @@ __pycache__/
 # Editör / IDE
 .vscode/
 .idea/
+
+# İndirilen gen listesi (c05 ilk çalıştırmada yeniden oluşturur)
+genler.txt
