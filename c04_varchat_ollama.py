@@ -1,19 +1,26 @@
 """
-VarChat benzeri chatbot — TAMAMEN YEREL sürüm (Gemini YOK).
+VarChat benzeri chatbot — TAMAMEN YEREL + YÖNLENDİRİCİ (ana uygulama).
 
-Gemini yerine, kendi bilgisayarında çalışan açık kaynak modeli (qwen2.5:7b, Ollama)
-kullanır. İnternet yalnızca PubMed'den makale çekerken gerekir; özet ve sohbet
-tamamen yerelde üretilir — yazdığın hiçbir şey dışarı çıkmaz.
+Gemini yok; kendi bilgisayarında qwen2.5:7b (Ollama) çalışır.
+Yönlendirici (router) sayesinde kullanıcı serbestçe yazabilir:
+  - SELAMLAMA / KENDINI_TANIT / KONU_DISI  -> doğrudan, KOD tarafından cevaplanır
+  - VARYANT                                 -> RAG hattına (VEP + PubMed + özet) gider
 
-Önceki dosyalardaki hazır parçaları kullanır (makale çekme, koordinat anlamlandırma).
+Güvenlik notu: Konu dışı yanıt LLM'e bırakılmaz, kod sabit metin döndürür; ayrıca üretim
+yalnızca çekilen makalelere dayanır (grounded). Böylece "kuralları yok say" gibi
+denemelerin zararı sınırlıdır.
+
+İnternet yalnızca PubMed'den makale çekerken gerekir.
 """
 
+import json
 import sys
 
 import ollama
 
 from c01_makale_getir import makale_idleri_bul, makale_detaylari_al
 from c03_varchat_gemini import baglam_metni, arama_terimi_belirle
+from c05_gen_validasyon import gen_cikar, gen_gecerli_mi
 
 sys.stdout.reconfigure(encoding="utf-8")
 sys.stdin.reconfigure(encoding="utf-8")
@@ -21,63 +28,125 @@ sys.stdin.reconfigure(encoding="utf-8")
 MODEL = "qwen2.5:7b"
 
 
-def main():
-    varyant = input("Bir genetik varyant girin (örn. BRAF V600E): ").strip().lstrip("﻿")
-    if not varyant:
-        varyant = "BRAF V600E"
-    print(f"\nVaryant: {varyant}")
+def niyet_belirle(mesaj):
+    """Mesajı SELAMLAMA / KENDINI_TANIT / KONU_DISI / VARYANT olarak sınıflandırır;
+    VARYANT ise gen/varyant kimliğini de çıkarır."""
+    talimat = (
+        "Sen bir genetik varyant asistanının niyet sınıflandırıcısısın.\n"
+        "Kullanıcının mesajını TAM OLARAK şu kategorilerden birine ata:\n"
+        "- SELAMLAMA: selam, merhaba, nasılsın gibi sohbet başlatma\n"
+        "- KENDINI_TANIT: 'sen kimsin', 'ne yaparsın', 'ne işe yararsın' gibi\n"
+        "- KONU_DISI: genetik/varyant DIŞI her şey (hava durumu, döviz, genel kültür...)\n"
+        "- VARYANT: bir gen, varyant ya da genetikle ilgili bir soru\n\n"
+        "Yanıtı SADECE şu JSON formatında ver:\n"
+        '{"kategori": "<KATEGORI>", "varyant": "<gen/varyant kimliği ya da boş>"}\n'
+        "Kategori VARYANT ise 'varyant' alanına sorudaki gen/varyant kimliğini yaz "
+        "(örn. BRAF V600E, rs334, chr1:...); değilse boş string bırak.\n\n"
+        f"Mesaj: {mesaj}"
+    )
+    cevap = ollama.chat(
+        model=MODEL,
+        messages=[{"role": "user", "content": talimat}],
+        format="json",
+    )
+    try:
+        return json.loads(cevap["message"]["content"])
+    except (json.JSONDecodeError, KeyError):
+        return {"kategori": "VARYANT", "varyant": mesaj}   # emin değilsek varyant varsay
 
-    # 1) Girdiyi aranabilir terime çevir (koordinatsa gene) + makaleleri çek
+
+def varyant_baglami_kur(varyant):
+    """Bir varyant için makaleleri çekip grounded sohbet system mesajını hazırlar.
+    (makaleler, system_mesaji) döndürür; makale yoksa (None, None)."""
     arama_terimi = arama_terimi_belirle(varyant)
-    print(f"PubMed'de aranıyor: '{arama_terimi}' ...")
+    print(f"  PubMed'de aranıyor: '{arama_terimi}' ...")
     makaleler = makale_detaylari_al(makale_idleri_bul(arama_terimi, adet=5))
     if not makaleler:
-        print("Bu varyantla ilgili makale bulunamadı.")
-        return
-    print(f"{len(makaleler)} makale bulundu. Yerel model özetliyor (CPU'da biraz sürebilir)...\n")
-
-    # 2) Sohbet geçmişini KENDİMİZ tutuyoruz (Ollama, Gemini gibi otomatik tutmaz).
-    #    İlk mesaj "system": kurallar + makaleler (kalıcı bağlam).
+        return None, None
     sistem = (
-        f"Sen bir genetik varyant asistanısın. Kullanıcının '{varyant}' varyantı hakkındaki "
-        "sorularını YALNIZCA aşağıdaki makale özetlerine dayanarak, anlaşılır bir Türkçe ile yanıtla.\n"
-        "Kurallar:\n"
+        f"Sen bir genetik varyant asistanısın. '{varyant}' varyantı hakkındaki soruları "
+        "YALNIZCA aşağıdaki makale özetlerine dayanarak, anlaşılır Türkçe ile yanıtla.\n"
         "- Kendi bilginden bilgi EKLEME; sadece verilen kaynakları kullan.\n"
         "- Her bilginin yanına kaynağını köşeli parantezle yaz: [1], [2] gibi.\n"
         "- Kaynaklarda cevap yoksa 'Verilen kaynaklarda bu bilgi bulunmuyor' de.\n\n"
         f"KAYNAKLAR:\n{baglam_metni(makaleler)}"
     )
-    mesajlar = [{"role": "system", "content": sistem}]
+    return makaleler, sistem
 
-    def sor(kullanici_mesaji):
-        """Mesajı geçmişe ekler, yerel modele sorar, cevabı geçmişe ekleyip döndürür."""
-        mesajlar.append({"role": "user", "content": kullanici_mesaji})
-        cevap = ollama.chat(model=MODEL, messages=mesajlar)
-        icerik = cevap["message"]["content"]
-        mesajlar.append({"role": "assistant", "content": icerik})
-        return icerik
 
-    # 3) İlk cevap: kaynaklı özet
-    ozet = sor(f"{varyant} varyantını kaynaklı olarak özetle.")
-    print("=" * 70)
-    print("ÖZET:\n")
-    print(ozet)
-    print("\n" + "=" * 70)
-    print("KAYNAKLAR:")
-    for i, m in enumerate(makaleler, start=1):
-        print(f"[{i}] {m['baslik']} — https://pubmed.ncbi.nlm.nih.gov/{m['pmid']}/")
-    print("=" * 70)
+def grounded_sor(gecmis, kullanici_mesaji):
+    """Grounded sohbete bir mesaj sorar, cevabı geçmişe ekleyip döndürür."""
+    gecmis.append({"role": "user", "content": kullanici_mesaji})
+    cevap = ollama.chat(model=MODEL, messages=gecmis)
+    icerik = cevap["message"]["content"]
+    gecmis.append({"role": "assistant", "content": icerik})
+    return icerik
 
-    # 4) Takip soruları (geçmiş kendimizde olduğu için model hatırlar)
-    print("\nBu varyant hakkında soru sorabilirsin. Çıkmak için 'çık' yaz.\n")
+
+def main():
+    print("Genetik varyant asistanı (yerel). Bir varyant sorabilir ya da sohbet edebilirsiniz.")
+    print("Çıkmak için 'çık' yaz.\n")
+
+    grounded = None        # aktif varyantın sohbet geçmişi (ollama messages) ya da None
+    aktif_varyant = None
+
     try:
         while True:
-            soru = input("Sen: ").strip().lstrip("﻿")
-            if soru.lower() in ("çık", "cik", "exit", "quit", ""):
+            mesaj = input("Sen: ").strip().lstrip("﻿")
+            if mesaj.lower() in ("çık", "cik", "exit", "quit", ""):
                 print("Görüşürüz!")
                 break
-            print("(yanıt üretiliyor...)")
-            print("\nBot:", sor(soru), "\n")
+
+            niyet = niyet_belirle(mesaj)
+            kategori = niyet.get("kategori", "VARYANT")
+
+            # --- Konu dışı / sohbet: KOD sabit cevap verir (LLM'e bırakılmaz) ---
+            if kategori == "SELAMLAMA":
+                print("\nBot: Merhaba! Bir genetik varyant (örn. BRAF V600E) sorabilirsiniz.\n")
+                continue
+            if kategori == "KENDINI_TANIT":
+                print("\nBot: Ben bir genetik varyant asistanıyım. Bir varyant girerseniz, ilgili "
+                      "bilimsel makaleleri bulup kaynaklı bir özet çıkarırım.\n")
+                continue
+            if kategori == "KONU_DISI":
+                print("\nBot: Ben yalnızca genetik varyantlar için varım; bu tür sorulara "
+                      "cevap veremem.\n")
+                continue
+
+            # --- Varyant sorusu: RAG hattı ---
+            varyant = (niyet.get("varyant") or "").strip()
+            if varyant and varyant != aktif_varyant:
+                # VALİDASYON: gen sembolü geçerli mi? (rsID/koordinat için atlanır)
+                gen = gen_cikar(varyant)
+                if gen is not None:
+                    gecerli, oneriler = gen_gecerli_mi(gen)
+                    if not gecerli:
+                        if oneriler:
+                            print(f"\nBot: '{gen}' geçerli bir gen değil. Şunu mu demek istediniz: "
+                                  f"{', '.join(oneriler)}?\n")
+                        else:
+                            print(f"\nBot: '{gen}' geçerli bir gen sembolü değil; kontrol eder misiniz?\n")
+                        continue
+                # Yeni varyant: makaleleri çek, grounded sohbeti kur, özet üret
+                makaleler, sistem = varyant_baglami_kur(varyant)
+                if not makaleler:
+                    print(f"\nBot: '{varyant}' ile ilgili makale bulunamadı.\n")
+                    continue
+                aktif_varyant = varyant
+                grounded = [{"role": "system", "content": sistem}]
+                print("  (özet üretiliyor, biraz sürebilir...)")
+                ozet = grounded_sor(grounded, f"{varyant} varyantını kaynaklı olarak özetle.")
+                print(f"\nBot:\n{ozet}\n")
+                print("Kaynaklar:")
+                for i, m in enumerate(makaleler, start=1):
+                    print(f"[{i}] {m['baslik']} — https://pubmed.ncbi.nlm.nih.gov/{m['pmid']}/")
+                print()
+            elif grounded is not None:
+                # Takip sorusu: mevcut varyantın grounded sohbetine sor
+                print("  (yanıt üretiliyor...)")
+                print(f"\nBot: {grounded_sor(grounded, mesaj)}\n")
+            else:
+                print("\nBot: Hangi varyantı sormak istiyorsunuz? (örn. BRAF V600E)\n")
     except (KeyboardInterrupt, EOFError):
         print("\nGörüşürüz!")
 
