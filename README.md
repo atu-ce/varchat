@@ -6,6 +6,7 @@ Referans alınan araç: [VarChat](https://varchat.engenome.com) (enGenome, 2024)
 
 ---
 
+
 ## 1. Amaç
 
 Bir hastanın DNA'sı dizilendiğinde binlerce genetik varyant çıkar. Bir araştırmacının
@@ -13,7 +14,22 @@ Bir hastanın DNA'sı dizilendiğinde binlerce genetik varyant çıkar. Bir ara�
 Bu proje, o varyantla ilgili literatürü otomatik bulup, **uydurma yapmadan, kaynaklı**
 bir özet üreten bir sistem kurmayı hedefler.
 
-## 2. Temel Kavramlar (ne nedir?)
+
+## 2. Kurulum
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate          # Windows
+pip install -r requirements.txt
+```
+
+- **Gemini sürümü için** (`c03_varchat_gemini.py`): `.env` dosyasına
+  `GEMINI_API_KEY=...` eklenmelidir.
+- **Yerel sürüm için** (`c04_varchat_ollama.py`): [Ollama](https://ollama.com) kurulu olmalı ve
+  model indirilmelidir: `ollama pull qwen2.5:7b`.
+
+
+## 3. Temel Kavramlar (ne nedir?)
 
 - **LLM (Büyük Dil Modeli):** Metnin devamını tahmin ederek cevap üreten yapay zeka
   (ChatGPT gibi). Tek başına bilgiyi ezberinden verir ve uydurabilir (halüsinasyon).
@@ -48,63 +64,8 @@ soru–cevap (bizim fine-tune'da yaptığımız) yalnızca 2. aşamadır.
 Bu projede 1. ve 3. aşama yok; hazır eğitilmiş bir modeli alıp yalnızca 2. aşamayı
 (SFT) küçük ölçekte uyguluyoruz.
 
-## 3. Sistem Mimarisi (akış)
 
-```
-Varyant gir → [BULUCU] ilgili makaleleri bul → [BEYİN] makaleleri okuyup kaynaklı özet üret
-```
-
-RAG'ın iki yarısı da bu projede **bize ait** olacak:
-- **Bulucu:** Kendi makale havuzumuz üzerinde embedding + hybrid arama.
-- **Beyin:** Dışa bağımlı API değil, kendi (fine-tune edilmiş) açık kaynak modelimiz.
-
-## 4. Şimdiye Kadar Yapılanlar (prototip)
-
-Çalışan bir ilk prototip kuruldu (öğrenme amaçlı, ileride parçaları değişecek):
-
-- `makale_getir.py` — Varyantı **PubMed**'de aratıp ilgili makalelerin başlık ve
-  özetlerini çeker (NCBI E-utilities API). *Bulucu adımı.*
-- `gemini_test.py` — Gemini'nin tek başına çalıştığını doğrulayan küçük test.
-- `varchat.py` — İkisini birleştirir: makaleleri çeker, Gemini'ye bağlam olarak verir,
-  "sadece kaynaklara dayan, her bilginin yanına kaynağını yaz" kurallarıyla kaynaklı
-  bir Türkçe özet ürettirir. *Çalışan ilk RAG döngüsü.*
-
-Mevcut sınırlar: makale seçimini PubMed yapıyor (kendi aramamız yok), sadece özet var
-(tam metin değil), dış API (Gemini) kullanılıyor, girdi denetimi yok.
-
-## 5. Kararlar (danışmanla netleşen yön)
-
-- **Girdi:** Gen adı değil, **genomik koordinat** formatında varyant
-  (örn. `chr1:17001759:A>T`). Bunlar PubMed'de doğrudan aranamaz; önce
-  **anlamlandırma (annotation)** ile gen/rsID'ye çevrilmeli.
-- **Bulucu:** Danışmanın elindeki **~45 milyon makalelik tam metin PubMed** korpusu
-  üzerinde **kendi embedding + hybrid arama** sistemimizi kuracağız.
-- **Model:** Dış API yok. **Açık kaynak bir modeli (Llama/Mistral) fine-tune** edeceğiz
-  (sıfırdan eğitim yok). GPU danışman tarafından sağlanmaya çalışılacak.
-- **Değerlendirme:** **Benchmark/validasyon yapılacak** (tezin temel katkılarından biri).
-- **Web arayüzü:** Ürünleşme aşamasına ait; şimdilik ertelendi. Önce model + validasyon.
-
-## 6. Yapılacaklar (yol haritası)
-
-1. **Fine-tune örneği:** Küçük bir açık modeli Google Colab (ücretsiz GPU) üzerinde
-   LoRA ile fine-tune eden bir örnek + dokümantasyon. *(Sıradaki adım.)*
-2. **Varyant anlamlandırma:** Genomik koordinatı gen/rsID'ye çeviren adım (VEP/dbSNP vb.).
-3. **Kendi bulucumuz:** 45M korpusu indeksleyip embedding + hybrid arama kurmak.
-4. **Kendi modelimizi entegre etmek:** Fine-tune edilmiş açık modeli RAG'a bağlamak.
-5. **Benchmark/validasyon:** Sistemi ölçmek (örn. ClinVar referans alınarak).
-6. *(Sonra)* Web arayüzü.
-
-## 7. Kurulum
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate          # Windows
-pip install -r requirements.txt
-```
-
-Gemini testi için `.env` dosyasına `GEMINI_API_KEY=...` eklenmelidir.
-
-## 8. VarChat Nasıl Çalışıyor? (İnceleme Notları)
+## 4. VarChat Nasıl Çalışıyor? (İnceleme Notları)
 
 Referans aracı VarChat'i gerçek girdilerle test ederek nasıl çalıştığını çözdük. Akışı özetle:
 
@@ -123,6 +84,8 @@ Girdi → [1] Doğrula (geçerli gen/varyant mı?)  → geçersizse reddet
 - **Literatür yoksa dürüst:** "supporting literature bulunamadı" deyip gen düzeyi bilgiye düşüyor
   (nadir varyantlarda kaçınılmaz; bizim sistemimiz de aynısını yapıyor).
 - **Kalite literatüre bağlı:** çok çalışılmış varyantta (BRAF V600E) çok zengin; nadir varyantta zayıf.
+- **Tek atışlık + deterministik değil:** takip sorusu soramıyorsun (enGenome "yakında" diyor);
+  ayrıca her çalıştırmada biraz farklı cevap üretir.
 
 **Artıları:** çok kaynaklı, kaynaklı/doğrulanabilir özet, ACMG sınıflandırması, girdi doğrulama, dürüst uyarı.
 **Sınırları:** sohbet edemez, nadir varyantta zayıf, İngilizce ağırlıklı, doğruluğu garanti etmez, modeli kapalı.
@@ -140,4 +103,120 @@ Girdi → [1] Doğrula (geçerli gen/varyant mı?)  → geçersizse reddet
 - **"Çok getir → azını kullan" hunisi:** 27.836 kaynak bulunur, 15'i listelenir, özette yalnızca ~5'i atıf alır.
 - **Güncellik ağırlığı:** listelenen makalelerin hepsi son 1-2 yıl (yeni yayınlara daha yüksek puan).
 - **Uyarlanabilir çıktı:** veri kıt varyantta (nadir rsID) kaynak/ClinVar bölümlerini **hiç göstermiyor**, uydurmuyor.
-- **Dil:** İngilizce üretip 30+ dile çeviriyor (biz Gemini ile doğrudan Türkçe ürettik — tasarım farkı).
+- **Otomatik sınıflandırıcı yanılabilir:** rs334 (orak hücre, kesin patojenik) VarChat'in otomatik ACMG'sinde
+  "belirsiz/benign" çıktı — sıklık-tabanlı kurallar hastalık mekanizmasını kaçırabiliyor (değerlendirme neden önemli).
+
+
+## 5. Genişletilmiş Proje Planı ve Mimari
+
+Projenin güncel, ayrıntılı yol haritası.
+
+### 5.1 Nihai sistem mimarisi
+
+```
+Kullanıcı mesajı
+   │
+   ▼
+[0] YÖNLENDİRİCİ (niyet)
+   ├─ selamlama ("merhaba")         → doğrudan, samimi cevap
+   ├─ kendini tanıt ("sen kimsin")  → "Genetik varyant asistanıyım..."
+   ├─ konu dışı ("hava durumu?")    → kibar ret (web arama YOK, uydurma YOK)
+   └─ varyant/gen sorusu ↓
+        │
+        ▼
+[1] VALİDASYON: varyant/gen geçerli mi?  ── değilse → "bunu mu demek istediniz: BRAF?"
+        │ geçerli
+        ▼
+[2] ANLAMLANDIRMA (VEP): koordinat → gen / rsID / etki           [✅ kuruldu]
+        │
+        ▼
+[3] RETRIEVAL (PubMed): ilgili makaleleri bul                     [✅ kuruldu]
+        │   "X makale bulundu, en alakalı/güncel N tanesi özetlendi"
+        ▼
+[4] GENERATION: model makaleleri okur → kaynaklı Türkçe özet      [beyin: fine-tune'lu yerel model]
+        │
+        ▼
+[5] SOHBET: takip soruları (hafıza)                              [✅ kuruldu]
+```
+
+**Temel ilke:** Model uydurmaz; gerçek bilgi VEP + PubMed'den gelir. Model yalnızca *yönlendirir* ve *verilen kaynakları özetler.*
+
+### 5.2 Bileşen kararları
+
+- **Model (beyin):** Model-bağımsız tasarım — istediğimiz zaman değiştiririz. Geliştirmede küçük/hızlı (qwen2.5:3b, CPU); final kalitede GPU'da büyük model. Dış API yok, Ollama ile yerel.
+- **Yönlendirici (router):** Mesajın niyetini ayırır. Pratikte: basit kurallar (bariz selamlamalar) + model (gerisi).
+- **Validasyon:** Sohbet dilindeki yazım hatalarını model bağlamdan anlar; ama **varyant/gen kimliğini** referansa (gen listesi / VEP) karşı doğrularız — yanlış gen yanlış sonuç getirir.
+
+### 5.3 Retrieval stratejisi (özet → tam metin)
+
+| | Şimdi (geliştirme) | İleride (kendi retriever) |
+|---|---|---|
+| Kaynak | PubMed **özetleri** (API) | **Tam metin** (PMC / ~45M korpus) |
+| Yöntem | Özeti direkt modele ver | **Chunking + embedding** → ilgili parçalar |
+| Sıralama | PubMed'in alaka + güncellik sıralaması | Kendi **hybrid** (BM25 + embedding) sıralamamız |
+
+- **Kaç makale:** 5 ile başla (yerel model için bağlam/hız dengesi), ayarlanabilir; GPU'da 15'e çıkılabilir.
+- **Gösterim:** "X makale bulundu, en alakalı N tanesi özetlendi" (PubMed toplam sayıyı zaten döndürür).
+
+### 5.4 Doğrulama (nasıl kontrol edeceğiz)
+
+- **VEP:** Bilinen varyantlarla test (`BRAF V600E`→BRAF, `rs334`→HBB) + dbSNP/ClinVar ile karşılaştırma.
+- **PubMed alaka:** Gen/varyant adı makalede geçiyor mu (basit kontrol) + **PubTator3 / LitVar2** referansına karşı precision ölçümü.
+
+### 5.5 Fine-tune ve veri
+
+- **Yöntem:** LoRA/QLoRA (model-bağımsız), Colab GPU → GGUF → Ollama. Fine-tune **zorunlu değil, kaliteyi cilalayan** adım.
+- **Veri (iki katman):**
+  - *Hazır setler (genel/alan):* PubMedQA, BioASQ (biyomedikal QA), talimat setleri, Türkçe setler, ClinVar.
+  - *Kendi ürettiğimiz (göreve özel):* Gemini "öğretmen" ile **distillation** — (varyant → makale → iyi özet) çiftleri.
+
+### 5.6 Veri kaynakları: API mı, yerel mi?
+
+PubMed ve VEP ücretsiz API'lerle kullanılıyor; ama **ikisi de indirilip yerelde (offline) çalıştırılabilir**
+(PubMed baseline dökümü; VEP standalone + cache). Geliştirmede API, final offline sistemde yerel.
+
+### 5.7 Faz planı
+
+| Faz | İş | Durum |
+|---|---|---|
+| 1 | RAG hattı (anlamlandırma + retrieval + üretim + sohbet) | ✅ büyük ölçüde bitti |
+| 2 | Yönlendirici + validasyon (sohbet katmanı) | plan |
+| 3 | Eğitim verisi (distillation + hazır setler) | sıradaki |
+| 4 | Fine-tune (LoRA) → GGUF → Ollama | sonra |
+| 5 | Fine-tune'lu modeli hatta tak | sonra |
+| 6 | Benchmark / değerlendirme | sonra |
+| 7 | Kendi retriever (tam metin + chunking + hybrid) | sonra |
+| 8 | Web arayüzü | en son |
+
+
+## 6. Proje Dosyaları ve Şimdiye Kadar Yapılanlar
+
+> Not: Dosyalar pipeline sırasına göre `c01_`, `c02_`... diye numaralandı.
+> (Python modül adı rakamla başlayamaz; bu yüzden harfli `c` öneki kullanıldı ki
+> dosyalar birbirini sorunsuz `import` edebilsin.)
+
+### Ana klasör — çalışan pipeline
+
+| # | Dosya | Rol |
+|---|---|---|
+| 1 | `c01_makale_getir.py` | **Retrieval (bulucu):** varyantı PubMed'de aratıp makale başlık+özetlerini çeker (NCBI E-utilities). |
+| 2 | `c02_varyant_anlamlandir.py` | **Anlamlandırma:** koordinatı (`chr1:...` / `GRCh38:...`) VEP ile gen / rsID / etkiye çevirir. |
+| 3 | `c03_varchat_gemini.py` | **Sohbet eden RAG (Gemini):** özet + takip soruları + koordinat yönlendirme. Ortak yardımcılar burada. |
+| 4 | `c04_varchat_ollama.py` | **ANA UYGULAMA:** sohbet eden RAG, **tamamen yerel** (Ollama/qwen2.5) — dış API yok. |
+
+### `arsiv/` — öğrenme / test dosyaları
+
+| # | Dosya | Rol |
+|---|---|---|
+| 1 | `a01_gemini_test.py` | Gemini bağlantısını doğrulayan küçük test. |
+| 2 | `a02_varchat_sohbetsiz_test.py` | Sohbetsiz (tek-atışlık) VarChat denemesi — Gemini (eski `varchat.py`). |
+| 3 | `a03_sohbet_test.py` | Sohbet hafızasının çalıştığını gösteren test. |
+| 4 | `a04_ollama_test.py` | Yerel modelin (Ollama) çalıştığını gösteren test. |
+
+### Şimdiye kadar tamamlananlar
+
+- ✅ PubMed'den makale çekme (retrieval)
+- ✅ VEP ile varyant anlamlandırma (koordinat girişi desteği)
+- ✅ Gemini ile RAG: tek-atışlık + sohbet eden (takip soruları)
+- ✅ Tamamen **yerel** sohbet (Ollama / qwen2.5:7b) — internetsiz, gizli
+- ✅ Fine-tune mekaniği (Colab, LoRA — küçük demo)
