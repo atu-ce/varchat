@@ -67,6 +67,33 @@ def anlamlandir(varyant):
     }
 
 
+def anlamlandir_hgvs(hgvs):
+    """VEP'in HGVS ucunu kullanır (örn. '1:g.17001759A>T'); gen/rsID döndürür.
+
+    VarChat tarzı koordinatlar (GRCh38:1:g.17001759A>T) içindir. Baştaki
+    'GRCh38:' / 'GRCh37:' gibi sürüm öneklerini temizler.
+    """
+    temiz = hgvs.strip()
+    for onek in ("GRCh38:", "GRCh37:", "grch38:", "grch37:"):
+        temiz = temiz.replace(onek, "")
+    url = f"{VEP_TABAN}/vep/human/hgvs/{temiz}"
+    cevap = requests.get(url, headers={"Content-Type": "application/json"}, timeout=30)
+    cevap.raise_for_status()
+    veri = cevap.json()[0]
+
+    genler = sorted({
+        t.get("gene_symbol")
+        for t in veri.get("transcript_consequences", [])
+        if t.get("gene_symbol")
+    })
+    rsidler = sorted({
+        c.get("id")
+        for c in veri.get("colocated_variants", [])
+        if str(c.get("id", "")).startswith("rs")
+    })
+    return {"genler": genler, "rsid": rsidler, "etki": veri.get("most_severe_consequence")}
+
+
 def main():
     varyant = "chr1:17001759:A>T"
     print(f"Varyant: {varyant}\n")
