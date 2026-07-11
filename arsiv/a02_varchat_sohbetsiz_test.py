@@ -14,8 +14,11 @@ import sys
 from dotenv import load_dotenv
 from google import genai
 
+# Arşiv dosyası: üst klasördeki (c01_/c02_) modülleri bulabilmek için üst klasörü yola ekliyoruz.
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # Kendi yazdığımız bulucu fonksiyonları. Tekrar yazmıyoruz; mevcut dosyadan çağırıyoruz.
-from makale_getir import makale_idleri_bul, makale_detaylari_al
+from c01_makale_getir import makale_idleri_bul, makale_detaylari_al
 
 sys.stdout.reconfigure(encoding="utf-8")
 
