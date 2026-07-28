@@ -18,9 +18,10 @@ import sys
 
 import ollama
 
-from c01_makale_getir import makale_idleri_bul, makale_detaylari_al
+from c01_makale_getir import makale_ara, makale_detaylari_al
 from c03_varchat_gemini import baglam_metni, arama_terimi_belirle
 from c05_gen_validasyon import gen_cikar, gen_gecerli_mi
+from c06_clinvar import clinvar_bilgisi
 
 sys.stdout.reconfigure(encoding="utf-8")
 sys.stdin.reconfigure(encoding="utf-8")
@@ -60,15 +61,18 @@ def varyant_baglami_kur(varyant):
     (makaleler, system_mesaji) döndürür; makale yoksa (None, None)."""
     arama_terimi = arama_terimi_belirle(varyant)
     print(f"  PubMed'de aranıyor: '{arama_terimi}' ...")
-    makaleler = makale_detaylari_al(makale_idleri_bul(arama_terimi, adet=5))
+    pmidler, toplam = makale_ara(arama_terimi, adet=5)
+    makaleler = makale_detaylari_al(pmidler)
     if not makaleler:
         return None, None
+    print(f"  {toplam} makale bulundu; en alakalı {len(makaleler)} tanesi özetleniyor.")
     sistem = (
-        f"Sen bir genetik varyant asistanısın. '{varyant}' varyantı hakkındaki soruları "
-        "YALNIZCA aşağıdaki makale özetlerine dayanarak, anlaşılır Türkçe ile yanıtla.\n"
-        "- Kendi bilginden bilgi EKLEME; sadece verilen kaynakları kullan.\n"
-        "- Her bilginin yanına kaynağını köşeli parantezle yaz: [1], [2] gibi.\n"
-        "- Kaynaklarda cevap yoksa 'Verilen kaynaklarda bu bilgi bulunmuyor' de.\n\n"
+        f"Sen bir genetik varyant asistanısın. '{varyant}' hakkında SADECE aşağıdaki KAYNAKLAR'a "
+        "dayanarak yanıt verirsin. Yanıtın DAİMA ve TAMAMEN Türkçe olmalı; başka dil kullanma.\n\n"
+        "Kurallar:\n"
+        "- Yalnızca kaynaklarda yazan bilgiyi kullan; kendi bilginden ekleme, tahmin etme, uydurma.\n"
+        "- Her cümlenin sonuna dayandığı kaynağı yaz: [1], [2]. Kaynağı olmayan cümle yazma.\n"
+        "- Cevap kaynaklarda yoksa yalnızca şunu de: 'Bu konuda elimdeki kaynaklarda bilgi yok.'\n\n"
         f"KAYNAKLAR:\n{baglam_metni(makaleler)}"
     )
     return makaleler, sistem
@@ -140,6 +144,13 @@ def main():
                 print("Kaynaklar:")
                 for i, m in enumerate(makaleler, start=1):
                     print(f"[{i}] {m['baslik']} — https://pubmed.ncbi.nlm.nih.gov/{m['pmid']}/")
+                # ClinVar klinik önem katmanı (yalnızca güvenle doğrulanırsa gösterilir)
+                cv = clinvar_bilgisi(varyant)
+                if cv:
+                    print(f"\nClinVar — Klinik önem: {cv['onem']}")
+                    if cv["hastaliklar"]:
+                        print(f"  İlişkili hastalık(lar): {', '.join(cv['hastaliklar'])}")
+                    print(f"  {cv['link']}")
                 print()
             elif grounded is not None:
                 # Takip sorusu: mevcut varyantın grounded sohbetine sor
