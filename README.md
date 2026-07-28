@@ -190,6 +190,20 @@ PubMed ve VEP ücretsiz API'lerle kullanılıyor; ama **ikisi de indirilip yerel
 | 8 | Web arayüzü | en son |
 
 
+### 5.8 İlk değerlendirme sonuçları (benchmark) — `degerlendirme/`
+
+VarChat'in hiç yapmadığı şey: sistemi **niceliksel** ölçmek. İlk iki ölçüm:
+
+**Retrieval alaka** (`b01_retrieval_alaka.py` — 8 bilinen varyant, 40 makale):
+- Gen-düzeyi alaka **%98**, varyant-düzeyi alaka **%100**.
+- Yorum: bilinen varyantlarda mükemmel; ama bunlar *kolay* vakalar (nadir/koordinat girdilerinde düşer → kendi retriever'ımızın gerekçesi).
+
+**Faithfulness / halüsinasyon** (`b02_ozet_uret.py` + elle yargıç — 3 özet):
+- ~17 iddiadan ~14'ü kaynağa dayalı → **~%80 sadakat**.
+- İki hata türü: **dil bozulması** (3/3 özet: yanlış Türkçe terim — büyük model çözer) ve **halüsinasyon** (1/3: uydurma fakt + kaynakla çelişki — fine-tune azaltır).
+
+Not: küçük örneklem; **yöntem + baseline** kuruldu, ölçek sonra büyütülecek.
+
 ## 6. Proje Dosyaları ve Şimdiye Kadar Yapılanlar
 
 > Not: Dosyalar pipeline sırasına göre `c01_`, `c02_`... diye numaralandı.
@@ -205,6 +219,7 @@ PubMed ve VEP ücretsiz API'lerle kullanılıyor; ama **ikisi de indirilip yerel
 | 3 | `c03_varchat_gemini.py` | **Sohbet eden RAG (Gemini):** özet + takip soruları + koordinat yönlendirme. Ortak yardımcılar burada. |
 | 4 | `c04_varchat_ollama.py` | **ANA UYGULAMA:** yönlendirici + validasyon + sohbet + RAG, **tamamen yerel** (Ollama/qwen2.5) — dış API yok. |
 | 5 | `c05_gen_validasyon.py` | **Validasyon:** gen kimliği geçerli mi? Yanlış yazımı (BRFA→BRAF) HGNC listesi + Jaro-Winkler ile yakalar; `genler.txt`'yi bir kez indirir. |
+| 6 | `c06_clinvar.py` | **ClinVar katmanı:** varyantın klinik önemini (patojenik/benign) + hastalığını çeker; yalnızca gen+protein değişimini (V600E→Val600Glu) TAM doğrulayınca gösterir, aksi halde susar. |
 
 ### `arsiv/` — öğrenme / test dosyaları
 
@@ -224,4 +239,5 @@ PubMed ve VEP ücretsiz API'lerle kullanılıyor; ama **ikisi de indirilip yerel
 - ✅ Tamamen **yerel** sohbet (Ollama / qwen2.5:7b) — internetsiz, gizli
 - ✅ Yönlendirici (router): niyet sınıflandırma + sohbet katmanı (selamlama / konu-dışı / varyant)
 - ✅ Validasyon: yanlış gen yazımını yakalama + öneri (HGNC + Jaro-Winkler)
+- ✅ ClinVar katmanı: klinik önem + hastalık (gen+protein varyantları, tam-eşleşme doğrulamalı)
 - ✅ Fine-tune mekaniği (Colab, LoRA — küçük demo)
