@@ -31,8 +31,12 @@ EMAIL = "yazilimbirimi@karacasutekstil.com.tr"
 TOOL = "varchat-tez-prototip"
 
 
-def makale_idleri_bul(varyant, adet=5):
-    """1. ADIM: Varyantı PubMed'de aratıp ilgili makalelerin kimlik numaralarını (PMID) al."""
+def makale_ara(varyant, adet=5):
+    """1. ADIM: Varyantı PubMed'de aratır. (PMID listesi, TOPLAM eşleşme sayısı) döndürür.
+
+    Toplam sayı, "X makale bulundu, en alakalı N özetlendi" gösterimi için işe yarar
+    (PubMed kaç makale eşleşti onu söyler; biz sadece ilk N'ini çekeriz).
+    """
     parametreler = {
         "db": "pubmed",        # hangi veri tabanında arıyoruz: PubMed
         "term": varyant,       # ne arıyoruz
@@ -44,8 +48,13 @@ def makale_idleri_bul(varyant, adet=5):
     }
     cevap = requests.get(ESEARCH, params=parametreler, timeout=30)
     cevap.raise_for_status()                       # bir hata olduysa burada dur ve bildir
-    veri = cevap.json()
-    return veri["esearchresult"]["idlist"]         # PMID (makale kimliği) listesi
+    sonuc = cevap.json()["esearchresult"]
+    return sonuc["idlist"], int(sonuc.get("count", 0))   # (PMID listesi, toplam sayı)
+
+
+def makale_idleri_bul(varyant, adet=5):
+    """Geriye dönük uyumluluk için: yalnızca PMID listesini döndürür."""
+    return makale_ara(varyant, adet)[0]
 
 
 def butun_metin(element):
