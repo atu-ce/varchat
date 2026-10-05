@@ -231,6 +231,13 @@ def celiski_denetimi(icerik):
     return None
 
 
+def model_hata_mesaji(e):
+    """Kullanıcıya gösterilecek hata cümlesi: model cevap üretemedi mi, yoksa Ollama'ya hiç ulaşılamadı mı?"""
+    if isinstance(e, ollama.ResponseError):
+        return f"Model bu soruya cevap üretemedi ({str(e)[:80]}). Soruyu biraz farklı biçimde sormayı deneyin."
+    return f"Yerel modele ulaşılamadı ({type(e).__name__}). Ollama çalışıyor mu?"
+
+
 def token_tahmini(metin, rol="assistant"):
     return int(len(metin or "") / KARAKTER_PER_TOKEN.get(rol, 2.5)) + SABLON_PAYI
 
@@ -508,9 +515,21 @@ def grounded_sor(gecmis, kullanici_mesaji):
         print(f"  (pencere dolmasın diye en eski {atilan} konuşma turu çıkarıldı; kaynaklar korunuyor)")
     if not sigdi:
         print("  (UYARI: kaynaklar + soru pencereye sığmıyor; cevap eksik bağlamla üretilebilir)")
-    cevap = ollama.chat(model=MODEL, messages=aday, options=AYARLAR)
+    # Yeni Ollama sürümleri model aynı kelimeyi durmadan tekrar edince üretimi keser ('token repeat limit reached').
+    # O zaman bir kez, hafif sıcaklık ve başka tohumla yeniden üretilir; yine olursa hata yukarı iletilir.
+    dongu = False
+    try:
+        cevap = ollama.chat(model=MODEL, messages=aday, options=AYARLAR)
+    except ollama.ResponseError as e:
+        if "repeat" not in str(e).lower():
+            raise
+        print("  (UYARI: model tekrar döngüsüne girdi; farklı tohumla yeniden üretiliyor)")
+        cevap = ollama.chat(model=MODEL, messages=aday, options=dict(AYARLAR, temperature=0.3, seed=AYARLAR["seed"] + 1))
+        dongu = True
     icerik = cevap["message"]["content"]
     SON_YANIT.clear()
+    if dongu:
+        SON_YANIT["tekrar_dongusu"] = True
     # Dil çöküşü (Türkçe -> Çince): bir kez, hafif sıcaklıkla yeniden üret; yine olmazsa 'bozuk' işaretle, geçmişe YAZMA
     oran = dil_denetimi(icerik)
     if oran > 0.02:
@@ -573,7 +592,7 @@ def main():
             try:
                 karar = niyet(mesaj, aktif_varyant)     # önce kural katmanı, sonra aktif varyantı bilen model
             except Exception as e:                      # Ollama kapalı / bağlantı hatası: çökme, söyle
-                print(f"\nBot: Yerel modele ulaşılamadı ({type(e).__name__}). Ollama çalışıyor mu?\n")
+                print(f"\nBot: {model_hata_mesaji(e)}\n")
                 continue
             kategori = karar.get("kategori", "BELIRSIZ")
 
@@ -603,7 +622,7 @@ def main():
                     if SON_YANIT.get("bozuk"):
                         print("DİKKAT: Bu cevap dil bozukluğu içeriyor (yabancı alfabe); güvenilmez sayın, soruyu yeniden sorun.\n")
                 except Exception as e:
-                    print(f"\nBot: Yerel modele ulaşılamadı ({type(e).__name__}). Ollama çalışıyor mu?\n")
+                    print(f"\nBot: {model_hata_mesaji(e)}\n")
                 continue
 
             # --- Varyant sorusu: RAG hattı ---
@@ -649,7 +668,7 @@ def main():
                 try:
                     ozet = grounded_sor(grounded, ilk_soru(varyant))
                 except Exception as e:
-                    print(f"\nBot: Yerel modele ulaşılamadı ({type(e).__name__}). Ollama çalışıyor mu?\n")
+                    print(f"\nBot: {model_hata_mesaji(e)}\n")
                     continue
                 print(f"\nBot:\n{ozet}\n")
                 if SON_YANIT.get("bozuk"):
@@ -675,7 +694,7 @@ def main():
                     if SON_YANIT.get("bozuk"):
                         print("DİKKAT: Bu cevap dil bozukluğu içeriyor (yabancı alfabe); güvenilmez sayın, soruyu yeniden sorun.\n")
                 except Exception as e:
-                    print(f"\nBot: Yerel modele ulaşılamadı ({type(e).__name__}). Ollama çalışıyor mu?\n")
+                    print(f"\nBot: {model_hata_mesaji(e)}\n")
             else:
                 print("\nBot: Hangi varyantı sormak istiyorsunuz? (örn. BRAF V600E)\n")
     except (KeyboardInterrupt, EOFError):

@@ -159,6 +159,63 @@ kontrol("gen kademesinde denetim yok", celiski("Benign", "TTN geni patojenik var
 kontrol("çelişkili (Conflicting) sınıfta denetim yok", celiski("Conflicting classifications of pathogenicity", "Bu varyant patojeniktir [1]."), False)
 app.SON_BAGLAM.clear()
 
+# ---------------------------------------------------------------- tekrar döngüsü (Ollama 'token repeat limit reached')
+print("TEKRAR DÖNGÜSÜ")
+import ollama as _ollama
+import b07_sadakat as b07
+
+
+class _Cevap(dict):
+    def __init__(self, metin):
+        super().__init__(message={"content": metin})
+        self.done_reason, self.prompt_eval_count, self.eval_count, self.total_duration = "stop", 100, 20, 1_000_000
+
+
+def _sahte(sira):
+    """Sırayla: Exception örneği -> fırlatılır, metin -> cevap döner."""
+    kalan = list(sira)
+
+    def chat(**kw):
+        x = kalan.pop(0)
+        if isinstance(x, Exception):
+            raise x
+        return _Cevap(x)
+    return chat
+
+
+DONGU = _ollama.ResponseError("prediction aborted, token repeat limit reached", 500)
+_gercek_chat = _ollama.chat
+try:
+    app.SON_BAGLAM.clear(); app.SON_BAGLAM.update(kademe="varyant", n_kaynak=2)
+    _ollama.chat = _sahte([DONGU, "Bu varyant melanomda sık görülür [1]."])
+    g = [{"role": "system", "content": "[1] Başlık: a"}]
+    sonuc = app.grounded_sor(g, "özetle")
+    kontrol("üretim: döngüde bir kez yeniden üretilir ve işaretlenir", (sonuc, app.SON_YANIT.get("tekrar_dongusu"), len(g)),
+            ("Bu varyant melanomda sık görülür [1].", True, 3))
+    _ollama.chat = _sahte([_ollama.ResponseError("model not found", 404)])
+    try:
+        app.grounded_sor([{"role": "system", "content": "x"}], "özetle")
+        kontrol("üretim: döngü dışı model hatası yeniden denenmeden iletilir", "hata yok", "ResponseError")
+    except _ollama.ResponseError:
+        kontrol("üretim: döngü dışı model hatası yeniden denenmeden iletilir", "ResponseError", "ResponseError")
+    kontrol("kullanıcı mesajı: model hatası ile bağlantı hatası ayrılır",
+            (app.model_hata_mesaji(DONGU).startswith("Model bu soruya"), app.model_hata_mesaji(ConnectionError()).startswith("Yerel modele")),
+            (True, True))
+    kaynak = [(1, {"baslik": "B", "ozet": "O"})]
+    _ollama.chat = _sahte([DONGU, '{"karar": "DESTEKLENIYOR", "gerekce": "kaynakta var"}'])
+    kontrol("yargıç: döngüde ikinci denemede karar verir", b07.yargila("iddia", kaynak, "m")[::2], ("DESTEKLENIYOR", 1))
+    _ollama.chat = _sahte(["{bozuk", '{"karar": "CELISIYOR", "gerekce": "ters"}'])
+    kontrol("yargıç: geçersiz JSON'da ikinci denemede karar verir", b07.yargila("iddia", kaynak, "m")[::2], ("CELISIYOR", 1))
+    _ollama.chat = _sahte([DONGU, DONGU])
+    k, gerekce, d = b07.yargila("iddia", kaynak, "m")
+    kontrol("yargıç: iki deneme de başarısızsa BELIRSIZ + 'yargıç hatası', betik durmaz", (k, gerekce.startswith("yargıç hatası"), d),
+            ("BELIRSIZ", True, 2))
+    _ollama.chat = _sahte(['{"karar": "DESTEKLENMIYOR", "gerekce": "yok"}'])
+    kontrol("yargıç: normal durumda tek deneme", b07.yargila("iddia", kaynak, "m")[::2], ("DESTEKLENMIYOR", 0))
+finally:
+    _ollama.chat = _gercek_chat
+    app.SON_BAGLAM.clear()
+
 print()
 if basarisiz:
     print(f"{len(basarisiz)} test KALDI.")

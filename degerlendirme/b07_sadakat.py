@@ -49,6 +49,10 @@ YARGIC_SISTEM = (
     "- CELISIYOR: kaynak iddianın tersini söylüyor (örn. 'riski artırır' vs 'azaltır', 'neden olur' vs 'korur').\n"
     'Yalnızca şu JSON ile cevap ver: {"karar": "DESTEKLENIYOR|DESTEKLENMIYOR|CELISIYOR", "gerekce": "<bir cümle>"}'
 )
+# Yargıç sürümü: 2 (5 Ekim) = model hatasında ('token repeat limit reached') ya da geçersiz JSON'da bir kez sıcaklık 0.3 / tohum+1
+# ile yeniden dener, yine olmazsa BELIRSIZ ('yargıç hatası') yazar ve devam eder. Başka sürümle yargılanmış satırlar yeniden yargılanır.
+YARGIC_SURUMU = 2
+YARGIC_AYARLARI = dict(app.AYARLAR, num_predict=256)     # karar + tek cümle gerekçe yeter; döngüye girerse erken kesilsin
 
 
 def uyanik_tut():
@@ -78,17 +82,31 @@ def kaynak_haritasi(snapshot_yolu):
 
 
 def yargila(iddia, kaynaklar, model):
+    """(karar, gerekçe, deneme). deneme 0 = ilk deneme, 1 = yeniden denemede karar verdi, 2 = iki deneme de başarısız.
+    Model hatası (Ollama 'token repeat limit reached') ya da geçersiz JSON betiği DURDURMAZ: bir kez farklı tohumla yeniden denenir,
+    yine olmazsa iddia BELIRSIZ sayılır (sadakat paydasına girmez, 'yargıç hatası' olarak ayrıca raporlanır)."""
     metin = "\n\n".join(f"KAYNAK [{n}]: {m['baslik']}\n{m['ozet']}" for n, m in kaynaklar)
-    cevap = ollama.chat(model=model, format="json", options=app.AYARLAR,
-                        messages=[{"role": "system", "content": YARGIC_SISTEM},
-                                  {"role": "user", "content": f"{metin}\n\nİDDİA: {iddia}\n\nKarar?"}])
-    try:
-        j = json.loads(cevap["message"]["content"])
+    mesajlar = [{"role": "system", "content": YARGIC_SISTEM},
+                {"role": "user", "content": f"{metin}\n\nİDDİA: {iddia}\n\nKarar?"}]
+    denemeler = (YARGIC_AYARLARI, dict(YARGIC_AYARLARI, temperature=0.3, seed=YARGIC_AYARLARI["seed"] + 1))
+    sorun = None
+    for deneme, ayar in enumerate(denemeler):
+        try:
+            cevap = ollama.chat(model=model, format="json", options=ayar, messages=mesajlar)
+            j = json.loads(cevap["message"]["content"])
+        except ollama.ResponseError as e:
+            sorun = f"model hatası: {str(e)[:100]}"
+            continue
+        except (json.JSONDecodeError, KeyError, TypeError):
+            sorun = "geçersiz JSON"
+            continue
+        if not isinstance(j, dict):
+            sorun = "geçersiz JSON"
+            continue
         karar = str(j.get("karar", "")).upper().replace("İ", "I").replace("Ş", "S").replace("Ç", "C")
         karar = next((k for k in KARARLAR if k in karar), "BELIRSIZ")
-        return karar, str(j.get("gerekce", ""))[:300]
-    except (json.JSONDecodeError, KeyError, AttributeError):
-        return "BELIRSIZ", ""
+        return karar, str(j.get("gerekce", ""))[:300], deneme
+    return "BELIRSIZ", f"yargıç hatası ({sorun})", len(denemeler)
 
 
 def main():
@@ -125,8 +143,15 @@ def main():
     cikti = os.path.join(BURASI, "sonuclar", f"sadakat_{etiket}.jsonl")
     yapilan = set()
     if os.path.exists(cikti):
-        yapilan = {json.loads(l)["girdi"] for l in open(cikti, encoding="utf-8") if l.strip()}
-    print(f"üretim={os.path.basename(uretim)} | yargıç={yargic} | {len(satirlar)} satır, {len(yapilan)} yargılanmış")
+        onceki = [json.loads(l) for l in open(cikti, encoding="utf-8") if l.strip()]
+        gecerli = [h for h in onceki if h.get("yargic_surumu") == YARGIC_SURUMU]
+        if len(gecerli) != len(onceki):                       # tüm girdiler AYNI yargıç sürümüyle puanlanmalı
+            print(f"  ({len(onceki) - len(gecerli)} satır eski yargıç sürümüyle yargılanmıştı; yeniden yargılanacak)")
+            with open(cikti, "w", encoding="utf-8") as f:
+                for h in gecerli:
+                    f.write(json.dumps(h, ensure_ascii=False) + "\n")
+        yapilan = {h["girdi"] for h in gecerli}
+    print(f"üretim={os.path.basename(uretim)} | yargıç={yargic} (sürüm {YARGIC_SURUMU}) | {len(satirlar)} satır, {len(yapilan)} yargılanmış")
     with open(cikti, "a", encoding="utf-8") as f:
         for r in satirlar:
             if r["girdi"] in yapilan or not r.get("cevap"):
@@ -142,8 +167,8 @@ def main():
                 if not nums:
                     iddialar.append({"iddia": c, "atif": [], "karar": "ATIFSIZ", "gerekce": ""})
                     continue
-                karar, gerekce = yargila(app.ATIF.sub("", c).strip(), [(n, mk[n - 1]) for n in nums], yargic)
-                iddialar.append({"iddia": c, "atif": nums, "karar": karar, "gerekce": gerekce})
+                karar, gerekce, deneme = yargila(app.ATIF.sub("", c).strip(), [(n, mk[n - 1]) for n in nums], yargic)
+                iddialar.append({"iddia": c, "atif": nums, "karar": karar, "gerekce": gerekce, "deneme": deneme})
             yarg = [i for i in iddialar if i["karar"] in KARARLAR]
             ozet = {
                 "n_cumle": len(iddialar), "atifsiz": sum(i["karar"] == "ATIFSIZ" for i in iddialar),
@@ -151,14 +176,18 @@ def main():
                 "desteklenmeyen": sum(i["karar"] == "DESTEKLENMIYOR" for i in iddialar),
                 "celisen": sum(i["karar"] == "CELISIYOR" for i in iddialar),
                 "belirsiz": sum(i["karar"] == "BELIRSIZ" for i in iddialar),
+                "yargic_hatasi": sum(1 for i in iddialar if i["gerekce"].startswith("yargıç hatası")),
+                "yeniden_denenen": sum(1 for i in iddialar if i.get("deneme") == 1),
                 "sadakat": round(sum(i["karar"] == "DESTEKLENIYOR" for i in yarg) / len(yarg), 3) if yarg else None,
             }
             kayit = {"girdi": r["girdi"], "katman": r["katman"], "kademe": r["kademe"], "model": r["model"], "yargic": yargic,
+                     "yargic_surumu": YARGIC_SURUMU,
+                     "yargic_ayarlari": {k: YARGIC_AYARLARI.get(k) for k in ("temperature", "seed", "num_predict", "num_ctx")},
                      "snapshot": r.get("snapshot"), "uretim": os.path.basename(uretim),
                      "iddialar": iddialar, "ozet": ozet, "denetim": r.get("denetim"), "sure_s": r.get("sure_s"), "tarih": date.today().isoformat()}
             f.write(json.dumps(kayit, ensure_ascii=False) + "\n"); f.flush()
             print(f"{r['girdi']:34} {r['kademe']:7} cümle {ozet['n_cumle']} | destek {ozet['desteklenen']} yok {ozet['desteklenmeyen']} "
-                  f"çelişki {ozet['celisen']} atıfsız {ozet['atifsiz']} | sadakat {ozet['sadakat']}")
+                  f"çelişki {ozet['celisen']} atıfsız {ozet['atifsiz']} belirsiz {ozet['belirsiz']} | sadakat {ozet['sadakat']}")
     # ---- özet tablo ----
     hepsi = [json.loads(l) for l in open(cikti, encoding="utf-8") if l.strip()]
     tablo = {}
@@ -174,13 +203,17 @@ def main():
                     "cjk_bozuk": sum(1 for h in alt if ((h.get("denetim") or {}).get("cjk_orani") or 0) > 0.02),
                     "kesilen": sum(1 for h in alt if (h.get("denetim") or {}).get("bitis") == "length"),
                     "bozuk": sum(1 for h in alt if (h.get("denetim") or {}).get("bozuk")),
+                    "belirsiz": sum(h["ozet"]["belirsiz"] for h in alt),
+                    "yargic_hatasi": sum(h["ozet"].get("yargic_hatasi", 0) for h in alt),
+                    "uretim_hatasi": sum(1 for r in satirlar if r.get("hata") and (k == "TÜMÜ" or r["katman"] == k)),
                     "ort_sure_s": round(sum(h.get("sure_s") or 0 for h in alt) / len(alt), 1) if alt else None}
     ozet_yolu = os.path.join(BURASI, "sonuclar", f"sadakat_ozet_{etiket}.json")
     json.dump({"uretim": os.path.basename(uretim), "yargic": yargic, "tablo": tablo}, open(ozet_yolu, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("\nKATMAN ÖZETİ")
     for k, v in tablo.items():
         print(f"  {k:18} n={v['girdi']:2} iddia={v['iddia']:3} sadakat={v['sadakat']} çelişki={v['celiski_orani']} atıfsız={v['atifsiz_orani']} "
-              f"geçersiz={v['gecersiz_atif']} cjk={v['cjk_bozuk']} kesilen={v['kesilen']} süre={v['ort_sure_s']}s")
+              f"geçersiz={v['gecersiz_atif']} cjk={v['cjk_bozuk']} kesilen={v['kesilen']} belirsiz={v['belirsiz']} "
+              f"yargıç hatası={v['yargic_hatasi']} üretim hatası={v['uretim_hatasi']} süre={v['ort_sure_s']}s")
     # ---- insan kontrolü örneklemi ----
     havuz = [(h["girdi"], i) for h in hepsi for i in h["iddialar"] if i["karar"] in KARARLAR]
     random.Random(42).shuffle(havuz)

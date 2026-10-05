@@ -112,8 +112,16 @@ def main():
             t = time.time()
             try:
                 cevap = app.grounded_sor([{"role": "system", "content": sistem}], soru)
+            except app.ollama.ResponseError as e:
+                # Model tarafı hata (ör. iki denemede de tekrar döngüsü): modelin başarısızlığıdır, KAYDEDİLİR ve ölçüme sayılır
+                print(f"[{i}/{len(satirlar)}] {girdi}: ÜRETİM HATASI (model) {e}")
+                kayit.update(soru=soru, sistem=sistem, cevap=None, hata=str(e)[:200], denetim=dict(app.SON_YANIT),
+                             sure_s=round(time.time() - t, 1), pmidler=[m["pmid"] for m in r["makaleler"]])
+                f.write(json.dumps(kayit, ensure_ascii=False) + "\n"); f.flush()
+                continue
             except Exception as e:
-                print(f"[{i}/{len(satirlar)}] {girdi}: ÜRETİM HATASI {type(e).__name__}: {e}")
+                # Bağlantı / sunucu kesintisi: kaydedilmez, betik yeniden çalıştırılınca bu girdi tekrar denenir
+                print(f"[{i}/{len(satirlar)}] {girdi}: ÜRETİM HATASI {type(e).__name__}: {e} (yeniden çalıştırınca tekrar denenecek)")
                 continue
             sure = round(time.time() - t, 1)
             kayit.update(soru=soru, sistem=sistem, cevap=cevap, denetim=dict(app.SON_YANIT), sure_s=sure,
