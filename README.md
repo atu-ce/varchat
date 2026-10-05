@@ -1,243 +1,183 @@
-# VarChat Benzeri Genetik Varyant RAG Chatbotu
+# VarChat Benzeri Genetik Varyant Chatbotu
 
-Yüksek lisans tez projesi. Amaç: Bir genetik varyant girildiğinde, ilgili bilimsel
-literatürü bulup özetleyen ve **kaynak gösteren** bir chatbot geliştirmek.
-Referans alınan araç: [VarChat](https://varchat.engenome.com) (enGenome, 2024).
+Yüksek lisans tez projesi (Kayseri Üniversitesi, Bilgisayar Mühendisliği).
+
+Bir genetik varyant girildiğinde (örn. `BRAF V600E`, `rs334` ya da `chr7:140753336:A>T`)
+o varyantla ilgili bilimsel makaleleri bulan, **yalnızca bu makalelere dayanarak**
+Türkçe ve **kaynak gösteren** bir özet üreten, sonra aynı kaynaklar üzerinde
+takip sorularına cevap veren bir chatbot.
+
+Referans araç: [VarChat](https://varchat.engenome.com) (enGenome, Bioinformatics 2024,
+[makale](https://pmc.ncbi.nlm.nih.gov/articles/PMC11055464/)).
+Bizim farkımız: genom koordinatı girişi, tamamen yerel ve açık model, Türkçe çıktı ve
+tekrar üretilebilir ölçüm.
 
 ---
 
+## 1. Nasıl çalışıyor?
 
-## 1. Amaç
+Kullanıcı `"BRAF V600E hangi kanserlerde görülür?"` yazsın.
 
-Bir hastanın DNA'sı dizilendiğinde binlerce genetik varyant çıkar. Bir araştırmacının
-"bu varyant zararlı mı?" sorusuna cevap vermek için yüzlerce makaleyi taraması gerekir.
-Bu proje, o varyantla ilgili literatürü otomatik bulup, **uydurma yapmadan, kaynaklı**
-bir özet üreten bir sistem kurmayı hedefler.
+```
+Mesaj
+ │
+ ▼
+[Yönlendirici]  selamlama / kendini tanıt / konu dışı / varyant / takip / belirsiz
+ │               önce kurallar, emin değilse model; ilk üç sınıfın cevabı kodda sabittir
+ ▼ (varyant)
+[Gen doğrulama] gen sembolü HGNC listesinde var mı? "BRFA" → "BRAF mı demek istediniz?"
+ │
+ ▼
+[Anlamlandırma] koordinat, HGVS ya da rsID → VEP "anotasyon kartı": gen, protein değişimi,
+ │              rsID, gnomAD sıklığı, CADD (çok alelli rsID'de ClinVar'da önemi olan alel seçilir)
+ ▼
+[Bulucu]        PubMed'de kademeli arama: varyanta özgü sorgu → VEP'in kürasyonlu PMID'leri
+ │              → gen düzeyi; her kaynak "varyant" / "gen düzeyi" diye etiketlenir
+ ▼
+[Üretim]        özetler + kurallar tek bir system prompt'a yazılır:
+ │              "yalnızca bu kaynakları kullan, her cümleye [n] yaz, Türkçe konuş, yoksa 'bilgi yok' de"
+ │              yerel model (qwen2.5:7b, Ollama) özeti üretir
+ ▼
+[Denetim]       kod denetler: geçersiz atıf silinir, atıfsız cümle sayılır, Çince çöküşte yeniden
+ │              üretilir, özet ClinVar sınıfıyla ters yöndeyse uyarı basılır
+ ▼
+[Çıktı]         özet + kaynak listesi (PMID bağlantılı, kod basar) + ClinVar klinik önem satırı
+ │
+ ▼
+[Takip]         sonraki sorular aynı kaynak bloğu üzerinde, sohbet geçmişiyle sorulur
+```
 
+Temel ilke: **model uydurmaz.** Bilgi VEP, PubMed ve ClinVar'dan gelir; model yalnızca
+verilen kaynakları özetler. Kaynak listesini model değil kod bastığı için makale uydurulamaz.
 
-## 2. Kurulum
+---
+
+## 2. Dosyalar
+
+| Dosya | Rol | Ne yapar |
+|---|---|---|
+| `c01_makale_getir.py` | Kütüphaneci | Girilen metni PubMed'de aratır (esearch), ilk 5 makalenin başlık ve özetini çeker (efetch). |
+| `c02_varyant_anlamlandir.py` | Adres çözücü | `chr7:140753336:A>T` gibi koordinatı Ensembl VEP'e sorup gen, rsID ve etki türünü alır. |
+| `c03_varchat_gemini.py` | İlk sürüm (Gemini) | Bulut modeliyle çalışan eski sürüm. Ortak yardımcılar burada: özetleri numaralı metne çevirme, koordinatı arama terimine çevirme. |
+| `c04_varchat_ollama.py` | **Ana uygulama** | Yerel model. Yönlendirici, doğrulama, VEP, PubMed, kaynaklı özet, takip soruları, ClinVar satırı. |
+| `c05_gen_validasyon.py` | Kapıdaki isim listesi | 45.019 resmi gen sembolü (HGNC). Yanlış yazımda Jaro-Winkler benzerliğiyle öneri verir. |
+| `c06_clinvar.py` | Hastane arşivi | Varyantı ClinVar'da rsID (dbSNP çapraz referansıyla doğrulanmış) ya da gen + 3 harfli protein değişimiyle bulur; kanonik kaydı yıldız ve gönderim sayısına göre seçer; germline, onkojenite ve klinik etki sınıflarını yıldızıyla gösterir; emin değilse susar. |
+| `c07_sorgu_kur.py` | Sorgu kurucu + alaka kapısı | Girdiyi yapısal kayda çevirir (gen, rsID, V600E/Val600Glu, cDNA), PubMed'i kademeli arar (varyanta özgü sorgu → VEP'in kürasyonlu PMID'leri → gen düzeyi) ve her kaynağı `varyant` / `gen` diye etiketler. |
+| `degerlendirme/test_seti.py` | Sınav kâğıdı | Dondurulmuş 45 girdi, 4 katman (kanser hotspot, eski adlı kalıtsal, rsID, literatürsüz); eğitim varyantlarıyla kesişimsiz. |
+| `degerlendirme/b04_dogru_cevap.py` | Cevap anahtarı | Her girdi için "bu varyantı anan makaleler" listesi: girdiyle uyuşan tüm LitVar2 kayıtları birleştirilir (rsID, ad, eski ad, VEP proteini). rsID'lerden GRCh38/GRCh37 koordinat biçimleri türetilir. |
+| `degerlendirme/b05_arama_dondur.py` | Arama ölçümü | Aramayı tarih damgasıyla dondurur, yeni hattın ve eski hattın P@5'ini aynı tanımla ölçer. Eski hat, git `b87d8a8` kodunun birebir kopyasıyla (`eski_hat/`) koşar. Hakem kararları sonradan çevrimdışı uygulanır (`--hakem`). |
+| `degerlendirme/b06_toplu_uret.py`, `b07_sadakat.py`, `gece_kos.ps1` | Üretim ölçümü | Donmuş kaynaklarla her girdi için özet üretir; özeti cümle cümle yerel bir yargıç modelle kaynağa karşı denetler (destekleniyor / desteklenmiyor / çelişiyor). Gece arka planda koşar, kaldığı yerden devam eder. |
+| `degerlendirme/b02`, `b03`, `denetim_testi.py` | Küçük ölçümler | `b02`: tek özet + modele giden kaynak metni. `b03`: yönlendirici doğruluğu. `denetim_testi.py`: atıf, cümle bölme ve çelişki denetimlerinin model çağırmadan çalışan testleri. (`b01` eski kelime eşleşmesi; sorguyla döngüsel, kullanılmıyor.) Sonuçlar `sonuclar/` altına. |
+| `fine_tune/` | Oryantasyon paketi | 37 varyant, öğretmen (Claude) yazımı 204 örnek: özet, takip, çok turlu takip, başka gen sorusuna ret, kapsam dışı soruya ret. Gen bazlı ayrım: 171 eğitim / 33 doğrulama. Colab QLoRA defteri (Qwen2.5-7B, yalnız cevap üzerinden kayıp). |
+| `arsiv/`, `beklemede/` | Denemeler | Eski testler; embedding denemesi (bge-m3). |
+
+---
+
+## 3. Kurulum ve çalıştırma
 
 ```bash
 python -m venv .venv
-.venv\Scripts\activate          # Windows
+.venv\Scripts\activate            # Windows
 pip install -r requirements.txt
 ```
 
-- **Gemini sürümü için** (`c03_varchat_gemini.py`): `.env` dosyasına
-  `GEMINI_API_KEY=...` eklenmelidir.
-- **Yerel sürüm için** (`c04_varchat_ollama.py`): [Ollama](https://ollama.com) kurulu olmalı ve
-  model indirilmelidir: `ollama pull qwen2.5:7b`.
+Yerel model için [Ollama](https://ollama.com) kurulu olmalı:
 
-
-## 3. Temel Kavramlar (ne nedir?)
-
-- **LLM (Büyük Dil Modeli):** Metnin devamını tahmin ederek cevap üreten yapay zeka
-  (ChatGPT gibi). Tek başına bilgiyi ezberinden verir ve uydurabilir (halüsinasyon).
-- **RAG (Retrieval-Augmented Generation):** "Açık kitap sınavı" mantığı. Model cevap
-  vermeden önce ona ilgili belgeleri bulup veririz; o da sadece bunlara dayanır.
-- **Retrieval (Bulucu):** İlgili makaleleri bulan arama parçası.
-- **Embedding:** Metni, anlamını yakalayan sayılara (vektör) çevirme. Anlamca benzer
-  metinler birbirine yakın olur; "anlam araması" bununla yapılır.
-- **Fine-tuning (İnce ayar):** Hazır bir modeli, kendi görevimize uyacak şekilde küçük
-  bir veriyle yeniden eğitmek (sıfırdan eğitmek değil). Modele *nasıl cevap vereceğini*
-  öğretir; bilgiyi yine RAG/bulucu sağlar.
-  *Analoji:* Türkçeyi ve genel kültürü zaten bilen bir çalışana sıfırdan dil öğretmek
-  yerine, "bizde raporlar şu formatta yazılır" diye kısa bir **oryantasyon** vermek gibi.
-- **LoRA (Low-Rank Adaptation):** Fine-tuning'i ucuza yapma yöntemi. Modelin
-  milyarlarca parametresine dokunmadan (dondurarak), üstüne küçük bir "ayar katmanı"
-  ekleyip yalnızca onu eğitiriz. Eğitilen parametre milyarlardan birkaç milyona iner;
-  böylece küçük/ücretsiz bir GPU'da bile çalışabilir.
-  *Analoji:* Koca bir ders kitabını baştan yazmak yerine üstüne ince, şeffaf bir
-  **asetat** koymak gibi — orijinal kitap aynı kalır, senin eklediğin küçük notlar onu yönlendirir.
-
-### Bir LLM nasıl eğitilir? (3 aşama)
-
-Modern bir dil modeli üç aşamadan geçer. Bilginin büyük kısmı 1. aşamadan gelir;
-soru–cevap (bizim fine-tune'da yaptığımız) yalnızca 2. aşamadır.
-
-| Aşama | Ne yapılır | Analoji |
-|---|---|---|
-| 1. Ön eğitim (pre-training) | Trilyonlarca **ham metinle** "sıradaki kelimeyi tahmin et" | Bütün kütüphaneyi okuyup dünyayı öğrenmek (ama nasıl yardımcı olunacağını bilmeden) |
-| 2. Talimat ayarı (SFT) | **Soru→cevap** örnekleriyle davranış öğretme | Kısa bir **oryantasyon**: "soruya böyle cevap ver" |
-| 3. İnsan geri bildirimi (RLHF) | İnsan tercihleriyle cevapları cilalama | Mentörün "bu cevabın şundan iyiydi" demesi |
-
-Bu projede 1. ve 3. aşama yok; hazır eğitilmiş bir modeli alıp yalnızca 2. aşamayı
-(SFT) küçük ölçekte uyguluyoruz.
-
-
-## 4. VarChat Nasıl Çalışıyor? (İnceleme Notları)
-
-Referans aracı VarChat'i gerçek girdilerle test ederek nasıl çalıştığını çözdük. Akışı özetle:
-
-```
-Girdi → [1] Doğrula (geçerli gen/varyant mı?)  → geçersizse reddet
-      → [2] Anlamlandır (gen / HGVS / rsID / koordinat kabul eder)
-      → [3a] Literatürü tara + kaynaklı özet (RAG)     [NCBI, PubMed Central, Google Scholar]
-      → [3b] Veri tabanlarını sorgula (anotasyon + sınıflandırma)  [gnomAD, CADD, REVEL, ACMG, ClinVar]
-      → [4] İkisini birleştirip, "yanlış olabilir" uyarısıyla sun
+```bash
+ollama pull qwen2.5:7b
+python c04_varchat_ollama.py
 ```
 
-**Gözlemler:**
-- **İki katmanlı çıktı:** (A) makalelerden gelen *kaynaklı literatür özeti* + (B) veri tabanlarından gelen
-  *anotasyon & ACMG sınıflandırması*. Bilginin kaynağını ayrı tutuyor.
-- **Girdi doğrulama var:** geçersiz girdiyi (örn. "merhaba") reddediyor — sohbet botu değil, varyant/gen aracı.
-- **Literatür yoksa dürüst:** "supporting literature bulunamadı" deyip gen düzeyi bilgiye düşüyor
-  (nadir varyantlarda kaçınılmaz; bizim sistemimiz de aynısını yapıyor).
-- **Kalite literatüre bağlı:** çok çalışılmış varyantta (BRAF V600E) çok zengin; nadir varyantta zayıf.
-- **Tek atışlık + deterministik değil:** takip sorusu soramıyorsun (enGenome "yakında" diyor);
-  ayrıca her çalıştırmada biraz farklı cevap üretir.
+İnternet yalnızca PubMed, VEP ve ClinVar sorguları için gerekir. Gemini sürümü (`c03`)
+için `.env` dosyasına `GEMINI_API_KEY` yazılmalıdır; ana uygulama bunu kullanmaz.
 
-**Artıları:** çok kaynaklı, kaynaklı/doğrulanabilir özet, ACMG sınıflandırması, girdi doğrulama, dürüst uyarı.
-**Sınırları:** sohbet edemez, nadir varyantta zayıf, İngilizce ağırlıklı, doğruluğu garanti etmez, modeli kapalı.
+---
 
-### VarChat'in kullandığı veri tabanları/araçlar (kısa sözlük)
+## 4. Mevcut durum
 
-- **ClinVar** — varyant ↔ hastalık ilişkisi ve klinik önem (patojenik/benign) kayıtları (NIH).
-- **gnomAD** — varyantın toplumdaki görülme **sıklığı** (çok yaygın ≈ zararsız ipucu).
-- **CADD** — varyantın **zararlılık tahmin skoru** (yüksek = daha muhtemel zararlı).
-- **REVEL** — missense varyantlar için **0–1** arası zararlılık skoru (1'e yakın = daha muhtemel zararlı).
-- **ACMG/AMP** — patojenik/benign **sınıflandırma için standart kurallar kılavuzu** (kanıt kodları: PM1, PP3...).
+Kod 13 Eylül 2026'da baştan sona denetlendi; 26 Eylül ve 4-5 Ekim'de denetim bulguları düzeltildi.
 
-### Çıktıyı yakından inceleyince (ek gözlemler)
+**Çalışan ve doğrulanan:**
 
-- **"Çok getir → azını kullan" hunisi:** 27.836 kaynak bulunur, 15'i listelenir, özette yalnızca ~5'i atıf alır.
-- **Güncellik ağırlığı:** listelenen makalelerin hepsi son 1-2 yıl (yeni yayınlara daha yüksek puan).
-- **Uyarlanabilir çıktı:** veri kıt varyantta (nadir rsID) kaynak/ClinVar bölümlerini **hiç göstermiyor**, uydurmuyor.
-- **Otomatik sınıflandırıcı yanılabilir:** rs334 (orak hücre, kesin patojenik) VarChat'in otomatik ACMG'sinde
-  "belirsiz/benign" çıktı — sıklık-tabanlı kurallar hastalık mekanizmasını kaçırabiliyor (değerlendirme neden önemli).
+- Girdi: koordinat, HGVS, rsID ve "GEN değişim" yazımları tek bir anotasyon kartına çözülüyor (referans harf doğrulanır,
+  GRCh37 yedeği, indel). Çok alelli rsID'de kart ClinVar'da önemi olan alelle kuruluyor (rs6025 → Faktör V Leiden).
+- Arama: PubMed varyanta özgü yapılandırılmış sorguyla aranıyor; varyanta özgü yayın yoksa kaynaklar "gen düzeyi" diye
+  işaretleniyor ve bu, kullanıcıya kod tarafından söyleniyor.
+- Üretim: pencere 8.192, sıcaklık 0, sabit tohum; sohbet geçmişi kayan pencereyle budanıyor (kaynak bloğu daima korunur).
+  Üretim sonrası atıf, dil ve ClinVar yön çelişkisi denetimi; denetimlerin model çağırmadan çalışan testleri var.
+- ClinVar: rsID/koordinat girdilerinde çalışıyor, kanonik kaydı seçiyor, üç sınıflandırmayı yıldızıyla gösteriyor.
+- Yönlendirici: kural katmanı + aktif varyantı bilen model + takip sınıfı (39 mesajlık ölçümde 39/39).
 
+**Arama ölçümü (5 Ekim 2026, `sonuclar/arama_ozet_2026-10-05.json`):** P@5, iki hat için aynı tanımla.
+Eski hat = Temmuz'daki kod (git `b87d8a8`), birebir.
 
-## 5. Genişletilmiş Proje Planı ve Mimari
+| Katman | Girdi | Yeni hat | Eski hat |
+|---|---|---|---|
+| A: kanser hotspot | 15 | 0.84 | 0.79 |
+| B: eski adlı kalıtsal | 15 | 0.89 | 0.85 |
+| C: rsID | 10 | 0.96 | 0.90 |
+| C: koordinat (GRCh38/GRCh37) | 11 | 0.98 | 0.20 |
+| A+B+C | 51 | 0.91 | 0.70 |
 
-Projenin güncel, ayrıntılı yol haritası.
+Literatürsüz 5 girdinin 5'inde de sistem "gen düzeyi" uyarısı verdi, varyant hakkında iddia üretmedi.
+Eski hat daha az makale döndürdüğü için yalnız döndürdükleri üzerinden kesinliği A/B'de biraz daha yüksek (0.88 ve 0.98);
+en büyük fark koordinat girdisinde.
 
-### 5.1 Nihai sistem mimarisi
+**Bilinen eksikler (öncelik sırasıyla):**
 
-```
-Kullanıcı mesajı
-   │
-   ▼
-[0] YÖNLENDİRİCİ (niyet)
-   ├─ selamlama ("merhaba")         → doğrudan, samimi cevap
-   ├─ kendini tanıt ("sen kimsin")  → "Genetik varyant asistanıyım..."
-   ├─ konu dışı ("hava durumu?")    → kibar ret (web arama YOK, uydurma YOK)
-   └─ varyant/gen sorusu ↓
-        │
-        ▼
-[1] VALİDASYON: varyant/gen geçerli mi?  ── değilse → "bunu mu demek istediniz: BRAF?"
-        │ geçerli
-        ▼
-[2] ANLAMLANDIRMA (VEP): koordinat → gen / rsID / etki           [✅ kuruldu]
-        │
-        ▼
-[3] RETRIEVAL (PubMed): ilgili makaleleri bul                     [✅ kuruldu]
-        │   "X makale bulundu, en alakalı/güncel N tanesi özetlendi"
-        ▼
-[4] GENERATION: model makaleleri okur → kaynaklı Türkçe özet      [beyin: fine-tune'lu yerel model]
-        │
-        ▼
-[5] SOHBET: takip soruları (hafıza)                              [✅ kuruldu]
-```
+1. Üretim ölçümü (ham 7B ile toplu özet + iddia düzeyinde sadakat) betikleri hazır, koşu sırada.
+2. Fine-tune henüz **yapılmadı**: düzeltilmiş 7B defteri hazır, eğitim çıktısı yok.
+3. Otomatik doğru cevap listesi alt sınır: "GNASR201C" gibi bitişik yazımları kaçırıyor. 14 makale insan hakem onayı bekliyor
+   (`sonuclar/hakem_taslak_2026-10-05.jsonl`); onaylananlar `hakem.jsonl`'a yazılıp `b05 --hakem` ile çevrimdışı uygulanacak.
+4. Sistem yıldız alel adlarını (TPMT\*3A) ve eski numaralamayı (EZH2 Y641N = Y646N) bilmiyor; bu girdilerde P@5 düşük.
+5. Çeviri kalitesi (ham 7B): yanlış Türkçe terimler ve bazı atıfsız cümleler; fine-tune'un birincil hedefi.
+6. Anotasyon/ClinVar kartı prompt'a varsayılan olarak verilmiyor (eğitim verisiyle eşitlik için); `VERITABANI_PROMPTA`
+   bayrağıyla ablasyon yapılacak.
 
-**Temel ilke:** Model uydurmaz; gerçek bilgi VEP + PubMed'den gelir. Model yalnızca *yönlendirir* ve *verilen kaynakları özetler.*
+---
 
-### 5.2 Bileşen kararları
+## 5. Plan
 
-- **Model (beyin):** Model-bağımsız tasarım — istediğimiz zaman değiştiririz. Geliştirmede küçük/hızlı (qwen2.5:3b, CPU); final kalitede GPU'da büyük model. Dış API yok, Ollama ile yerel.
-- **Yönlendirici (router):** Mesajın niyetini ayırır. Pratikte: basit kurallar (bariz selamlamalar) + model (gerisi).
-- **Validasyon:** Sohbet dilindeki yazım hatalarını model bağlamdan anlar; ama **varyant/gen kimliğini** referansa (gen listesi / VEP) karşı doğrularız — yanlış gen yanlış sonuç getirir.
-- **Güvenlik (prompt injection):** Kullanıcı "kuralları yok say / admin ol" gibi denemeler (jailbreak) yapabilir; hiçbir LLM %100 bağışık değildir. Zarar tasarımla sınırlanır: konu-dışı yanıtı **kod** (LLM değil) sabit döndürür, üretim **grounded**'dır (yalnızca makalelere dayanır), sistemin **tehlikeli bir yetkisi yoktur**. İleride adversarial testlerle ölçülecek.
-
-### 5.3 Retrieval stratejisi (özet → tam metin)
-
-| | Şimdi (geliştirme) | İleride (kendi retriever) |
+| # | Adım | Durum |
 |---|---|---|
-| Kaynak | PubMed **özetleri** (API) | **Tam metin** (PMC / ~45M korpus) |
-| Yöntem | Özeti direkt modele ver | **Chunking + embedding** → ilgili parçalar |
-| Sıralama | PubMed'in alaka + güncellik sıralaması | Kendi **hybrid** (BM25 + embedding) sıralamamız |
+| A | README ve iddiaları kanıta bağlamak; araştırma sorusunu tek cümleye indirmek | bu dosya |
+| B | Girdiyi yapısal kayda çevirmek (gen, rsID, p./c. HGVS); referans harf ve GRCh37 kontrolü; indel | ✅ `c02` v2 |
+| C | Sorgu kurucu: `gen AND (V600E OR Val600Glu OR rsID)`; alaka kapısı ("varyanta özgü yayın yok" uyarısı) | ✅ `c07` |
+| D | Test seti (45 girdi + 11 türetilmiş koordinat, 4 katman) + LitVar2/PubTator3 doğru cevap listesi + dondurulmuş arama kaydı | ✅ `test_seti.py`, `b04`, `b05` (hakem onayı bekleyen 14 makale) |
+| E | Üretim: pencere 8.192, sıcaklık 0, kayan geçmiş, atıf ve dil kontrolü, ClinVar ile çelişki uyarısı, takip sınıfı | ✅ `c04` (prompt'a veritabanı kartı: bayrakla, ablasyon) |
+| F | ClinVar: rsID yolu, yıldız (kanıt düzeyi), üç sınıflandırma, kanonik kayıt seçimi | ✅ `c06` v2 |
+| G | Taban ölçümleri: ham 7B aynı test setinde (özet üretimi + iddia düzeyinde sadakat) | ⏳ betikler hazır (`b06`, `b07`), gece koşusu sırada |
+| H | Fine-tune (7B, Colab Pro): düzeltilmiş defterle eğitim, aynı test setinde ölçüm | sırada (defter 7B'ye ayarlı) |
+| I | Kendi arama motoru: PubTator3 varyant-anotasyonlu alt küme üzerinde BM25 + bge-m3 karma sıralama | zaman kalırsa |
+| J | Tez yazımı | ☐ |
 
-- **Kaç makale:** 5 ile başla (yerel model için bağlam/hız dengesi), ayarlanabilir; GPU'da 15'e çıkılabilir.
-- **Gösterim:** "X makale bulundu, en alakalı N tanesi özetlendi" (PubMed toplam sayıyı zaten döndürür).
+Web arayüzü ve tam metin korpusu: gelecek çalışma.
 
-### 5.4 Doğrulama (nasıl kontrol edeceğiz)
+### Araştırma sorusu
 
-- **VEP:** Bilinen varyantlarla test (`BRAF V600E`→BRAF, `rs334`→HBB) + dbSNP/ClinVar ile karşılaştırma.
-- **PubMed alaka:** Gen/varyant adı makalede geçiyor mu (basit kontrol) + **PubTator3 / LitVar2** referansına karşı precision ölçümü.
+Genom koordinatından başlayarak, yalnızca açık ve yerel bileşenlerle (VEP, PubMed/LitVar2,
+Qwen), Türkçe ve kaynağı doğrulanabilir bir varyant özeti üretilebilir mi; literatür özeti ile
+ClinVar/VEP bilgisi arasındaki çelişkiler otomatik yakalanabilir mi; küçük bir davranış ayarı
+(LoRA) bunun neresini ne kadar iyileştirir?
 
-### 5.5 Fine-tune ve veri
+### Nasıl ölçeceğiz
 
-- **Yöntem:** LoRA/QLoRA (model-bağımsız), Colab GPU → GGUF → Ollama. Fine-tune **zorunlu değil, kaliteyi cilalayan** adım.
-- **Veri (iki katman):**
-  - *Hazır setler (genel/alan):* PubMedQA, BioASQ (biyomedikal QA), talimat setleri, Türkçe setler, ClinVar.
-  - *Kendi ürettiğimiz (göreve özel):* Gemini "öğretmen" ile **distillation** — (varyant → makale → iyi özet) çiftleri.
+- **Bulucu:** P@5 = seçilen ilk 5 makaleden doğru olanların oranı (payda her zaman 5). Yanında "kesinlik (dönen)" ve 5 ile sınırlı recall.
+  Doğru = LitVar2 listesinde, PubTator3 o makalede varyantı etiketlemiş ya da dbSNP/ClinVar kürasyonunda. Bu otomatik liste
+  bir alt sınırdır ("GNASR201C" gibi bitişik yazımları kaçırır); kaçırdıkları insan hakem kararıyla ayrı sütunda sayılır.
+  Model organizmada aynı değişimi inceleyen çalışma da doğrudur. Literatürsüz katmanda ölçü, "gen düzeyi" uyarısının verilmesidir.
+- **Üretim:** iddia düzeyinde sadakat (destekleniyor / desteklenmiyor / çelişiyor; yerel yargıç, 30 iddia insan kontrolü),
+  atıfsız cümle oranı, geçersiz atıf, yabancı alfabe, ClinVar yön çelişkisi
+- **Yönlendirici:** 39 mesaj, karışıklık matrisi
+- Her koşu tarih, PMID listesi ve model ayarlarıyla `degerlendirme/sonuclar/` altına kaydedilir
 
-### 5.6 Veri kaynakları: API mı, yerel mi?
+---
 
-PubMed ve VEP ücretsiz API'lerle kullanılıyor; ama **ikisi de indirilip yerelde (offline) çalıştırılabilir**
-(PubMed baseline dökümü; VEP standalone + cache). Geliştirmede API, final offline sistemde yerel.
+## 6. Kaynaklar
 
-### 5.7 Faz planı
-
-| Faz | İş | Durum |
-|---|---|---|
-| 1 | RAG hattı (anlamlandırma + retrieval + üretim + sohbet) | ✅ büyük ölçüde bitti |
-| 2 | Yönlendirici + validasyon (sohbet katmanı) | ✅ bitti |
-| 3 | Eğitim verisi (distillation + hazır setler) | sıradaki |
-| 4 | Fine-tune (LoRA) → GGUF → Ollama | sonra |
-| 5 | Fine-tune'lu modeli hatta tak | sonra |
-| 6 | Benchmark / değerlendirme | sonra |
-| 7 | Kendi retriever (tam metin + chunking + hybrid) | sonra |
-| 8 | Web arayüzü | en son |
-
-
-### 5.8 İlk değerlendirme sonuçları (benchmark) — `degerlendirme/`
-
-VarChat'in hiç yapmadığı şey: sistemi **niceliksel** ölçmek. İlk iki ölçüm:
-
-**Retrieval alaka** (`b01_retrieval_alaka.py` — 8 bilinen varyant, 40 makale):
-- Gen-düzeyi alaka **%98**, varyant-düzeyi alaka **%100**.
-- Yorum: bilinen varyantlarda mükemmel; ama bunlar *kolay* vakalar (nadir/koordinat girdilerinde düşer → kendi retriever'ımızın gerekçesi).
-
-**Faithfulness / halüsinasyon** (`b02_ozet_uret.py` + elle yargıç — 3 özet):
-- ~17 iddiadan ~14'ü kaynağa dayalı → **~%80 sadakat**.
-- İki hata türü: **dil bozulması** (3/3 özet: yanlış Türkçe terim — büyük model çözer) ve **halüsinasyon** (1/3: uydurma fakt + kaynakla çelişki — fine-tune azaltır).
-
-Not: küçük örneklem; **yöntem + baseline** kuruldu, ölçek sonra büyütülecek.
-
-## 6. Proje Dosyaları ve Şimdiye Kadar Yapılanlar
-
-> Not: Dosyalar pipeline sırasına göre `c01_`, `c02_`... diye numaralandı.
-> (Python modül adı rakamla başlayamaz; bu yüzden harfli `c` öneki kullanıldı ki
-> dosyalar birbirini sorunsuz `import` edebilsin.)
-
-### Ana klasör — çalışan pipeline
-
-| # | Dosya | Rol |
-|---|---|---|
-| 1 | `c01_makale_getir.py` | **Retrieval (bulucu):** varyantı PubMed'de aratıp makale başlık+özetlerini çeker (NCBI E-utilities). |
-| 2 | `c02_varyant_anlamlandir.py` | **Anlamlandırma:** koordinatı (`chr1:...` / `GRCh38:...`) VEP ile gen / rsID / etkiye çevirir. |
-| 3 | `c03_varchat_gemini.py` | **Sohbet eden RAG (Gemini):** özet + takip soruları + koordinat yönlendirme. Ortak yardımcılar burada. |
-| 4 | `c04_varchat_ollama.py` | **ANA UYGULAMA:** yönlendirici + validasyon + sohbet + RAG, **tamamen yerel** (Ollama/qwen2.5) — dış API yok. |
-| 5 | `c05_gen_validasyon.py` | **Validasyon:** gen kimliği geçerli mi? Yanlış yazımı (BRFA→BRAF) HGNC listesi + Jaro-Winkler ile yakalar; `genler.txt`'yi bir kez indirir. |
-| 6 | `c06_clinvar.py` | **ClinVar katmanı:** varyantın klinik önemini (patojenik/benign) + hastalığını çeker; yalnızca gen+protein değişimini (V600E→Val600Glu) TAM doğrulayınca gösterir, aksi halde susar. |
-
-### `arsiv/` — öğrenme / test dosyaları
-
-| # | Dosya | Rol |
-|---|---|---|
-| 1 | `a01_gemini_test.py` | Gemini bağlantısını doğrulayan küçük test. |
-| 2 | `a02_varchat_sohbetsiz_test.py` | Sohbetsiz (tek-atışlık) VarChat denemesi — Gemini (eski `varchat.py`). |
-| 3 | `a03_sohbet_test.py` | Sohbet hafızasının çalıştığını gösteren test. |
-| 4 | `a04_ollama_test.py` | Yerel modelin (Ollama) çalıştığını gösteren test. |
-| 5 | `a05_yonlendirici_test.py` | Niyet sınıflandırıcı (router) izole testi. |
-
-### Şimdiye kadar tamamlananlar
-
-- ✅ PubMed'den makale çekme (retrieval)
-- ✅ VEP ile varyant anlamlandırma (koordinat girişi desteği)
-- ✅ Gemini ile RAG: tek-atışlık + sohbet eden (takip soruları)
-- ✅ Tamamen **yerel** sohbet (Ollama / qwen2.5:7b) — internetsiz, gizli
-- ✅ Yönlendirici (router): niyet sınıflandırma + sohbet katmanı (selamlama / konu-dışı / varyant)
-- ✅ Validasyon: yanlış gen yazımını yakalama + öneri (HGNC + Jaro-Winkler)
-- ✅ ClinVar katmanı: klinik önem + hastalık (gen+protein varyantları, tam-eşleşme doğrulamalı)
-- ✅ Fine-tune mekaniği (Colab, LoRA — küçük demo)
+- VarChat makalesi: De Paoli ve ark., Bioinformatics 40(4), 2024 — https://pmc.ncbi.nlm.nih.gov/articles/PMC11055464/
+- Ensembl VEP REST — https://rest.ensembl.org (GRCh37 için grch37.rest.ensembl.org)
+- NCBI E-utilities (PubMed, ClinVar) — https://www.ncbi.nlm.nih.gov/books/NBK25497/
+- LitVar2 — https://www.ncbi.nlm.nih.gov/research/litvar2-api/ · PubTator3 — https://www.ncbi.nlm.nih.gov/research/pubtator3/
+- ACMG/AMP 2015 sınıflandırma kılavuzu — https://pubmed.ncbi.nlm.nih.gov/25741868/
+- LoRA (Hu ve ark. 2022) — https://arxiv.org/abs/2106.09685 · QLoRA (Dettmers ve ark. 2023) — https://arxiv.org/abs/2305.14314
