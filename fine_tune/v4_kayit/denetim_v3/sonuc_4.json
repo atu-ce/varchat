@@ -1,0 +1,267 @@
+{"paket": 4,
+ "ornekler": [
+  {"index": 33, "varyant": "AR T878A", "tur": "ozet", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "AR T878A (eski adıyla T877A), androjen reseptörünün (AR) ligand-bağlanma alanındaki bir mutasyondur ve prostat kanserinde hormonal tedavilere dirençle ilişkili sıcak nokta değişimlerden biridir [4].", "karar": "KISMEN", "aciklama": "'Eski adıyla T877A' hiçbir kaynakta yok. [4] ligand-bağlanma alanından söz etmez; LBD bilgisi [1]'de ('Mutations in the AR LBD ... T878A'). Sıcak nokta/direnç kısmı [4]'te var."},
+    {"cumle": "AR amplifikasyonu, aşırı ifadesi ve L702H, W742L/C, H875Y, F877L, T878A gibi mutasyonlar ileri prostat kanserinde tedavi direncinin başlıca nedenlerindendir; bu mutasyonlar reseptörün ligand bağlama afinitesini değiştirir [4].", "karar": "KISMEN", "aciklama": "[4] bunları direnci açıklayan 'birçok mekanizma' arasında sayar; 'başlıca' nitelemesi kaynakta yok. Afinite değişimi [4]'te var."},
+    {"cumle": "Klinik önemi açısından T878A, reseptörün ligand-bağlanma cebini genişleterek yanıtını değiştirir [1].", "karar": "DESTEKSIZ", "aciklama": "[1]'de daha geniş bağlanma bölgesi L702H/H875Y/F877L/T878A dörtlü mutantında gösterilmiş ve konformasyon değişimi için L702H ile F877L önemli bulunmuştur; T878A'nın tek başına cebi genişlettiği yazmaz."},
+    {"cumle": "Abirateron ile tedavi edilen kastrasyona dirençli prostat kanseri hastalarının plazmasında, ilerleme anında %13 oranında T878A veya L702H değişimi ortaya çıkar; tedavi öncesi bu değişimleri (ya da AR kazanımını) taşıyanlarda PSA yanıtı belirgin biçimde daha düşük ve sağkalım daha kötüdür [2].", "karar": "DOGRU", "aciklama": "[2]: tümörlerin %13'ünde T878A/L702H ortaya çıkışı; tedavi öncesi AR kazanımı/T878A/L702H taşıyanlarda PSA düşüşü 4,9-7,8 kat daha az olası, sağkalım kötü."},
+    {"cumle": "Tedavi geliştirme açısından T878A ile birlikte F877L mutasyonu, enzalutamid ve apalutamid gibi ikinci nesil antagonistleri agoniste dönüştürebilir; bu durum özellikle F877L/T878A çift mutantında belirgindir [1][5].", "karar": "KISMEN", "aciklama": "[1] dönüşümü F877L'ye bağlar (enzalutamid ve apalutamid); [5] yalnız enzalutamidi test eder ve çift mutantta güçlü kısmi agonizm bulur. Apalutamidin çift mutantta agoniste dönüştüğü yazmaz."},
+    {"cumle": "Buna karşın pruxelutamid bu mutantlarda agonist etki göstermez ve inhibitör aktivitesini korur [1].", "karar": "DOGRU", "aciklama": "[1]: pruxelutamide F877L ve F877L/T878A mutantlarında agonist aktivite göstermez, inhibitör aktivitesini korur."},
+    {"cumle": "Ayrıca T878A-mutant AR'yi seçici hedefleyen yeni bir antagonist (S-94), yaban tip AR'ye kıyasla yaklaşık 50 kat daha güçlü etkiyle klinikte önemli T878A-ilişkili mutantları baskılamıştır [3].", "karar": "KISMEN", "aciklama": "[3]'te 50 kat güç farkı yalnız AR T878A ile yaban tip arasındadır; F877L/T878A ve H875Y/T878A mutantlarını antagonize ettiği ayrıca belirtilir, bunlar için 50 kat verisi yok. Cümle iki bulguyu birleştirmiş."}
+   ],
+   "duzeltilmis_cevap": "AR T878A, androjen reseptörünün (AR) ligand-bağlanma alanında prostat kanseri ilaçlarına direnç yaratabilen yaygın mutasyonlardan biridir [1]; hormonal tedaviye direnç geliştikten sonra sık saptanan sıcak nokta mutasyonları arasında yer alır [4]. AR amplifikasyonu ve aşırı ifadesi ile L702H, W742L/C, H875Y, F877L, T878A/S gibi mutasyonlar ileri prostat kanserinde tedavi direncine yol açan mekanizmalar arasındadır; bu sıcak nokta mutasyonları steroidler ve antiandrojenler dahil ligandların bağlanma afinitesini değiştirir [4].\n\nYapısal açıdan, L702H/H875Y/F877L/T878A dörtlü mutantının kristal yapısı AR ligand-bağlanma alanının kısmen açık bir konformasyona geçtiğini ve daha geniş bir ligand-bağlanma bölgesi oluştuğunu göstermiştir; bu değişimlerde özellikle L702H ve F877L mutasyonları önemlidir [1]. Abirateron ile tedavi edilen kastrasyona dirençli prostat kanseri hastalarının plazmasında, ilerleme anında tümörlerin %13'ünde T878A veya L702H değişimi ortaya çıkar; tedavi öncesi bu değişimleri (ya da AR kazanımını) taşıyanlarda PSA yanıtı belirgin biçimde daha düşük ve sağkalım daha kötüdür [2].\n\nTedavi açısından F877L mutasyonu enzalutamid ve apalutamid gibi ikinci nesil antagonistleri agoniste dönüştürebilir [1]; enzalutamid F877L mutantında yalnızca çok zayıf bir kısmi agonistken F877L/T878A çift mutantında güçlü bir kısmi agonisttir [5]. Buna karşın pruxelutamid F877L ve F877L/T878A mutantlarında agonist etki göstermez ve inhibitör aktivitesini korur [1]. Ayrıca T878A-mutant AR'yi seçici hedefleyen yeni bir antagonist olan S-94, T878A-mutant AR'ye karşı yaban tip AR'ye kıyasla 50 kat daha güçlüdür ve F877L/T878A ile H875Y/T878A gibi klinik açıdan önemli T878A-ilişkili mutantları da baskılamıştır [3].",
+   "not": "Kaynakta olmayan 'eski adı T877A' çıkarıldı; dörtlü mutanta ait yapısal bulgu T878A'ya tek başına mal edilmişti, kaynağa uygun yeniden yazıldı; F877L/T878A ve S-94 cümlelerindeki birleştirme hataları ayrıştırıldı."},
+
+  {"index": 136, "varyant": "AR T878A", "tur": "takip_cok_turlu", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Androjen reseptörünün ligand-bağlanma alanındaki bir mutasyon olarak prostat kanserinde hormonal tedavilere dirençle ilişkilidir [4].", "karar": "ATIF_HATALI", "aciklama": "Ligand-bağlanma alanı bilgisi [4]'te değil [1]'de; direnç sonrası sık saptanan sıcak nokta mutasyonu olması [4]'te. Doğru atıf [1][4]."}
+   ],
+   "duzeltilmis_cevap": "Androjen reseptörünün ligand-bağlanma alanındaki bir mutasyon olarak prostat kanseri ilaçlarına direnç yaratabilir [1]; hormonal tedaviye direnç geliştikten sonra sık saptanan sıcak nokta mutasyonlarından biridir [4].",
+   "not": "Yalnızca son cevap denetlendi."},
+
+  {"index": 137, "varyant": "AR T878A", "tur": "takip", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Abirateron tedavisi sırasında ilerleme anında ortaya çıkabilir ve taşıyan hastalarda PSA yanıtı daha düşük, sağkalım daha kötüdür [2].", "karar": "KISMEN", "aciklama": "[2]'de kötü PSA yanıtı/sağkalım, tedavi ÖNCESİNDE AR kazanımı ya da T878A veya L702H taşıyan birleşik grup için bildirilir; T878A taşıyan tüm hastalara genellenmiş."},
+    {"cumle": "Ayrıca F877L ile birlikte enzalutamid gibi antagonistleri agoniste dönüştürebilir [1][5].", "karar": "DOGRU", "aciklama": "[5]: F877L/T878A çift mutantında enzalutamid güçlü kısmi agonist; [1]: F877L ikinci nesil antagonistleri agoniste dönüştürür."}
+   ],
+   "duzeltilmis_cevap": "Abirateron tedavisi sırasında ilerleme anında T878A veya L702H değişimi ortaya çıkabilir; tedavi öncesinde AR kazanımı ya da T878A veya L702H taşıyan hastalarda PSA yanıtı daha düşük, sağkalım daha kötüdür [2]. Ayrıca F877L ile birlikte enzalutamid gibi antagonistleri agoniste dönüştürebilir [1][5].",
+   "not": ""},
+
+  {"index": 138, "varyant": "AR T878A", "tur": "takip_cok_turlu", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "T878A-mutant AR'yi seçici hedefleyen yeni bir antagonist (S-94), yaban tip AR'ye kıyasla yaklaşık 50 kat daha güçlü etkiyle önemli T878A-ilişkili mutantları baskılamıştır [3].", "karar": "KISMEN", "aciklama": "[3]'te 50 kat fark AR T878A ile yaban tip AR arasındadır; ilişkili mutantlar (F877L/T878A, H875Y/T878A) için 50 kat verisi yok. Ayrıca S-94 klinik tedavi değil, umut verici öncü bileşik olarak sunulur."}
+   ],
+   "duzeltilmis_cevap": "T878A-mutant AR'yi seçici hedefleyen yeni bir antagonist olan S-94, T878A-mutant AR'ye karşı yaban tip AR'ye kıyasla 50 kat daha güçlüdür ve F877L/T878A ile H875Y/T878A gibi klinik açıdan önemli T878A-ilişkili mutantları da baskılamıştır; çalışma S-94'ü umut verici bir öncü bileşik olarak değerlendirir [3].",
+   "not": "Yalnızca son cevap denetlendi."},
+
+  {"index": 200, "varyant": "AR T878A", "tur": "ret_kapsam_disi", "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklar prostat kanseri, AR yapısı ve ilaç direnciyle ilgili; gebelik takibine dair bilgi yok."},
+
+  {"index": 2, "varyant": "EGFR T790M", "tur": "ozet", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "EGFR T790M, akciğer kanserinde birinci nesil EGFR tirozin kinaz inhibitörlerine (gefitinib, erlotinib, afatinib) karşı kazanılmış direncin en sık nedenidir [1][5].", "karar": "KISMEN", "aciklama": "[1] gefitinib/erlotinib/afatinib'i nesil belirtmeden sayar; [5] 'first-line' (birinci basamak) der, 'birinci nesil' değil. Üç ilacı 'birinci nesil' olarak sınıflamak kaynakta yok (çeviri hatası)."},
+    {"cumle": "Reseptörün ATP bölgesinde yer alan bu ikincil mutasyon, kazanılmış dirençli hastaların yaklaşık yarısında bulunur ve reseptörün ATP'ye afinitesini artırarak TKİ'lerin bağlanmasını zorlaştırır [4].", "karar": "KISMEN", "aciklama": "'ATP bölgesinde' bilgisi [4]'te değil [1]'de. [4] ATP afinitesinin TKİ afinitesine göre arttığını söyler; 'bağlanmasını zorlaştırır' kaynağın ifadesinden öte bir yorum."},
+    {"cumle": "T790M ayrıca kanser hücrelerine büyüme avantajı sağlayarak bir \"çifte rol\" oynayabilir [4].", "karar": "DOGRU", "aciklama": "[4]: büyüme avantajı ve 'double role'."},
+    {"cumle": "Tedavide üçüncü nesil TKİ osimertinib, T790M mutasyonlu metastatik KHDAK için onay alan ilk ilaçtır [2].", "karar": "DOGRU", "aciklama": "[2]: FDA/EMA onayı alan ilk üçüncü nesil EGFR TKİ."},
+    {"cumle": "FLAURA çalışmasında osimertinib, birinci basamakta birinci nesil TKİ'lere göre daha uzun progresyonsuz sağkalım sağlamış ve beyin metastazlarında da umut verici etkinlik göstermiştir [5].", "karar": "KISMEN", "aciklama": "[5]'te beyin metastazı etkinliği FLAURA'ya bağlanmaz, ayrı bir 'of note' bulgusudur; cümle onu FLAURA sonucu gibi sunuyor."},
+    {"cumle": "Ancak osimertinib tedavisi sırasında da direnç gelişir; en sık üçlü mutasyonla (duyarlılaştıran mutasyon/T790M/C797S) ortaya çıkar ve mevcut tüm EGFR TKİ'lerine dirençlidir [1][5].", "karar": "DOGRU", "aciklama": "[5] ve [1] (L858R/T790M/C797S tüm mevcut TKİ'lere dirençli). Öznenin netleşmesi için düzeltmede 'bu üçlü mutant' eklendi."},
+    {"cumle": "Bu üçlü mutantlara karşı EAI045 gibi allosterik inhibitörler ve Del19/T790M/C797S'yi hedefleyen CH7233163 gibi yeni bileşikler geliştirilmektedir [1][3].", "karar": "DOGRU", "aciklama": "[1] EAI045 (setuksimab ile kombinasyonda); [3] CH7233163."},
+    {"cumle": "MET amplifikasyonu ve IGF1R aktivasyonu ise EGFR TKİ'lerine karşı alternatif direnç mekanizmaları olarak bildirilmiştir [4].", "karar": "DOGRU", "aciklama": "[4]'te aynen var."}
+   ],
+   "duzeltilmis_cevap": "EGFR T790M, küçük hücreli dışı akciğer kanserinde (KHDAK) gefitinib, erlotinib ve afatinib gibi EGFR tirozin kinaz inhibitörlerine (TKİ) karşı gelişen direncin en sık nedeni olan ikincil bir mutasyondur [1]; birinci basamak EGFR TKİ'lerine direncin de en yaygın nedeni kazanılmış T790M mutasyonudur [5]. Reseptörün ATP bölgesinde yer alan bu ikincil mutasyon [1], kazanılmış dirençli akciğer kanseri hastalarının yaklaşık yarısında bulunur ve reseptörün ATP'ye afinitesini TKİ'lere olan afinitesine göre artırarak etki ettiği bildirilmiştir [4]. T790M ayrıca kanser hücrelerine büyüme avantajı sağlayarak bir \"çifte rol\" oynayabilir [4].\n\nTedavide üçüncü nesil TKİ osimertinib, T790M mutasyonlu metastatik KHDAK için onay alan ilk ilaçtır [2]. FLAURA çalışmasında osimertinib, birinci basamakta standart birinci nesil TKİ'lere göre daha uzun progresyonsuz sağkalım sağlamıştır; osimertinib ayrıca bilinen beyin metastazı olan hastalarda da umut verici etkinlik göstermiştir [5]. Ancak osimertinib tedavisi sırasında da direnç gelişir; en sık üçlü mutasyonla (duyarlılaştıran mutasyon/T790M/C797S) ortaya çıkar ve bu üçlü mutant mevcut tüm EGFR TKİ'lerine dirençlidir [1][5].\n\nBu üçlü mutantlara karşı EAI045 gibi allosterik inhibitörler ve Del19/T790M/C797S'yi hedefleyen CH7233163 gibi yeni bileşikler geliştirilmektedir [1][3]. MET amplifikasyonu ve IGF1R aktivasyonu ise EGFR TKİ'lerine karşı alternatif direnç mekanizmaları olarak bildirilmiştir [4].",
+   "not": "'First-line' ifadesi 'birinci nesil' diye çevrilmiş (afatinib de bu gruba sokulmuş); düzeltildi. ATP bölgesi için [1] atfı eklendi; FLAURA ile beyin metastazı bulgusu ayrıldı."},
+
+  {"index": 43, "varyant": "EGFR T790M", "tur": "takip", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Birinci nesil EGFR tirozin kinaz inhibitörlerine (gefitinib, erlotinib, afatinib) karşı kazanılmış direncin en sık nedenidir ve dirençli hastaların yaklaşık yarısında bulunur [1][4].", "karar": "KISMEN", "aciklama": "'Birinci nesil' sınıflaması [1]'de yok (ilaçlar nesilsiz sayılır). En sık neden [1], yaklaşık yarısı [4]."}
+   ],
+   "duzeltilmis_cevap": "Küçük hücreli dışı akciğer kanserinde gefitinib, erlotinib ve afatinib gibi EGFR tirozin kinaz inhibitörlerine karşı gelişen direncin en sık nedenidir [1] ve kazanılmış dirençli hastaların yaklaşık yarısında bulunur [4].",
+   "not": ""},
+
+  {"index": 44, "varyant": "EGFR T790M", "tur": "takip_cok_turlu", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Üçüncü nesil TKİ osimertinib, T790M mutasyonlu metastatik küçük hücreli dışı akciğer kanseri için onay alan ilk ilaçtır [2] ve FLAURA çalışmasında birinci nesil TKİ'lere göre daha uzun progresyonsuz sağkalım sağlamıştır [5].", "karar": "KISMEN", "aciklama": "Onay bilgisi [2]'de doğru. [5]'te FLAURA sonucu birinci basamak tedavide (T790M'ye özgü değil) elde edilmiştir; bu bağlam düşürülünce sonuç T790M hastalarına aitmiş gibi okunuyor."}
+   ],
+   "duzeltilmis_cevap": "Üçüncü nesil TKİ osimertinib, T790M mutasyonlu metastatik küçük hücreli dışı akciğer kanseri için onay alan ilk ilaçtır [2]; ayrıca FLAURA çalışmasında birinci basamak tedavide standart birinci nesil TKİ'lere göre daha uzun progresyonsuz sağkalım sağlamıştır [5].",
+   "not": "Yalnızca son cevap denetlendi."},
+
+  {"index": 45, "varyant": "EGFR T790M", "tur": "takip", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Evet; en sık üçlü mutasyonla (duyarlılaştıran mutasyon/T790M/C797S) ortaya çıkar ve mevcut tüm EGFR TKİ'lerine dirençlidir; bu mutantlara karşı EAI045 ve CH7233163 gibi yeni bileşikler geliştirilmektedir [1][5].", "karar": "ATIF_HATALI", "aciklama": "CH7233163 yalnızca [3]'te geçer; [1] ve [5]'te yok. Direnç kısmı [5] (ve [1]), EAI045 [1]."}
+   ],
+   "duzeltilmis_cevap": "Evet; osimertinibe direnç en sık üçlü mutasyonla (duyarlılaştıran mutasyon/T790M/C797S) ortaya çıkar ve bu üçlü mutant mevcut tüm EGFR TKİ'lerine dirençlidir [1][5]. Bu mutantlara karşı EAI045 ve CH7233163 gibi yeni bileşikler geliştirilmektedir [1][3].",
+   "not": ""},
+
+  {"index": 149, "varyant": "EGFR T790M", "tur": "ret_yabanci", "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynakların hiçbiri JAK2 V617F veya JAK inhibitörlerinden söz etmiyor."},
+
+  {"index": 169, "varyant": "EGFR T790M", "tur": "ret_kapsam_disi", "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Türkiye'deki test merkezlerine dair bilgi yok ([2] yalnızca sıvı biyopsiden genel olarak söz eder)."},
+
+  {"index": 35, "varyant": "HRAS G12V", "tur": "ozet", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "HRAS G12V, RAS GTPaz ailesinin bir üyesi olan HRAS'ta 12. kodondaki glisinin valine dönüşmesiyle oluşan, sürekli aktif bir onkojenik mutasyondur; RAS proteinleri hücresel sinyal iletiminde moleküler anahtar olarak çalışır [4].", "karar": "KISMEN", "aciklama": "Glisin->valin değişimi hiçbir kaynakta yazmıyor (genel bilgi). 'Sürekli aktif' [2]'de ('constitutively active form of RAS (HRASG12V)'), [4]'te değil. Moleküler anahtar [4]'te var."},
+    {"cumle": "HRAS'taki 12 ve 13. kalıntıları etkileyen mutasyonlar hem somatik (kanser) hem de germline (gelişimsel bozukluk) bağlamda görülür [4].", "karar": "DIL_HATASI", "aciklama": "İçerik [4] ile uyumlu; 'germline' çevrilmemiş İngilizce, 'germ hattı' olmalı."},
+    {"cumle": "Kanserdeki rolü açısından onkojenik HRAS G12V ifadesi, NIH 3T3 hücrelerinde hücre boyutu kontrolünü bozmaya tek başına yeterlidir; bu, kanser hücrelerindeki boyut kusurlarının doğrudan onkojenik sürücülerin sonucu olduğunu düşündürür [3].", "karar": "DOGRU", "aciklama": "[3]'ün özeti."},
+    {"cumle": "c-Myc ile birlikte en güçlü tümör oluşturma etkisini RAS sinyal yolu aktive olduğunda gösterir [2].", "karar": "KISMEN", "aciklama": "Özne karışık (HRAS G12V'nin RAS yolu aktive olduğunda etkili olduğu gibi döngüsel okunuyor). [2]: fare karaciğerinde c-Myc, HRAS G12V ile RAS yolu aktive edildiğinde en tümörojenik; fare/karaciğer bağlamı düşmüş."},
+    {"cumle": "Orofarengeal skuamöz hücreli karsinomda HRAS G12V, laktat varlığında MEK/ERK yolunu aktive ederek immün kaçışa katkıda bulunan PD-L1 ifadesini artırır [5].", "karar": "KISMEN", "aciklama": "[5]: HPV16 E6/E7+HRAS G12V ile dönüştürülmüş fare hücre hattında laktat varlığında PD-L1 artar; laktatın Ras-mutant hücrelerde MEK/ERK'i aktive ettiği ayrı bir bulgu. MEK/ERK'in PD-L1 artışının mekanizması olduğu yazmıyor; aktive eden HRAS G12V değil laktat."},
+    {"cumle": "Mozaik deride HRAS G12V-mutant hücreler yaban tip hücreleri geçse de, yaralanma sonrası yaban tip hücrelerin EGFR sinyaline yanıt vererek çoğalması bu anormal büyümeyi baskılar [1].", "karar": "DOGRU", "aciklama": "[1]: yaralanmamış mozaik dokuda HrasG12V/+ hücreler üstün gelir; yaralanmada EGFR ligandlarına yanıt veren yaban tip hücrelerin çoğalması genişlemeyi engeller."},
+    {"cumle": "Gelişimsel bozukluk açısından HRAS'ın germline G12V mutasyonu Costello sendromuna (bir RASopati) neden olur; konjenital kalp anomalileri, gelişme geriliği, kansere yatkınlık ve erken yaşlanma (düşük kemik yoğunluğu) ile karakterizedir; fare modelinde artmış osteoklast oluşumu kemik kaybına katkıda bulunur ve MEK ile PI3K inhibitörleriyle azaltılabilir [4].", "karar": "KISMEN", "aciklama": "[4]: CS, çoğu 12/13. kalıntıları etkileyen HRAS germ hattı mutasyonlarıyla oluşur; G12V bir CS fare modelinde kullanılmıştır, insanda G12V'nin CS'ye neden olduğu doğrudan yazmaz. MEK/PI3K inhibitörleri yalnız in vitro osteoklast farklılaşmasını azaltmıştır. 'germline' çevrilmemiş."}
+   ],
+   "duzeltilmis_cevap": "HRAS G12V, RAS'ın sürekli aktif bir formunu oluşturan onkojenik bir mutasyondur [2][3]; RAS GTPazları hücresel sinyal iletiminde moleküler anahtar olarak çalışan GDP/GTP bağlayıcı proteinlerdir [4]. HRAS'taki 12 ve 13. kalıntıları etkileyen mutasyonlar hem somatik (kanser) hem de germ hattı (gelişimsel bozukluk) bağlamında görülür [4].\n\nKanserdeki rolü açısından onkojenik HRAS G12V ifadesi, NIH 3T3 hücrelerinde hücre boyutu kontrolünü bozmaya tek başına yeterlidir; bu, kanser hücrelerindeki boyut kusurlarının doğrudan onkojenik sürücülerin sonucu olduğunu düşündürür [3]. Fare karaciğerinde c-Myc, HRAS G12V ile birlikte ifade edilerek RAS sinyal yolu aktive edildiğinde en yüksek tümör oluşturma potansiyelini göstermiştir [2]. HPV16 E6, E7 ve HRAS G12V ile dönüştürülmüş fare orofarengeal skuamöz hücreli karsinom hücrelerinde, hücre dışı laktat varlığında bağışıklık kontrol noktası baskılayıcısı PD-L1'in ifadesi belirgin biçimde artar; laktat ayrıca Ras-mutant hücrelerde MEK/ERK yolunu aktive eder [5]. Mozaik deride HRAS G12V-mutant hücreler yaban tip hücreleri geçse de, yaralanma sonrası yaban tip hücrelerin EGFR sinyaline yanıt vererek çoğalması bu anormal büyümeyi baskılar [1].\n\nGelişimsel bozukluk açısından Costello sendromu (bir RASopati), çoğu 12 ve 13. kalıntıları etkileyen belirli HRAS germ hattı mutasyonlarıyla oluşur; konjenital kalp anomalileri, büyüme ve gelişme bozukluğu, kansere yatkınlık ve yetişkinlerde erken yaşlanma (düşük kemik mineral yoğunluğu) ile karakterizedir [4]. Hras G12V germ hattı mutasyonu taşıyan Costello sendromu fare modelinde artmış osteoklast oluşumu kemik kaybına katkıda bulunur ve mutant osteoklast farklılaşması in vitro MEK ve PI3K inhibitörleriyle azaltılmıştır [4].",
+   "not": "Kaynakta olmayan glisin->valin tanımı çıkarıldı; 'sürekli aktif' için [2] atfı verildi; deney bağlamları (fare karaciğeri, fare hücre hattı, in vitro) geri eklendi; 'germline' -> 'germ hattı'."},
+
+  {"index": 142, "varyant": "HRAS G12V", "tur": "takip_cok_turlu", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "RAS'ı sürekli aktif hale getiren onkojenik bir mutasyondur; NIH 3T3 hücrelerinde hücre boyutu kontrolünü bozmaya tek başına yeterlidir [3][4].", "karar": "ATIF_HATALI", "aciklama": "'Sürekli aktif' bilgisi [4]'te değil [2]'de; hücre boyutu bulgusu [3]'te. Doğru atıf [2][3]."}
+   ],
+   "duzeltilmis_cevap": "RAS'ın sürekli aktif bir formunu oluşturan onkojenik bir mutasyondur [2]; NIH 3T3 hücrelerinde hücre boyutu kontrolünü bozmaya tek başına yeterlidir [3].",
+   "not": "Yalnızca son cevap denetlendi."},
+
+  {"index": 143, "varyant": "HRAS G12V", "tur": "takip", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Evet; HRAS'ın germline G12V mutasyonu Costello sendromuna (bir RASopati) neden olur; konjenital kalp anomalileri, gelişme geriliği ve kansere yatkınlıkla karakterizedir [4].", "karar": "KISMEN", "aciklama": "[4]: CS, çoğu 12/13. kalıntıları etkileyen HRAS germ hattı mutasyonlarıyla oluşur ve Hras G12V germ hattı mutasyonlu fare CS modeli olarak kullanılır; G12V'nin insanda CS nedeni olduğu açıkça yazmaz. Ayrıca 'germline' çevrilmemiş İngilizce."}
+   ],
+   "duzeltilmis_cevap": "Evet; Costello sendromu (bir RASopati), çoğu 12 ve 13. kalıntıları etkileyen belirli HRAS germ hattı mutasyonlarıyla oluşur ve Hras G12V germ hattı mutasyonu taşıyan fareler bu sendromun modeli olarak kullanılmıştır [4]. Sendrom konjenital kalp anomalileri, büyüme ve gelişme bozukluğu ve kansere yatkınlıkla karakterizedir [4].",
+   "not": ""},
+
+  {"index": 144, "varyant": "HRAS G12V", "tur": "takip_cok_turlu", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Orofarengeal skuamöz hücreli karsinomda HRAS G12V, laktat varlığında MEK/ERK yolunu aktive ederek immün kaçışa katkıda bulunan PD-L1 ifadesini artırır [5].", "karar": "KISMEN", "aciklama": "[5]'te PD-L1 artışı fare hücre hattında (HPV16 E6/E7+HRAS G12V) laktat varlığında gösterilir; MEK/ERK aktivasyonunu yapan laktattır ve PD-L1 artışının mekanizması olarak sunulmaz."}
+   ],
+   "duzeltilmis_cevap": "HPV16 E6, E7 ve HRAS G12V ile dönüştürülmüş fare orofarengeal skuamöz hücreli karsinom hücrelerinde, hücre dışı laktat varlığında bağışıklık kontrol noktası baskılayıcısı PD-L1'in ifadesi belirgin biçimde artmıştır; bu, tümör mikroçevresindeki laktatın HRAS G12V taşıyan tümörlerde immün kaçışa yardımcı olabileceğini düşündürür [5].",
+   "not": "Yalnızca son cevap denetlendi."},
+
+  {"index": 202, "varyant": "HRAS G12V", "tur": "ret_kapsam_disi", "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Test sonuçlanma süresine dair bilgi yok."},
+
+  {"index": 4, "varyant": "KRAS G12D", "tur": "ozet", "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "KRAS G12D, solid tümörlerde en sık görülen onkojenik KRAS alt tipidir ve klinikte uzun süre \"ilaçlanamaz\" olarak kabul edilmiştir [2].", "karar": "DOGRU", "aciklama": "[2]: 'most frequently mutated oncogenic KRAS subtype in solid tumors and remains undruggable in clinical settings'. (Kaynak 'hâlâ' der; ifade çelişmiyor.)"},
+    {"cumle": "Özellikle pankreas adenokarsinomlarının (PDAK) neredeyse yarısında bulunur [1].", "karar": "DOGRU", "aciklama": "[1]: 'nearly half of pancreatic adenocarcinomas'."},
+    {"cumle": "Tedavi geliştirmede MRTX1133, ilk güçlü, seçici ve kovalent olmayan KRAS G12D inhibitörüdür; GDP-bağlı KRAS G12D'ye çok yüksek afinite gösterir ve yaban tipe kıyasla yaklaşık 700 kat seçicidir [3][4].", "karar": "DOGRU", "aciklama": "[4] ilk kovalent olmayan güçlü seçici inhibitör; [3] GDP-bağlı yüksek afinite, ~700 kat seçicilik."},
+    {"cumle": "ERK1/2 fosforilasyonunu ve KRAS G12D-mutant hücrelerin canlılığını baskılar; PDAK modellerinin çoğunda (11 modelin 8'inde) tümör gerilemesi sağlar [3].", "karar": "DOGRU", "aciklama": "[3]'te var."},
+    {"cumle": "Pankreas kanseri modellerinde MRTX1133, tümör mikroçevresini yeniden programlayarak tümör içi CD8+ efektör T hücrelerini artırır, miyeloid infiltrasyonu azaltır ve immün kontrol noktası blokajı ile sinerji göstererek sağkalımı uzatır; ileri PDAK'in gerilemesi CD8+ T hücrelerine bağımlıdır ve KRAS G12D inhibisyonu kanser hücrelerinde FAS ifadesini indükleyerek T hücresi aracılı ölümü kolaylaştırır [1].", "karar": "DOGRU", "aciklama": "[1]'in özetiyle birebir uyumlu."},
+    {"cumle": "Bir diğer inhibitör HRS-4642 faz 1'de umut verici antitümör aktivitesi göstermiş, proteazom inhibisyonu (karfilzomib) ile etkinliği artmıştır [2].", "karar": "DOGRU", "aciklama": "[2]'de var."},
+    {"cumle": "EGFR veya PI3Kα gibi geri besleme/baypas yollarının birlikte hedeflenmesi antitümör etkiyi güçlendirir [3].", "karar": "DOGRU", "aciklama": "[3]: co-targeting EGFR veya PI3Kα antitümör aktiviteyi artırdı."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": "Tüm cümleler kaynaklı ve atıfları doğru."},
+
+  {"index": 49, "varyant": "KRAS G12D", "tur": "takip", "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Solid tümörlerde en sık görülen onkojenik KRAS alt tipidir ve özellikle pankreas adenokarsinomlarının neredeyse yarısında bulunur [1][2].", "karar": "DOGRU", "aciklama": "[2] solid tümörlerde en sık alt tip; [1] PDAC'lerin neredeyse yarısı."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""},
+
+  {"index": 50, "varyant": "KRAS G12D", "tur": "takip_cok_turlu", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "MRTX1133 ilk güçlü ve seçici KRAS G12D inhibitörüdür; yaban tipe kıyasla yaklaşık 700 kat seçicidir ve pankreas modellerinin çoğunda tümör gerilemesi sağlar [3][4].", "karar": "KISMEN", "aciklama": "[4] 'ilk KOVALENT OLMAYAN, güçlü ve seçici' der; 'kovalent olmayan' düşürülünce iddia genişliyor. 700 kat ve 11 PDAC modelinin 8'i [3]'te."},
+    {"cumle": "HRS-4642 de faz 1'de umut verici antitümör aktivitesi göstermiştir [2].", "karar": "DOGRU", "aciklama": "[2]'de var."}
+   ],
+   "duzeltilmis_cevap": "MRTX1133 ilk kovalent olmayan, güçlü ve seçici KRAS G12D inhibitörüdür [4]; yaban tipe kıyasla yaklaşık 700 kat seçici bağlanır ve pankreas duktal adenokarsinomu modellerinin çoğunda (11 modelin 8'inde) tümör gerilemesi sağlar [3]. HRS-4642 de faz 1'de umut verici antitümör aktivitesi göstermiştir [2].",
+   "not": "Yalnızca son cevap denetlendi."},
+
+  {"index": 51, "varyant": "KRAS G12D", "tur": "takip", "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Evet; pankreas modellerinde tümör mikroçevresini yeniden programlayarak tümör içi CD8+ T hücrelerini artırır ve immün kontrol noktası blokajı ile sinerji göstererek sağkalımı uzatır [1].", "karar": "DOGRU", "aciklama": "[1]'de var."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""},
+
+  {"index": 150, "varyant": "KRAS G12D", "tur": "ret_yabanci", "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "TP53 R175H hiçbir kaynakta geçmiyor."},
+
+  {"index": 171, "varyant": "KRAS G12D", "tur": "ret_kapsam_disi", "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Test sonuçlanma süresine dair bilgi yok."},
+
+  {"index": 18, "varyant": "PDGFRA D842V", "tur": "ozet", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "PDGFRA D842V, gastrointestinal stromal tümörlerde (GİST) görülen ve PDGFRA geninin ekson 18'indeki (aktivasyon ilmiği) 842. pozisyonda aspartik asidin valine dönüşmesiyle oluşan bir mutasyondur [2].", "karar": "DOGRU", "aciklama": "[2]: ekson 18, A-loop, 842. pozisyonda D->V."},
+    {"cumle": "GİST vakalarının yaklaşık %5-10'u PDGFRA mutasyonu taşır ve bunların en sık görüleni D842V'dir [2].", "karar": "DOGRU", "aciklama": "[2]'de var."},
+    {"cumle": "Klinik önemi açısından D842V, başta imatinib ve sunitinib olmak üzere konvansiyonel tirozin kinaz inhibitörlerine birincil (intrinsik) direnç sağlar; bu nedenle uzun süre bu alt grup için etkili bir ilaç bulunmuyordu [2][4].", "karar": "DOGRU", "aciklama": "[2] imatinib/sunitinibe birincil direnç, birkaç yıl öncesine dek aktif ilaç yok; [4] imatinib ve diğer onaylı TKİ'lere intrinsik direnç."},
+    {"cumle": "Tedavide avapritinib, aktivasyon ilmiği mutantlarını (D842V dahil) seçici olarak inhibe etmek için tasarlanmış bir kinaz inhibitörüdür ve bu mutasyonu taşıyan GİST için ilk onaylı ajandır [4][5].", "karar": "DOGRU", "aciklama": "[5] PDGFRA/KIT aktivasyon ilmiği mutantlarının seçici inhibitörü, ekson 18 (D842V dahil) onayı; [4] D842V GİST için onaylanan ilk ajan."},
+    {"cumle": "Faz 1 NAVIGATOR çalışmasında D842V-mutant GİST hastalarında %88 genel yanıt oranı sağlamıştır (%9 tam, %79 kısmi yanıt) [1]; Avrupa İlaç Ajansı değerlendirmesinde genel yanıt oranı %95 ve ortanca yanıt süresi 22,1 ay bildirilmiştir [3].", "karar": "DOGRU", "aciklama": "[1] 49/56 (%88), %9 tam, %79 kısmi; [3] ORR %95, ortanca yanıt süresi 22,1 ay."},
+    {"cumle": "Gerçek dünya verilerinde de avapritinib progresyonsuz ve genel sağkalımı uzatmıştır [4].", "karar": "DOGRU", "aciklama": "[4]: real-world'de PFS ve OS'yi uzatır."},
+    {"cumle": "En sık yan etkiler bulantı, yorgunluk, anemi ve hafif bellek bozukluğudur; nadiren ciddi ensefalopati ve kanama görülebilir [3].", "karar": "KISMEN", "aciklama": "[3]'te hafif bellek bozukluğu en sık yan etkiler arasında sayılmaz; 'bildirilen bilişsel etkilerin çoğu hafif bellek bozukluğu' denir. Kanama türü (kafa içi/gastrointestinal) belirtilmeli."}
+   ],
+   "duzeltilmis_cevap": "PDGFRA D842V, gastrointestinal stromal tümörlerde (GİST) görülen ve PDGFRA geninin ekson 18'indeki (aktivasyon ilmiği) 842. pozisyonda aspartik asidin valine dönüşmesiyle oluşan bir mutasyondur [2]. GİST vakalarının yaklaşık %5-10'u PDGFRA mutasyonu taşır ve bunların en sık görüleni D842V'dir [2].\n\nKlinik önemi açısından D842V, başta imatinib ve sunitinib olmak üzere konvansiyonel tirozin kinaz inhibitörlerine birincil (intrinsik) direnç sağlar; bu nedenle uzun süre bu alt grup için etkili bir ilaç bulunmuyordu [2][4].\n\nTedavide avapritinib, aktivasyon ilmiği mutantlarını (D842V dahil) seçici olarak inhibe etmek için tasarlanmış bir kinaz inhibitörüdür ve bu mutasyonu taşıyan GİST için ilk onaylı ajandır [4][5]. Faz 1 NAVIGATOR çalışmasında D842V-mutant GİST hastalarında %88 genel yanıt oranı sağlamıştır (%9 tam, %79 kısmi yanıt) [1]; Avrupa İlaç Ajansı değerlendirmesinde genel yanıt oranı %95 ve ortanca yanıt süresi 22,1 ay bildirilmiştir [3]. Gerçek dünya verilerinde de avapritinib progresyonsuz ve genel sağkalımı uzatmıştır [4]. En sık yan etkiler bulantı, yorgunluk, anemi, göz çevresi ve yüz ödemi, hiperbilirubinemi ve ishaldir; bildirilen bilişsel etkilerin çoğu hafif bellek bozukluğudur ve nadiren ciddi ensefalopati ile kafa içi veya gastrointestinal kanama görülebilir [3].",
+   "not": "Yalnızca yan etki cümlesi düzeltildi."},
+
+  {"index": 91, "varyant": "PDGFRA D842V", "tur": "takip", "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Gastrointestinal stromal tümörlerde (GİST) görülür; PDGFRA geninin ekson 18'indeki en sık mutasyondur [2].", "karar": "DOGRU", "aciklama": "[2]: GİST'te en sık PDGFRA mutasyonu, ekson 18'de D842V."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""},
+
+  {"index": 92, "varyant": "PDGFRA D842V", "tur": "takip_cok_turlu", "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "D842V, imatinib ve sunitinib başta olmak üzere konvansiyonel tirozin kinaz inhibitörlerine birincil (intrinsik) direnç sağlar [2][4].", "karar": "DOGRU", "aciklama": "[2] ve [4]'te var."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": "Yalnızca son cevap denetlendi. Kaynaklar direncin moleküler mekanizmasını ('neden') açıklamıyor; cevap bunu uydurmadığı için kabul edildi."},
+
+  {"index": 93, "varyant": "PDGFRA D842V", "tur": "takip", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Avapritinib, bu mutasyonu taşıyan GİST için ilk onaylı ajandır ve klinik çalışmalarda %88-95 gibi yüksek genel yanıt oranları sağlamıştır [1][3][5].", "karar": "ATIF_HATALI", "aciklama": "'İlk onaylı ajan' bilgisi [4]'te; [5]'in 'First Approval' başlığı ilacın kendi ilk onayını anlatır. %88 [1], %95 [3]. Doğru atıf [4] + [1][3]."}
+   ],
+   "duzeltilmis_cevap": "Avapritinib, PDGFRA D842V mutasyonu taşıyan, cerrahi olarak çıkarılamayan veya metastatik GİST için onaylanan ilk ajandır [4]. Klinik çalışmalarda %88-95 gibi yüksek genel yanıt oranları sağlamıştır [1][3].",
+   "not": ""},
+
+  {"index": 157, "varyant": "PDGFRA D842V", "tur": "ret_yabanci", "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "FGFR3 S249C ve FGFR inhibitörleri kaynaklarda yok."},
+
+  {"index": 185, "varyant": "PDGFRA D842V", "tur": "ret_kapsam_disi", "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "[4] yalnızca İspanyol merkezlerinden ve sarkom uzmanı birimlere danışmaktan söz eder; Türkiye'deki merkezlere dair bilgi yok."},
+
+  {"index": 24, "varyant": "SF3B1 K700E", "tur": "ozet", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "SF3B1 K700E, RNA kırpma (splicing) mekanizmasının bir bileşeni olan SF3B1 (spliceosome factor 3b subunit 1) proteinindeki en sık görülen mutasyondur ve hematolojik malignitelerde, özellikle miyelodisplastik sendromda (MDS) saptanır [1][2].", "karar": "DOGRU", "aciklama": "[1] hematopoetik malignitelerde en sık SF3B1 mutasyonu; [2] SF3B1 RNA kırpma mekanizmasında, MDS-RS'de sık."},
+    {"cumle": "Mutasyon, SF3B1'in SUGP1 proteiniyle etkileşimini bozarak alternatif 3' kırpma bölgelerinin anormal aktivasyonuna ve yaygın, hatalı dal-noktası (branchpoint) tanımasına yol açar [4].", "karar": "KISMEN", "aciklama": "[4]'te SUGP1 etkileşiminin bozulması ve 3' kırpma bölgesi aktivasyonu yan yana sayılır; nedensellik kurulmaz. Yaygın dal noktası değişikliklerinin çoğunun kırpmayı DEĞİŞTİRMEDİĞİ vurgusu düşmüş."},
+    {"cumle": "MDS'deki rolü açısından SF3B1 K700E, kemik iliğinde halka sideroblastların (ring sideroblast) oluşumunu doğrudan tetikler; bunu ABCB7 ve ALAS2 genlerinin ifadesini ve ABCB7'nin doğru kırpılmasını bozarak yapar; ABCB7 kaybı demir-kükürt kümesi taşınmasını engelleyerek halka sideroblast oluşumuna yol açar [2].", "karar": "KISMEN", "aciklama": "[2]'de bulgu kemik iliğinde değil HUDEP-2 eritroid öncül hücre hattında gösterilmiştir ('direct contribution'). Fe-S kümesi dışa taşınım bozukluğu ALAS2 translasyonunun azalmasıyla ilişkilendirilir; halka sideroblast oluşumunun mekanizması olarak yazılmaz."},
+    {"cumle": "Prognoz açısından SF3B1 mutasyonları MDS'de genellikle olumlu kabul edilir; ancak bir çalışma, yalnızca K700E mutasyonunun (diğer kodonlardaki mutasyonların değil) bağımsız olarak daha iyi genel sağkalım öngördüğünü göstermiştir [3].", "karar": "DOGRU", "aciklama": "[3]'te var."},
+    {"cumle": "Diğer etkiler açısından K700E, hücre döngüsü düzenleyicilerinin (ör. ARPP19) kırpılmasını yeniden şekillendirerek mitotik ilerlemeyi etkiler; ARPP19-uzun izoformunun yüksekliği AML kohortunda daha kötü genel sağkalımla ilişkilidir [5].", "karar": "DOGRU", "aciklama": "[5]: G2/M düzenleyicileri, ARPP19-uzun mitotik ilerleme, TCGA-AML'de kötü sağkalım."},
+    {"cumle": "Ayrıca düzenleyici T hücrelerinde (Treg) Anapc13'ün hatalı kırpılması yoluyla bağışıklık yanıtını bozarak otoimmün fenotiplere yol açabilir [1].", "karar": "DOGRU", "aciklama": "[1]: Treg'e özgü ifade kendiliğinden otoimmün fenotip; Anapc13'ün hatalı kırpılması (fare modeli)."}
+   ],
+   "duzeltilmis_cevap": "SF3B1 K700E, RNA kırpma (splicing) mekanizmasının bir bileşeni olan SF3B1 (spliceosome factor 3b subunit 1) proteinindeki en sık görülen mutasyondur ve hematolojik malignitelerde, özellikle miyelodisplastik sendromda (MDS) saptanır [1][2]. Mutasyon, SF3B1'in SUGP1 proteiniyle etkileşimini bozar ve alternatif 3' kırpma bölgelerinin anormal aktivasyonuna yol açar; ayrıca dal noktası (branchpoint) tanımasında, çoğu kırpmayı değiştirmeyen binlerce yaygın değişikliğe neden olur [4].\n\nMDS'deki rolü açısından, SF3B1 K700E ifade eden eritroid öncül hücrelerde (HUDEP-2) halka sideroblast (ring sideroblast) oranı artar; bu, mutant SF3B1'in halka sideroblast oluşumuna doğrudan katkısını gösterir [2]. Bu hücrelerde ABCB7 ve ALAS2 ifadesi azalır ve ABCB7 hatalı kırpılır; ABCB7 eksikliği halka sideroblast oluşumunu artırır ve demir-kükürt kümesi dışa taşınmasını bozarak ALAS2 translasyonunu azaltır [2]. Prognoz açısından SF3B1 mutasyonları MDS'de genellikle olumlu kabul edilir; ancak bir çalışma, yalnızca K700E mutasyonunun (diğer kodonlardaki mutasyonların değil) bağımsız olarak daha iyi genel sağkalım öngördüğünü göstermiştir [3].\n\nDiğer etkiler açısından K700E, hücre döngüsü düzenleyicilerinin (ör. ARPP19) kırpılmasını yeniden şekillendirerek mitotik ilerlemeyi etkiler; ARPP19-uzun izoformunun yüksekliği AML kohortunda daha kötü genel sağkalımla ilişkilidir [5]. Ayrıca düzenleyici T hücrelerinde (Treg) Anapc13'ün hatalı kırpılması yoluyla bağışıklık yanıtını bozarak otoimmün fenotiplere yol açabilir [1].",
+   "not": "Hücre hattı bulgusu 'kemik iliğinde' diye genellenmişti; ABCB7 -> Fe-S -> ALAS2 zinciri kaynaktaki sıraya göre yeniden yazıldı."},
+
+  {"index": 109, "varyant": "SF3B1 K700E", "tur": "takip", "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Hematolojik malignitelerde, özellikle miyelodisplastik sendromda (MDS) görülen, RNA kırpma faktörü SF3B1'deki en sık mutasyondur [1][2].", "karar": "DOGRU", "aciklama": "[1] en sık SF3B1 mutasyonu; [2] MDS'de sık, SF3B1 RNA kırpma bileşeni."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""},
+
+  {"index": 110, "varyant": "SF3B1 K700E", "tur": "takip_cok_turlu", "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Kemik iliğinde halka sideroblast oluşumunu doğrudan tetikler; ABCB7 ve ALAS2 ifadesini bozar ve ABCB7 kaybı demir-kükürt kümesi taşınmasını engelleyerek halka sideroblast oluşumuna yol açar [2].", "karar": "KISMEN", "aciklama": "[2]'deki deney HUDEP-2 eritroid öncül hücre hattındadır, kemik iliğinde değil. Fe-S kümesi dışa taşınım bozukluğu kaynakta ALAS2 translasyonunun azalmasını açıklar; halka sideroblast mekanizması olarak yazılmaz."}
+   ],
+   "duzeltilmis_cevap": "SF3B1 K700E ifade eden eritroid öncül hücrelerde halka sideroblast oranı artar; bu hücrelerde ABCB7 ve ALAS2 ifadesi azalır ve ABCB7 hatalı kırpılır [2]. ABCB7 eksikliği halka sideroblast oluşumunu artırır ve demir-kükürt kümesi dışa taşınmasını bozarak ALAS2 translasyonunu azaltır [2].",
+   "not": "Yalnızca son cevap denetlendi."},
+
+  {"index": 111, "varyant": "SF3B1 K700E", "tur": "takip", "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "SF3B1 mutasyonları MDS'de genellikle olumlu kabul edilir; ancak bir çalışma, yalnızca K700E mutasyonunun bağımsız olarak daha iyi genel sağkalım öngördüğünü göstermiştir [3].", "karar": "DOGRU", "aciklama": "[3]'te var."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""},
+
+  {"index": 160, "varyant": "SF3B1 K700E", "tur": "ret_yabanci", "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "GNAQ Q209L hiçbir kaynakta geçmiyor."},
+
+  {"index": 191, "varyant": "SF3B1 K700E", "tur": "ret_kapsam_disi", "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "[3] hastaların çoğunun hipometilleyici ajanlarla tedavi edildiğini söyler ama doz bilgisi yok; önerilen doz kaynaklarda yok."}
+ ],
+ "ozet": {"ornek": 34, "aynen": 7, "duzeltildi": 17, "sil": 0, "ret_dogru": 10, "ret_yanlis": 0,
+          "cumle": 62, "dogru": 34, "atif_hatali": 4, "kismen": 22, "desteksiz": 1, "celiski": 0, "dil_hatasi": 1,
+          "tekrarlayan_sorunlar": [
+            "Birleşik/çok-mutantlı bulguları tek varyanta ya da başka bir duruma aktarma: dörtlü AR mutantının yapısal bulgusu T878A'ya, S-94'ün T878A'ya özgü 50 kat seçiciliği ilişkili mutantlara, laktatın MEK/ERK aktivasyonu PD-L1 mekanizmasına, FLAURA dışı beyin metastazı bulgusu FLAURA'ya bağlanmış.",
+            "Deney bağlamını düşürüp genelleme: hücre hattı/fare modeli/in vitro bulgular insan ya da doku düzeyinde ifade edilmiş (HUDEP-2 -> 'kemik iliğinde', G12V CS fare modeli -> 'G12V Costello'ya neden olur', FLAURA birinci basamak bağlamı T790M tedavisine taşınmış).",
+            "Atıf numarası kayması: bilgi var ama başka kaynakta (LBD [1], 'sürekli aktif' [2], CH7233163 [3], 'ilk onaylı ajan' [4]).",
+            "Kaynakta olmayan genel bilgi ve hatalı çeviri ekleme: 'eski adıyla T877A', 'glisin->valin', 'first-line' ifadesinin 'birinci nesil' diye çevrilmesi, 'başlıca neden' gibi kaynakta olmayan derecelendirmeler.",
+            "Çevrilmemiş İngilizce terim ('germline' -> 'germ hattı') ve bir niteleyiciyi düşürerek iddiayı genişletme ('ilk kovalent olmayan' -> 'ilk')."
+          ]}}

@@ -1,0 +1,247 @@
+{"paket": 7, "girdiler": [
+ {
+  "girdi": "TREM2 R47H",
+  "ozet": "TREM2, mikrogliada ifade edilen bir lipit reseptörüdür [4]. İnsan TREM2'sinin R47H varyantı ligand bağlanmasını bozar ve Alzheimer hastalığı (AH) riskini artırır [4]. Bir çalışmada R47H, işlev kaybına yol açan ve AH ile ilişkili bir risk varyantı olarak tanımlanmıştır [5]. Yüksek AH riskiyle ilişkili insan TREM2 R47H varyantının, mikrogliayı protein tirozin kinazı SYK aracılığıyla aktive edemediği bildirilmiştir [2]. Tek çekirdek RNA dizilemesi kullanan bir çalışmada, insan AH'sinde mikroglianın reaktif fenotipi TREM2-R47H ve TREM2-R62H taşıyıcılarında taşıyıcı olmayanlara göre daha az belirgindi [3].\n\nSYK'yi doğrudan aktive eden bir reseptör olan CLEC7A'ya karşı bir antikorun sistemik uygulanması, TREM2 R47H alelini ifade eden farelerde mikroglia aktivasyonunu kurtarmıştır [2]. Bir AH fare modelinde, insan TREM2'sine karşı agonist antikor AL002c'nin akut sistemik uygulanması hem yaygın varyant (CV) hem de R47H transgenik farelerde mikroglia çoğalmasını başlatmıştır [4]. Mikroglia ile nöronlar arasındaki tünel nanotüpleri (TNT) inceleyen bir çalışmada, TNT aracılı agregat aktarımının Lrrk2 Gly2019Ser ya da Trem2 T66M ve R47H mutasyonları taşıyan mikrogliada bozulduğu bildirilmiştir [1].",
+  "ozet_karar": "GECER",
+  "ozet_aciklama": "Her cümle atıf verdiği özetle birebir uyumlu; R47H+R62H birleşik taşıyıcı grubu [3] ve Lrrk2/T66M birlikteliği [1] korunmuş, fare bağlamı [2][4] açıkça yazılmış.",
+  "takip": [
+   {
+    "soru": "uyku eksikliğiyle R47H arasında bir bağlantı araştırılmış mı",
+    "cevap": "Bir fare çalışmasında, insanlaştırılmış TREM2 yaygın varyantını ya da işlev kaybına yol açan R47H risk varyantını ifade eden veya TREM2 ifade etmeyen 5xFAD fareleri kronik uyku yoksunluğuna maruz bırakılmıştır [5]. Uyku yoksunluğu, normal uyuyan 5xFAD farelerine kıyasla TREM2'ye bağımlı Aβ plak birikimini artırmış ve parankimal Aβ plaklarından bağımsız bir mikroglia reaktivitesine yol açmıştır [5]. Yazarlar, uyku yoksunluğunun TREM2'nin gerekli olduğu mikroglia reaktivitesini doğrudan etkilediği sonucuna varmıştır [5].",
+    "karar": "GECER",
+    "aciklama": "Fare bağlamı korunmuş; kaynak 5 R47H'ye özgü sonuç vermiyor ve cevap da R47H'ye özgü bir bulgu iddia etmiyor."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Özette bahsettiğin AL002c antikoru insanlarda da denendi mi?",
+   "cevap": "AL002c'nin bir türevi, insanda ilk kez uygulandığı faz I klinik çalışmada güvenli bulunmuş ve iyi tolere edilmiştir [4]. Beyin omurilik sıvısı biyobelirteçlerine göre bu antikorun TREM2 ile etkileştiği gösterilmiştir [4]. Fare modelinde ise uzun süreli AL002c uygulaması filamentöz plakları ve nörit distrofisini azaltmış, mikroglianın inflamatuvar yanıtını hafifletmiştir [4]. Yazarlar AL002'nin AH tedavisi için umut verici bir aday olduğu sonucuna varmıştır [4].",
+   "karar": "GECER",
+   "aciklama": "Faz I (first-in-human) bilgisi, BOS biyobelirteci ve fare bulgusu kaynak 4 ile uyumlu; faz I'in R47H taşıyıcılarına özgü olduğu iddia edilmemiş; özetin tekrarı değil."
+  },
+  "ret_kapsam": [
+   {
+    "soru": "TREM2 R47H taşıyanlarda Alzheimer belirtileri ortalama kaç yaşında başlıyor?",
+    "karar": "RET_DOGRU",
+    "aciklama": "Hiçbir kaynakta başlangıç yaşı bilgisi yok."
+   }
+  ],
+  "gen_ret": [],
+  "not": "Kaynak 1 R47H'yi Trem2 T66M ve Lrrk2 G2019S ile birlikte anıyor (özette 'Lrrk22' yazım hatası var); kaynak 3'teki bulgu R47H ve R62H taşıyıcılarının birleşik grubuna ait; kaynak 5 R47H grubuna özgü bir sonuç bildirmiyor; kaynak 4'teki faz I çalışması R47H taşıyıcılarına özgü değil."
+ },
+ {
+  "girdi": "PRSS1 R122H",
+  "ozet": "R122H, katyonik tripsinojen geninde (PRSS1) bulunan bir mutasyondur ve kalıtsal pankreatit hastalarının çoğu R122H ya da N29I mutasyonlarından birini taşır [2]. R122H, PRSS1'in üçüncü ekzonunda yer alır ve en sık görülen PRSS1 mutasyonudur [3]. PRSS1 p.R122H, kalıtsal kronik pankreatiti etkilediği keşfedilen ilk mutasyondur ve penetransı %80 olarak bildirilmiştir [5]. Bir hipoteze göre R122H, bir tripsin tanıma bölgesini değiştirerek pankreas içinde tripsinin etkisizleştirilmesini engeller, etkisini uzatır ve otosindirime yol açar [2].\n\nSekiz olgu-kontrol çalışmasını (1733 olgu, 2415 kontrol) birleştiren bir meta-analizde p.R122H, kronik pankreatit riskinde artışla anlamlı olarak ilişkiliydi (OR = 4,78; %95 GA 1,13-20,20) [5]. Bu ilişki kalıtsal kronik pankreatitte güçlüydü (OR = 65,52; %95 GA 9,09-472,48), alkolik ve idiyopatik formlar dahil kalıtsal olmayan kronik pankreatitte ise görülmedi [5]. 4528 pankreas duktal adenokarsinomu (PDAC) olgusu ve 52.659 kontrolde yapılan germ hattı tüm ekzom dizileme çalışmasında PRSS1, PDAC riskiyle ilişkili bulunmuştur [4]. Bu ilişki büyük ölçüde p.Arg122His varyantından kaynaklanıyordu ve varyant belirgin biçimde yüksek riskle ilişkiliydi (OR 72,34; P < 0,001) [4].",
+  "ozet_karar": "GECER",
+  "ozet_aciklama": "Sayılar (1733/2415, OR 4,78, 65,52, 72,34, 4528/52.659) ve hipotez niteleyicisi kaynaklarla birebir; gen düzeyindeki PRSS1-PDAC ilişkisi gene, OR 72,34 varyanta doğru atanmış.",
+  "takip": [
+   {
+    "soru": "Fare deneylerinde PRSS1 R122H'nin etkisi ne bulundu?",
+    "cevap": "Bir çalışmada insan PRSS1R122H, farelerde özgül olarak pankreas asiner hücrelerinde ifade edilmiştir [1]. PRSS1R122H ifade eden fareler, etanolle beslenme ya da yüksek yağlı diyet sonrasında PRSS1 ifade eden ya da kontrol farelere göre daha şiddetli pankreatit geliştirmiştir [1]. Bu farelerin pankreasında da PRSS1 ifade eden ya da kontrol farelere göre daha fazla DNA hasarı, apoptoz, kolajen birikimi, tripsin aktivitesi ve inflamatuvar hücre infiltrasyonu vardı [1]. Yazarlara göre bu fareler insan kalıtsal pankreatiti için bir model olarak kullanılabilir [1].",
+    "karar": "GECER",
+    "aciklama": "Transgenik fare bağlamı ve karşılaştırma grupları kaynak 1 ile birebir; 'might be used' niteleyicisi korunmuş."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "R122H taşıyanlarla N29I taşıyanlar arasında klinik bir fark var mı?",
+   "cevap": "İki yaygın mutasyon karşılaştırıldığında, R122H taşıyan hastaların N29I taşıyanlara göre daha genç yaşta başvurma ve cerrahi müdahale gerektirme olasılığı daha yüksektir [2]. Öte yandan kalıtsal pankreatitte pankreas kanseri riski mutasyon tipiyle ilişkili değildir [3].",
+   "karar": "GECER",
+   "aciklama": "Karşılaştırma kaynak 2'de, kanser riskinin mutasyon tipinden bağımsızlığı kaynak 3'te açıkça yazıyor; atıflar doğru."
+  },
+  "ret_kapsam": [
+   {
+    "soru": "PRSS1 R122H için genetik test yaptırmak ne kadar tutar?",
+    "karar": "RET_DOGRU",
+    "aciklama": "Kaynak 3 genetik testin yarar/risk/sınırlılıklarından söz ediyor ama maliyet bilgisi hiçbir kaynakta yok."
+   }
+  ],
+  "gen_ret": [],
+  "not": "Kaynak 4 varyantı p.Arg122His, kaynak 5 p.R122H olarak anıyor; kaynak 2 ve 3 derleme; kaynak 1 transgenik fare çalışması."
+ },
+ {
+  "girdi": "ABCA4 G1961E",
+  "ozet": "ABCA4 G1961E (c.5882G>A, p.Gly1961Glu), ABCA4'teki en yaygın mutasyon ve Stargardt hastalığındaki en sık mutasyon olarak tanımlanmaktadır [2][3]. Stargardt hastalığı, ABCA4 genindeki işlev kaybı mutasyonları nedeniyle makula dejenerasyonuna ve körlüğe yol açan, şu anda tedavi edilemeyen kalıtsal nörodejeneratif bir hastalıktır [3]. ABD ve Avrupa'daki 9 merkezden Stargardt (STGD1) hastalarını kapsayan ProgStar kohortunda, birden fazla patojenik varyant taşıyan 279 hastada en sık varyant %15 ile p.G1961E idi [1].\n\n15 hastalık retrospektif bir seride G1961E aleli, homozigot ya da heterozigot durumda, parafoveal bölgeyle sınırlı anatomik ve işlevsel bozukluklarla ilişkiliydi [5]. Bu seride belirtilerin, diğer ABCA4 mutasyonu tablolarına göre daha geç başlama eğiliminde olduğu da görülmüştür [5]. Yazarlar bulgularının, G1961E alelinin yaygın retina işlev bozukluğundan çok lokal makula değişikliklerine katkıda bulunduğu ve boğa gözü makülopatisine neden olduğu hipotezini desteklediğini belirtmiştir [5]. 24 çalışmayı (4580 olgu, 5180 kontrol) içeren bir meta-analizde G1961E, yaşa bağlı makula dejenerasyonu riskinde artışla anlamlı olarak ilişkiliydi (OR = 3,22; %95 GA 1,74-5,95) [4]. Bu mutasyonu düzeltmek için tasarlanan adenin baz düzenleyici gen tedavisi vektörleri, mutasyon taşıyan farelerde ve dişi insan dışı primatlarda yüksek düzeyde gen düzeltmesi sağlamıştır [3].",
+  "ozet_karar": "GECER",
+  "ozet_aciklama": "Sıklık (%15, 279 hasta), OR 3,22 ve 15 hastalık seri bulguları birebir; 'hipotezi destekler' ve 'eğilim' niteleyicileri korunmuş; Stargardt tanımı gene/hastalığa ait olarak yazılmış; fare/primat bağlamı açık.",
+  "takip": [
+   {
+    "soru": "G1961E taşıyan hastaların göz muayenesinde ve elektroretinogramda neler görülüyor?",
+    "cevap": "G1961E taşıyan 15 hastalık seride tüm hastaların tam alan skotopik ve fotopik elektroretinogramları (ERG) normal, iki gözde yapılan patern ERG'leri ise anormaldi [5]. Fundus otofloresans görüntülemesinde tüm hastalarda retina lekeleri olmadan boğa gözü makülopatisi vardı [5]. Mikroperimetride 6 hastada eksantrik üst fiksasyon görülmüş, bunların 5'inde foveal bölgede mutlak skotom saptanmıştır [5]. Seride 3 hasta G1961E/G1961E homozigotu, diğerleri ise G1961E ile başka ABCA4 mutasyonlarının birleşik heterozigotuydu [5].",
+    "karar": "GECER",
+    "aciklama": "Tüm bulgular ve sayılar kaynak 5 ile birebir; bulgular 15 hastalık seriye bağlı tutulmuş."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Bahsettiğin baz düzenleme çalışmasında düzenleme oranları neydi, hedef dışı etki görüldü mü?",
+   "cevap": "Gen tedavisi vektörleri mutasyon taşıyan farelerde ve dişi insan dışı primatlarda yüksek düzeyde gen düzeltmesi sağlamış, canlıda (in vivo) ortalama konilerin %75'i ve retina pigment epiteli (RPE) hücrelerinin %87'si düzenlenmiştir [3]. Düzenleme; retina organoidleri, uyarılmış pluripotent kök hücre kaynaklı RPE hücreleri ve laboratuvarda (in vitro) yetişkin insan retina ile RPE/koroid eksplantları gibi insan modellerinde optimize edilmiştir [3]. İnsan retina eksplantlarında ve RPE/koroid eksplantlarında hedef dışı düzenleme saptanmamıştır [3]. Ayrı bir çalışmada ABE8r adlı adenin baz düzenleyicinin, mevcut düzenleyicilerin zor ulaştığı ABCA4-p.Gly1961Glu bölgesini düzenleyebildiği gösterilmiştir [2].",
+   "karar": "GECER",
+   "aciklama": "%75/%87 oranları kaynaktaki gibi in vivo ve fare/primat ayrımı yapılmadan aktarılmış; hedef dışı düzenleme bulgusu eksplant bağlamıyla sınırlı tutulmuş; ABE8r cümlesi kaynak 2 ile uyumlu."
+  },
+  "ret_kapsam": [
+   {
+    "soru": "G1961E Türkiye'deki Stargardt hastalarında ne sıklıkta görülüyor?",
+    "karar": "RET_DOGRU",
+    "aciklama": "Kaynak 1 yalnız ABD, İngiltere, Fransa, Almanya alt gruplarını; kaynak 4 Amerikalı/Avrupalı/Asyalıları anıyor; Türkiye verisi yok."
+   }
+  ],
+  "gen_ret": [],
+  "not": "Kaynak 2 bir baz düzenleyici geliştirme çalışması, varyant yalnız hedef bölge olarak anılıyor; kaynak 4'te Amerikalılara özgü güçlü ilişki D2177N için, G1961E için değil; kaynak 3'teki %75/%87 oranları özette in vivo diye verilmiş, tür ayrımı net değil."
+ },
+ {
+  "girdi": "BTK C481S",
+  "ozet": "Bruton tirozin kinazındaki (BTK) C481S mutasyonuna bağlı edinilmiş ilaç direnci, geri dönüşümsüz BTK inhibitörlerinin başlıca zorlayıcı sorunu olarak tanımlanmaktadır [5]. Kovalent BTK inhibitörleri ibrutinib, acalabrutinib ve zanubrutinib BTK'nın C481 bölgesine bağlanır ve hepsi C481S mutasyonundan etkilenir [2]. C481S mutasyonundan sonra geri dönüşümsüz kovalent inhibitörler BTK ile kovalent bağ kuramaz ve etkinlikleri düşer [5]. Mantle hücreli lenfomada da BTK inhibitörlerinin etkinliği, BTK C481S gibi direnç mutasyonları nedeniyle zorlanmaktadır [4].\n\nC481S mutasyonunun ortaya çıkması, bu mutasyondan bağımsız etki gösteren pirtobrutinib gibi kovalent olmayan (geri dönüşümlü) BTK inhibitörlerinin geliştirilmesine yol açmıştır [1]. Pirtobrutinib dahil kovalent olmayan BTK inhibitörleri C481S direncini aşar, ancak C481 dışındaki çeşitli BTK mutasyonlarıyla ilişkilidir [2].",
+  "ozet_karar": "GECER",
+  "ozet_aciklama": "'the major challenging problem' -> 'başlıca zorlayıcı sorun' kaynak 5'teki derecelendirmeyle aynı; diğer cümleler kaynak 1, 2, 4, 5 ile birebir, ilaç adları özgün yazımda.",
+  "takip": [
+   {
+    "soru": "pirtobrutinib alan hastalarda C481S'e ne oluyor",
+    "cevap": "Faz 1/2 BRUIN çalışmasında, daha önce kovalent BTK inhibitörü almış nüks/dirençli kronik lenfositik lösemi (KLL) hastalarında başlangıçtaki yaygın BTK mutasyonları C481S (%85), C481R (%10), C481F (%6) ve C481Y (%4) idi [3]. Pirtobrutinib altında hastalık ilerlediğinde, 43 hastanın 36'sında (%84) BTK C481x mutasyonlarında azalma ya da tam temizlenme gözlenmiştir [3]. İlerleme sırasında 39 hastada saptanan 55 edinilmiş BTK mutasyonunun %5'i C481S/R/Y idi [3].",
+    "karar": "GECER",
+    "aciklama": "Yüzdeler ve sayılar (85/10/6/4, 36/43, 55 mutasyon/39 hasta, %5) kaynak 3 ile birebir; C481x ve C481S/R/Y birleşik grupları tek varyanta indirgenmemiş."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Peki pirtobrutinibe direnç gelişirse diğer ilaçlarla çapraz direnç olur mu?",
+   "cevap": "Kovalent olmayan BTK inhibitörleriyle ilişkili C481 dışı mutasyonlar arasında, acalabrutinib ve zanubrutinib direnciyle de ilişkili T474 kodonu ve L528W mutasyonları bulunur [2]. Bazı C481 dışı varyant mutasyonların pirtobrutinib, zanubrutinib ve acalabrutinib arasında ortak olması, çapraz direnç ve tedavi sıralaması açısından olası sonuçlar doğurmaktadır [1]. Laboratuvarda (in vitro) C481 ve C481 dışı mutasyonlara karşı etkinlik gösteren BTK protein yıkıcıları (degrader) şu anda klinik geliştirme aşamasındadır [1].",
+   "karar": "GECER",
+   "aciklama": "'potential implications' niteleyicisi ve in vitro bağlamı korunmuş; atıflar doğru kaynağa gidiyor."
+  },
+  "ret_kapsam": [
+   {
+    "soru": "C481S saptanan bir hastada pirtobrutinib günde kaç mg verilmeli?",
+    "karar": "RET_DOGRU",
+    "aciklama": "Hiçbir kaynakta doz bilgisi yok."
+   }
+  ],
+  "gen_ret": [],
+  "not": "Kaynak 1, 2, 4 ve 5 derleme; kaynak 3'teki C481S yüzdeleri başlangıçta BTK mutasyonu olan hastalar içindeki dağılım; kaynak 4 mantle hücreli lenfoma, diğerleri ağırlıkla KLL."
+ },
+ {
+  "girdi": "rs671",
+  "ozet": "ALDH2, alkolden kaynaklanan asetaldehit ile vücutta üretilen (endojen) aldehitlerin detoksifikasyonunda görev alan mitokondriyal bir enzimdir [3]. ALDH2'yi inaktive eden rs671 polimorfizmi, küresel nüfusun %8'ine, Doğu Asya nüfusunun ise %50'sine varan oranlarda bulunur [3]. rs671; koroner arter hastalığı, alkole bağlı kalp işlev bozukluğu, pulmoner arteriyel hipertansiyon, kalp yetmezliği ve ilaca bağlı kardiyotoksisite riskinde artışla ilişkilidir [3]. Aynı derlemede rs671'in yaşlanmaya bağlı kalp işlev bozukluğuna ve aort anevrizması ya da diseksiyonu gelişimine karşı ortaya çıkmakta olan koruyucu bir rolünden de söz edilir [3].\n\nKoroner BT anjiyografi yapılan 658 koroner arter hastasında, ALDH2 rs671 mutasyonu taşıyanlarda daha şiddetli koroner kalsifikasyon gelişmiştir [2]. Glu504Lys polimorfizmi, miyokardiyal iskemi/reperfüzyon hasarıyla yakından ilişkilidir [5]. İnsan rs671 taşıyıcılarından elde edilen makrofajlar, artmış proinflamatuvar ve bozulmuş antiinflamatuvar makrofaj fenotipi göstermiştir [4].",
+  "ozet_karar": "GECER",
+  "ozet_aciklama": "'up to' (%8/%50'ye varan), 'emerging protective role' ve 'closely associated' kaynaklarla birebir; makrofaj bulgusu kaynak 4'te insan taşıyıcılar için açıkça yazıyor; fare bulguları varyanta mal edilmemiş.",
+  "takip": [
+   {
+    "soru": "rs671 sepsis ile ilişkili mi?",
+    "cevap": "Bir çalışmada ALDH2 rs671 mutasyonu taşıyan bireylerin septik akut solunum sıkıntısı sendromu (ARDS) geliştirmeye oldukça yatkın olduğu gösterilmiştir [1]. rs671 taşıyan ARDS hastalarında kandaki hücresiz DNA (cfDNA) ve miyeloperoksidaz (MPO)-DNA düzeyleri, yabanil tip ALDH2 taşıyan ARDS hastalarına göre daha yüksekti [1]. Fare sepsis modellerinde Aldh2 nakavt (knockout) ve Aldh2rs671 knock-in fareler, akciğerde ve dolaşımda NETozis (nötrofillerden hücre dışı tuzak salınımı) göstermiştir [1]. Aynı çalışmada ALDH2'ye özgü aktivatör Alda-1'in uygulanması, NETozisi baskılayarak septik ARDS'yi belirgin biçimde hafifletmiştir [1].",
+    "karar": "GECER",
+    "aciklama": "İnsan ve fare bulguları ayrı ve bağlamıyla yazılmış; Alda-1 cümlesi kaynaktaki gibi bağlam belirtilmeden aktarılmış, insana genellenmemiş."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Bu varyantı taşıyanlarda kalp krizi sonrası reperfüzyon hasarı için araştırılan bir ilaç var mı?",
+   "cevap": "Bir çalışmada ALDH2 genetik mutasyonu taşıyan insan nötrofillerinde kontrollere göre NETozisin arttığı gözlenmiştir [5]. FDA onaylı lökotrien C4 (LTC4) reseptör antagonisti pranlukast, hem yabanil tip hem de ALDH2 nakavt farelerde NETozisi baskılayarak iskemi/reperfüzyon hasarını hafifletmiştir [5]. Yazarlar pranlukastın, özellikle ALDH2 mutasyonu taşıyan bireylerde iskemi/reperfüzyon hasarını azaltmak için olası bir tedavi seçeneği olabileceğini belirtmiştir [5].",
+   "karar": "GECER",
+   "aciklama": "Pranlukast bulgusu fare (yabanil tip ve nakavt) bağlamında tutulmuş; 'might be a potential option' niteleyicisi korunmuş; FDA onayı kaynakta yazıyor ve bu endikasyona genellenmemiş."
+  },
+  "ret_kapsam": [],
+  "gen_ret": [],
+  "not": "Kaynak 5 varyantı Glu504Lys ve 'ALDH2 genetik mutasyonu' olarak anıyor; kaynak 1'de Alda-1 bulgusunun deney bağlamı (fare/insan) özette açık değil; kaynak 2'nin asıl konusu 4-HNE/Runx2, rs671 yalnız koroner kalsifikasyon kohortunda geçiyor."
+ },
+ {
+  "girdi": "rs1815739",
+  "ozet": "ACTN3 R577X (rs1815739) polimorfizminde X alelinin homozigot taşınması, hızlı tip kas liflerinin sarkomerlerinde α-aktinin-3'ün tamamen yokluğuna yol açar [2]. Elit sporcularda ACTN3 XX genotipi, hız ve güç ağırlıklı sporlarda daha düşük performansla ilişkilendirilmiştir [2]. 136 rekreasyonel (amatör) maraton koşucusunda yapılan bir çalışma, ACTN3 genotipinin bazı egzersiz fenotiplerini etkileyebileceği sonucuna varmıştır [2].\n\n2023 tarihli bir güncellemede ACTN3 rs1815739 C aleli, hem güç hem kuvvet için en umut verici genetik belirteçler arasında sayılmıştır [1]. 2020 sonuna kadarki verileri kapsayan bir başka güncellemede de ACTN3 rs1815739, güç için en umut verici belirteçlerden biriydi [5]. Bununla birlikte elit performans hâlâ yalnızca genetik testle iyi öngörülememektedir [1]. 50 yaş ve üzeri yetişkinlerde kas fenotiplerini inceleyen sistematik bir derlemede rs1815739, iki ya da daha fazla çalışmada kas fenotipleriyle anlamlı olarak ilişkili bulunan on polimorfizmden biriydi [4].",
+  "ozet_karar": "GECER",
+  "ozet_aciklama": "'ilişkilendirilmiştir' ve 'etkileyebileceği' (might) niteleyicileri korunmuş; C alelinin R/X karşılığı uydurulmamış; tüm atıflar doğru kaynağa gidiyor.",
+  "takip": [
+   {
+    "soru": "XX genotipli koşucularla RR genotipliler arasında fark var mı?",
+    "cevap": "136 rekreasyonel maraton koşucusunda XX grubunun vücut yağ yüzdesi RR grubundan yüksekti (%18,8 ± 5,5'e karşı %15,7 ± 5,8; p = 0,024) [2]. Maksimum izometrik kuvvet RR grubunda XX grubuna göre daha yüksekti (16,7 ± 4,7'ye karşı 14,7 ± 4,0 N/kg; p = 0,038) [2]. Yük altında yapılan hamle (lunge) testinde maksimum dorsifleksiyon da RR ve XX grupları arasında farklıydı (54,8 ± 5,8'e karşı 57,7 ± 5,1 derece; p = 0,044) [2]. Koşunun enerji maliyetinde ise genotipler arasında fark görülmedi (üç grupta da yaklaşık 4,8 J/kg/dk) [2].",
+    "karar": "GECER",
+    "aciklama": "Tüm ortalamalar, SD'ler ve p değerleri kaynak 2 ile birebir; karşılaştırma yönleri doğru."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Dayanıklılık sporcularında ACTN3 başka genlerle birlikte incelenmiş mi?",
+   "cevap": "Bir çalışmada ACTN3 Arg577Ter'in de aralarında bulunduğu yedi polimorfizm, 46 dünya çapında İspanyol dayanıklılık sporcusu ve 123 kontrolde birlikte incelenmiştir [3]. Bu yedi polimorfizmden hesaplanan ortalama toplam genotip skoru sporcularda kontrollere göre daha yüksekti (70,22 ± 15,58'e karşı 62,43 ± 11,45) [3]. Bir İspanyol bireyin bu yedi polimorfizm için teorik olarak optimal profile sahip olma olasılığı yaklaşık %0,07 (1351 kişide 1) bulunmuştur [3]. En iyi İspanyol dayanıklılık sporcularının hiçbiri optimal profile sahip değildi [3].",
+   "karar": "GECER",
+   "aciklama": "Bulgular yedi polimorfizmin birleşik skoruna ait olarak yazılmış, ACTN3'e mal edilmemiş; sayılar kaynak 3 ile birebir."
+  },
+  "ret_kapsam": [],
+  "gen_ret": [],
+  "not": "Kaynak 3 yedi polimorfizmin birleşik skorunu inceliyor, ACTN3'e özgü bulgu vermiyor; kaynak 1 'rs1815739 C' alelini anıyor, C'nin R/X karşılığı kaynaklarda yazmıyor; kaynak 4 ve 5 belirteç listesi düzeyinde."
+ },
+ {
+  "girdi": "chr11:17388025:T>C",
+  "ozet": "rs5219 (E23K), KCNJ11 genindeki bir tek nükleotid polimorfizmidir (SNP) [3]. Güney Hindistan'da 218 tip 2 diyabet (T2DM) hastası ve 214 kontrolle yapılan bir olgu-kontrol çalışmasında rs5219, artmış T2DM riskiyle ilişkili bulunmuştur (OR 2,52; güven aralığı 0,96-6,64; p = 0,046) [1]. Aynı çalışmada rs5219, HbA1c ve serum ürik asit düzeyleriyle anlamlı korelasyon göstermiştir [1]. Bu çalışmanın önceki literatürle birleştirildiği meta-analizde rs5219, beş genetik modelde T2DM ile anlamlı risk ilişkisi göstermiştir [1].\n\nArap ve beyaz ırk (Caucasian) popülasyonlarını inceleyen başka bir meta-analizde rs5219, her iki grupta da tip 2 diyabetle anlamlı olarak ilişkiliydi [4]. Havuzlanmış OR beyaz ırk (Caucasian) grubunda 1,176 (1,092-1,268; p < 0,0001), Araplarda 1,28 (1,111-1,475; p = 0,001) idi [4]. Gestasyonel diyabet üzerine bir sistematik derlemede ise rs5219'un minör aleli daha yüksek gestasyonel diyabet riskiyle anlamlı olarak ilişkili bulunmuştur [3].",
+  "ozet_karar": "DUZELTILDI",
+  "ozet_aciklama": "Çeviri hatası: 'Caucasians' iki cümlede 'Kafkas kökenli' diye çevrilmişti (Türkçede Kafkasya kökenini çağrıştırıyor, anlam kayıyor); 'beyaz ırk (Caucasian)' yapıldı. Sayılar ve diğer cümleler kaynaklarla birebir, değiştirilmedi.",
+  "takip": [
+   {
+    "soru": "K23E ani kalp ölümüyle ilişkili mi?",
+    "cevap": "Ani kardiyak ölüm görülen bir soy ağacında KCNJ11 geninin tüm kodlayan bölgesi ve intron-ekzon sınırları dizilenmiştir [2]. İncelenen örneklerde mutasyon saptanmamış, yaygın K23E (A>G) polimorfizmi görülmüş ve indeks olgu (proband) homozigot G/G genotipinde bulunmuştur [2]. Yazarlar, sonucun Kir6.2/KCNJ11 geninin bu ailede ani kardiyak ölümle ilişkili olmadığını düşündürdüğünü belirtmiştir [2].",
+    "karar": "GECER",
+    "aciklama": "Tek soy ağacı bağlamı ve 'bu ailede' niteleyicisi korunmuş; sonuç gene ait olarak yazılmış, K23E'ye genellenmemiş."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Güney Asya popülasyonlarında bu varyantın dağılımıyla ilgili bir bulgu var mı?",
+   "cevap": "1000 Genom Projesi'ndeki Houston'da yaşayan Gujarati Hintliler (GIH) ile Birleşik Krallık'taki Telugu Hintliler (ITU) üzerine bir çalışmada, farmakolojik açıdan önemli genlerdeki alel sıklığı farkları incelenmiştir [5]. Bu çalışmada KCNJ11'deki rs5215 ve rs5219, Doğu Asya (EAS) ya da Afrika (AFR) popülasyonlarıyla yüksek fiksasyon indeksi (≥ 0,5) paylaşan SNP'ler arasında yer almıştır [5]. Yazarlar bu analizin, Asyalı Hintlilerde genetik çeşitliliğin ilaç yanıtındaki rolünü anlamak için bir temel sağladığını belirtmiştir [5].",
+   "karar": "GECER",
+   "aciklama": "GIH/ITU tanımı, fiksasyon indeksi eşiği (≥ 0,5) ve sonuç cümlesi kaynak 5 ile birebir; rs5215 ile birlikte anıldığı korunmuş."
+  },
+  "ret_kapsam": [],
+  "gen_ret": [],
+  "not": "Kaynaklarda adlandırma karışık: E23K [3], K23E (A>G) [2], rs5219 [1][4][5]; kaynak 2 K23E'yi rs5219 ile açıkça eşleştirmiyor; kaynak 1'de OR'nin güven aralığı 1'i içeriyor ama p = 0,046 ve anlamlı ilişki bildirilmiş; kaynak 3'te en güçlü ilişki TCF7L2 için."
+ },
+ {
+  "girdi": "chr16:2090632:G>A",
+  "ozet": "Otozomal dominant polikistik böbrek hastalığı (ADPKD), en sık görülen kalıtsal böbrek hastalığıdır ve PKD1 ya da PKD2 genlerindeki mutasyonlardan kaynaklanır [1]. PKD1, ADPKD'nin ana lokusudur; ancak büyük transkripti ve karmaşık tekrarlı gen bölgesi nedeniyle mutasyon taraması zor olmuştur [5]. Moleküler tanıyı ayrıca kapsamlı alelik heterojenite ve PKD1'in 1 ile 33 arasındaki ekzonlarına yüksek derecede benzeyen (homolog) altı dizinin varlığı güçleştirir [1].\n\n202 probandlık CRISP kohortunda kesin mutasyonlar 127 probandda (%62,9) saptanmış, olası patojenik olarak sınıflanan değişikliklerle birlikte mutasyon tanımlanan proband sayısı 180'e (%89,1) çıkmıştır [2]. Bu 180 probandın 153'ünde (%85,0) mutasyon PKD1'de, 27'sinde (%15,0) PKD2'deydi [2]. 131 ilişkisiz hastada tüm PKD1 kodlayan bölgesinin tarandığı bir çalışmada mutasyonlar ekzon 1'den 46'ya kadar genin her bölgesinde bulunmuş ve belirgin bir sıcak nokta saptanmamıştır [5]. 749 Koreli ADPKD hastasında PKD1 genotipi, PKD2 genotipine göre son dönem böbrek hastalığının (SDBH) daha erken başlamasıyla ilişkiliydi (64,9'a karşı 72,9 yaş; P < 0,001) [3].",
+  "ozet_karar": "DUZELTILDI",
+  "ozet_aciklama": "Niteleyici düşürme: kaynak 2'de %89,1 (180 proband) kesin mutasyonlar (127, %62,9) ile 'olası patojenik' sınıflanan değişikliklerin toplamı; yazar bunu düz 'mutasyon tanımlandı' diye vermişti, ayrım kaynaktaki bilgiyle eklendi ve cümle ikiye bölündü. 'extensive' için 'yaygın' -> 'kapsamlı'. Gen kademesine uygun, varyant hakkında iddia yok.",
+  "takip": [
+   {
+    "soru": "PKD1'de proteini kısaltan mutasyonlar hastalığın seyrini etkiliyor mu?",
+    "cevap": "749 Koreli ADPKD hastasında PKD1 proteini kısaltan (protein-truncating, PKD1-PT) genotip, PKD1 kısaltıcı olmayan ve PKD2 genotiplerine göre daha genç tanı yaşı, daha büyük böbrek hacmi ve daha düşük böbrek işleviyle ilişkiliydi [3]. Yaş, cinsiyet ve ailesel kümelenme etkisi için düzeltilmiş kırılganlık (frailty) modelinde, PKD2 genotipinin son dönem böbrek hastalığına ulaşma riski PKD1-PT genotipine göre 0,2 kat daha düşüktü (p = 0,037) [3]. Yazarlar, genotiplemenin Korelilerde yeni tedaviler için hızlı ilerleyen hastaların seçilmesine katkı sağlayabileceğini öne sürmüştür [3].",
+    "karar": "GECER",
+    "aciklama": "Gen düzeyinde soru ve cevap; Koreli kohort bağlamı, model düzeltmeleri ve p = 0,037 kaynak 3 ile birebir; 'katkı sağlayabilir' niteleyicisi korunmuş."
+   }
+  ],
+  "cok_turlu": null,
+  "ret_kapsam": [],
+  "gen_ret": [
+   {
+    "soru": "Peki bende bulunan bu değişim polikistik böbrek hastalığına yol açar mı?",
+    "karar": "RET_DOGRU",
+    "aciklama": "Tüm kaynaklar gen düzeyi; c.12138+42C>T / rs776251772 hiçbir kaynakta geçmiyor."
+   },
+   {
+    "soru": "PKD1 c.12138+42C>T (rs776251772) varyantı patojenik mi?",
+    "karar": "RET_DOGRU",
+    "aciklama": "Varyant hiçbir kaynakta anılmıyor; kaynak 2'deki UCV sınıflaması genel, bu varyantı kapsamıyor."
+   }
+  ],
+  "not": "Tüm kaynaklar gen düzeyi; girilen intronik varyant hiçbir kaynakta geçmiyor; kaynak 4 prenatal ADPKD'de ek varyasyonlar, özette kullanılmadı."
+ },
+ {
+  "girdi": "chr2:47409324:C>T",
+  "ozet": "MSH2, DNA yanlış eşleşme onarımında (mismatch repair, MMR) anahtar bir faktördür [1]. Lynch sendromu, MMR genlerindeki (MLH1, MSH2, MSH6 ve PMS2) mutasyonlardan kaynaklanır ve kolorektal, endometriyum, over ve ürotelyal kanser riski yüksektir [2]. Lynch sendromu şüphesi olan hastaların yaklaşık %75'i MLH1 ya da MSH2'de varyant taşır; ancak bunların %30'u önemi bilinmeyen varyantlardır (VUS) [4].\n\nİsveç'te 369 Lynch sendromu ailesinde saptanan hastalığa yatkınlık yaratan mutasyonlar ailelerin %36'sında MSH2'yi etkiliyordu ve MSH2'de çerçeve kayması mutasyonları baskındı [2]. Almanya'da kalıtsal polipozis dışı kolorektal kanser (HNPCC) şüphesi olan 1.721 ilişkisiz hastayı içeren çok merkezli bir çalışmada, taranan 454 indeks hastanın 134'ünde patojenik MSH2 mutasyonu saptanmıştır [3]. İnsan hücrelerinde yapılan kitlesel paralel bir taramayla, MSH2'nin olası 17.746 varyantının %94'ünü kapsayan bir işlevsel etki haritası oluşturulmuştur [1]. Bu haritada yanlış anlamlı (missense) varyantların büyük çoğunluğu (%89) işlevsel olarak nötr bulunmuştur [1].",
+  "ozet_karar": "GECER",
+  "ozet_aciklama": "Gen kademesine uygun, girilen varyant hakkında iddia yok; sayılar (%75/%30, %36, 134/454, 17.746/%94, %89) kaynaklarla birebir; insan hücresi bağlamı korunmuş; kaynak 5'teki c.1A>G kullanılmamış.",
+  "takip": [
+   {
+    "soru": "MSH2 varyantlarının işlevini laboratuvarda test etmenin bir yolu var mı?",
+    "cevap": "Bir yöntemde MSH2 varyantları, MSH2 içermeyen insan kolorektal kanser hücre hattı LoVo'da geçici olarak ifade edilmiş ve metilleyici bir ajana maruz kalan hücrelerin ölüm oranı ölçülmüştür [4]. MMR süreci metilasyonla hasar görmüş DNA bazları olan hücrelerin ölümüne yol açtığından, ajanın toksisitesinden kaçan hücrelerin işlevi etkileyen varyantlar taşıdığı kabul edilmiştir [4]. MLH1 ve MSH2 varyantlarından oluşan 40 varyantlık doğrulama setinde test, 39 varyantı doğru sınıflandırmıştır [4].",
+    "karar": "GECER",
+    "aciklama": "Hücre hattı bağlamı (MSH2-null LoVo) doğru; 39/40 doğrulama sonucu MLH1+MSH2 birleşik seti olarak korunmuş, MSH2'ye mal edilmemiş."
+   }
+  ],
+  "cok_turlu": null,
+  "ret_kapsam": [],
+  "gen_ret": [
+   {
+    "soru": "Peki benim taşıdığım bu değişim Lynch sendromuna yol açar mı?",
+    "karar": "RET_DOGRU",
+    "aciklama": "Tüm kaynaklar gen düzeyi; c.366+769C>T / rs1017582597 hiçbir kaynakta geçmiyor."
+   },
+   {
+    "soru": "MSH2 c.366+769C>T (rs1017582597) varyantı patojenik mi yoksa zararsız mı?",
+    "karar": "RET_DOGRU",
+    "aciklama": "Varyant hiçbir kaynakta anılmıyor; kaynak 1'in işlevsel haritası missense varyantlar için, bu intronik varyantı kapsamıyor."
+   }
+  ],
+  "not": "Tüm kaynaklar gen düzeyi; girilen intronik varyant hiçbir kaynakta geçmiyor; kaynak 5 başka bir MSH2 varyantını (c.1A>G) anlatıyor, kullanılmadı; kaynak 4'teki doğrulama seti MLH1 ve MSH2 varyantlarının birleşimi."
+ }
+],
+ "ozet": {"incelenen": 33, "gecer": 23, "duzeltildi": 2, "sil": 0, "ret_dogru": 8, "ret_yanlis": 0,
+          "tekrarlayan_sorunlar": ["niteleyici düşürme: kesin + olası patojenik birleşik sayının düz 'mutasyon' olarak verilmesi (PKD1/CRISP)", "çeviri hatası: 'Caucasian' -> 'Kafkas kökenli' (KCNJ11)", "genel olarak paket temiz: deney bağlamı, birleşik bulgular ve gen/varyant ayrımı tutarlı biçimde korunmuş"]}}

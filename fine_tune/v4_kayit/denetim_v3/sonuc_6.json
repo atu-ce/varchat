@@ -1,0 +1,399 @@
+{
+ "paket": 6,
+ "ornekler": [
+  {
+   "index": 13,
+   "varyant": "CFTR F508del",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "CFTR F508del, kistik fibrozis (KF) hastalarının %80'inden fazlasının taşıdığı, epitel hücrelerinin klorür kanalı olan CFTR proteinindeki en sık mutasyondur [1].", "karar": "ATIF_HATALI", "aciklama": "[1]: KF hastalarının %80'inden fazlası F508del taşır, CFTR epitel hücrelerinin apikal zarında bir klorür kanalıdır. 'En sık/başlıca neden' ifadesi [5]'te ('predominant cause of CF'). Atıf [1][5] olmalı."},
+    {"cumle": "Üç nükleotitlik bir delesyon olan bu mutasyon CFTR'nin katlanmasını bozar ve protein, endoplazmik retikulum ilişkili yıkım (ERAD) ile parçalanarak hücre yüzeyine ulaşamaz [1].", "karar": "KISMEN", "aciklama": "Katlanma bozukluğu ve ERAD ile yıkım [1]'de var. 'Üç nükleotitlik delesyon' yalnızca [5]'te geçiyor. 'Hücre yüzeyine ulaşamaz' hiçbir kaynakta açıkça yazmıyor, çıkarıldı."},
+    {"cumle": "Tedavi büyük ölçüde CFTR modülatörlerine dayanır: küçük moleküllü \"düzelticiler\" (correctors) farmakolojik şaperon gibi davranarak CFTR-F508del'i ERAD'dan kurtarır; tezakaftor (VX-661) ve elexakaftor (VX-445), proteini yıkıma dirençli katlanma durumlarında kararlı kılar [1].", "karar": "KISMEN", "aciklama": "[1]'e göre birincil tedavi stratejisi düzelticilerdir (modülatör değil). Tezakaftor ve eleksakaftor 'RNF5'e dirençli, ardışık' katlanma durumlarını kararlı kılar. 'Yıkıma dirençli' demek aşırı genelleme, çünkü kaynak ERAD'ın RNF185 üzerinden sağlam biçimde sürdüğünü söylüyor. Ayrıca 'elexakaftor' yazımı Türkçe INN biçimine ('eleksakaftor') çevrildi."},
+    {"cumle": "Faz 3 çalışmada, F508del için homozigot hastalarda elexakaftor + tezakaftor + ivakaftor üçlü kombinasyonu, tezakaftor + ivakaftora kıyasla beklenen FEV1 yüzdesini yaklaşık 10 puan artırmış, ter klorürünü belirgin biçimde düşürmüş ve solunumla ilişkili yaşam kalitesini iyileştirmiştir; kombinasyon iyi tolere edilmiştir [3].", "karar": "KISMEN", "aciklama": "[3]: ppFEV1 farkı 10,0 puan, ter klorürü farkı -45,1 mmol/L, iyi tolerans. Bunlar doğru. Ancak kaynak yalnızca 'CFQ-R solunum alanı skoru' diyor; bunu 'yaşam kalitesi' diye yorumlamak kaynakta olmayan genel bilgi. 'elexakaftor' yazımı düzeltildi."},
+    {"cumle": "Bu tedavi en az bir F508del varyantı taşıyanlar için onaylıdır; F508del taşımayan hastalarda da Fransız erişim programında yarısından fazlası tedaviye yanıt vermiştir [2].", "karar": "KISMEN", "aciklama": "[2]'ye göre 'en az bir F508del' onayı Avrupa için geçerli; FDA ayrıca 177 nadir varyantı da onaylamış. Bölge belirtilmeyince onayın kapsamı genelleşiyor, 'Avrupa'da' eklendi. F508del taşımayanların yarıdan fazlasının yanıt vermesi doğru."},
+    {"cumle": "Genetik ve gelecek yaklaşımlar açısından, 5.058 KF hastasında yapılan tam CFTR gen dizilemesi kohortun %99,6'sında güncel veya gelişmekte olan tedavilerle hedeflenebilir en az bir varyant saptamıştır [4].", "karar": "DOGRU", "aciklama": "[4]: 5.058 bireyde, kohortun %99,6'sında güncel moleküler ya da gelişmekte olan gen temelli tedavilerle hedeflenebilir en az bir varyant bulunmuş."},
+    {"cumle": "Kalıcı, tek seferlik bir tedavi hedefiyle prime editing (baştan düzenleme) yöntemi optimize edilerek, hasta kaynaklı hava yolu epitel hücrelerinde F508del %25'e varan oranda düzeltilmiş ve CFTR iyon kanalı işlevi yaban tip düzeyin %50'sinin üzerine çıkarılmıştır [5].", "karar": "DIL_HATASI", "aciklama": "İçerik [5] ile uyumlu (hasta kaynaklı hücrelerde %25 düzeltme, yaban tip işlevin %50'sinden fazlası, kalıcı tek seferlik tedavi). 'Baştan düzenleme' uydurma ve yanıltıcı bir çeviri; 'prime editing (PE)' olarak bırakıldı."}
+   ],
+   "duzeltilmis_cevap": "CFTR F508del, kistik fibrozis (KF) hastalarının %80'inden fazlasının taşıdığı, epitel hücrelerinin klorür kanalı olan CFTR proteinindeki en sık mutasyondur [1][5]. Üç nükleotitlik bir delesyon olan bu mutasyon [5], CFTR'nin katlanmasını bozar ve proteinin endoplazmik retikulum ilişkili yıkım (ERAD) ile parçalanmasına yol açar [1].\n\nTedavide başlıca strateji küçük moleküllü düzelticilerdir (correctors): bunlar farmakolojik şaperon gibi davranarak CFTR-F508del'i ERAD'dan kurtarır; tezakaftor (VX-661) ve eleksakaftor (VX-445), proteini RNF5'e dirençli ardışık katlanma durumlarında kararlı kılar [1]. Faz 3 çalışmada, F508del için homozigot hastalarda eleksakaftor + tezakaftor + ivakaftor üçlü kombinasyonu, tezakaftor + ivakaftora kıyasla beklenen FEV1 yüzdesini yaklaşık 10 puan artırmış, ter klorürünü belirgin biçimde düşürmüş ve CFQ-R solunum alanı skorunu iyileştirmiştir; kombinasyon iyi tolere edilmiştir [3]. Bu tedavi Avrupa'da en az bir F508del varyantı taşıyanlar için onaylıdır; F508del taşımayan hastalarda da Fransız erişim programında yarısından fazlası tedaviye yanıt vermiştir [2].\n\nGenetik ve gelecek yaklaşımlar açısından, 5.058 KF hastasında yapılan tam CFTR gen dizilemesi kohortun %99,6'sında güncel veya gelişmekte olan tedavilerle hedeflenebilir en az bir varyant saptamıştır [4]. Kalıcı, tek seferlik bir tedavi hedefiyle prime editing (PE) yöntemi optimize edilerek, hasta kaynaklı hava yolu epitel hücrelerinde F508del %25'e varan oranda düzeltilmiş ve CFTR iyon kanalı işlevi yaban tip düzeyin %50'sinin üzerine çıkarılmıştır [5].",
+   "not": "Öğretmen 'elexakaftor' diye karma bir yazım kullanıyor; Türkçe INN biçimi 'eleksakaftor' (tezakaftor ve ivakaftor zaten Türkçe yazılmış). İlaç adı olduğu için ayrı bir dil hatası sayılmadı ama düzeltilmiş metinde normalize edildi."
+  },
+  {
+   "index": 76,
+   "varyant": "CFTR F508del",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Kistik fibrozisin en sık nedenidir; hastaların %80'inden fazlası bu mutasyonu taşır [1].", "karar": "ATIF_HATALI", "aciklama": "'%80'inden fazlası taşır' [1]'de var. 'KF'nin en sık/başlıca nedeni' ifadesi [5]'te ('predominant cause of CF'). İlk yan cümle [5]'e atıflanmalı."}
+   ],
+   "duzeltilmis_cevap": "Kistik fibrozisin (KF) başlıca nedenidir [5]; KF hastalarının %80'inden fazlası bu mutasyonu taşır [1].",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 77,
+   "varyant": "CFTR F508del",
+   "tur": "takip",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Üç nükleotitlik bir delesyon olan bu mutasyon CFTR'nin katlanmasını bozar ve protein, endoplazmik retikulum ilişkili yıkım (ERAD) ile parçalanarak hücre yüzeyine ulaşamaz [1].", "karar": "KISMEN", "aciklama": "Katlanma bozukluğu ve ERAD ile yıkım [1]'de var. 'Üç nükleotitlik delesyon' [5]'te. 'Hücre yüzeyine ulaşamaz' kaynaklarda açıkça yazmıyor, çıkarıldı."}
+   ],
+   "duzeltilmis_cevap": "Üç nükleotitlik bir delesyon olan bu mutasyon [5], CFTR'nin katlanmasını bozar ve proteinin endoplazmik retikulum ilişkili yıkım (ERAD) ile parçalanmasına yol açar [1].",
+   "not": ""
+  },
+  {
+   "index": 78,
+   "varyant": "CFTR F508del",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Evet; elexakaftor + tezakaftor + ivakaftor üçlü kombinasyonu, F508del için homozigot hastalarda beklenen FEV1 yüzdesini yaklaşık 10 puan artırmış ve ter klorürünü belirgin düşürmüştür [3].", "karar": "KISMEN", "aciklama": "[3]'teki 10,0 puan, tezakaftor + ivakaftor koluna göre en küçük kareler tedavi farkıdır. Karşılaştırma kolu yazılmayınca mutlak bir artış gibi okunuyor, eklendi. 'elexakaftor' yazımı 'eleksakaftor' yapıldı."},
+    {"cumle": "Bu düzelticiler CFTR-F508del'i yıkımdan kurtararak çalışır [1].", "karar": "KISMEN", "aciklama": "[1] yalnızca tezakaftor ve eleksakaftoru düzeltici olarak anar ve ERAD'dan kurtarma mekanizmasını onlara bağlar. 'Bu düzelticiler' ifadesi üçlünün tamamını (ivakaftor dahil) düzeltici gibi gösteriyor; [3] tezakaftor + ivakaftoru 'düzeltici + potansiyatör' olarak tanımlar."}
+   ],
+   "duzeltilmis_cevap": "Evet; eleksakaftor + tezakaftor + ivakaftor üçlü kombinasyonu, F508del için homozigot hastalarda tezakaftor + ivakaftora kıyasla beklenen FEV1 yüzdesini yaklaşık 10 puan artırmış ve ter klorürünü belirgin düşürmüştür [3]. Bu kombinasyondaki düzelticiler olan tezakaftor ve eleksakaftor, CFTR-F508del'i ERAD yıkımından kurtararak çalışır [1].",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 180,
+   "varyant": "CFTR F508del",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "5 kaynağın hiçbirinde diyet ya da beslenme ile ilgili bilgi yok."
+  },
+  {
+   "index": 31,
+   "varyant": "FGFR3 S249C",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "FGFR3 S249C, fibroblast büyüme faktörü reseptörü 3'ü (FGFR3) kodlayan gendeki en sık görülen tekrarlayan mutasyondur ve mesane kanserinde başlıca sürücülerdendir [1][3].", "karar": "DOGRU", "aciklama": "[1]: S249C mesane kanserinde en sık tekrarlayan FGFR3 mutasyonu ve 'klinik açıdan önemli sürücü mutasyon'; [3]: 'en sık FGFR3 mutasyonu (S249C)'."},
+    {"cumle": "Düşük dereceli, invaziv olmayan papiller ürotelyal karsinomların %60'ından fazlası aktive edici FGFR3 nokta mutasyonları taşır [3].", "karar": "DOGRU", "aciklama": "[3]'ün ilk cümlesinin birebir karşılığı."},
+    {"cumle": "Mutant S249C proteini kararlı homodimerler oluşturur ve sürekli fosforillenir [3].", "karar": "DOGRU", "aciklama": "[3]: 97-7 hücrelerinde S249C FGFR3 kararlı homodimerler oluşturmuş ve sürekli fosforile olmuş."},
+    {"cumle": "Kökeni açısından S249C (TCC→TGC) bir APOBEC motifini temsil eder ve muhtemelen APOBEC aracılı mutasyonel süreçten kaynaklanır; bu, mesane tümörlerinde neden bu kadar sık görüldüğünü açıklar [1].", "karar": "DOGRU", "aciklama": "[1]: TCC→TGC APOBEC tipi motif, muhtemelen APOBEC aracılı süreçten kaynaklanıyor ve aşırı temsilini açıklıyor."},
+    {"cumle": "Klinik önemi ve tedavi açısından FGFR3 S249C mesane kanserinde onkojenik bir bağımlılık oluşturur; shRNA ile susturulması hücre çoğalmasını ve klonojenik kapasiteyi azaltır ve bu, hedefe yönelik inhibisyonun terapötik değerini destekler [3].", "karar": "KISMEN", "aciklama": "[3]: shRNA ile susturma tek bir hücre hattında (97-7) çoğalmayı ve klonojeniteyi azaltmış ve 'hücre hattının mutant FGFR3'e olası bağımlılığını' göstermiş; inhibisyonun 'yüzeyel mesane kanserinde yararlı bir yaklaşım olabileceği' söyleniyor. Cevap bunu tüm mesane kanseri için kesin bir onkojenik bağımlılık gibi genelliyor."},
+    {"cumle": "Ürotelyal karsinomda erdafitinib gibi FGFR inhibitörleri onaylı hedefli tedavilerdir; ancak yanıt oranları FGFR3 değişiminin tipine bağlıdır: FGFR3-TACC3 füzyonları daha yüksek yanıtla ilişkiliyken S249C mutasyonu yanıtla negatif korelasyon göstermiştir [2].", "karar": "KISMEN", "aciklama": "[2]'ye göre FGFR'ler ürotelyal karsinomda FGFRi için onaylı tedavi hedefleri. Erdafitinib ise yalnızca 'klinik çalışmalarda en sık kullanılan FGFRi' (%47,37); onaylı olduğu kaynakta yazmıyor. Füzyon ve S249C ile yanıt arasındaki ilişkiler doğru."},
+    {"cumle": "Fare modellerinde S249C, erken evrede akut inflamasyonu baskılayarak mesane tümör gelişimini artırır [5].", "karar": "DOGRU", "aciklama": "[5]'in başlığı ve özeti: S249C varlığında OH-BBN ile oluşan tümörlerin ortaya çıkışı ve ilerlemesi artmış, erken evrede akut inflamasyon baskılanmış."}
+   ],
+   "duzeltilmis_cevap": "FGFR3 S249C, fibroblast büyüme faktörü reseptörü 3'ü (FGFR3) kodlayan gendeki en sık görülen tekrarlayan mutasyondur ve mesane kanserinde başlıca sürücülerdendir [1][3]. Düşük dereceli, invaziv olmayan papiller ürotelyal karsinomların %60'ından fazlası aktive edici FGFR3 nokta mutasyonları taşır [3]. Mutant S249C proteini kararlı homodimerler oluşturur ve sürekli fosforillenir [3].\n\nKökeni açısından S249C (TCC→TGC) bir APOBEC motifini temsil eder ve muhtemelen APOBEC aracılı mutasyonel süreçten kaynaklanır; bu, mesane tümörlerinde neden bu kadar sık görüldüğünü açıklar [1].\n\nKlinik önemi ve tedavi açısından, S249C taşıyan 97-7 tümör hücre hattında mutant FGFR3'ün shRNA ile susturulması hücre çoğalmasını ve klonojenik kapasiteyi azaltmıştır; bu, hücre hattının mutant FGFR3'e olası bağımlılığını gösterir ve hedefe yönelik inhibisyonun yüzeyel mesane kanserinde yararlı bir tedavi yaklaşımı olabileceğini düşündürür [3]. Ürotelyal karsinomda FGFR'ler, FGFR inhibitörleri için klinik olarak onaylı tedavi hedefleridir ve klinik çalışmalarda en sık kullanılan FGFR inhibitörü erdafitinib'dir; ancak yanıt oranları FGFR3 değişiminin bölgesine göre farklılık gösterir: FGFR3-TACC3 füzyonları daha yüksek yanıtla ilişkiliyken S249C mutasyonu yanıtla negatif korelasyon göstermiştir [2]. Fare modellerinde S249C, erken evrede akut inflamasyonu baskılayarak mesane tümör gelişimini artırır [5].",
+   "not": ""
+  },
+  {
+   "index": 130,
+   "varyant": "FGFR3 S249C",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Mesane kanserinde en sık görülen tekrarlayan FGFR3 mutasyonudur; düşük dereceli papiller ürotelyal karsinomların %60'ından fazlası aktive edici FGFR3 mutasyonları taşır [1][3].", "karar": "KISMEN", "aciklama": "[1]: mesane kanserindeki en sık tekrarlayan FGFR3 mutasyonu, doğru. [3]'teki %60'tan fazla oranı 'düşük dereceli, invaziv olmayan papiller' tümörler için verilmiş; 'invaziv olmayan' niteliği atlanınca popülasyon genişliyor. Atıflar ilgili yan cümlelere ayrıldı."}
+   ],
+   "duzeltilmis_cevap": "Mesane kanserinde en sık görülen tekrarlayan FGFR3 mutasyonudur [1]; düşük dereceli, invaziv olmayan papiller ürotelyal karsinomların %60'ından fazlası aktive edici FGFR3 nokta mutasyonları taşır [3].",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 131,
+   "varyant": "FGFR3 S249C",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "S249C (TCC→TGC) bir APOBEC motifini temsil eder ve muhtemelen APOBEC aracılı mutasyonel süreçten kaynaklanır; bu, tümörlerdeki fazla temsilini açıklar [1].", "karar": "DOGRU", "aciklama": "[1]: 'represents an APOBEC-type motif and is probably caused by the APOBEC-mediated mutagenic process, accounting for its over-representation'."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": "'Fazla temsil' bir çeviri kalıbı ama anlaşılır; düzeltme gerekmedi."
+  },
+  {
+   "index": 132,
+   "varyant": "FGFR3 S249C",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Ürotelyal karsinomda erdafitinib gibi FGFR inhibitörleri onaylıdır; ancak S249C mutasyonu tedavi yanıtıyla negatif korelasyon gösterirken FGFR3-TACC3 füzyonları daha yüksek yanıtla ilişkilidir [2].", "karar": "KISMEN", "aciklama": "[2]'de onaylı olan şey FGFR'lerin FGFRi için tedavi hedefi olması; erdafitinib yalnızca 'klinik çalışmalarda en sık kullanılan FGFRi' olarak geçiyor, onayı yazmıyor. Yanıtla ilgili korelasyonlar doğru."}
+   ],
+   "duzeltilmis_cevap": "Ürotelyal karsinomda FGFR'ler, FGFR inhibitörleri için klinik olarak onaylı tedavi hedefleridir ve klinik çalışmalarda en sık kullanılan FGFR inhibitörü erdafitinib'dir; ancak S249C mutasyonu tedavi yanıtıyla negatif korelasyon gösterirken FGFR3-TACC3 füzyonları daha yüksek yanıtla ilişkilidir [2].",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 198,
+   "varyant": "FGFR3 S249C",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda aşı ile ilgili bilgi yok ([5]'teki anti-Ly6G antikoru fare deneyinde nötrofil azaltmak için kullanılmış, aşı değil)."
+  },
+  {
+   "index": 16,
+   "varyant": "IDH2 R140Q",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "IDH2 R140Q, izositrat dehidrogenaz 2 enzimindeki en sık görülen mutasyondur ve lösemi gelişimini (lökomojenezi) tetikler; sitogenetik olarak normal akut miyeloid löseminin (AML) %15'inden fazlasında IDH2 mutasyonları görülür [1][2].", "karar": "KISMEN", "aciklama": "[1]'e göre R140Q lösemogenezi destekler (promotes). [2]'ye göre IDH2 mutasyonları CN-AML'nin %15'inden fazlasında görülür. R140Q'nun 'IDH2'deki en sık mutasyon' olduğu hiçbir kaynakta yazmıyor. 'Lökomojenez' bozuk bir terim, doğrusu 'lösemogenez'."},
+    {"cumle": "Mutant enzim, onkometabolit 2-hidroksiglutarat birikimine yol açar [4].", "karar": "KISMEN", "aciklama": "[4]: mutant IDH2 2-hidroksiglutarat birikimine 'yol açabilir' ve bu durum AML gibi malignitelerle ilişkilidir. 'Onkometabolit' nitelemesi kaynakta yok (genel bilgi)."},
+    {"cumle": "Mekanizma açısından IDH2/R140Q, TF-1 hücrelerini sitokinden bağımsız çoğalmaya dönüştürür; bu, STAT3 ve STAT5'in anormal sürekli fosforilasyonu ve otokrin GM-CSF, LIF ve OSM salgısıyla ilişkilidir [1].", "karar": "DOGRU", "aciklama": "[1]: sitokinden bağımsız çoğalma, STAT3/5'in sürekli fosforilasyonu, otokrin GM-CSF, LIF ve OSM artışı."},
+    {"cumle": "STAT3/5 fosforilasyonunun inhibisyonu bu sitokinden bağımsız çoğalmayı baskılar ve AML tedavisinde yeni bir strateji olabilir [1].", "karar": "DOGRU", "aciklama": "[1]: inhibisyon çoğalmayı baskılamış; STAT3/5 fosforilasyonunu hedeflemek IDH2/R140Q taşıyan AML'de yeni bir strateji olabilir."},
+    {"cumle": "Zebra balığı modelleri IDH2R140Q AML'sinin morfolojik ve moleküler özelliklerini taklit eder ve lösemik fenotip quizartinib ve enasidenib ile hafifletilebilir [2].", "karar": "DOGRU", "aciklama": "[2]: modeller (FLT3ITD ile birlikte) insan AML'sinin morfolojik, klinik, işlevsel ve transkriptomik özelliklerini taklit etmiş; fenotip quizartinib ve enasidenib ile hafiflemiş."},
+    {"cumle": "Tedavi açısından IDH2/R140Q'yu hedeflemek klinikte umut verici sonuçlar vermiştir; ancak tedavi edilen hastaların %12'sinde direnç gelişir [1].", "karar": "DOGRU", "aciklama": "[1]: 'encouraging therapeutic effects... resistance occurs in 12% of IDH2/R140Q inhibitor treated patients'."},
+    {"cumle": "Mutant IDH2'yi hedefleyen yeni inhibitörler moleküler doking yöntemleriyle araştırılmaktadır [4].", "karar": "DOGRU", "aciklama": "[4]: ayrımcı analize dayalı moleküler doking ile üç yeni IDH2R140Q inhibitörü bulunmuş."}
+   ],
+   "duzeltilmis_cevap": "IDH2 R140Q, izositrat dehidrogenaz 2 (IDH2) enzimindeki bir mutasyondur ve lösemi gelişimini (lösemogenez) destekler [1]; IDH2 mutasyonları sitogenetik olarak normal akut miyeloid löseminin (AML) %15'inden fazlasında görülür [2]. Mutant IDH2, AML gibi malignitelerle sıklıkla ilişkili olan 2-hidroksiglutarat birikimine yol açabilir [4].\n\nMekanizma açısından IDH2/R140Q, TF-1 hücrelerini sitokinden bağımsız çoğalmaya dönüştürür; bu, STAT3 ve STAT5'in anormal sürekli fosforilasyonu ve otokrin GM-CSF, LIF ve OSM salgısıyla ilişkilidir [1]. STAT3/5 fosforilasyonunun inhibisyonu bu sitokinden bağımsız çoğalmayı baskılar ve AML tedavisinde yeni bir strateji olabilir [1]. Zebra balığı modelleri IDH2R140Q AML'sinin morfolojik ve moleküler özelliklerini taklit eder ve lösemik fenotip quizartinib ve enasidenib ile hafifletilebilir [2].\n\nTedavi açısından IDH2/R140Q'yu hedeflemek klinikte umut verici sonuçlar vermiştir; ancak tedavi edilen hastaların %12'sinde direnç gelişir [1]. Mutant IDH2'yi hedefleyen yeni inhibitörler moleküler doking yöntemleriyle araştırılmaktadır [4].",
+   "not": "Kaynak 3 ve 5'in yalnızca başlığı var (özet yok); cevapta kullanılmamışlar."
+  },
+  {
+   "index": 85,
+   "varyant": "IDH2 R140Q",
+   "tur": "takip",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "İzositrat dehidrogenaz 2'deki en sık mutasyondur ve sitogenetik olarak normal akut miyeloid löseminin %15'inden fazlasında görülür [1][2].", "karar": "KISMEN", "aciklama": "'IDH2'deki en sık mutasyon' ifadesi desteksiz. [2]'deki %15'ten fazla oranı tek başına R140Q için değil, IDH2 mutasyonlarının toplamı için verilmiş; cevap bunu R140Q'ya mal ediyor. AML ile ilişki [1]'de var."}
+   ],
+   "duzeltilmis_cevap": "Akut miyeloid lösemide (AML) görülür ve lösemi gelişimini destekler [1]; IDH2 mutasyonları ise sitogenetik olarak normal AML'nin %15'inden fazlasında bulunur [2].",
+   "not": "Aynı hatalı oran aktarımı özet örneğinde (16) doğru yazılmışken takipte varyanta mal edilmiş."
+  },
+  {
+   "index": 86,
+   "varyant": "IDH2 R140Q",
+   "tur": "takip_cok_turlu",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "TF-1 hücrelerini sitokinden bağımsız çoğalmaya dönüştürür; bu, STAT3 ve STAT5'in anormal sürekli fosforilasyonuyla ilişkilidir ve STAT3/5 inhibisyonu bu çoğalmayı baskılar [1].", "karar": "DOGRU", "aciklama": "[1]: sitokinden bağımsız çoğalma, STAT3/5'in sürekli fosforilasyonu, fosforilasyon inhibisyonunun çoğalmayı baskılaması."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 87,
+   "varyant": "IDH2 R140Q",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "IDH2/R140Q'yu hedeflemek klinikte umut verici sonuçlar vermiştir; ancak tedavi edilen hastaların %12'sinde direnç gelişir [1].", "karar": "DOGRU", "aciklama": "[1]: IDH2/R140Q inhibitörüyle tedavi edilen hastaların %12'sinde direnç."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 156,
+   "varyant": "IDH2 R140Q",
+   "tur": "ret_yabanci",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Soru başka bir varyantla (MYD88 L265P) ilgili; IDH2 kaynaklarının hiçbirinde MYD88 geçmiyor."
+  },
+  {
+   "index": 183,
+   "varyant": "IDH2 R140Q",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda doz bilgisi yok: [2] quizartinib ve enasidenibi yalnızca zebra balığında, [4] IC50 düzeyinde in vitro bileşikleri anar."
+  },
+  {
+   "index": 30,
+   "varyant": "KRAS G13D",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "KRAS G13D, kolorektal kanserde (KRK) sık görülen ve kötü prognozla ilişkili, kendine özgü biyolojik davranış gösteren bir KRAS mutasyonudur [1].", "karar": "KISMEN", "aciklama": "[1]: G13D kötü prognoz ve kendine özgü biyolojik davranışlarla ilişkili; dünyada yaygın olan KRK'nin kendisi. G13D'nin KRK'de 'sık görülen' bir mutasyon olduğu hiçbir kaynakta yazmıyor."},
+    {"cumle": "Biyokimyasal olarak G13D, aktif bölgedeki elektrostatik yük dağılımını değiştirerek diğer KRAS mutantlarına kıyasla hızlı nükleotit değişim kinetiği gösterir [5].", "karar": "DOGRU", "aciklama": "[5]: hızlı nükleotit değişim kinetiği; aktif bölgedeki elektrostatik yük dağılımının değişmesiyle açıklanıyor."},
+    {"cumle": "Klinik önemi ve direnç açısından KRAS mutasyonları, EGFR'yi hedefleyen monoklonal antikorlara (setuksimab) doğal direnç sağlar [2].", "karar": "DOGRU", "aciklama": "[2]: KRAS mutasyonu setuksimab gibi anti-EGFR monoklonal antikorlara doğal direnç sağlar."},
+    {"cumle": "G13D-mutant KRK'lerde yalnızca bu alt tipte aktive olan bir HER2-ELF3-KRAS ekseni, saldırgan onkojenik özellikleri ve setuksimab direncini sürükler; bu eksenin (ör. YK1 ile ELF3-MED23 etkileşiminin) bozulması hücreleri setuksimaba duyarlı hale getirir [1].", "karar": "DIL_HATASI", "aciklama": "İçerik [1] ile uyumlu. 'Direncini sürükler' İngilizce 'drive' fiilinin hatalı çevirisi (sürüklemek 'yol açmak' anlamına gelmez). Tıbbi Türkçede 'saldırgan' yerine 'agresif' kullanılır. Parantez yapısı da bozuk."},
+    {"cumle": "Tedaviyi güçlendirme açısından doğal bir bileşik olan honokiol, SNX3-retromer kompleksini bozarak ve RAS'ın GDP'den GTP'ye dönüşümünü engelleyerek G13D-mutant KRK modellerinde setuksimab duyarlılığını artırır [2].", "karar": "DOGRU", "aciklama": "[2]: doğal ürün kütüphanesinden honokiol; SNX3-retromeri bozuyor, RAS-GDP'nin RAS-GTP'ye dönüşümünü engelliyor ve preklinik modellerde setuksimab duyarlılığını artırıyor."},
+    {"cumle": "Ayrıca G13D, KRAS G12C inhibitörlerine karşı tedavi sırasında ortaya çıkan kazanılmış direnç mekanizmalarından biri olarak da saptanmıştır [3][4].", "karar": "DOGRU", "aciklama": "[3]: adagrasib direncinde kazanılmış KRAS G13D; [4]: G12C inhibisyonuna dirençle düşük alel frekanslı KRAS G13D ilişkili."}
+   ],
+   "duzeltilmis_cevap": "KRAS G13D, kolorektal kanserde (KRK) kötü prognoz ve kendine özgü biyolojik davranışlarla ilişkili bir KRAS mutasyonudur [1]. Biyokimyasal olarak G13D, aktif bölgedeki elektrostatik yük dağılımını değiştirerek diğer KRAS mutantlarına kıyasla hızlı nükleotit değişim kinetiği gösterir [5].\n\nKlinik önemi ve direnç açısından KRAS mutasyonları, EGFR'yi hedefleyen monoklonal antikorlara (setuksimab) doğal direnç sağlar [2]. G13D-mutant KRK'lerde yalnızca bu alt tipte aktive olan bir HER2-ELF3-KRAS ekseni, agresif onkojenik özelliklere ve setuksimab direncine yol açar; bu eksenin zayıflatılması (ör. YK1 ile ELF3-MED23 etkileşiminin bozulması) hücreleri setuksimaba duyarlı hale getirir [1].\n\nTedaviyi güçlendirme açısından doğal bir bileşik olan honokiol, SNX3-retromer kompleksini bozarak ve RAS'ın GDP'den GTP'ye dönüşümünü engelleyerek G13D-mutant KRK modellerinde setuksimab duyarlılığını artırır [2]. Ayrıca G13D, KRAS G12C inhibitörlerine karşı tedavi sırasında ortaya çıkan kazanılmış direnç mekanizmalarından biri olarak da saptanmıştır [3][4].",
+   "not": ""
+  },
+  {
+   "index": 127,
+   "varyant": "KRAS G13D",
+   "tur": "takip",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Kolorektal kanserde sık görülür, kötü prognozla ilişkilidir ve kendine özgü biyolojik davranış gösterir [1].", "karar": "KISMEN", "aciklama": "Kötü prognoz ve kendine özgü biyolojik davranış [1]'de var. G13D'nin KRK'de 'sık görüldüğü' yazmıyor (kaynak KRK'nin kendisinin yaygın olduğunu söylüyor)."}
+   ],
+   "duzeltilmis_cevap": "Kolorektal kanserde (KRK) kötü prognozla ve kendine özgü biyolojik davranışlarla ilişkilidir [1].",
+   "not": ""
+  },
+  {
+   "index": 128,
+   "varyant": "KRAS G13D",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "KRAS mutasyonları setuksimaba doğal direnç sağlar; G13D-mutant kolorektal kanserde HER2-ELF3-KRAS ekseni bu direnci sürükler ve bu eksenin bozulması hücreleri setuksimaba duyarlı hale getirir [1][2].", "karar": "DIL_HATASI", "aciklama": "İçerik doğru: doğal direnç [2]'de, HER2-ELF3-KRAS ekseni ve duyarlılaştırma [1]'de. 'Direnci sürükler' hatalı bir çeviri kalıbı; atıflar da ilgili yan cümlelere ayrıldı."}
+   ],
+   "duzeltilmis_cevap": "KRAS mutasyonları setuksimaba doğal direnç sağlar [2]; G13D-mutant kolorektal kanserde HER2-ELF3-KRAS ekseni bu dirence yol açar ve bu eksenin zayıflatılması hücreleri setuksimaba duyarlı hale getirir [1].",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 129,
+   "varyant": "KRAS G13D",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Aktif bölgedeki elektrostatik yük dağılımını değiştirerek diğer KRAS mutantlarına kıyasla hızlı nükleotit değişim kinetiği gösterir [5].", "karar": "DOGRU", "aciklama": "[5]: G13D'de hızlı nükleotit değişimi, elektrostatik yük dağılımındaki değişimle açıklanıyor (X-ışını kristalografisi)."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 163,
+   "varyant": "KRAS G13D",
+   "tur": "ret_yabanci",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Soru başka bir varyantla (PIK3CA H1047R) ilgili; KRAS kaynaklarında PIK3CA ya da onaylı tedavisi geçmiyor."
+  },
+  {
+   "index": 197,
+   "varyant": "KRAS G13D",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda çocuk ya da pediatrik hasta ile ilgili bilgi yok."
+  },
+  {
+   "index": 7,
+   "varyant": "PIK3CA H1047R",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "PIK3CA H1047R, PI3K enziminin katalitik alt birimini (p110α) kodlayan PIK3CA genindeki en sık görülen sıcak nokta mutasyondur ve meme kanserinde tüm PIK3CA mutasyonlarının yaklaşık üçte birini (%35) oluşturur [1].", "karar": "KISMEN", "aciklama": "[1]: meme kanserinde PIK3CA mutasyonlarının %35'i. 'En sık PIK3CA mutasyonu' [5]'te, 'sıcak nokta' ifadesi [4]'te geçiyor, [1]'de değil. 'PI3K'nın katalitik alt birimi' hiçbir kaynakta yok. Ayrıca 'sıcak nokta mutasyondur' yerine 'mutasyonudur' olmalı."},
+    {"cumle": "Meme kanseri hastalarının yaklaşık %36'sı PIK3CA-mutant tümör taşır; bu mutasyonlar hormon reseptörü pozitif/HER2-negatif alt tipte (%42), üçlü-negatif alt tipe (%16) göre daha sıktır [1].", "karar": "DOGRU", "aciklama": "[1]: %35,7 (2261/6338); HR+/HER2- %42, TNBC %16."},
+    {"cumle": "İleri PIK3CA-mutant meme kanserinde therascreen tanı testi ve alfa-özgül PI3K inhibitörü alpelisib onaylıdır; ancak bu panel, bilinen PIK3CA-mutant hastaların yaklaşık %20'sini yakalayamaz [1].", "karar": "DOGRU", "aciklama": "[1]: therascreen ve alpelisib FDA onaylı; bilinen PIK3CA mutasyonlu hastaların yaklaşık %20'si yakalanmıyor."},
+    {"cumle": "Mekanizma açısından p110α'nın H1047R mutantı PI3K-AKT yolunu sürekli aktive eder ve MCF-10A hücrelerini dönüştürerek SNAIL indüksiyonu ve E-kaderin kaybıyla epitel-mezenkimal geçişe (EMT) yol açar [5].", "karar": "DOGRU", "aciklama": "[5]: p110αH1047R MCF-10A hücrelerini dönüştürür, PI3K-AKT'yi sürekli uyarır, SNAIL indüksiyonu ve E-kaderin kaybıyla EMT oluşturur."},
+    {"cumle": "Üçlü-negatif meme kanserinde bildirilen sıcak nokta mutasyondur ve hedefe yönelik ilaç geliştirmek için hesaplamalı yöntemlerle doğal bileşikler taranmaktadır [3].", "karar": "DIL_HATASI", "aciklama": "İçerik [3] ile uyumlu. Tamlama eki eksik: 'sıcak nokta mutasyondur' yerine 'sıcak nokta mutasyonudur' olmalı."},
+    {"cumle": "Hindistan'daki baş-boyun skuamöz hücreli karsinom hastalarında %52 sıklıkta saptanmış ve mutasyon taşıyanlarda genel ve progresyonsuz sağkalım daha kısa bulunmuştur (kötü prognoz) [4].", "karar": "DOGRU", "aciklama": "[4]: 48 hastanın 25'i (%52) heterozigot mutant; OS ve PFS daha kısa; kötü prognoz."},
+    {"cumle": "Kanser dışında da önemi vardır: somatik H1047R mutasyonu PI3Kα-AKT-mTOR yolunu aşırı aktive ederek venöz malformasyonlara neden olur; fare modellerinde mTOR blokajının etkisi sınırlı kalırken TIE2 veya ANGPT hedeflenmesi lezyon büyümesini baskılamıştır [2].", "karar": "KISMEN", "aciklama": "[2]: venöz malformasyonlar sıklıkla PI3Kα-AKT-mTOR yolunu aşırı aktive eden somatik PIK3CA mutasyonlarından kaynaklanır. H1047R yalnızca fare modellerini oluşturan mutasyon (Pik3caH1047R kaynaklı modeller). Cevap nedenselliği doğrudan H1047R'ye bağlıyor. mTOR blokajının sınırlı etkisi 'ileri' VM'ler için gösterilmiş."}
+   ],
+   "duzeltilmis_cevap": "PIK3CA H1047R, p110α'nın H1047R mutantını oluşturan ve birçok kanser türünde en sık görülen PIK3CA sıcak nokta mutasyonudur [4][5]; meme kanserinde tüm PIK3CA mutasyonlarının yaklaşık üçte birini (%35) oluşturur [1]. Meme kanseri hastalarının yaklaşık %36'sı PIK3CA-mutant tümör taşır; bu mutasyonlar hormon reseptörü pozitif/HER2-negatif alt tipte (%42), üçlü-negatif alt tipe (%16) göre daha sıktır [1]. İleri PIK3CA-mutant meme kanserinde therascreen tanı testi ve alfa-özgül PI3K inhibitörü alpelisib onaylıdır; ancak bu panel, bilinen PIK3CA-mutant hastaların yaklaşık %20'sini yakalayamaz [1].\n\nMekanizma açısından p110α'nın H1047R mutantı PI3K-AKT yolunu sürekli aktive eder ve MCF-10A hücrelerini dönüştürerek SNAIL indüksiyonu ve E-kaderin kaybıyla epitel-mezenkimal geçişe (EMT) yol açar [5]. Üçlü-negatif meme kanserinde bildirilen sıcak nokta mutasyonudur ve hedefe yönelik ilaç geliştirmek için hesaplamalı yöntemlerle doğal bileşikler taranmaktadır [3]. Hindistan'daki baş-boyun skuamöz hücreli karsinom hastalarında %52 sıklıkta saptanmış ve mutasyon taşıyanlarda genel ve progresyonsuz sağkalım daha kısa bulunmuştur (kötü prognoz) [4].\n\nKanser dışında da önemi vardır: venöz malformasyonlar sıklıkla PI3Kα-AKT-mTOR yolunu aşırı aktive eden somatik PIK3CA mutasyonlarından kaynaklanır; Pik3ca H1047R ile oluşturulan fare modellerinde ileri lezyonlarda mTOR blokajının etkisi sınırlı kalırken TIE2 veya ANGPT inhibisyonu lezyon büyümesini baskılamıştır [2].",
+   "not": ""
+  },
+  {
+   "index": 58,
+   "varyant": "PIK3CA H1047R",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Meme kanserinde en sık görülen PIK3CA sıcak nokta mutasyondur; tüm PIK3CA mutasyonlarının yaklaşık %35'ini oluşturur ve hormon reseptörü pozitif/HER2-negatif alt tipte daha sıktır [1].", "karar": "KISMEN", "aciklama": "[1]: H1047R meme kanserindeki PIK3CA mutasyonlarının %35'i (en sık), doğru. HR+/HER2- alt tipte (%42) daha sık olan, PIK3CA mutasyonlarının geneli; H1047R için alt tip sıklığı verilmemiş, yalnızca dört ana mutasyonun dağılımının alt tiplerde benzer olduğu söylenmiş. 'Sıcak nokta' [1]'de geçmiyor; 'mutasyondur' eki de hatalı."}
+   ],
+   "duzeltilmis_cevap": "Meme kanserinde en sık görülen PIK3CA mutasyonudur ve tüm PIK3CA mutasyonlarının yaklaşık %35'ini oluşturur; PIK3CA mutasyonları genel olarak hormon reseptörü pozitif/HER2-negatif alt tipte (%42) üçlü-negatif alt tipe (%16) göre daha sıktır [1].",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 59,
+   "varyant": "PIK3CA H1047R",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "İleri PIK3CA-mutant meme kanserinde therascreen tanı testi ve alfa-özgül PI3K inhibitörü alpelisib onaylıdır [1].", "karar": "DOGRU", "aciklama": "[1]: therascreen PIK3CA testi ve alpelisib ileri PIK3CA mutasyonlu meme kanserinde FDA onaylı."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 60,
+   "varyant": "PIK3CA H1047R",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Evet; somatik H1047R mutasyonu PI3Kα-AKT-mTOR yolunu aşırı aktive ederek venöz malformasyonlara neden olur ve fare modellerinde TIE2 veya ANGPT hedeflenmesi lezyon büyümesini baskılamıştır [2].", "karar": "KISMEN", "aciklama": "[2]: insanda venöz malformasyonlar 'sıklıkla somatik PIK3CA mutasyonlarından' kaynaklanır; H1047R yalnızca fare modellerinde hastalığı oluşturan mutasyon. Nedensellik doğrudan H1047R'ye bağlanmış. TIE2/ANGPT inhibisyonu bulgusu doğru."}
+   ],
+   "duzeltilmis_cevap": "Evet; venöz malformasyonlar sıklıkla PI3Kα-AKT-mTOR yolunu aşırı aktive eden somatik PIK3CA mutasyonlarından kaynaklanır ve Pik3ca H1047R ile oluşturulan fare modellerinde TIE2 veya ANGPT inhibisyonu lezyon büyümesini baskılamıştır [2].",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 174,
+   "varyant": "PIK3CA H1047R",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda aşı ile ilgili bilgi yok."
+  },
+  {
+   "index": 5,
+   "varyant": "TP53 R175H",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "TP53, kanserde en sık mutasyona uğrayan sürücü gendir; R175H (175. pozisyondaki arjininin histidinle yer değiştirmesi) en yüksek sıklıkta görülen TP53 sıcak nokta mutasyonudur [1][5].", "karar": "DOGRU", "aciklama": "[1]: en sık mutasyona uğrayan sürücü gen; R175H en sık TP53 mutasyonu ve tanımı. [5]: sıcak nokta mutasyonları arasında en yüksek sıklık R175H'de."},
+    {"cumle": "Yaban tip p53 \"genomun bekçisi\" olarak DNA onarımı, hücre döngüsü durması ve apoptozu tetiklerken, R175H bu işlevleri kaybeder ve kanseri destekleyen yeni işlevler (proliferasyon, göç, invazyon, ilaç direnci) kazanır [5].", "karar": "DOGRU", "aciklama": "[5]: 'genomun bekçisi'; sıcak nokta mutantları kanonik işlevleri kaybeder ve proliferasyon, göç, invazyon, ilaç direnci gibi işlevler kazanır; R175H transaktivasyon işlevini kaybeder."},
+    {"cumle": "Mekanizma açısından R175H dominant-negatif ve onkojenik aktiviteye sahiptir; agregasyona eğilimlidir ve birçok proteinle etkileşerek onkojenik işlev kazanır [4][5].", "karar": "DOGRU", "aciklama": "[4]: dominant-negatif ve onkojenik aktivite; [5]: agregasyona eğilimli, birçok proteinle etkileşerek onkojenik işlev kazanır."},
+    {"cumle": "Meme kanserinde CORO1A-P38 MAPK yolunu düzenleyerek hücre çoğalmasını artırır; TP53 mutasyonları üçlü-negatif meme kanserinde daha sıktır ve R175H taşıyan hastaların sağkalımı daha kısadır [2].", "karar": "DOGRU", "aciklama": "[2]'nin başlığı ve özeti: CORO1A-P38 MAPK, TNBC'de daha yüksek TP53 mutasyon oranı, R175H taşıyanlarda daha kısa sağkalım."},
+    {"cumle": "Pankreas kanseri modellerinde TP53(R175H), sitoplazmik SOX9 lokalizasyonunu indükler ve bu durum mortaliteyle ilişkilidir [3].", "karar": "KISMEN", "aciklama": "[3]: TP53(R175H) ifadesi progenitör organoidlerde sitoplazmik SOX9'u indükler. Mortaliteyle ilişki ise TP53 mutasyonlu hasta tümörlerinde gözlenmiş. Cevap iki bağlamı birleştirip ilişkiyi model bulgusuna bağlıyor."},
+    {"cumle": "Tedavide, mutant p53'ün ilaçlanabilir bir aktif bölgesinin olmaması hedeflemeyi zorlaştırır [4].", "karar": "DOGRU", "aciklama": "[4]: küçük moleküller için ilaçlanabilir aktif bölgenin olmaması bu mutantları tedavi edilemez kılmış."},
+    {"cumle": "Yaklaşımlar arasında R175H'ye özgü bir antikorun, T hücrelerini aktive eden biespesifik bir immünoterapötik ajana dönüştürülmesi [1] ve p53-R175H'yi seçici olarak yıkan bir PROTAC (dp53m) yer alır; dp53m yaban tip p53'ü korurken antitümör etkinlik göstermiş ve sisplatine duyarlılığı artırmıştır [4].", "karar": "DIL_HATASI", "aciklama": "İçerik [1] ve [4] ile uyumlu. 'Biespesifik' bozuk bir terim; Türkçede 'bispesifik' kullanılır."}
+   ],
+   "duzeltilmis_cevap": "TP53, kanserde en sık mutasyona uğrayan sürücü gendir; R175H (175. pozisyondaki arjininin histidinle yer değiştirmesi) en yüksek sıklıkta görülen TP53 sıcak nokta mutasyonudur [1][5]. Yaban tip p53 \"genomun bekçisi\" olarak DNA onarımı, hücre döngüsü durması ve apoptozu tetiklerken, R175H bu işlevleri kaybeder ve kanseri destekleyen yeni işlevler (proliferasyon, göç, invazyon, ilaç direnci) kazanır [5].\n\nMekanizma açısından R175H dominant-negatif ve onkojenik aktiviteye sahiptir; agregasyona eğilimlidir ve birçok proteinle etkileşerek onkojenik işlev kazanır [4][5]. Meme kanserinde CORO1A-P38 MAPK yolunu düzenleyerek hücre çoğalmasını artırır; TP53 mutasyonları üçlü-negatif meme kanserinde daha sıktır ve R175H taşıyan hastaların sağkalımı daha kısadır [2]. Pankreas kanseri modellerinde TP53(R175H) ifadesi sitoplazmik SOX9 lokalizasyonunu indükler; TP53 mutasyonu taşıyan hasta tümörlerinde de SOX9 sitoplazmiktir ve mortaliteyle ilişkilidir [3].\n\nTedavide, mutant p53'ün ilaçlanabilir bir aktif bölgesinin olmaması hedeflemeyi zorlaştırır [4]. Yaklaşımlar arasında R175H'ye özgü bir antikorun, T hücrelerini aktive eden bispesifik bir immünoterapötik ajana dönüştürülmesi [1] ve p53-R175H'yi seçici olarak yıkan bir PROTAC (dp53m) yer alır; dp53m yaban tip p53'ü korurken antitümör etkinlik göstermiş ve sisplatine duyarlılığı artırmıştır [4].",
+   "not": ""
+  },
+  {
+   "index": 52,
+   "varyant": "TP53 R175H",
+   "tur": "takip_cok_turlu",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "R175H, en yüksek sıklıkta görülen TP53 sıcak nokta mutasyonudur [1][5].", "karar": "DOGRU", "aciklama": "[1]: en sık TP53 mutasyonu; [5]: sıcak nokta mutasyonları arasında en yüksek sıklık."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 53,
+   "varyant": "TP53 R175H",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Yaban tip p53 'genomun bekçisi' olarak DNA onarımı, hücre döngüsü durması ve apoptozu tetiklerken, R175H bu işlevleri kaybeder ve proliferasyon, göç, invazyon ve ilaç direnci gibi kanseri destekleyen yeni işlevler kazanır [5].", "karar": "DOGRU", "aciklama": "[5] ile birebir uyumlu (kanonik işlev kaybı + işlev kazanımı)."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 54,
+   "varyant": "TP53 R175H",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Mutant p53'ün ilaçlanabilir bir aktif bölgesi olmadığından hedefleme zordur [4]; yaklaşımlar arasında R175H'ye özgü bir antikorun biespesifik immünoterapötik ajana dönüştürülmesi [1] ve p53-R175H'yi seçici olarak yıkan bir PROTAC (dp53m) yer alır [4].", "karar": "DIL_HATASI", "aciklama": "İçerik [4] ve [1] ile uyumlu. 'Biespesifik' yerine 'bispesifik' olmalı."}
+   ],
+   "duzeltilmis_cevap": "Mutant p53'ün ilaçlanabilir bir aktif bölgesi olmadığından hedefleme zordur [4]; yaklaşımlar arasında R175H'ye özgü bir antikorun bispesifik immünoterapötik ajana dönüştürülmesi [1] ve p53-R175H'yi seçici olarak yıkan bir PROTAC (dp53m) yer alır [4].",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 172,
+   "varyant": "TP53 R175H",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_YANLIS",
+   "cumleler": [],
+   "duzeltilmis_cevap": "Kaynaklarda doğrudan bir diyet önerisi yer almıyor; yalnızca TP53 R175H ve meme kanseri üzerine yapılan bir çalışmada, moleküler doking analizleri çay polifenollerinin p53'e bağlanarak meme kanseri hücrelerinin çoğalmasını inhibe edebileceğini göstermiştir [2].",
+   "not": "Sınırda bir vaka. [2]'nin özetinde moleküler doking ile çay polifenollerinin p53'e bağlanarak meme kanseri çoğalmasını inhibe edebileceği bildiriliyor. Bu bir diyet önerisi değil ama soruyla kısmen ilgili bir bilgi; 'kısmen bile' kuralı gereği RET_YANLIS sayıldı. Düzeltilmiş cevap bunun bir öneri olmadığını açıkça söylüyor."
+  }
+ ],
+ "ozet": {
+  "ornek": 32,
+  "aynen": 7,
+  "duzeltildi": 17,
+  "sil": 0,
+  "ret_dogru": 7,
+  "ret_yanlis": 1,
+  "cumle": 60,
+  "dogru": 31,
+  "atif_hatali": 2,
+  "kismen": 21,
+  "desteksiz": 0,
+  "celiski": 0,
+  "dil_hatasi": 6,
+  "tekrarlayan_sorunlar": [
+   "Kaynakta olmayan üstünlük ya da genel tıp bilgisi ekleme: IDH2 R140Q için 'en sık mutasyon', KRAS G13D için 'KRK'de sık görülür', 'onkometabolit', 'PI3K'nın katalitik alt birimi', 'hücre yüzeyine ulaşamaz', CFQ-R'yi 'yaşam kalitesi' diye yorumlama, erdafitinibin 'onaylı' olduğunu söyleme.",
+   "Gen ya da mutasyon sınıfı düzeyindeki bulguyu varyanta mal etme: IDH2 mutasyonlarının toplam %15 oranını R140Q'ya, PIK3CA mutasyonlarının venöz malformasyon nedenselliğini ve HR+/HER2- sıklığını H1047R'ye, TP53 mutasyonlu hastalardaki mortaliteyi R175H model bulgusuna bağlama.",
+   "Bağlamı ya da niteliği düşürerek genelleme: 'Avrupa'da' onayı, 'invaziv olmayan' tümörler, tek hücre hattında 'olası' bağımlılık, 'RNF5'e dirençli' yerine 'yıkıma dirençli', karşılaştırma kolu olmadan '10 puan artış'.",
+   "Atıf birleştirme: bir cümlede iki kaynağın bilgisini tek numarayla verme (örneğin [5]'teki 'üç nükleotitlik delesyon' ve 'KF'nin başlıca nedeni' bilgilerini [1]'e bağlama).",
+   "Türkçe terim ve çeviri hataları: 'sürükler' ('drive' kalıbı), 'biespesifik' (doğrusu bispesifik), 'lökomojenez' (lösemogenez), 'baştan düzenleme' (prime editing), 'elexakaftor' (eleksakaftor), 'sıcak nokta mutasyondur' (mutasyonudur)."
+  ]
+ }
+}

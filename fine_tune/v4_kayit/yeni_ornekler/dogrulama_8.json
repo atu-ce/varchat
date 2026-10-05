@@ -1,0 +1,257 @@
+{
+ "paket": 8,
+ "girdiler": [
+  {
+   "girdi": "MYH7 R403Q",
+   "ozet": "MYH7 genindeki c.1208G>A (p.R403Q) patojenik varyantı, beta-miyozin üzerinde yer alan, baskın-negatif etki gösteren, yaygın ve iyi çalışılmış bir değişimdir [1]. Bu varyant kalp kasılma gücünü artırarak hipertrofik kardiyomiyopati (HKM) başlangıcına yol açar [1]. HKM, kalp sarkomer genlerindeki varyantların neden olduğu en sık genetik kalp hastalığıdır ve kalp kasının anormal kalınlaşmasıyla seyreder; komplikasyonları arasında kalp yetmezliği, aritmi ve ani kalp ölümü bulunur [1]. R403Q, HKM ile ilişkilendirilen ilk mutasyondur ve miyozinin aktinle etkileşimden sorumlu globüler başında (S1) yer alır [3]. R403Q taşıyan üç HKM hastasının tek miyofibrillerinde çapraz köprü yavaş gevşeme kinetiği, sarkomer mutasyonu negatif HKM hastalarına göre anlamlı biçimde yüksekti (0,47 ± 0,02'ye karşı 0,30 ± 0,02 s⁻¹; P < 0,0001) [3]. Aynı çalışmada bu üç hastanın kas şeritlerinde gerilim maliyeti de daha yüksek bulundu (2,93 ± 0,25'e karşı 1,78 ± 0,10 μmol l⁻¹ s⁻¹ kN⁻¹ m⁻²) [3]. Hasta kaynaklı uyarılmış pluripotent kök hücre kardiyomiyositlerinde ve HKM'nin insanlaştırılmış fare modelinde adenin baz düzenleyici ile bu varyantın düzeltilmesi, hastalığın patolojik bulgularını geri çevirdi [1].",
+   "ozet_karar": "DUZELTILDI",
+   "ozet_aciklama": "İddialar kaynak 1 ve 3 ile birebir örtüşüyor, sayılar ve hasta/model bağlamı (üç hasta, iPSC, insanlaştırılmış fare) korunmuş. Yalnız 'kasılganlık' uydurma bir terim olduğu için kaynaktaki 'increased cardiac contractility' karşılığı 'kalp kasılma gücü' olarak düzeltildi.",
+   "takip": [
+    {
+     "soru": "Karvedilol bu varyantı taşıyan modellerde nasıl bir etki gösteriyor?",
+     "cevap": "HKM'nin fare modelinde (Myh6R403Q/+) R-enantiyomer karvedilol hiperdinamik kasılmayı normale döndürdü, aritmiyi bastırdı ve kalp debisini metoprolol, verapamil ve mavakamtenden daha fazla artırdı [2]. R-karvedilolün kasılma işlevini baskılama özelliği, MYH7R403Q/+ taşıyan hastalardan türetilen iPSC kaynaklı kardiyomiyositlerde de büyük ölçüde korundu [2]. Bu etkiler alfa1-adrenerjik reseptör ile RyR2'nin ikili blokajına bağlandı [2].",
+     "karar": "DUZELTILDI",
+     "aciklama": "Kaynak 2'de iPSC kardiyomiyositlerdeki etki özellikle R-karvediloldan söz ediyor; yazar ikinci cümlede niteleyiciyi düşürüp 'karvedilol' yazmıştı, 'R-karvedilol' olarak düzeltildi. Fare (Myh6) ve insan hücresi (MYH7) bağlamları doğru ayrılmış."
+    }
+   ],
+   "cok_turlu": {
+    "soru": "bu mutasyonun mitokondri işlevine etkisi incelenmiş mi",
+    "cevap": "Heterozigot MYH7 R403Q taşıyan Yucatan mini-domuz modelinde sol atriyumda sitrat sentaz ve beta-hidroksiaçil-KoA dehidrogenaz etkinliği kontrol grubuna göre anlamlı biçimde azalmıştı [5]. Buna karşılık sol atriyum mitokondriyal solunumu HKM'li domuzlarda kontrollere göre bazal durumda %42 (P = 0,001) ve durum 2'de %47 (P = 0,02) daha yüksekti; bu, telafi edici bir mekanizma olarak yorumlandı [5]. Sol ventrikül mitokondriyal solunumu ve mitokondriyal enzim etkinliği ise model ile sağlıklı kontrol domuzlar arasında farklı değildi [5].",
+    "karar": "GECER",
+    "aciklama": "Üç cümle de kaynak 5 ile birebir; domuz modeli bağlamı, sayılar ve 'telafi edici mekanizma' niteleyicisi korunmuş, sol ventrikülde fark olmadığı da aktarılmış. Özette geçmeyen bir ayrıntıyı soruyor."
+   },
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Kaynak 2'nin fare modeli Myh6 R403Q (insan geni MYH7 değil), hasta hücreleri ise MYH7 R403Q; kaynak 4 varyantı yalnız hiPSC ve mühendislik kalp dokusunda inceliyor."
+  },
+  {
+   "girdi": "SPINK1 N34S",
+   "ozet": "SPINK1 geni, olgun biçimi 56 amino asitli bir protein olan ve başlıca pankreas asiner hücrelerinde üretilen serin peptidaz inhibitörü Kazal tip 1'i kodlar [5]. Geleneksel adıyla pankreatik salgısal tripsin inhibitörü olan bu protein, zamanından önce etkinleşmiş tripsini engelleyerek pankreası korur [5]. p.Asn34Ser (c.101A>G) değişimi, kronik pankreatitle bağlantılı, kapsamlı biçimde incelenmiş bir SPINK1 varyantıdır [5]. Hindistan'da 183 akut ve yinelenen akut pankreatit hastasının incelendiği çalışmada p.N34S hastaların %12,0'sinde, 168 sağlıklı kontrolün ise %2,4'ünde bulundu (P = 0,006) [2]. Aynı çalışmada ilk akut pankreatit atağı p.N34S taşıyanlarda taşımayanlara göre daha erken yaşta görüldü (32,0 ± 9,7'ye karşı 39,1 ± 13,4 yıl; P = 0,004) [2]. Tropikal kalsifik pankreatitte de güçlü bir ilişki bildirilmiştir: 150 Hintli hastanın %31,8'inde p.N34S saptanırken 150 kontrolde bu oran %4,7 idi [3]. Heterozigot p.Asn34Ser taşıyıcılarında idiyopatik kronik pankreatit riski için olasılık oranı 10,34 bulunmuş (P < 0,001) ve bu risk H10/H10 CFTR genotipiyle tümüyle telafi edilmiştir [1].",
+   "ozet_karar": "DUZELTILDI",
+   "ozet_aciklama": "Sayılar, popülasyonlar ve olasılık oranı kaynaklarla birebir; atıflar doğru kaynaklara gidiyor. Yalnız kaynak 5 'extensively studied' derken yazar 'en çok çalışılmış' diye üstünlük derecesi eklemişti; 'kapsamlı biçimde incelenmiş' olarak düzeltildi.",
+   "takip": [
+    {
+     "soru": "n34s pankreas kanseri riskini artırıyor mu",
+     "cevap": "Bir çalışmada SPINK1 N34S polimorfizmi, sporadik pankreas adenokarsinomlu 200 hastanın 4'ünde (%2,0), kronik kolesistitli 177 kontrolün 3'ünde (%1,7) ve familyal pankreas kanserli 36 hastanın hiçbirinde saptandı [4]. Bu çalışmanın sonucuna göre SPINK1 N34S ile CFTR 5T ve DF508 polimorfizmleri pankreas adenokarsinomu gelişimine yatkınlık yaratmıyor [4]. Buna karşılık bir derleme, SPINK1 varyantlarının pankreas duktal adenokarsinomu riskinin artmasına katkıda bulunabileceğini belirtiyor [5].",
+     "karar": "GECER",
+     "aciklama": "Sayılar kaynak 4 ile birebir; olumsuz sonuç ve derlemenin 'katkıda bulunabilir' niteleyicisi korunmuş. Üçüncü cümlede özne kaynaktaki gibi 'SPINK1 varyantları' olarak bırakılmış, N34S'e mal edilmemiş."
+    }
+   ],
+   "cok_turlu": {
+    "soru": "N34S'in hastalık mekanizması nasıl açıklanıyor?",
+    "cevap": "Bir derlemeye göre, çok çalışılmış p.Asn34Ser (c.101A>G) ile bağlantılı nedensel güçlendirici (enhancer) varyantı c.-4141G>T, evrimsel olarak korunmuş HNF1A-PTF1L düzenleyici modülü içindeki bir PTF1L bağlanma bölgesini bozar [5]. Aynı derlemede hem fare modellerinden hem de genetik ilişkilendirme çalışmalarından gelen bulguların, akut pankreatitten kronik pankreatite geçişi açıklayan nöbetçi akut pankreatit olayı (SAPE) modelini desteklediği belirtiliyor [5].",
+    "karar": "GECER",
+    "aciklama": "Kaynak 5'teki kurguya sadık: PTF1L bağlanma bölgesini bozan varyantın c.-4141G>T olduğu açıkça yazılmış, mekanizma N34S'e mal edilmemiş. SAPE modeli cümlesi de kaynaktaki kanıt türlerini (fare modelleri + ilişkilendirme çalışmaları) koruyor."
+   },
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Kaynak 1 esas olarak CFTR haplotiplerini inceliyor, N34S yalnız bir alt analizde geçiyor; kaynak 4 N34S'i pankreas adenokarsinomu için risk etmeni bulmuyor."
+  },
+  {
+   "girdi": "SLC26A4 H723R",
+   "ozet": "SLC26A4 geni pendrin proteinini kodlar ve bu gendeki mutasyonlar, genişlemiş vestibüler akuaduktla birlikte görülen işitme kaybından ve Pendred sendromundan sorumludur [1]. p.H723R (His723Arg), Doğu Asya'da en sık görülen SLC26A4 mutasyonudur ve protein katlanması ile hücre yüzeyi ifadesinde kusurlara yol açar [1]. Bu değişim, otozomal çekinik bir genetik işitme kaybı tipi olan DFNB4 ile sonuçlanır ve ilişkili işitme kaybının küratif bir tedavisi henüz yoktur [3]. c.2168A>G (p.His723Arg) ile c.919-2A>G, Asya popülasyonlarında en sık görüldüğü kanıtlanmış SLC26A4 varyantlarıdır [5]. Japonya'da iki taraflı genişlemiş vestibüler akuadukt saptanan 28 çocuğun incelendiği çalışmada en sık varyant p.His723Arg oldu (13 alel, %27,1) [4]. Hücre düzeyindeki çalışmalarda H723R-pendrin, HSP70 ortak şaperonu DNAJC14'e bağlı alışılmadık bir taşınma yolu üzerinden hücre yüzeyine kurtarılabildi ve Cl⁻/HCO3⁻ değişim etkinliğini geri kazandı [1]. p.H723R için oluşturulan knock-in farelerde ise hem homozigot hem bileşik heterozigot hayvanlar normal işitme-denge fenotipi ve normal iç kulak yapısı gösterdi; yazarlar bu alelin farelerde patojenik olmadığını ve hayvan sonuçlarını insana genellerken dikkatli olunması gerektiğini bildirdi [2].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Her cümle doğru kaynağa gidiyor; 'Doğu Asya'da en sık' ve 'Asya popülasyonlarında en sık görüldüğü kanıtlanmış' ifadeleri kaynak 1 ve 5'te aynen var. Hücre düzeyi ile fare bulgusu ayrı ayrı ve bağlamı korunarak verilmiş; kaynak 2'nin insan-fare çelişkisi uyarısı da aktarılmış.",
+   "takip": [
+    {
+     "soru": "iki taraflı genişlemiş vestibüler akuaduktu olan çocuklarda işitme nasıl seyrediyor?",
+     "cevap": "Japonya'daki 28 çocuktan oluşan seride üç yıldan uzun izlenen 26 olgunun 19'unda (%73,1) işitmede dalgalanma, 17'sinde (%65,4) işitme kaybında ilerleme görüldü [4]. Aynı seride 28 çocuğun 11'inde (%39,2) baş dönmesi atakları bildirildi [4]. SLC26A4 geninin iki alelinde patojenik varyant bulunan olgularda ortalama işitme düzeyi ileri derecedeydi [4].",
+     "karar": "GECER",
+     "aciklama": "Üç cümlenin tüm sayıları kaynak 4 ile birebir; 'ortalama işitme düzeyi ileri derecede' ifadesi iki alelde patojenik varyant taşıyan alt gruba doğru biçimde bağlanmış."
+    }
+   ],
+   "cok_turlu": {
+    "soru": "DNAJC14'ü artırmak fare modelinde işitmeyi düzeltti mi?",
+    "cevap": "İnsan H723R-pendrinini iç kulakta ifade eden transgenik DFNB4 fare modelinin DNAJC14'ü aşırı ifade eden farelerle çaprazlanması, koklear hidropsu azalttı ve dış tüy hücrelerinin daha iyi korunmasını sağladı [3]. Aynı modelde stria vascularis ve spiral ligament daha kalın bulundu, KCNJ10 ifadesi arttı [3]. Ancak işitme işlevi ve genişlemiş endolenfatik hidrops düzelmedi [3].",
+    "karar": "GECER",
+    "aciklama": "Kaynak 3'teki olumlu ve olumsuz sonuçların ikisi de verilmiş; işitme işlevinin düzelmediği açıkça yazılarak abartıdan kaçınılmış. Model bağlamı (transgenik fare) korunmuş."
+   },
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Kaynak 2, H723R alelinin farelerde patojenik olmadığını bildiriyor; kaynak 5 biyoinformatik bir tarama olup varyanta yalnız sıklık bağlamında değiniyor."
+  },
+  {
+   "girdi": "BCL2 G101V",
+   "ozet": "BCL2 genindeki G101V değişimi, venetoklaksla tedavi edilip nükseden hastalarda sık görülen bir mutasyondur [1]. Bu değişim, bileşiğin bağlanmasını engelleyerek venetoklaks direnci oluşturmak için tek başına yeterlidir [1]. Bir derlemeye göre Gly101Val, BCL2'nin venetoklaksa olan ilgisini (afinitesini) azaltır ve hücre hatlarında ve birincil hasta hücrelerinde kazanılmış direnç yaratır [3]. Venetoklaks, BCL2 ile proapoptotik proteinler arasındaki etkileşimi bozan birinci nesil BCL2 inhibitörüdür ve nüks etmiş kronik lenfositik lösemi tedavisinin temelini oluşturur [1]. Uzun süreli tedaviden sonra G101V gibi yinelenen Bcl-2 mutasyonlarının venetoklaks direncine aracılık ettiği bildirilmiştir [2]. Klinik aday sonrotoklaks (BGB-11417), hem yabanil tip Bcl-2'ye hem de G101V mutantına karşı in vitro ve in vivo güçlü baskılayıcı etkinlik gösterir [2]. Yabanil tip BCL2 ile BCL2 G101V'nin sonrotoklaksla kristal yapıları, sonrotoklaksın BCL2'nin P2 cebinde yeni bir bağlanma biçimi benimsediğini ortaya koydu [1].",
+   "ozet_karar": "DUZELTILDI",
+   "ozet_aciklama": "İddialar kaynak 1, 2 ve 3 ile örtüşüyor; 'birinci nesil' kaynak 1'de 'first-generation' olarak gerçekten yazıyor. Üçüncü cümlede anlamı bozan dilbilgisi hatası ('hücre hatlarında ile birincil hasta hücrelerinde') düzeltildi ve 'ilgi' terimine parantezle afinite eklendi; yeni bilgi eklenmedi.",
+   "takip": [
+    {
+     "soru": "sonrotoklaks klinikte deneniyor mu",
+     "cevap": "BGB-11417 (sonrotoklaks) hâlen monoterapi ve kombinasyon tedavisi olarak faz II/III klinik değerlendirmelerden geçiyor [2]. Bu bileşik Bcl-xL'ye kıyasla mükemmel bir seçicilik gösteriyor ve belirgin bir sitokrom P450 baskılaması yapmıyor [2]. Sonrotoklaks, BCL2 mutasyonuna bağlı venetoklaks direncini aşma potansiyeli olan ikinci nesil bir BCL2 inhibitörü adayı olarak öne sürülüyor [1].",
+     "karar": "DUZELTILDI",
+     "aciklama": "Kaynak 2'deki 'excellent selectivity over Bcl-xL' ifadesi 'Bcl-xL üzerinde seçicilik' diye çevrilerek anlamı tersine çevrilmişti (ilaç Bcl-xL'yi seçici biçimde baskılıyor izlenimi); 'Bcl-xL'ye kıyasla mükemmel bir seçicilik' olarak düzeltildi. Faz II/III ve 'potansiyeli olan aday' niteleyicileri kaynaklarda aynen var."
+    }
+   ],
+   "cok_turlu": {
+    "soru": "Venetoklaks alan Waldenström makroglobulinemili hastalarda bu mutasyon görüldü mü?",
+    "cevap": "Daha önce tedavi görmüş Waldenström makroglobulinemili hastalarda yürütülen sınırlı süreli venetoklaks monoterapisi çalışmasında, 27 hastadan alınan 52 CD19 seçilmiş kemik iliği örneğinde tedavi sırasında BCL2 G101V mutasyonu saptanmadı [4]. Bu çalışmada venetoklaks kalıcı yanıtlar sağladı ve tedaviyi tamamladıktan sonra ilerleyen hastalarda yeniden tedaviye olanak verdi [4].",
+    "karar": "GECER",
+    "aciklama": "Örnek sayıları ve olumsuz bulgu kaynak 4 ile birebir; sonuç başka hastalıklara genellenmemiş ve çalışma bağlamı (sınırlı süreli monoterapi, önceden tedavi görmüş hastalar) korunmuş."
+   },
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Kaynak 5, G101V'yi CAR T hücrelerinde aşırı ifade edilen venetoklaks dirençli bir Bcl-2 biçimi olarak kullanıyor; hasta direnci bulgusu değil."
+  },
+  {
+   "girdi": "rs4149056",
+   "ozet": "SLCO1B1 geni, statinlerin karaciğere alınmasını artıran OATP1B1 taşıyıcısını kodlar [5]. Bu gendeki c.521T>C (p.Val174Ala) tek nükleotid polimorfizmi, OATP1B1'in etkin simvastatin asidini portal dolaşımdan karaciğere taşıma yeteneğini azaltır [1]. Bunun sonucunda simvastatin asidinin plazma derişimi belirgin biçimde artar ve simvastatine bağlı miyopati riski yükselir [1]. Aynı polimorfizm pravastatinin plazma derişimlerini orta düzeyde artırırken fluvastatin üzerinde anlamlı bir etki göstermiyor gibi görünmektedir [5]. Günde 80 mg simvastatin alan katılımcılar arasında yapılan genom çapında ilişkilendirme çalışmasında miyopati için olasılık oranı rs4149056 C aleli başına 4,5 (%95 GA 2,6-7,7), CC homozigotlarında TT homozigotlarına göre 16,9 (%95 GA 4,7-61,1) bulundu [2]. Bu çalışmada C alelinin popülasyondaki sıklığı %15 idi ve miyopati olgularının %60'tan fazlası bu varyanta atfedilebildi [2]. OATP1B1'i ifade eden hücrelerde yapılan in vitro çalışmada V174A, protein miktarını yabanil tipe göre %90'ın üzerinde azalttı ve taşıma işlevinin kaybına yol açan varyantlar arasında yer aldı [4].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Tüm sayılar (OR 4,5 ve 16,9, GA'lar, %15, %60) kaynak 2 ile birebir ve 80 mg simvastatin bağlamı korunmuş. Fluvastatin için kaynak 5'in 'gibi görünmektedir' niteleyicisi bırakılmış; kaynak 4'ün bulgusu açıkça in vitro hücre çalışması olarak işaretlenmiş.",
+   "takip": [
+    {
+     "soru": "atorvastatin ya da rosuvastatin kullananlarda da kas yan etkisiyle ilişkili mi",
+     "cevap": "ODYSSEY OUTCOMES çalışmasının farmakogenomik analizinde SLCO1B1 p.Val174Ala (rs4149056) ile statine bağlı kas belirtileri arasında ilişki bulunmadı (olasılık oranı 1,03; %95 GA 0,90-1,18; P = 0,69) [3]. Bu analiz, yüksek yoğunluklu statin tedavisi alan ve genetik çalışmaya onam veren 11.880 akut koroner sendrom hastasını kapsıyordu [3]. Aynı çalışmada klinik kas belirtileri için TMEM9 içindeki intronik rs6667912 varyantıyla yeni bir genom çapında anlamlı ilişki saptandı (olasılık oranı 1,39; %95 GA 1,24-1,55; P = 3,71 × 10⁻⁸) [3].",
+     "karar": "GECER",
+     "aciklama": "Olumsuz sonuç ve istatistikler kaynak 3 ile birebir; örneklem ve 'yüksek yoğunluklu statin' bağlamı doğru çevrilmiş. Sonuç simvastatin bulgularıyla karıştırılmamış."
+    }
+   ],
+   "cok_turlu": {
+    "soru": "Bu polimorfizm statin dışındaki ilaçları da etkiliyor mu?",
+    "cevap": "SLCO1B1 polimorfizminin, antidiyabetik repaglinid, antihistaminik feksofenadin ve endotelin A reseptör antagonisti atrasentanın farmakokinetiğini de etkilediği bildirilmiştir [1]. Aynı derlemeye göre bu polimorfizm başka birçok statinin farmakokinetiğini de etkiliyor, ancak hepsini etkilemiyor; fluvastatin bunun dışında kalıyor [1].",
+    "karar": "GECER",
+    "aciklama": "İlaç adları ve sınıfları kaynak 1'deki gibi; 'hepsini değil (fluvastatin)' niteleyicisi korunmuş, özetin tekrarı değil."
+   },
+   "ret_kapsam": [
+    {
+     "soru": "Bu varyantı taşıyan birinde simvastatin dozu kaç mg'a düşürülmeli?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynaklarda 80 mg ve 40 mg simvastatin çalışmalarından söz ediliyor ama taşıyıcılar için önerilen bir doz azaltımı ya da dozlama kılavuzu yok; kaynak 2 yalnız genotiplemenin yararlı olabileceğini söylüyor. Soru kısmen bile cevaplanamıyor."
+    }
+   ],
+   "gen_ret": [],
+   "not": "Kaynak 2'nin birincil genom çapında sinyali rs4363657 olup rs4149056 ile güçlü bağlantı dengesizliğinde (r² = 0,97); kaynak 3 atorvastatin/rosuvastatin için ilişki bulmuyor."
+  },
+  {
+   "girdi": "rs73885319",
+   "ozet": "APOL1 geninin G1 varyantı S342G ve I384M amino asit değişimlerini, G2 varyantı ise N388 ve Y389 delesyonlarını içerir; her ikisi de daha önce böbrek hastalığıyla ilişkili olarak tanımlanmıştır [1]. S342G ve I384M, batı Afrika'ya özgü yanlış anlamlı (missense) değişimlerdir ve son dönem böbrek hastalığıyla, daha önce bildirilen MYH9 varyantlarından daha güçlü ilişki gösterir [2]. PAGE çalışmasında APOL1 G1 varyantı rs73885319, çok etnikli popülasyonlarda son dönem böbrek hastalığıyla ilişkili bulundu (P = 1,2 × 10⁻⁹) [3]. Aynı çalışmada hafif-orta kronik böbrek hastalığı ile APOL1 lokusu arasında ilişki görülmedi (P = 0,76) ve iki fenotip için ilişkili lokuslar örtüşmedi [3]. Afrika popülasyonlarını kapsayan sistematik derlemede rs73885319 ve rs60910145 birden fazla popülasyon grubunda incelenmiş ve kronik böbrek hastalığıyla benzer ilişki gözlenmiştir [4]. Batı Suudi Arabistan'da böbrek hastalığı olan 101 hastanın yalnız ikisi G1 aleli için heterozigottu ve araştırmacılar bu kohortta APOL1 risk varyantlarının sıklığının çok düşük olduğunu bildirdi [1].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "P değerleri ve hasta sayıları kaynaklarla birebir; son dönem böbrek hastalığı ile hafif-orta kronik böbrek hastalığı ayrımı kaynak 3'teki gibi korunmuş. Yazar kaynak 1'deki 'gastrointestinal (G1) variant' yazım hatasını yinelememiş, G1/G2 tanımını doğru aktarmış.",
+   "takip": [
+    {
+     "soru": "Bu bulgular neden başlangıçta MYH9 genine atfedilmişti?",
+     "cevap": "Kromozom 22'de MYH9 genini içeren bir aralık, bazı son dönem böbrek hastalığı biçimleriyle ilişkili Afrika kökenli risk varyantlarını taşıdığı gösterilen bölge olarak haritalanmıştı [2]. Ancak MYH9 geninin yeniden dizilenmesi dahil yoğun çabalara karşın işlevsel bir mutasyon bulunamadı [2]. Bu durum, komşu APOL1 genindeki ve işlevsel etkisi öngörülen yeni yanlış anlamlı değişimlerin saptanmasına yol açtı; bunlar MYH9'da bildirilen tüm SNP'lerden daha güçlü ilişki gösterdi [2].",
+     "karar": "GECER",
+     "aciklama": "Üç cümle de kaynak 2'nin anlatısını izliyor (MALD ile kromozom 22 aralığı, işlevsel mutasyon bulunamaması, APOL1'in saptanması); 'öngörülen işlevsel etki' niteleyicisi korunmuş."
+    }
+   ],
+   "cok_turlu": {
+    "soru": "S342G hücre düzeyinde nasıl bir etki yapıyor?",
+    "cevap": "Biyoinformatik çözümlemede Ser342 ve Tyr389 kalıntılarının APOL1G0'da gözenek oluşumuna katıldığı, G1'deki Ser342Gly ve Ile384Met değişimlerinden doğan yapısal farklılıkların ise K⁺ seçiciliği dahil gözenek özelliklerini değiştirmesinin beklendiği belirtilmiştir [5]. Aynı çalışmada APOL1G1 ve APOL1G2 ifade eden podositlerde K⁺ çıkışının arttığı, piroptozun uyarıldığı ve IL-1beta ile IL-18 transkripsiyonunun yükseldiği gösterildi [5].",
+    "karar": "GECER",
+    "aciklama": "Kaynak 5'in 'beklenmektedir' kipi ve biyoinformatik/podosit modeli bağlamı korunmuş; podosit bulgusu G1 ve G2 için birlikte verilmiş, yalnız S342G'ye mal edilmemiş."
+   },
+   "ret_kapsam": [
+    {
+     "soru": "Bu varyantın Türkiye'deki sıklığı nedir?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynaklar Suudi Arabistan kohortu, Afrika popülasyonları ve ABD'deki çok etnikli PAGE verilerini kapsıyor; Türkiye'ye ilişkin hiçbir sıklık verisi yok."
+    }
+   ],
+   "gen_ret": [],
+   "not": "Kaynak 1'in özetinde G1 'gastrointestinal varyant' diye yazılmış (büyük olasılıkla yazım hatası, genel kullanım G1 risk varyantı); kaynak 5 podosit hücre modeline ve moleküler dinamik benzetimine dayanıyor."
+  },
+  {
+   "girdi": "chr19:48703417:G>A",
+   "ozet": "FUT2 genindeki yaygın c.461G>A (p.Trp154*) varyantına homozigot olmak salgılayıcı olmayan (non-secretor) durumu oluşturur ve bu durum ya otoimmün hastalık riskiyle ya da viral ishal ve HIV'e karşı korunmayla ilişkilendirilmiştir [2]. rs601338 varyantı FUT2'nin kodlama yapmayan bir ekzonunda yer alır ve normal bir kodonun yerine durdurma kodonu getirerek protein çevirisini sonlandırır [4]. Bu anlamsız (nonsense) varyant, Kafkas kökenlilerde ABO kan grubu antijenlerinin öncüsü olan H antijeninin vücut sıvılarına ve bağırsak mukozasına salgılanmasını belirler [5]. Trp154Ter, A1 kan grubundan olan kişilerde koroner arter hastalığına karşı korurken diğerlerinde daha yüksek koroner arter hastalığı riskiyle ilişkilidir [1]. Plazma B12 vitamini düzeyleriyle ilişkili bulunan rs602662 ve rs492602, FUT2 W143X anlamsız mutasyonu olan rs601338 ile güçlü bağlantı dengesizliği içindedir [3]. Aynı çalışmada rs601338'in kendisi de plazma B12 vitamini düzeyiyle ilişkili bulundu (P = 6,92 × 10⁻¹⁵) [3]. Biyobankadan 68.931 kişinin tarandığı bir çalışmada rs601338, pankreasın intraduktal papiller müsinöz neoplazmlarıyla ilişkili başlıca varyantlardan biri olarak saptandı (olasılık oranı 1,01; P = 1,06 × 10⁻⁸) ve bulgu 5014 kişilik bağımsız bir kohortta doğrulandı [4]. İran kohortunda FUT2'nin ince haritalanması, Behçet hastalığıyla ilişkili beş kodlayıcı SNP arasında rs601338'i de gösterdi [5].",
+   "ozet_karar": "DUZELTILDI",
+   "ozet_aciklama": "Kaynak 3'te P = 6,92 × 10⁻¹⁵ rs601338'in plazma B12 ile ilişkisine ait; yazar bu değeri bağlantı dengesizliği cümlesinin sonuna koyarak LD'nin P değeri gibi göstermişti. Cümle ikiye bölünüp sayı kaynaktaki iddiaya bağlandı. Diğer cümleler (A1 kan grubu etkileşimi, IPMN olasılık oranı 1,01, Behçet ince haritalama) kaynaklarla birebir.",
+   "takip": [
+    {
+     "soru": "orta kulak iltihabıyla ilgisi var mı",
+     "cevap": "Çok etnikli ABD üçlülerinde c.461G>A (p.Trp154*) aleli beklenenden fazla aktarıldı (TDT P = 0,01) [2]. Bu alel aynı zamanda orta kulak mikrobiyota bileşimindeki kaymalarla ve artmış biyoçeşitlilikle ilişkiliydi (PERMANOVA P < 10⁻⁷) [2]. Mutant plazmidlerle transfekte edilen COS-7 hücrelerinde p.Trp154* dahil dört FUT2 varyantı A antijenini azalttı; anlamsız varyantlar ayrıca FUT2 protein düzeylerini de düşürdü [2].",
+     "karar": "GECER",
+     "aciklama": "Üç cümle kaynak 2 ile birebir; hücre deneyi bağlamı (transfekte COS-7) korunmuş ve bulgu dört varyanta ait olarak bırakılmış, yalnız Trp154Ter'e mal edilmemiş."
+    }
+   ],
+   "cok_turlu": {
+    "soru": "Behçet hastalığıyla ilişkisi hangi çalışmada gösterildi?",
+    "cevap": "DNA havuzlama yöntemiyle 292 İranlı Behçet hastası ve 294 yaş-cinsiyet eşleştirilmiş kontrolde yapılan genom çapında ilişkilendirme çalışmasında FUT2'nin 3'UTR bölgesindeki rs632111 ilişkili bulundu ve bu sonuç 684 hasta ile 532 kontrolden oluşan bağımsız bir İran veri kümesinde yinelendi [5]. Yayımlanmış Türk GWAS verileriyle yapılan meta-analiz FUT2 ilişkilerini güçlendirdi [5]. Yazarlar, salgılayıcı olmayan fenotipin mukozal glikozilasyonu etkilediğini ve bunun disbiyoz ile enfeksiyonlara değişen yatkınlıkla bilinen ilişkisini açıklayabileceğini belirtiyor [5].",
+    "karar": "GECER",
+    "aciklama": "Çalışma tasarımı, örneklem sayıları ve yinelenme kaynak 5 ile birebir; ilişkili SNP'nin rs632111 olduğu doğru aktarılmış, rs601338'e mal edilmemiş. Son cümledeki 'açıklayabilir' kipi korunmuş."
+   },
+   "ret_kapsam": [
+    {
+     "soru": "Bu varyantı taşıyan birine hangi dozda B12 takviyesi öneriliyor?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynak 3 yalnız plazma B12 düzeyiyle genetik ilişkiyi bildiriyor; hiçbir kaynakta takviye, doz ya da tedavi önerisi geçmiyor."
+    }
+   ],
+   "gen_ret": [],
+   "not": "Kaynak 3 ve 5 aynı varyanta (rs601338) W143X numaralandırmasıyla, kaynak 1 ve 2 ise Trp154Ter/p.Trp154* olarak atıf veriyor; kaynak 4'teki ilişkinin etki büyüklüğü çok küçük (olasılık oranı 1,01)."
+  },
+  {
+   "girdi": "chr1:237300747:A>G",
+   "ozet": "RYR2 geni, kalpte sarkoplazmik retikulumun ana Ca²⁺ salıverme kanalı olan riyanodin reseptörü 2'yi kodlar [2]. Riyanodin reseptörleri, iskelet ve kalp kası kasılması için gereken sarkoplazmik retikulum Ca²⁺ salıverimini sağlayan hücre içi Ca²⁺ geçirgen kanallardır; bu görevi iskelet kasında RyR1, kalp kasında RyR2 üstlenir [3]. Son yirmi yılda her iki RyR izoformunda çok sayıda mutasyon tanımlanmış ve iskelet ile kalp hastalıklarıyla bağlantılandırılmıştır [3]. Malign hipertermi, santral kor hastalığı ve katekolaminerjik polimorfik ventriküler taşikardi (KPVT), RyR1 ya da RyR2 mutasyonlarıyla genetik olarak ilişkilendirilmiştir [3]. RyR2'nin işlev kazanımı mutasyonları KPVT'ye yol açar; bu tabloda katekolamin stresine yanıt olarak belirgin ventriküler ektopi görülür ve bu bulgu egzersiz stres testiyle yeniden oluşturulabilir [1]. Buna karşılık işlev kaybı RyR2 mutasyonu taşıyan ve egzersiz stres testi negatif olan kişilerde ani kalp ölümü bildirilmiş, bu tablo RyR2 Ca²⁺ salıverim yetersizliği sendromu (CRDS) olarak adlandırılmıştır [1]. Kalıtsal RYR2 mutasyonları ve/veya strese bağlı fosforilasyon ve oksidasyon kanalın kapalı durumunu kararsızlaştırır; bu da aritmileri tetikleyen ve kasılmayı bozan patolojik diyastolik Ca²⁺ kaçağına yol açar [2].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Gen kademesi kuralına uyulmuş: girilen varyant (rs932946610) hakkında tek bir iddia yok. Tüm cümleler kaynak 1, 2 ve 3'te açıkça yazılanla destekli; işlev kazanımı/işlev kaybı ayrımı ve 'son yirmi yılda' zaman niteleyicisi korunmuş.",
+   "takip": [
+    {
+     "soru": "RYR2'de mutasyon taraması nasıl yapılıyor?",
+     "cevap": "RYR2'nin tüm ekzonlarının tarandığı bir çalışmada, egzersizle ilişkili senkobu ve normal düzeltilmiş QT aralığı olan 155 akraba olmayan hastanın 73'ünde (%47) olası KPVT1 ilişkili mutasyon saptandı [4]. KPVT1 pozitif hastaların üçte ikisinde mutasyon 16 ekzondan birinde yer alıyordu [4]. Bu nedenle yazarlar KPVT genetik testi için kademeli bir hedefleme stratejisinin düşünülmesini öneriyor [4].",
+     "karar": "GECER",
+     "aciklama": "Sayılar kaynak 4 ile birebir ve 'olası' (possible) niteleyicisi korunmuş; öneri kaynaktaki gibi 'düşünülmesi' kipinde bırakılmış, kılavuz önerisine dönüştürülmemiş."
+    }
+   ],
+   "cok_turlu": null,
+   "ret_kapsam": [],
+   "gen_ret": [
+    {
+     "soru": "Peki bendeki bu değişim kalbime zarar verir mi?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynakların hepsi gen/mutasyon sınıfı düzeyinde; hiçbiri rs932946610'u (intronik c.168+30131A>G) anmıyor, dolayısıyla bu değişimin etkisi kaynaklardan cevaplanamaz. Özetten sonra sorulacak doğal bir takip sorusu biçiminde yazılmış."
+    },
+    {
+     "soru": "RYR2 c.168+30131A>G (rs932946610) varyantı katekolaminerjik polimorfik ventriküler taşikardiye yol açar mı?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynaklar KPVT'yi RyR2 işlev kazanımı mutasyonlarıyla genel olarak ilişkilendiriyor ama bu intronik varyantı hiç anmıyor; varyanta özgü bir yanıt kaynaklardan çıkarılamaz. Soru varyantı adıyla anıyor."
+    }
+   ],
+   "not": "Kaynakların hepsi gen düzeyinde; girilen varyanta (rs932946610) değinen kaynak yok. Kaynak 5 sıçan modelinde RyR2 S2236L işlev kazanımı mutasyonunu inceliyor."
+  },
+  {
+   "girdi": "chr11:108227736:T>C",
+   "ozet": "ATM geni, PI-3 kinazla ilişkili bir alan taşıyan büyük bir protein kinazı kodlar [3]. Bu genin iki alelinde kalıtsal patojenik varyant bulunması ataksi-telanjiektazi (A-T) gelişiminden sorumludur [1]. A-T; ilerleyici ataksi, telanjiektazi, bağışıklık yetersizliği, kötü huylu hastalıklara yatkınlık ve radyoduyarlılıkla seyreden çekinik bir hastalıktır [2]. Almanya'da yaşayan 66 akraba olmayan hastada tüm 66 ekzonun dizilenmesiyle 46 farklı ATM mutasyonu ile 26 polimorfizm ve varyant saptandı [3]. Bu mutasyonların çoğu proteini kısaltan (truncating) tipteydi; bu da tam uzunluktaki ATM proteininin yokluğunun A-T'nin en sık moleküler temeli olduğunu doğruladı [3]. Hipomorfik varyantlar çok atipik fenotiplerle birlikte bulunabilir ve bu durum söz konusu varyantların patojenik etkisinin değerlendirilmesini önemli kılar [2]. Lenfoblastoid hücre hatlarında yapılan çalışmada atipik hastalarda kinaz kusuru daha hafifti ve genotoksik stres sonrası hücre döngüsü dağılımı tipik hastalara göre daha az bozulmuştu [2]. Modellenen 20 yanlış anlamlı (missense) değişimden 10'unda ATM kinaz etkinliği korunurken 10'unda hiç etkinlik görülmedi [5].",
+   "ozet_karar": "DUZELTILDI",
+   "ozet_aciklama": "Gen kademesi kuralına uyulmuş; girilen varyant hakkında iddia yok ve sayılar kaynak 3 ile 5 ile birebir. Yalnız 'truncating' için kullanılan 'kesikli' Türkçede 'aralıklı' anlamına geldiği için çeviri hatasıydı; 'proteini kısaltan (truncating)' olarak düzeltildi.",
+   "takip": [
+    {
+     "soru": "ATM'deki yanlış anlamlı değişimlerin gen içinde nerede toplandığı biliniyor mu?",
+     "cevap": "Modelleme çalışmasında yanlış anlamlı mutasyonların çoğu 1966 numaralı amino asidin C-terminal tarafında yer alıyordu ve kinaz etkinliği hiç olmayan 10 mutasyonun tamamı bu bölgedeydi [5]. Yazarlar buradan, daha N-terminalde yer alan mutasyonların —bazı istisnalar dışında— kinaz etkinliğini yitirme ve dolayısıyla A-T hastalarında saptanma olasılığının daha düşük olduğu sonucunu çıkarıyor [5]. Aynı çalışmada mutant ATM proteini olguların çoğunda kararsızdı, ancak bu kararsızlığın derecesi değişkenlik gösterdi [5].",
+     "karar": "GECER",
+     "aciklama": "Kaynak 5 ile birebir; 'bazı istisnalar dışında' ve 'daha düşük olasılık' niteleyicileri ile kararsızlığın değişkenliği korunmuş, kesinlik derecesi artırılmamış."
+    }
+   ],
+   "cok_turlu": null,
+   "ret_kapsam": [],
+   "gen_ret": [
+    {
+     "soru": "Peki bende bulunan bu değişim ataksi-telanjiektaziye yol açar mı?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynaklar yalnız ATM geni ve başka hastalarda saptanmış mutasyonları anlatıyor; chr11:108227736:T>C hiçbir kaynakta geçmiyor, bu yüzden varyanta özgü yanıt yok. Gen özetinden sonra sorulacak doğal bir soru."
+    },
+    {
+     "soru": "chr11:108227736:T>C varyantı kanser riskini artırır mı?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynaklar A-T'nin kötü huylu hastalıklara yatkınlıkla seyrettiğini gen düzeyinde söylüyor, ancak bu koordinattaki değişime ilişkin hiçbir veri içermiyor; soru varyant düzeyinde cevaplanamaz."
+    }
+   ],
+   "not": "Kaynakların hepsi gen düzeyinde; girilen varyanta değinen kaynak yok. Kaynak 4, ATM delesyonunu SF3B1 mutasyonuyla birlikte fare B hücrelerinde lösemogenez bağlamında inceliyor."
+  }
+ ],
+ "ozet": {
+  "incelenen": 32,
+  "gecer": 18,
+  "duzeltildi": 7,
+  "sil": 0,
+  "ret_dogru": 7,
+  "ret_yanlis": 0,
+  "tekrarlayan_sorunlar": [
+   "Niteleyici düşürme: kaynakta 'R-karvedilol' olan özne 'karvedilol'e, 'extensively studied' ise 'en çok çalışılmış' üstünlük derecesine dönüşmüş",
+   "Çeviri hataları: 'selectivity over Bcl-xL' -> 'Bcl-xL üzerinde seçicilik' (anlam tersine döndü), 'truncating' -> 'kesikli'",
+   "Sayı/atıf kayması: kaynaktaki P değeri bağlantı dengesizliği cümlesine yapıştırılarak farklı bir iddianın kanıtı gibi gösterilmiş (FUT2, kaynak 3)",
+   "Anlamı bozan Türkçe dilbilgisi hatası ('hücre hatlarında ile birincil hasta hücrelerinde')",
+   "Güçlü yönler: deney bağlamı (fare/domuz/hücre hattı/in vitro) hemen her cümlede korunmuş, gen kademesi örneklerinde varyant hakkında iddia yok, sayılar kaynaklarla birebir"
+  ]
+ }
+}

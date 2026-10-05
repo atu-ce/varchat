@@ -1,0 +1,185 @@
+{"paket": 4, "girdiler": [
+  {"girdi": "APP V717I",
+   "ozet": "APP V717I, amiloid öncül protein (APP) geninin 21. kromozomdaki 17. ekzonunda yer alan ve Londra (London) mutasyonu olarak bilinen yanlış anlamlı (missense) bir mutasyondur (Val717Ile) [3]. Erken başlangıçlı Alzheimer hastalığı görülen iki İtalyan aileden birinde mutasyon 7 kardeşten 3'ündeki hastalıktan sorumlu bulunmuş, şimdiye kadar yalnızca yürütücü işlev bozukluğu belirtileri gösteren dördüncü bir kardeşte de saptanmıştır [3]. Bu ailelerdeki tüm Alzheimer hastalarında yaşamın beşinci on yılında başlayan erken uzun süreli bellek bozukluğu, zihinsel geçiş (shifting) becerilerinde bozulma ve duygulanım belirtileri görülmüştür [3].\n\nAPP V717I taşıyan insan uyarılmış pluripotent kök hücre (iPSC) kökenli nöronlarda, izogenik kontrollere göre artmış Aβ42 üretimi, yükselmiş fosfo-tau ve bozulmuş nörit büyümesi gözlenmiştir [1]. Bu nöronlar fare ön beynine nakledildiğinde, 12. ayda APP V717I greftleri kontrollere göre daha küçük bulunmuş ve nörit büyümeleri bozulmuş, ancak plak ve yumak (tangle) patolojisi görülmemiştir [1]. Mutant nöronlarda LINGO2 dahil birçok genin ifadesi artmış ve kültürdeki APP V717I nöronlarında LINGO2'nin baskılanması nörit büyümesi kusurlarını düzeltmiştir [1].\n\nAPP[V717I] transgenik farelerin hipokampus CA1 bölgesinde NMDA'ya bağımlı uzun süreli güçlenme (LTP) bozulmuş, NMDA ve AMPA reseptör akımları azalmıştır [2]. Londra mutant APP'yi aşırı ifade eden APP/V717I transgenik farelerde beyinde amiloid plakları 12-15 aylıkken ortaya çıkmıştır [4].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Tüm cümleler kaynaklarla birebir uyumlu; iPSC/ksenogreft (1) ve transgenik fare (2, 4) bağlamları korunmuş, sentetik Aβ in vitro bulguları varyanta mal edilmemiş.",
+   "takip": [
+    {"soru": "meksikalı taşıyıcılarda bilişsel testlerde fark var mı",
+     "cevap": "Bir çalışmada APP V717I taşıyıcılarının 39 Meksikalı birinci derece akrabası (15 klinik öncesi taşıyıcı, 24 taşıyıcı olmayan) CERAD-MX testleriyle değerlendirilmiştir [5]. Klinik öncesi taşıyıcılar ve taşıyıcı olmayanlar CERAD-MX'te benzer performans göstermiştir [5]. Bununla birlikte klinik öncesi taşıyıcılar, yapısal praksi hatırlama (Constructional Praxis Recall) görevinde taşıyıcı olmayanlardan daha düşük performans göstermiştir [5]. Eğitim yılı ve yaş her iki grupta da tüm z skorlarını etkilemiş, daha az eğitim yılı bilişsel bozuklukları saptamada karıştırıcı bir değişken olarak öne çıkmıştır [5].",
+     "karar": "GECER",
+     "aciklama": "Örneklem (39; 15/24), benzer performans, CPR'de düşük performans ve eğitim yılının karıştırıcı etkisi kaynak 5'te açıkça var."}
+   ],
+   "cok_turlu": {"soru": "Bu farelerde yaşla birlikte biriken amiloid, üretimin artmasından mı kaynaklanıyor?",
+     "cevap": "Bir çalışmada yaşlanmanın, APP/V717I transgenik farelerde APP'nin alfa- ya da beta-sekretaz ile kesimini belirgin biçimde bozmadığı gösterilmiştir [4]. Yaşlı APP/V717I farelerde hem Aβ42 hem Aβ40 artarken, mutant insan PS1 (A246E) de taşıyan çift transgenik farelerde artış esas olarak Aβ42'de olmuştur [4]. Çökelmiş ya da plakla ilişkili amiloidde Aβ42/Aβ40 oranı yaşlı APP/V717I farelerde 0,43 ± 0,07, çift transgenik farelerde ise 3,11 ± 0,22 bulunmuştur [4]. Yazarlar verileri, yaşlanan beyinde amiloid birikiminin artmış üretimden çok amiloid peptitlerin temizlenememesinden kaynaklandığı şeklinde yorumlamıştır [4].",
+     "karar": "GECER",
+     "aciklama": "Oranlar ve yorum kaynak 4 ile birebir; fare bağlamı ve 'yazarların yorumu' niteleyicisi korunmuş; özetin tekrarı değil."},
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Kaynak 2'deki in vitro bulgular sentetik Aβ peptitleriyle yapılmış, varyanta özgü değil; yalnız APP[V717I] transgenik fare bulguları kullanıldı. Kaynak 1 fare beynine nakledilmiş insan iPSC nöronları; kaynak 2 ve 4 transgenik fare modeli."},
+
+  {"girdi": "TTR V30M",
+   "ozet": "TTR V30M (Val30Met), kalıtsal transtiretin ilişkili amiloidozda (ATTRm amiloidoz) TTR genindeki en sık mutasyon olarak bildirilmiştir [5]. ATTRm amiloidoz otozomal dominant, nadir ve ilerleyici bir hastalıktır; ağırlıklı olarak uzunluğa bağımlı, ince lif baskın aksonal polinöropati şeklinde ortaya çıkar ve sıklıkla kalp bozukluklarıyla birlikte görülür [5]. Erken başlangıçlı Val30Met ATTRv'de küçük miyelinsiz sinirler erken dönemde ve belirgin biçimde tutulurken, diğer ATTRv formlarında sıklıkla hem büyük hem küçük lif tutulumu görülür [4].\n\nErken evre V30M transtiretin ailesel amiloid polinöropatisi (TTR-FAP) hastalarında yapılan randomize, çift kör bir çalışmada 18 ay boyunca günde bir kez 20 mg tafamidis plaseboyla karşılaştırılmıştır [1]. Tedavi amaçlı (ITT) popülasyonda eş birincil sonlanım noktalarına ulaşılamamış, ancak ikincil sonlanım noktalarının çoğunda anlamlı farklar tafamidis lehine olmuştur [1]. TTR, tafamidis alan hastaların %98'inde, plasebo alanların ise %0'ında stabilize olmuştur (p < 0,0001) [1].\n\nTafamidis, TTR tetramerinin normalde boş olan iki tiroksin bağlanma bölgesine seçici olarak bağlanarak tetrameri kinetik olarak stabilize eder [3]. Tafamidis meglumine'in TTR-FAP tedavisi için tamamlanan Faz II/III çalışmalarında, V30M TTR mutasyonu açısından heterozigot hastalarda hastalık ilerlemesini yavaşlattığı bildirilmiştir [3].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Sıklık (5), lif tutulumu (4), RCT sonuçları (1) ve tafamidis mekanizması (3) kaynaklarla uyumlu; ITT'de eş birincil sonlanımın karşılanmadığı doğru aktarılmış, eplontersen (2) varyanta mal edilmemiş.",
+   "takip": [
+    {"soru": "Tafamidis çalışmasında ITT ve EE popülasyonlarının sonuçları arasında fark var mı?",
+     "cevap": "ITT popülasyonunda (n = 125) NIS-LL yanıtlayıcı oranı açısından tafamidis ve plasebo grupları arasında fark gözlenmemiştir (%45,3'e karşı %29,5; p = 0,068) [1]. Norfolk yaşam kalitesi toplam skorundaki (TQOL) değişim de ITT popülasyonunda farklı bulunmamıştır (2,0'a karşı 7,2; p = 0,116) [1]. Etkinlik açısından değerlendirilebilir (EE) popülasyonda (n = 87) ise tafamidis grubunda NIS-LL yanıtlayıcıları anlamlı olarak daha fazladır (%60,0'a karşı %38,1; p = 0,041) [1]. EE popülasyonunda tafamidis alan hastaların TQOL skoru da daha iyi korunmuştur (0,1'e karşı 8,9; p = 0,045) [1].",
+     "karar": "GECER",
+     "aciklama": "Tüm sayılar, n değerleri ve p değerleri kaynak 1 ile birebir."}
+   ],
+   "cok_turlu": {"soru": "Tafamidis çalışmasında yan etkiler nasıldı, tedavi iyi tolere edildi mi?",
+     "cevap": "Randomize çalışmada advers olaylar tafamidis ve plasebo grupları arasında benzer bulunmuştur [1]. Günde bir kez 20 mg tafamidis 18 ay boyunca iyi tolere edilmiştir [1]. Çalışmada karaciğer nakli nedeniyle çalışmadan ayrılma oranı beklenenden yüksek olmuştur [1].",
+     "karar": "GECER",
+     "aciklama": "Advers olaylar, tolerabilite ve beklenenden yüksek karaciğer nakli kaynaklı ayrılma kaynak 1'de açıkça var; özette yok."},
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Kaynak 2 (eplontersen, NEURO-TTRansform) V30M'e özgü değil; V30M yalnız düzeltme değişkeni olarak geçiyor, kullanılmadı. Kaynak 4 ve 5 derleme; kaynak 1'de ITT eş birincil sonlanım noktaları karşılanmamış, kaynak 3 ilerlemeyi yavaşlattığını söylüyor."},
+
+  {"girdi": "HNF1A P291fs",
+   "ozet": "HNF1A P291fs (Pro291fs, P291fsinsC), HNF1A geninin 4. ekzonundaki poli-sitozin (poli C) dizisinde yer alan bir mutasyondur [1]. Bir derlemeye göre HNF1A geninde 373 ailede 193 farklı mutasyon tanımlanmış olup en sık görüleni 65 ailede bildirilen Pro291fs'dir [1].\n\nHNF1A mutasyonları, çalışılan popülasyonların çoğunda gençlerde görülen erişkin tipi diyabetin (MODY) yaygın bir nedenidir [1]. MODY; otozomal dominant kalıtım, sıklıkla 25 yaşından önce başlayan erken başlangıç ve pankreas beta hücresi işlev bozukluğuyla karakterize monogenik bir diyabet biçimidir [1]. Sülfonilüre tabletleriyle tedaviye duyarlılık, hem HNF1A hem HNF4A mutasyonlarının bir özelliğidir [1]. Bir HNF1A ya da HNF4A mutasyonunun saptanması MODY tanısını doğrular ve klinik yönetim açısından önemli sonuçlar doğurur [1].\n\nGen düzeyinde, HNF1A patojenik varyantlarında diyabet penetransı ortama göre değişmiştir: popülasyon kohortunda %32, sağlık sistemi kohortunda %49, aile üyelerinde %86 ve probandlarda %98 [5].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Varyant bilgisi yalnız kaynak 1'den; gen sınıfı bulguları (sülfonilüre duyarlılığı, penetrans) özne 'HNF1A mutasyonları/patojenik varyantları' olarak korunmuş, P291fs'ye mal edilmemiş.",
+   "takip": [
+    {"soru": "HNF1A-MODY'yi tip 1 diyabetten ayırmaya yardımcı bir test var mı?",
+     "cevap": "Bir derlemeye göre MODY-monogenik diyabet riskini belirlemede yardımcı ek testlerden biri, günün en büyük öğününden 2 saat sonra bakılan idrar C-peptit/kreatinin oranıdır [3]. Bu oranın ≥0,2 nmol/mmol olması, HNF1A- ya da HNF4A-MODY'yi tip 1 diyabetten ayırmak için kullanılır [3]. Aynı derlemeye göre klinik özelliklerle birlikte 3 ya da daha fazla negatif antikor bulunması MODY-monogenik diyabeti düşündürebilir ve ardından genetik test yapılır [3].",
+     "karar": "GECER",
+     "aciklama": "İdrar C-peptit/kreatinin eşiği (≥0,2 nmol/mmol) ve 3+ negatif antikor ifadesi kaynak 3 ile birebir; 'düşündürebilir' niteleyicisi korunmuş."}
+   ],
+   "cok_turlu": {"soru": "HNF1A geni diyabet dışında başka bir hastalıkta da bildirilmiş mi?",
+     "cevap": "417 konjenital hiperinsülinizmli çocuğun incelendiği bir çalışmada HNF1A, ek olarak taranan nadir genler arasında yer almıştır [4]. Bu çalışmada mutasyon saptanan ve diazoxide tedavisine yanıt veren probandların %16'sında mutasyon nadir genlerde (HADH, UCP2, HNF4A ve HNF1A) bulunmuştur [4].",
+     "karar": "GECER",
+     "aciklama": "%16'lık oran kaynakta olduğu gibi nadir gen grubunun tamamına ait yazılmış, HNF1A'ya ayrıca mal edilmemiş."},
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Yalnız kaynak 1 varyantı anıyor; kaynak 2-5 gen düzeyi (penetrans, tanı testleri HNF1A geneline ait). Kaynak 4 konjenital hiperinsülinizm, HNF1A yalnız nadir genlerden biri."},
+
+  {"girdi": "FOXL2 C134W",
+   "ozet": "FOXL2 C134W, FOXL2 transkripsiyon faktöründe görülen somatik, yanlış anlamlı (missense) c.402C>G (p.C134W) nokta mutasyonudur [3]. Bu mutasyon erişkin tip granüloza hücreli tümörler (AGCT) için patognomoniktir ve bu tümör tipi için tanısal bir belirteçtir [3]. Mutant FOXL2C134W proteininin erişkin tip over granüloza hücreli tümörlerinin en az %95'inde ifade edildiği ve bu hastalıkta onkogenezin sürücüsü (driver) olarak kabul edildiği bildirilmektedir [1].\n\nBir çalışmada FOXL2C134W'nin SMAD4'e bağlanma yeteneği kazandığı ve SMAD2/3 ile birlikte yalnız bu mutanta özgü yeni bir hibrit DNA motifine (AGHCAHAA) bağlanan bir kompleks oluşturduğu gösterilmiştir [1]. Bu bağlanma, birçoğu epitelyal-mezenkimal geçiş (EMT) için karakteristik olan yakındaki genlerin transkripsiyonuna yol açmıştır [1]. İndüklenebilir izogenik hücre hatlarıyla yapılan başka bir çalışma, FOXL2C134W'nin DNA bağlanma özgüllüğünün değiştiğini doğrulamıştır [3].\n\nJapon hastalarda yapılan bir çalışmada mutasyon, erişkin tip over granüloza hücreli tümörlerinin 44'ünün 27'sinde (%61,4) saptanmış, diğer over tümörlerinde hiç bulunmamıştır [5]. Özel bir BaseScope in situ hibridizasyon testiyle FOXL2 C134W durumunun değerlendirilmesi, AGCT tanısında %98,7 duyarlılık ve %97,5 özgüllük göstermiştir [4].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Tanım, sıklıklar (%95, %61,4), mekanizma ve BaseScope duyarlılık/özgüllüğü kaynaklarla birebir; hücre hattı bağlamı korunmuş, 'sürücü (driver)' çevirisi doğru.",
+   "takip": [
+    {"soru": "Glukokortikoidler bu tümörün büyümesini etkiliyor mu?",
+     "cevap": "İzogenik AGCT hücreleri ve bir AGCT tümoroid biyobankasıyla yapılan bir çalışmada, ilaç taraması glukokortikoidlerin FOXL2C134W'ye bağımlı AGCT büyümesini artırdığını göstermiştir [2]. Bu çalışmada FOXL2C134W'ye bağımlı kromatin yeniden modelleme etkinliği, glukokortikoid reseptörünün kromatin üzerindeki yerleşimini yeniden yönlendirerek hiyaluronan sentaz 2 gen ifadesini ve hücre dışı hiyaluronan salgısını artırmıştır [2]. İlaç-ilaç etkileşimi deneylerinde dexamethasone, AGCT tedavisinde sık kullanılan kemoterapi ajanı paclitaxel'in etkinliğini antagonize etmiştir [2].",
+     "karar": "GECER",
+     "aciklama": "Hücre/tümoroid ve deney bağlamı korunmuş; HAS2, hiyaluronan ve dexamethasone-paclitaxel etkileşimi kaynak 2'de açıkça var."}
+   ],
+   "cok_turlu": {"soru": "C134W'ye özgü hedef genler bulunmuş mu, tedavi açısından bir ipucu var mı?",
+     "cevap": "İndüklenebilir izogenik hücre hatlarında yapılan kromatin immünopresipitasyon dizilemesinde, FOXL2C134W yabanil tip FOXL2'nin bağlandığı DNA öğelerinin çoğuna ve genom genelinde çok sayıda kendine özgü öğeye bağlanmıştır [3]. FOXL2C134W'nin özgün hedeflerinden biri SLC35F2'dir ve bu genin ifadesi YM155'e duyarlılığı artırmıştır [3]. Başka bir çalışmada SMAD4 ya da SMAD2/3'ün ortadan kaldırılması, hibrit bölgelerde FOXL2C134W bağlanmasını belirgin biçimde azaltmıştır [1]. Aynı çalışmada TGFβ inhibisyonu FOXL2C134W'nin transkripsiyonel etkisini hafifletmiş ve yazarlar FOXL2C134W ile SMAD4 etkileşimini olası tedavi hedefleri olarak önermiştir [1].",
+     "karar": "GECER",
+     "aciklama": "SLC35F2/YM155 (3), SMAD ablasyonu ve TGFβ inhibisyonu (1) doğru kaynağa atıflı; 'olası tedavi hedefi' niteleyicisi korunmuş; özette olmayan ayrıntılar."},
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Kaynak 2 ve 3 hücre hattı/tümoroid deneyleri. Kaynak 5'teki Japon serisinde sıklık %61,4; kaynak 1'deki 'en az %95' ve kaynak 2 ile 4'teki 'neredeyse evrensel' ifadeleriyle farklı."},
+
+  {"girdi": "CHEK2 1100delC",
+   "ozet": "CHEK2 1100delC, CHEK2 genindeki bir genetik varyanttır; CHEK2, çift zincir kırıklarına yanıt vererek DNA replikasyonunda kritik bir rol oynar [3]. 26 çalışmayı (118.735 meme kanseri olgusu, 195.807 kontrol) kapsayan bir meta-analizde 1100delC, tüm popülasyonların birlikte değerlendirildiği genel analizde artmış meme kanseri riskiyle ilişkili bulunmuştur (OR 2,89; %95 GA 2,63-3,16) [2]. Aynı meta-analizde olasılık oranı erkek meme kanseri için 3,13, kadın meme kanseri için 2,88 ve ailesel meme kanseri için 3,21 bulunmuştur [2].\n\nİlk primer invaziv meme kanseri tanısı almış 82.701 kadını (963 CHEK2 c.1100delC taşıyıcısı) kapsayan bir çalışmada, taşıyıcıların meme kanserine özgü sağkalımı taşıyıcı olmayanlara göre daha kısa bulunmuştur [1]. Bu fark, karşı taraf meme kanseri oluşumu hesaba katıldıktan sonra da sürmüştür (HR 1,30; %95 GA 1,09-1,56) [1].\n\nProstat kanseri üzerine bir derlemede, bağımsız veri içeren beş çalışmanın birleştirilmiş sonuçlarında 1100delC için OR seçilmemiş olgularda 1,98, ailesel olgularda 3,39 bulunmuştur [3]. Derleme, ailesinde prostat kanseri öyküsü olan erkeklerde CHEK2*1100delC taramasının düşünülmesi gerektiğini belirtmektedir [3]. Altı çalışmayı kapsayan bir meta-analizde 1100delC, seçilmemiş (OR 2,11) ve ailesel (OR 2,80) kolorektal kanserle ilişkili bulunmuş, sporadik kolorektal kanserle ilişkisi ise gösterilememiştir [4].",
+   "ozet_karar": "DUZELTILDI",
+   "ozet_aciklama": "Kaynak 2'deki 'overall populations' (tüm popülasyonların havuzlandığı genel analiz) 'genel popülasyonlarda' diye çevrilmişti; bu ifade seçilmemiş genel nüfus anlamına gelip olgu-kontrol meta-analizini yanlış nitelendiriyor, düzeltildi. Prostat cümlesinde OR'nin neye ait olduğu (1100delC) kaynaktaki gibi açık yazıldı. Diğer sayılar birebir doğru.",
+   "takip": [
+    {"soru": "Radyoterapi ya da sistemik tedavi, taşıyıcılarda karşı taraf meme kanseri riskini farklı mı etkiliyor?",
+     "cevap": "82.701 kadını kapsayan çalışmada tedavilerin karşı taraf meme kanseri riskiyle ilişkisinin CHEK2 c.1100delC taşıyıcılığına göre farklılaştığına dair kanıt bulunmamıştır [1]. Çalışmada karşı taraf meme kanseri riskindeki en güçlü azalma, kemoterapi ile endokrin tedavinin birlikte kullanımıyla ilişkili bulunmuştur (HR 0,66; %95 GA 0,55-0,78) [1]. Radyoterapi ile karşı taraf meme kanseri riski arasında bir ilişki gözlenmemiştir [1]. Yazarlar, sistemik tedavinin taşıyıcılık durumundan bağımsız olarak daha düşük karşı taraf meme kanseri riskiyle ilişkili olduğu sonucuna varmıştır [1].",
+     "karar": "GECER",
+     "aciklama": "HR 0,66 kaynaktaki gibi tüm kohorta ait yazılmış, taşıyıcılara mal edilmemiş; 'ilişkili' derecesi korunmuş."}
+   ],
+   "cok_turlu": {"soru": "Bu varyant ailesel meme-over kanserinde ne kadar önemli, ailede hastalıkla birlikte aktarılıyor mu?",
+     "cevap": "İnvaziv meme kanseri, in situ karsinom ya da epitelyal non-müsinöz over kanseri tanılı 3.127 kadın ve 1.567 kadın kontrolün incelendiği bir çalışmada hastalarda 44 CHEK2 c.1100delC saptanmıştır [5]. Bu çalışmada CHEK2 c.1100delC için olasılık oranı meme-over kanserinde 4,46 (%95 GA 1,86-10,46), meme kanserinde 4,89 (%95 GA 2,01-11,34) bulunmuştur [5]. Meme kanserli birinci derece akrabalarda segregasyon CHEK2 c.1100delC için 13 kişiden 7'sinde görülmüş, PALB2 varyantlarında ise 20 kişinin 20'sinde tam olmuştur (P = 0,002) [5]. Yazarlara göre PALB2 varyantları ve CHEK2 c.1100delC birlikte ailesel meme/over kanseri riskinin yaklaşık %2,5'ini açıklamaktadır [5].",
+     "karar": "GECER",
+     "aciklama": "PALB2 ve CHEK2 OR'leri karıştırılmamış; %2,5'lik birleşik pay kaynaktaki gibi iki grubun toplamı olarak yazılmış; segregasyon sayıları birebir."},
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Kaynak 1'deki HR 0,66 (kemoterapi + endokrin tedavi) tüm kohort için, taşıyıcılara özgü değil. Kaynak 5 PALB2 ile birlikte; OR'ler karıştırılmamalı."},
+
+  {"girdi": "rs738409",
+   "ozet": "PNPLA3 I148M, karaciğerde ifade edilen ve lipit metabolizmasında görev alan PNPLA3 proteininde 148. konumdaki izolösinin metiyonine değiştiği protein varyantıdır [5]. Bu varyantı rs738409 C>G tek nükleotid polimorfizmi (SNP) oluşturur [2]. Hispanik, Afrikalı Amerikalı ve Avrupa kökenli Amerikalı bireylerde yapılan genom çapında bir taramada rs738409[G] aleli, artmış karaciğer yağıyla (P = 5,9 × 10^-10) ve karaciğer inflamasyonuyla (P = 3,7 × 10^-4) ilişkili bulunmuştur [1]. Bu alel, alkolsüz yağlı karaciğer hastalığına (NAFLD) en yatkın grup olan Hispaniklerde en sık görülmüş; rs738409[G] homozigotlarında karaciğer yağ içeriği taşıyıcı olmayanlara göre iki kattan fazla yüksek bulunmuştur [1].\n\nBir derlemeye göre çeşitli çalışmalar, I148M varyantının basit steatozdan steatohepatite ve ilerleyici fibrozise kadar yağlı karaciğerle ilişkili karaciğer hasarının tüm yelpazesine yatkınlık oluşturduğunu doğrulamıştır [5]. Aynı derlemede I148M, alkole bağlı steatohepatitin siroza ilerlemesinin önemli bir belirleyicisi olarak tanımlanmıştır [5].\n\nİnsan pluripotent kök hücre kökenli çok hücreli bir karaciğer kültüründe, lipotoksik koşullar altında I148M varyantı NAFLD fenotiplerinin daha güçlü gelişmesine yol açmış ve bu fark artmış IL-6/STAT3 etkinliğiyle ilişkili bulunmuştur [2].",
+   "ozet_karar": "DUZELTILDI",
+   "ozet_aciklama": "Kaynak 5 'Several studies' diyor; 'birçok çalışma' niceliği yükseltiyordu, 'çeşitli çalışmalar' yapıldı. Diğer cümleler (P değerleri, iki kat fark, hPSC kültür bağlamı) kaynaklarla birebir.",
+   "takip": [
+    {"soru": "latinlerde bu varyant karaciğer enzimlerini etkiliyor mu",
+     "cevap": "Arizona İnsülin Direnci (AIR) kaydından 503 Latin kökenli yetişkinde yapılan bir çalışmada G aleli, artmış ALT (p = 7,8 × 10^-7) ve AST (p = 9,7 × 10^-6) düzeyleriyle anlamlı olarak ilişkili bulunmuştur [3]. G aleli ayrıca daha yüksek APRI (p = 3,7 × 10^-7) ve FIB-4 skoru (p = 4,1 × 10^-3) ile ilişkili bulunmuştur [3]. Kadınlarda G aleli artmış FIB-4 skoruyla ilişkiliyken (p = 6,9 × 10^-3) erkeklerde bu ilişki gözlenmemiştir (p > 0,05) [3]. I148M varyantı ile AST/ALT oranı ya da NAFLD risk skoru arasında ise ilişki bulunmamıştır [3].",
+     "karar": "GECER",
+     "aciklama": "Örneklem, tüm p değerleri ve cinsiyete göre FIB-4 farkı kaynak 3 ile birebir; 'ilişkili' derecesi korunmuş."}
+   ],
+   "cok_turlu": {"soru": "I148M'nin fibrozis üzerindeki etkisi yalnızca yağlanma üzerinden mi oluyor?",
+     "cevap": "Bir derlemeye göre I148M varyantının fibrozis üzerindeki etkisi, karaciğer yağlanması ve inflamasyon üzerindeki etkisinden bağımsız bulunmuştur [5]. Bu durum, varyantın karaciğer lipitlerinin hem miktarını hem niteliğini ve hepatositlerin yanı sıra parankimal olmayan karaciğer hücrelerinin biyolojisini etkileyerek fibrogenezi doğrudan destekleyebileceğini düşündürmektedir [5]. Derlemede I148M'nin kronik hepatit C'de fibrogenezi ve ilişkili klinik sonuçları etkilediği, kronik hepatit B, kalıtsal hemokromatoz ve primer sklerozan kolanjitte de olası bir etkisi bulunduğu belirtilmiştir [5]. Çalışmalar, I148M polimorfizminin karaciğer hastalıklarında fibrogenezin genel bir değiştiricisi (modifier) olabileceğini düşündürmektedir [5].",
+     "karar": "GECER",
+     "aciklama": "Kaynak 5 ile birebir; 'possibly' (HBV, hemokromatoz, PSK için 'olası') ve 'may/suggest' niteleyicileri korunmuş; özette olmayan ayrıntı."},
+   "ret_kapsam": [
+    {"soru": "Türkiye'de rs738409 G alelinin sıklığı ne kadar?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynaklarda Türkiye ya da Türk popülasyonu geçmiyor; yalnız Hispanik/Latin, Afrikalı ve Avrupa kökenli Amerikalı gruplardan söz ediliyor."}
+   ],
+   "gen_ret": [],
+   "not": "Kaynak 2 hPSC kökenli karaciğer kültürü (in vitro). Kaynak 4 ağırlıkla epigenetik derleme, varyant hakkında yalnız genel cümle içeriyor."},
+
+  {"girdi": "chr22:42128945:C>T",
+   "ozet": "rs3892097, CYP2D6 genindeki bir tek nükleotid polimorfizmidir (SNP) [2]. Paranoid şizofreni ön tanılı 20 yaşındaki bir hastada olanzapine tedavisiyle ilişkili rabdomiyoliz gelişmiş ve farmakogenetik testte CYP2D6 genotipi *4/*4 (1846G>A, rs3892097) bulunmuştur [1]. Hasta, CYP2D6 izoenzimiyle metabolize edilmeyen trifluoperazine'e geçirilmiş ve nefrolojik sekel olmadan iyileşmiştir [1].\n\n300 olgu ve 600 kontrolle yapılan bir çalışmada, rs3892097 mutant genotiplerini taşıyan Keşmirli çocuklarda yüksek akut lenfoblastik lösemi (ALL) riski gözlenmiştir (OR = 24,06; %95 GA 10,23-56,53; p < 0,0001) [2]. Aynı çalışmada *4/*4 genotipini taşıyan ALL olgularında CYP2D6 mRNA ifadesi anlamlı olarak azalmış bulunmuştur [2]. Enflamatuvar genler ve Parkinson hastalığı üzerine yapılan bir nicel analizde CYP2D6 rs3892097, Parkinson hastalığı riskiyle istatistiksel olarak ilişkili polimorfizmler arasında yer almıştır [4].\n\nÇek Roman (n = 302) ve Roman olmayan Çek (n = 298) örneklemlerinin karşılaştırıldığı bir çalışmada rs3892097 A aleli taşıyıcılığı Romanlarda %39,2, Çeklerde %38,2 bulunmuştur (p = 0,048) [5]. Roman popülasyonu örneklerine ilişkin bir sistematik derlemede de rs3892097 dahil yedi varyantın alel sıklığında farklılıklar bildirilmiştir [3].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Tek olgu sunumu olarak aktarılmış, nedensellik kurulmamış; ALL OR'si, mRNA azalması, Parkinson ilişkisi ve Roman/Çek sıklıkları kaynaklarla birebir; kaynakta olmayan kırpılma (splicing) etkisi eklenmemiş.",
+   "takip": [
+    {"soru": "CYP2D6 *4/*4 olan birinde olanzapine ile ilgili bir sorun bildirilmiş mi?",
+     "cevap": "Bir olgu sunumunda paranoid şizofreni ön tanılı 20 yaşındaki bir hastaya günde 10 mg oral olanzapine başlanmış ve tedavinin dördüncü gününde serum kreatin kinaz 9.725 U/L olan rabdomiyoliz gelişmiştir [1]. Rabdomiyolize katkısından şüphelenilen olanzapine hemen kesilmiş, farmakogenetik testte hastanın CYP2D6 genotipi *4/*4 (1846G>A, rs3892097) bulunmuştur [1]. Hasta CYP2D6 ile metabolize edilmeyen trifluoperazine'e geçirilmiş ve nefrolojik sekel olmadan taburcu edilmiştir [1]. Yazarlar, farmakogenetik yönlendirmeli tedavi kişiselleştirmesinin advers ilaç reaksiyonu riskini azaltmaya olanak sağlayabileceğini belirtmiştir [1].",
+     "karar": "GECER",
+     "aciklama": "Doz, CK değeri, gün ve yazar yorumu kaynak 1 ile birebir; 'olanak sağlayabileceği' niteleyicisi korunmuş."}
+   ],
+   "cok_turlu": {"soru": "ALL çalışmasında başka bir varyantla etkileşim ya da çevresel bir etken bulunmuş mu?",
+     "cevap": "Keşmirli çocuklarla yapılan çalışmada rs35742686 ve rs3892097 SNP'leri arasında anlamlı bir etkileşim gözlenmiştir (P etkileşim = 0,001) [2]. Bu iki varyantın genotipleriyle ilişkili risk, babası sigara içen ya da annesi X ışınına maruz kalmış olgularda da sürmüştür (p < 0,001) [2]. Genotipler polimeraz zincir reaksiyonu-restriksiyon parça uzunluk polimorfizmi (PCR-RFLP) yöntemiyle belirlenmiştir [2].",
+     "karar": "GECER",
+     "aciklama": "Etkileşim p değeri, babada sigara/annede X ışını maruziyeti ve PCR-RFLP kaynak 2'de açıkça var; özette olmayan ayrıntı."},
+   "ret_kapsam": [
+    {"soru": "rs3892097 taşıyan bir meme kanseri hastasında tamoksifen etkinliği azalır mı?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Hiçbir kaynakta tamoksifen ya da meme kanseri geçmiyor; ilaç olarak yalnız olanzapine ve trifluoperazine var."}
+   ],
+   "gen_ret": [],
+   "not": "Kaynaklar varyantı rs3892097 / 1846G>A / *4 olarak anıyor; c.506-1G>A adı ve kırpılma etkisi kaynaklarda geçmiyor. Kaynak 5'te Roman-Çek farkı küçük (%39,2'ye %38,2; p = 0,048). Kaynak 1 tek olgu sunumu."},
+
+  {"girdi": "GRCh37:chr16:48258198:C>T",
+   "ozet": "ABCC11 genindeki rs17822931 (538G>A; Gly180Arg), apokrin salgı hücresi işlevini etkileyen, eş anlamlı olmayan (nonsynonymous) bir tek nükleotid polimorfizmidir [1][3]. Kulak kiri tipi ve koltuk altı kokusu genetik olarak rs17822931 tarafından belirlenir [2]. ABCC11 538G alelinin sıklığı, Afrika, Amerika ve Avrupa (Finlandiya ve İskoçya) popülasyonlarında Doğu Asya (Japonya) popülasyonlarına göre daha yüksektir [3]. A aleli ise Doğu Asyalılarda daha yüksek sıklıkta görülmektedir [2].\n\n79 Japon koltuk altı osmidrozisi (AO) hastasının 78'inde (%98,7) GG ya da GA genotipi bulunurken, genel popülasyondan 161 Japon bireyde bu oran %35,4 (57/161) olmuştur (p < 1,1 × 10^-24) [5]. Yazarlar bu sonuçların, G aleline sahip olmanın koltuk altı kokusunun ortaya çıkması için ön koşul olduğunu düşündürdüğünü belirtmiştir [5].\n\nYaklaşık 17.000 kişilik ALSPAC kohortunda deodorant kullanımının rs17822931 genotipine göre farklılaştığına dair güçlü kanıt bulunmuştur (P = 3,7 × 10^-20) [2]. AA homozigotları, deodorantı hiç kullanmayan ya da seyrek kullananlar arasında yaklaşık 5 kat fazla temsil edilmiştir [2].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Tanım iki kaynağa doğru bölünmüş ([1][3]); alel sıklıkları, AO genotip oranları ve ALSPAC bulguları birebir; kolesteatom hipotezi (3) kullanılmamış.",
+   "takip": [
+    {"soru": "Polinezyalılarda bu SNP üzerinde doğal seçilim olduğuna dair bir bulgu var mı?",
+     "cevap": "23 Tongalı bireyin genomlarının incelendiği bir çalışmada ABCC11 geni, Papua ile ilişkili soy oranı ortalamanın 5 standart sapmadan fazla üzerinde (> %67,8) olan iki genomik bölgeden biri olmuştur [1]. Yaklaşık Bayesçi hesaplama, Polinezya atalarında Papua ile ilişkili atalardan gelen rs17822931 atasal aleli üzerinde güçlü bir pozitif seçilim (s = 0,0217) etki ettiğine işaret etmiştir [1]. Yazarlar, Papua ile ilişkili atalarla karışımın Polinezya atalarının hızlı yerel adaptasyonuna katkıda bulunduğunu öne sürmüştür [1].",
+     "karar": "GECER",
+     "aciklama": "Örneklem (23 Tongalı), >%67,8 eşiği, s = 0,0217 ve yazar sonucu kaynak 1 ile birebir; 'öne sürmüştür' niteleyicisi uygun."}
+   ],
+   "cok_turlu": {"soru": "Bu SNP'nin memeyle ilgili bir bulgusu var mı?",
+     "cevap": "Islak kulak kiri fenotipi, 1970'lerde meme başı aspirasyon sıvısı (NAF) veriminin belirleyicilerinden biri olarak tanımlanmıştır [4]. 557 NAF veren ve 359 NAF vermeyen bireyle yapılan bir çalışmada ABCC11 rs17822931, NAF verimiyle negatif yönde ilişkili bulunmuştur (OR 0,66; %95 GA 0,49-0,88; p = 0,004) [4]. Son doğumdan bu yana geçen yıllar ile ABCC11 SNP'si arasında anlamlı bir etkileşim saptanmıştır [4]. Yazarlar, NAF'ın biyolojik örnek olarak kullanıldığı çalışmaların tasarımında ABCC11 genotipinin dikkate alınması gerektiğini belirtmiştir [4].",
+     "karar": "GECER",
+     "aciklama": "Örneklem, OR/GA/p ve etkileşim kaynak 4 ile birebir; meme kanseri riskiyle ilişki iddiası eklenmemiş; özette olmayan ayrıntı."},
+   "ret_kapsam": [
+    {"soru": "ABCC11 rs17822931 genotip testi kaç liraya yapılıyor?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynaklarda test maliyeti yok; kaynak 2'deki 'cost saving' deodorant harcamasıyla ilgili, test ücretini cevaplamıyor."}
+   ],
+   "gen_ret": [],
+   "not": "Kaynak 3'teki kolesteatom bağlantısı yalnız hipotez; kullanılmadı. Kaynak 2 ve 3 alelleri farklı adlandırıyor (A aleli / 538G aleli)."},
+
+  {"girdi": "chr17:50186168:T>C",
+   "ozet": "COL1A1, COL1A2 ile birlikte tip I kollajenin alfa zincirlerini kodlayan genlerden biridir ve osteogenezis imperfekta (OI) genellikle bu iki gendeki mutasyonlardan kaynaklanır [4]. OI, tekrarlayan kırıklar ve kemik deformitesiyle karakterize, nadir görülen kalıtsal bir iskelet displazisidir [1]. OI fenotipi olan bireylerin büyük çoğunluğunda COL1A1 ya da COL1A2'de hastalığa yol açan dominant varyantlar bulunur [5].\n\n671 OI hastasının incelendiği bir çalışmada patojenik mutasyon taşıdığı belirlenen 560 hastada en sık mutasyonlar COL1A1'de (n = 308, %55) ve COL1A2'de (n = 164, %29) saptanmıştır [3]. Aynı çalışmada çift alelli ya da COL1A2 mutasyonları, COL1A1 mutasyonlarına göre daha fazla kemik deformitesine ve daha kötü hareket kabiliyetine yol açmıştır [3]. COL1A1 ya da COL1A2'deki glisin değişimleri, en hafif fenotiplere yol açan tip I kollajen alfa zinciri haployetmezliğine göre daha ağır fenotiplere yol açmıştır [3].\n\nCOL1A1 ve COL1A2'deki patojenik varyantlar OI'nin yanı sıra nadiren Ehlers-Danlos sendromu (EDS) alt tiplerinde ve OI-EDS örtüşme sendromlarında da rol oynar [2]. Büyük dizileme veri tabanlarına göre, OI'ye yol açması beklenen COL1A1/COL1A2 varyantlarının taşıyıcıları OI tanısı almış kişilerden yaklaşık 10 kat fazladır [5].",
+   "ozet_karar": "DUZELTILDI",
+   "ozet_aciklama": "Kaynak 3'te %55 ve %29, 671 hastanın değil mutasyon saptanan 560 hastanın payı; cümle yüzdeleri 671'e bağlıyordu (308/671 = %46), payda kaynaktaki gibi 560 olarak düzeltildi. Girilen varyant hakkında hiçbir iddia yok; diğer cümleler gen düzeyinde ve kaynaklarla birebir.",
+   "takip": [
+    {"soru": "Çinli OI hastalarında COL1A1'de ne tür varyantlar bulunmuş?",
+     "cevap": "668 Çinli OI hastasının incelendiği bir çalışmada COL1A1'de 47 işlev kaybı varyantı saptanırken, COL1A2'de hiç anlamsız (nonsense) ya da çerçeve kayması (frameshift) varyantı bulunmamıştır (p < 0,0001) [1]. Bu çalışmada COL1A1'de bir büyük delesyon ve bir büyük duplikasyon şeklinde genomik yeniden düzenlenmeler de saptanmıştır [1]. α1(I) zincirinin üçlü sarmal bölgesinin N-terminal ucuna yakın glisin değişimi taşıyan 10 kişinin hiçbirinde işitme kaybı görülmemiş, bu da olası bir genotip-fenotip ilişkisini düşündürmüştür [1].",
+     "karar": "GECER",
+     "aciklama": "47 işlev kaybı varyantı, büyük delesyon/duplikasyon ve işitme kaybı gözlemi kaynak 1 ile birebir; FKBP10 delesyonu COL1A1'e mal edilmemiş; gen düzeyinde soru."}
+   ],
+   "cok_turlu": null,
+   "ret_kapsam": [],
+   "gen_ret": [
+    {"soru": "Peki benim taşıdığım bu değişim zararlı mı, osteogenezis imperfektaya yol açar mı?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Tüm kaynaklar gen düzeyi; chr17:50186168:T>C hiçbir kaynakta geçmiyor, etkisi/patojenitesi cevaplanamaz; özetten sonra doğal bir soru."},
+    {"soru": "chr17:50186168:T>C varyantı patojenik olarak mı sınıflandırılıyor?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Varyantın sınıflandırması hiçbir kaynakta yok; soru varyantı adıyla anıyor."}
+   ],
+   "not": "Tüm kaynaklar gen düzeyi; girilen varyant (chr17:50186168:T>C) hiçbir kaynakta geçmiyor."}
+ ],
+ "ozet": {"incelenen": 31, "gecer": 23, "duzeltildi": 3, "sil": 0, "ret_dogru": 5, "ret_yanlis": 0,
+          "tekrarlayan_sorunlar": [
+            "Ciddi uydurma, bağlam düşürme ya da varyant/gen karışması bulunmadı; yazım genel olarak kaynağa sadık.",
+            "Küçük niceleyici/çeviri kaymaları: 'several studies' -> 'birçok çalışma', 'overall populations' -> 'genel popülasyonlarda'.",
+            "Yüzdenin paydasının kaybolması: alt gruba (mutasyon saptanan 560 hasta) ait yüzdeler tüm kohorta (671) bağlanmış."
+          ]}}

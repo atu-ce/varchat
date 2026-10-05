@@ -1,0 +1,155 @@
+{"paket": 3, "girdiler": [
+ {
+  "girdi": "SNCA A53T",
+  "ozet": "SNCA genindeki p.A53T nokta mutasyonu, otozomal dominant Parkinson hastalığının seyrek ama oldukça önemli bir nedenidir [1]. SNCA geni alfa-sinükleini kodlar; bu gendeki üçlenmeler ve bazı nokta mutasyonları Parkinson hastalığına yol açar [5]. Parkinson's Progression Markers Initiative veri tabanından, belirti gösteren 11 p.A53T taşıyıcısı, yaş, cinsiyet ve hastalık süresi bakımından eşleştirilmiş 33 Parkinson hastasıyla 123I-FP-CIT SPECT görüntülemesi üzerinden karşılaştırılmıştır [1]. Taşıyıcılarda en çok etkilenen tarafın karşı ve aynı yanındaki kaudat çekirdek bağlanma oranı anlamlı biçimde daha düşük bulunmuştur (P = 0,002 ve P = 0,006) [1]. Çalışmanın sonucuna göre p.A53T mutasyonu taşıyan Parkinson hastalarında, özellikle kaudat çekirdekte belirgin olmak üzere daha şiddetli bir nigrostriatal denervasyon görülmektedir [1]. A53T mutasyonu taşıyan Parkinson hastalarının uyarılmış pluripotent kök hücrelerinden türetilen dopaminerjik nöronlarda, rekombinant insan proCTSD uygulamasından sonra çözünmeyen alfa-sinüklein miktarının azaldığı doğrulanmıştır [2]. A53T mutasyonunun ve artmış alfa-sinüklein ifadesinin, insan nöronlarında ve zebra balığı ile farelerin merkezi sinir sisteminde asetil-koenzim A ve p300 biyolojisini bozduğu gösterilmiştir [5].",
+  "takip": [
+   {
+    "soru": "A53T farelerinde MLKL proteininin yokluğu nasıl bir etki yapmış?",
+    "cevap": "SNCA A53T sinüklein transgenik fareleri ile MLKL knockout farelerinin çaprazlanmasıyla Tg-Mlkl-/- fare modeli oluşturulmuştur [3]. Bu farelerde klasik A53T transgenik farelere kıyasla motor belirtilerde anlamlı bir düzelme ve fosforillenmiş alfa-sinüklein ifadesinde azalma görülmüştür [3]. Ayrıca tirozin hidroksilaz pozitif nöron kaybı hafiflemiş, mikroglia ve astrositlerin etkinleşmesi engellenerek nöroinflamasyon azalmıştır [3]."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Peki bu varyantın oligodendrositlerde ifade edildiği bir hayvan modeli var mı?",
+   "cevap": "Plp1-tTA::tetO-SNCA*A53T transgenik fareleri, 8. haftada diyetle verilen doksisiklin kesildikten sonra oligodendrositlerinde mutant insan A53T alfa-sinükleinini ifade eder [4]. Bu fareler tipik olarak 22. hafta civarında ilerleyici ataksi geliştirir ve 30. haftaya kadar ölür [4]. Model, multipl sistem atrofisinin serebellar tipini incelemek için kullanılmıştır [4]."
+  },
+  "ret_kapsam": ["A53T mutasyonu taşıyan hastalarda levodopa dozu nasıl ayarlanır?"],
+  "gen_ret": [],
+  "not": "Kaynak 4, A53T'yi oligodendrositlerde ifade eden bir MSA-C fare modeli; insan Parkinson bulgusu değil. Kaynak 2, 3 ve 5 hücre, organoid ve hayvan modeli verisi; yalnız kaynak 1 hasta verisi."
+ },
+ {
+  "girdi": "APOB R3527Q",
+  "ozet": "Ailesel hiperkolesterolemi, LDLR, APOB ya da PCSK9 genlerindeki bozukluklardan kaynaklanan, otozomal dominant kalıtılan bir hastalıktır [2]. Olguların çoğunda hastalığa LDLR mutasyonları yol açar; APOB ve PCSK9'da hastalığa neden olduğu kanıtlanmış mutasyon sayısı azdır [2]. p.(Arg3527Gln), APOB geninde tanımlanan ve karakterize edilen ilk mutasyondur [2]. APOB p.R3527Q bir kurucu mutasyondur, ailesel hiperkolesterolemiye yol açar ve Pennsylvania Amish nüfusunun %12'sinde bulunur [5]. 640 taşıyıcı ile 4.683 taşıyıcı olmayan kişiyi kapsayan Amish çalışmasında, R3527Q T alelinin her bir kopyası LDL kolesterolde 74,9 mg/dL artışla ilişkilendirilmiştir [3]. Klinik olarak ailesel hiperkolesterolemi tanısı almış 750 indeks hastanın tarandığı Tayvan çalışmasında APOB c.10580G>A (p.R3527Q), hedefli yeni nesil dizileme ile Tayvan'da ilk kez saptanmıştır [1]. Ağır hiperkolesterolemili 351 kişinin ekzom analizine dayanan Finlandiya çalışmasında da, daha önce tanımlanmış üç mutasyondan biri olarak APOB Arg3527Gln bulunmuştur [4].",
+  "takip": [
+   {
+    "soru": "Bu varyant tip 2 diyabet riskiyle ilişkili mi?",
+    "cevap": "Amish nüfusunda yapılan çalışmada R3527Q alelini taşıyanlar (%5,2) ile taşımayanlar (%4,5) arasında tip 2 diyabet sıklığı bakımından belirgin bir fark görülmemiştir (P = 0,23) [3]. Aynı çalışmada varyant ile bozulmuş açlık glukozu, açlık glukozu ya da insülin düzeyi ve oral glukoz tolerans testinden türetilen ölçümler arasında da ilişki bulunmamıştır [3]. Yazarlar verilerinin, APOB R3527Q varyantı ile tip 2 diyabet ya da kan şekeri düzeyleri arasında bir ilişkiyi desteklemediği sonucuna varmıştır [3]."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Ailesel hiperkolesterolemi olgularının ne kadarı APOB mutasyonlarından kaynaklanıyor?",
+   "cevap": "Bir derlemeye göre LDLR, APOB ve PCSK9 mutasyonları ailesel hiperkolesterolemi olgularının sırasıyla %79'unu, %5'ini ve %1'inden azını oluşturur [5]. Tayvan'daki 750 indeks hastanın 445'inde (%59,3) mutasyon saptanmış; dağılım LDLR'de 395, APOB'de 58, PCSK9'da 0 ve ABCG5'te 3 hasta şeklinde olmuştur [1]. Bu kohortta en sık görülen mutasyon APOB c.10579C>T (p.R3527W) olup hastaların %12,6'sında bulunmuştur [1]."
+  },
+  "ret_kapsam": ["APOB R3527Q varyantının Türkiye'deki sıklığı nedir?"],
+  "gen_ret": [],
+  "not": "Kaynak 2'nin yapısal analizleri R3527Q'yu değil p.(Arg1164Thr) ve p.(Gln4494del) varyantlarını inceliyor. Kaynak 4'teki OR ve statin bulguları yeni LDLR/LDLRAP1 varyantlarına ait, APOB'ye değil. Kaynak 1'de en sık mutasyon R3527W, R3527Q ise ilk kez saptanan varyant."
+ },
+ {
+  "girdi": "ACADM K329E",
+  "ozet": "Orta zincirli açil-KoA dehidrogenaz eksikliği, hemen tedavi edilmezse yaşamı tehdit edebilen, otozomal resesif kalıtılan bir yağ asidi oksidasyon bozukluğudur [2]. ACADM genindeki c.985A>G (p.Lys329Glu) değişimi, bu hastalıkta en sık görülen patojenik varyanttır [2]. İtalya'da 2019-2023 arasında taranan 1.976.473 yenidoğan içinde tanı alan 90 bebeğin 56'sında (%63) bu varyant saptanmış; 18 hasta (%20) homozigot, 38 hasta (%43) bileşik heterozigottu [2]. Yanlış anlamlı (missense) değişimlerin yol açtığı bu hastalık, moleküler düzeyde işlev kaybı fenotipi gösteren bir protein katlanma hastalığıdır [4]. Bir yapısal çalışmada p.Lys329Glu (K304E) klasik şiddetli mutasyon olarak ele alınmış ve başka varyantların katlanma bozukluğu fenotipi onunla karşılaştırılarak puanlanmıştır [4]. Utah'taki 90 hastalık seride p.Lys329Glu homozigotlarının yenidoğan taramasındaki C8-karnitin düzeyi, en az bir başka patojenik varyant taşıyanlara göre daha yüksek bulunmuştur (23,4 ± 19,6'ya karşı 6,6 ± 3,0 mikromol/L; p < 0,001) [3]. Aynı seride homozigotlarda transaminaz düzeyleri bileşik heterozigotlara göre daha yüksekti (ALT 41,9 ± 6,2'ye karşı 31,5 ± 3,7 U/L; p < 0,05) [3]. Japonya'da yapılan bir hücre ifade çalışmasında ise p.K329E proteini, ifadesi ağır biçimde bozulan dört mutant proteinin tersine normal düzeyde ifade edilmiştir [1].",
+  "takip": [
+   {
+    "soru": "homozigot olmakla bileşik heterozigot olmak arasında fark var mı",
+    "cevap": "Utah'taki seride p.Lys329Glu homozigotlarında ortalama hipoglisemi olayı sayısı bileşik heterozigotlardan daha yüksekti (hasta başına 1,44'e karşı 0,49), ancak bu fark istatistiksel olarak anlamlı değildi [3]. Aynı seride homozigotların yenidoğan taramasındaki ve yaşam boyu plazma C8-karnitin düzeyleri, en az bir başka patojenik varyant taşıyanlara göre daha yüksek bulunmuştur (p < 0,001) [3]. Yazarlar, yenidoğan taramasının genotipten bağımsız olarak bütün hastalarda hastalık yükünü ve yenidoğan dönemi sonrası ölümleri azaltma olanağı sunduğunu belirtmiştir [3]."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Ateşin bu varyantla ilişkisi nedir?",
+   "cevap": "ACADM genindeki mutasyonlar, MCAD enziminin işlev kaybına uğradığı sıcaklık eşiğini düşürmektedir [4]. Bu nedenle araya giren enfeksiyonlarda olduğu gibi yükselen sıcaklık, enzimin yapısal bozulma ve işlev kaybı riskini belirgin biçimde artırır; bu durum ateşli dönemlerde görülen yaşamı tehdit eden klinik gidişi açıklamaktadır [4]. Yazarlara göre erken ve agresif ateş düşürücü tedavi bu hastalarda yaşam kurtarıcı olabilir [4]."
+  },
+  "ret_kapsam": ["Bu varyantı taşıyan bebeklere verilen karnitin takviyesinin dozu nedir?"],
+  "gen_ret": [],
+  "not": "Nükleotid gösterimi kaynaklar arasında tutarsız: kaynak 1 c.985G>A, kaynak 2 ve 5 c.985A>G yazıyor. Kaynak 4, varyantı K304E eski adlandırmasıyla da anıyor. Kaynak 5'teki iki kardeş bileşik heterozigot (p.Lys329Glu + p.Cys116Tyr) ve ayrıca TECRL'de bir VUS taşıyor, bu yüzden bulgu tek varyanta bağlanamaz."
+ },
+ {
+  "girdi": "RYR1 R614C",
+  "ozet": "RYR1 transkriptinin 1840. konumunda sitozin yerine timin gelmesi, amino asit dizisinin 614. konumunda arjinin yerine sistein geçmesine yol açar [5]. Bu nokta mutasyonu, Kuzey Avrupa kökenli bir ailede malign hipertermi kalıtımıyla ilişkili bulunmuştur [5]. Malign hipertermi, genetik yatkınlığı olan kişilerde genel anestezi sırasında ortaya çıkabilen ve iskelet kasında metabolizmanın arttığı bir durumdur; sarkoplazmik retikulumdan kalsiyum salınımının denetiminin bozulmasından kaynaklanır [1]. RyR1'in Arg614Cys değişimi, domuz RyR'sinde de eş konumda (Arg615Cys) bulunmaktadır [1]. Bir Alman ailesinde ağır bir klinik malign hipertermi krizinden sonra yapılan taramada hastada homozigot Arg614Cys saptanmış; 20 akrabanın incelenmesiyle 10 heterozigot ve bir homozigot taşıyıcı daha bulunmuştur [2]. On aileyi kapsayan başka bir çalışmada Arg614Cys toplam 64 kişide saptanmış ve bu kişilerden 35'inde in vitro kontraktür testindeki duyarlılık tanısı ile mutasyonun varlığı arasında kesin uyum görülmüştür [4]. Aynı çalışmada testte malign hipertermi açısından negatif fenotip gösteren hiçbir kişi mutasyonu taşımamıştır [4]. İlk tanımlandığı çalışmada mutasyon, genel nüfustan 59 normal kişide, akraba olmayan 61 duyarlı hastada ve başka kalıtsal ya da doğumsal hastalıklarla birlikte malign hipertermi görülen 18 hastada bulunmamıştır [5].",
+  "takip": [
+   {
+    "soru": "bu mutasyon alman mh ailelerinde ne kadar sık",
+    "cevap": "Bu mutasyonun Alman malign hipertermi ailelerinde daha sık görüldüğü bildirilmiştir (%9) [4]. Bu nedenle söz konusu çalışmada, klinik bir malign hipertermi olayı ya da kuşkusu sonrası in vitro kontraktür testinde duyarlı olarak sınıflanan 51 indeks hasta Arg614Cys açısından taranmıştır [4]."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Bu varyant ilaç araştırmalarında kullanılıyor mu?",
+   "cevap": "Bir çalışmada dantrolen temelli, semikarbazon ve imidazolil grupları taşıyan yeni RyR1 inhibitörleri tasarlanıp sentezlenmiştir [3]. Bu 26 bileşiğin kalsiyum yüklenmesini engelleyici etkinliği, tek hücre kalsiyum görüntüleme yöntemiyle R614C hücre hattında ve pozitif kontrol olarak dantrolen kullanılarak ölçülmüştür [3]. Bileşik 12a'nın 0,1 mikromolar, 3 mikromolar ve 10 mikromolar derişimlerde kalsiyum salınımını baskıladığı gösterilmiştir [3]."
+  },
+  "ret_kapsam": ["In vitro kontraktür testi ne kadara yapılıyor, maliyeti nedir?"],
+  "gen_ret": [],
+  "not": "Kaynak 3 Alzheimer hastalığı için RyR1 inhibitörü geliştiriyor; R614C orada yalnız kullanılan hücre hattının adı olarak geçiyor. Kaynak 1 bir derleme ve domuz modelini anlatıyor."
+ },
+ {
+  "girdi": "NPM1 W288fs",
+  "ozet": "NPM1 p.W288fs, akut miyeloid lösemide görülen klasik ve yinelenen sıcak nokta mutasyonlarından biridir [2]. Sitogenetik olarak normal akut miyeloid lösemili 6 hastanın tanı ve nüks örneklerinin ekzom dizilemesinde bu mutasyon saptanmıştır [2]. NPM1 mutasyonlu 73 yetişkin hastada bulunan 74 NPM1 mutasyon bölgesi arasında W288fs ve Q289fs için sıklık %2,7, en sık görülen L287fs için %92,0 olarak bildirilmiştir [3]. Aynı çalışmada farklı mutasyon bölgelerinin NPM1 mutasyonlu akut miyeloid löseminin prognozu üzerinde etkisi olmadığı belirtilmiştir [3]. İşlevsel deneylerde NPM1/W288fs'den türeyen neoantijenin hastalarda özgül T hücre yanıtı oluşturduğu gösterilmiştir [1]. Bu neoantijeni HLA-A*02:01 kısıtlı biçimde tanıyan baskın alfa-beta T hücre reseptörleri sağlıklı vericilerde belirlenmiştir [1]. Bu reseptörlerle donatılan T hücreleri, ilgili mutasyonları kendiliğinden ifade eden HLA-A*02:01 pozitif lösemi hücrelerini seçici olarak tanıyıp öldürmüştür [1]. NPM1 mutasyonları yetişkin akut miyeloid lösemide en sık görülen genetik bozukluktur ve olguların yaklaşık üçte birinde bulunur [4].",
+  "takip": [
+   {
+    "soru": "NPM1 mutasyon durumunun belirlenmesi risk sınıflamasında zorunlu mu?",
+    "cevap": "2022 European LeukemiaNet kılavuzlarına göre NPM1 ve FLT3 mutasyon durumunun belirlenmesi, akut miyeloid lösemide genetik temelli risk sınıflaması için zorunlu bir adımdır [5]. qRT-PCR ile ölçülebilir kalıntı hastalık izlemi, bu risk sınıflamasıyla birleştirildiğinde remisyon sonrası dönemde tedavi kararlarına yol gösterebilir [5]. NPM1 mutasyonlu akut miyeloid lösemi, 2022 Uluslararası Konsensus Sınıflaması ile Dünya Sağlık Örgütü sınıflamasının 5. basımında ayrı bir hastalık olarak yer alır [5]."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Nükste klonal evrim nasıl ilerliyor?",
+   "cevap": "Sitogenetik olarak normal akut miyeloid lösemili 6 hastada iki farklı nüks klonal evrim örüntüsü bulunmuştur [2]. Birincisinde tanı anındaki lösemik klon ek mutasyonlar kazanıp kemoterapiden sonra nüks klonuna dönüşmüş; ikincisinde tanı anındaki klon yeni somatik mutasyon kazanmadan nükste varlığını sürdürmüştür [2]. Hastalarda tanı anında ortalama 4,0, nükste ortalama 5,3 varyant saptanmıştır [2]. Yazarlar bu bulguların, nüksü başlatan klonların tedaviden önce var olabileceğini düşündürdüğünü belirtmiştir [2]."
+  },
+  "ret_kapsam": ["Bu mutasyonu taşıyan hastalarda venetoklaks tedavisi ne kadar etkili?"],
+  "gen_ret": [],
+  "not": "Kaynak 4 ve 5 gen düzeyinde (NPM1 mutasyonlu AML genel); W288fs'e özgü bilgi içermiyor. Kaynak 3'te %2,7 oranı W288fs ve Q289fs için birlikte veriliyor, yalnız W288fs'in sıklığı ayrı verilmemiş. Kaynak 3'ün prognoz bulguları (NPM1 VAF) mutasyon bölgesine değil alel yüküne ait."
+ },
+ {
+  "girdi": "rs116855232",
+  "ozet": "NUDT15 genindeki R139C (c.415C>T) değişimi, Asya kökenli kişilerde tiyopürin kullanımına bağlı erken ve ağır lökopeni ile ilişkili bulunmuştur [5]. NUDT15, 6-tiyo-(deoksi)guanozin trifosfatı 6-tiyo-(deoksi)guanozin monofosfata çeviren bir enzimdir [5]. R139C değişimi proteinin kararlılığını bozar, 6-TGTP'nin RNA'ya ve 6-TdGTP'nin DNA'ya katılmasını artırır ve sonuçta lökopeniye yol açar [5]. Doğu Asya toplumlarında C/C, C/T ve T/T genotiplerinin sıklığı yaklaşık %80, %20 ve %1'dir [5]. Erken lökopeni C/C genotipli hastaların %3'ünden azında, C/T genotiplilerin yaklaşık %20'sinde görülürken T/T genotipli hastaların neredeyse tamamında ortaya çıkmıştır [5]. Tiyopürin kullanan 978 Koreli Crohn hastasında p.Arg139Cys, tiyopürine bağlı erken lökopeni ile güçlü biçimde ilişkiliydi (OR = 35,6) [3]. Akut lenfoblastik lösemi çalışmalarına alınan 270 çocukta, p.Arg139Cys dahil dört NUDT15 kodlayıcı varyantının nükleotid difosfataz etkinliğinde %74,4-100 arasında kayba yol açtığı belirlenmiştir [1]. Aynı çalışmada işlev kaybına yol açan NUDT15 diplotipleri üç kohortta da tiyopürin intoleransı ile tutarlı biçimde ilişkili bulunmuştur [1].",
+  "takip": [
+   {
+    "soru": "bu varyant avrupa kökenli hastalarda da risk oluşturuyor mu?",
+    "cevap": "Seyrek olmakla birlikte bu değişim, Avrupa kökenli inflamatuvar bağırsak hastalığı olan kişilerde de tiyopürine bağlı lökopeni ile güçlü biçimde ilişkili bulunmuştur (OR = 9,50) [3]. Aynı çalışmada Korelilerde varyantın tiyopürine bağlı erken lökopeni için duyarlılığı %89,4, özgüllüğü %93,2 olarak hesaplanmış; TPMT varyantları için bu değerler %12,1 ve %97,6 bulunmuştur [3]. Yazarlar, tiyopürine bağlı lökopeni için NUDT15'in farklı toplumlarda geçerli bir farmakogenetik belirleyici olduğu sonucuna varmıştır [3]."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Hayvan modellerinde bu varyantın etkisi nasıl incelenmiş?",
+   "cevap": "İnsandaki p.Arg139Cys değişimine karşılık gelen p.Arg138Cys mutasyonunu taşıyan knock-in fareler oluşturulmuştur [4]. Klinikte kullanılan dozdaki merkaptopürin bu farelerde ölümcül sitopeniye yol açmış, dozun azaltılması ise hematopoetik toksisiteyi hafifletmiştir [4]. Rekabetçi nakil deneyinde yalnız homozigot değil heterozigot farelerin hematopoetik kök ve öncül hücreleri de, uzun süreli ve daha düşük dozda merkaptopürin uygulamasında yabanil tip hücrelere göre daha fazla zarar görmüştür [4]."
+  },
+  "ret_kapsam": [],
+  "gen_ret": [],
+  "not": "Kaynak 2 ve 4 fare verisi: mutasyon farede p.Arg138Cys olarak modellenmiş. Kaynak 2'deki gebelik ve fetüs bulguları da fare çalışmasından, insan verisi değil. Kaynak 1'de etkinlik kaybı aralığı dört varyantın tamamı için verilmiş, yalnız R139C için ayrı değer yok."
+ },
+ {
+  "girdi": "chr20:4699605:A>G",
+  "ozet": "PRNP geni prion proteininin hücresel biçimini kodlar; bu gendeki M129V polimorfizmi prion hastalıklarının riskini etkiler ve yaşla birlikte nörodejenerasyon hızını değiştirebilir [5]. Birden çok insan prion hastalığını kapsayan genom çapında ilişkilendirme çalışmasında PRNP bölgesi bütün coğrafi ve etiyolojik gruplarda riskle yüksek derecede ilişkili bulunmuş; bu ilişkiyi rs1799990'daki kodlayıcı değişim yönlendirmiştir [1]. Aynı çalışmada, tüm insan prion hastalıklarının meta-analizinde PRNP dışındaki hiçbir bölge genom çapında anlamlılığa ulaşmamıştır [1]. Sporadik Creutzfeldt-Jakob hastalığı için yapılan ve 5208 olgu örneğini kapsayan genom çapında çalışmada rs1799990 ile hastalık riski arasındaki ilişki doğrulanmıştır (toplamalı modelde OR 1,23; %95 güven aralığı 1,17-1,30) [2]. Aynı çalışmada STX6 (rs3747957; OR 1,16) ve GAL3ST1 (rs2267161; OR 1,18) bölgelerinde de ilişki bulunmuştur [2]. Kıtalardan alınan 616 kontrol kromozomunun incelendiği çalışmada 129M aleli Eski Dünya nüfuslarında yüksek sıklıkta bulunmuş, Pasifik'te yaklaşık %81 ve Orta ile Doğu Asya'da %93'e kadar çıkmış, Amerika'nın yerli nüfusunda ise yaklaşık %30 düzeyinde kalmıştır [4]. Aynı çalışmada 129M ve 129V alellerinin Afrika'da benzer sıklıklarda bulunduğu bildirilmiştir [4]. Yazarlara göre yatkınlık alellerinin sıklığı coğrafi olarak belirgin biçimde değişir ve buna bağlı olarak prion hastalığı geliştirme olasılığı da farklılaşır [4].",
+  "takip": [
+   {
+    "soru": "Bu polimorfizmin beyin yapısıyla ilişkisi incelendi mi?",
+    "cevap": "Kırk yedi sağlıklı erkek ve 43 erkek şizofreni hastasının MR ile incelendiği çalışmada Met129Val polimorfizmi, beyaz cevher dokusunda azalma (P = 0,024) ve beyin omurilik sıvısı boşluklarında genişleme (P = 0,039) ile ilişkili bulunmuştur [3]. Bulgular, 129. kodonda metiyonin homozigotluğunun sağ elini kullanan sağlıklı erkek gönüllülerde ve şizofreni hastalarında daha az beyaz cevher ve daha büyük beyin omurilik sıvısı hacmiyle ilişkili olduğunu düşündürmektedir [3]. Yazarlar bunun yeni bir bulgu olduğunu ve daha ileri araştırma gerektirdiğini belirtmiştir [3]."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Bu genotiplerin uzun yaşamla ilişkisi araştırıldı mı?",
+   "cevap": "Polonyalı yüzyıllıklarda yapılan çalışmada 100-107 yaş arası 150 kişide MM, MV ve VV genotiplerinin sıklığı %46, %37 ve %17 bulunmuş ve Hardy-Weinberg dengesi reddedilmiştir (p = 0,025) [5]. Yazarlar bu bulgunun heterozigotlar arasında daha yüksek bir ölüm oranıyla uyumlu olduğunu belirtmiştir [5]. Bununla birlikte gözlenen alel ve genotip sıklıkları en yaşlı grup ile genç kontroller arasında anlamlı biçimde farklı değildi; genotip sıklıkları yüzyıllıklarda ağır bilişsel bozuklukla da ilişkili bulunmamıştır [5]."
+  },
+  "ret_kapsam": [],
+  "gen_ret": [],
+  "not": "Kaynak 3 şizofreni hastaları ve sağlıklı erkeklerde beyin görüntüleme çalışması; prion hastalığı bulgusu değil ve yazarların kendisi doğrulanmaya ihtiyaç duyduğunu söylüyor. Kaynak 4 ayrıca E219K/219L alelinden söz ediyor, bu girdinin varyantı değil."
+ },
+ {
+  "girdi": "GRCh37:chr19:19379549:C>T",
+  "ozet": "TM6SF2'de düşük sıklıkta görülen E167K varyantı, ilerleyici yağlı karaciğer hastalığına yatkınlık oluşturur [1]. Genom çapında ilişkilendirme çalışmalarıyla belirlenen varyantlar arasında TM6SF2'deki rs58542926 (Glu167Lys), alkole bağlı olmayan yağlı karaciğer hastalığının kritik risk alellerinden biridir [2]. PNPLA3 p.I148M, TM6SF2 p.E167K ve MBOAT7 rs641738 polimorfizmleri bu hastalığın en sağlam değiştiricileri olarak kabul edilir [4]. PNPLA3'teki I148M ile TM6SF2'deki E167K varyantlarının her ikisi de karaciğer yağ içeriğinin artmasıyla ilişkilidir, ancak metabolik sendrom ya da insülin direnci sendromunun özellikleriyle ilişkili değildir [5]. Yağlı karaciğer hastalığının bu genetik biçimleri steatohepatit ve siroz riskini öngörür, tip 2 diyabeti öngörmez [5]. TM6SF2 E167K varyantı, metabolik işlev bozukluğuyla ilişkili yağlı karaciğer hastalığının ortaya çıkışı ve ilerleyişiyle yakından ilişkilidir [3]. Yüksek yağlı diyetle beslenen Tm6sf2167K knock-in farelerinde bu varyant, karaciğer yağlanmasını ve karaciğer hasarını belirgin biçimde ağırlaştırmıştır [3]. Aynı çalışmada varyantın TM6SF2 ile PNPLA3 arasındaki etkileşimi artırdığı ve PNPLA3 aracılı çoklu doymamış yağ asitlerinin trigliseritten fosfatidilkoline aktarımını bozduğu gösterilmiştir [3].",
+  "takip": [
+   {
+    "soru": "fare modelinde bu varyantın etkisini azaltan bir şey bulunmuş mu",
+    "cevap": "Tm6sf2167K knock-in farelerinin karaciğerinde C18:3 içeren fosfatidilkolin düzeyi azalmış bulunmuştur [3]. Yüksek yağlı diyetle beslenen bu farelerde C18:3 içeren fosfatidilkolinin diyetle verilmesi, varyanta bağlı karaciğer yağlanmasını ve hasarını belirgin biçimde hafifletmiştir [3]. Yazarlara göre C18:3 içeren fosfatidilkolin, TM6SF2 E167K taşıyan hastalar için olası bir tedavi desteği olabilir [3]."
+   }
+  ],
+  "cok_turlu": {
+   "soru": "Peki karaciğer yağ içeriğini belirleyen başlıca genetik etmen hangisi?",
+   "cevap": "Hepatositlerde lipid damlacıklarının yeniden düzenlenmesini bozan yaygın PNPLA3 I148M varyantı, karaciğer yağ içeriğinin başlıca genetik belirleyicisidir [1]. I148M varyantı yağlı karaciğerle ilişkili karaciğer hasarının tüm yelpazesinde güçlü bir etkiye sahiptir ve tedavi yaklaşımlarına verilen yanıtı etkiler [1]. GCKR'deki yaygın varyantlar ise glukoza yanıt olarak karaciğerde yeni lipid yapımını ve karaciğer inflamasyonunu artırır [1]."
+  },
+  "ret_kapsam": [],
+  "gen_ret": [],
+  "not": "Kaynak 1, 2, 4 ve 5 derleme ve TM6SF2 hakkında yalnız birer cümle içeriyor; ayrıntılı mekanizma yalnız kaynak 3'teki knock-in fare çalışmasından geliyor. Kaynak 1'de 'VLDL salgılanmasını bozar' niteleyicisi cümlede APOB mutasyonlarına bağlanmış, TM6SF2 için belirsiz olduğu için kullanılmadı."
+ },
+ {
+  "girdi": "chr15:48414139:C>T",
+  "ozet": "FBN1 genindeki mutasyonlar, bağ dokusunun otozomal dominant kalıtılan bir hastalığı olan Marfan sendromuna yol açar; gen, hücre dışı matriste bulunan büyük bir glikoprotein olan fibrillin-1'i kodlar [3]. Bu hastalığın başlıca komplikasyonu torasik aort anevrizması geliştirme riskidir [3]. FBN1 mutasyonları, birbiriyle örtüşen geniş bir fenotip yelpazesiyle ilişkilendirilmiştir [2]. Patojenik FBN1 mutasyonu taşıyan 1.013 probandı kapsayan uluslararası çalışmada, erken durdurma kodonu taşıyan hastalarda iskelet ve deri fenotipi çerçeve içi mutasyon taşıyanlara göre daha ağır bulunmuştur [2]. Aynı çalışmada 24-32. ekzonlardaki mutasyonlar daha ağır ve daha tam bir fenotiple ilişkilendirilmiş; bu grupta ektopia lentis, çıkan aortta genişleme, aort cerrahisi, mitral kapak bozuklukları ve skolyoz olasılığı daha yüksek, sağkalım daha kısa bulunmuştur [2]. Genetik FBN1 testi, Marfan sendromunun klinik tanısını doğrulamak için belirleyici önemdedir [4]. ClinGen FBN1 varyant kurasyon uzman paneli, ACMG/AMP ölçütlerinin 28'inden 14'ünde değişiklik öneren ve 6'sını uygulanamaz sayan gene özgü uyarlamalar geliştirmiştir [1]. Panel bugüne kadar 120 varyantı kurasyondan geçirmiş ve bunları üç yıldızlı inceleme durumuyla ClinVar'a göndermiştir [1].",
+  "takip": [
+   {
+    "soru": "FBN1 veri tabanları ne kadar güvenilir?",
+    "cevap": "Dört veri tabanındaki 2.250 FBN1 varyantı, 307 kaynakta sunulan 4.904 kayıt üzerinden değerlendirilmiştir [4]. Marfan skoru hesaplanabilen 1.283 varyantın %77,1'inde veri tabanındaki Marfan sendromu tanısı doğrulanmış, ancak bu oran kayıtlı varyantların yalnız %35,8'ine karşılık gelmiştir [4]. Yazarlar FBN1 veri tabanlarının kesin olmayabileceği ve eksik kalabileceği sonucuna varmış; şimdilik UMD-FBN1'in en büyük ve en iyi kurasyonlu veri tabanı göründüğünü belirtmiştir [4]."
+   }
+  ],
+  "cok_turlu": null,
+  "ret_kapsam": [],
+  "gen_ret": [
+   "Peki benim bulduğum chr15:48414139:C>T değişimi zararlı mı?",
+   "FBN1 c.8052-1396G>A varyantını taşıyan birinde Marfan sendromu çıkar mı?"
+  ],
+  "not": "Beş kaynak da gen düzeyinde; girilen c.8052-1396G>A (chr15:48414139:C>T) varyantı hiçbir kaynakta geçmiyor. Kaynak 5'te FBN1'in payı iki farklı yüzdeyle veriliyor (olguların %74,8'i, mutasyonların %53,0'ı), bu yüzden kullanılmadı. Kaynak 3 fare modeli ve nikotinamid ribozid bulgusu insan tedavisi olarak aktarılamaz."
+ }
+]}

@@ -1,0 +1,209 @@
+{"paket": 2, "girdiler": [
+  {"girdi": "GBA1 N370S",
+   "ozet": "GBA1 genindeki değişimler, zigotluğa ve değişimin tipine göre penetransı azalmış Parkinson hastalığına (PARK-GBA1) yol açabilir, Parkinson hastalığı ya da parkinsonizm için genetik risk etkeni olabilir ve/veya Gaucher hastalığına yol açabilir [1]. MDSGene sistematik derlemesinde \"N409S\" (diğer adıyla \"N370S\") en sık görülen patojenik ya da olası patojenik varyantlardan biridir ve Yahudi ile beyaz kökenli hastalarda baskındır [1]. Bu derleme 1082 yayından, 794 varyant taşıyan 27.963 hastayı kapsar; bunların 13.342'sinde Parkinson hastalığı ya da başka parkinsonizm biçimleri vardı [1]. Parkinson hastalığı gelişen Gaucher hastalarının çoğu \"N409S\" varyantını taşıyordu, Aşkenaz Yahudi kökenliydi ve uzun süreli levodopa tedavisine olumlu yanıt vermişti [1]. N370S/WT genotipli kolinerjik sinir hücresi modelinde GCase proteini ve etkinliği ile katepsin D düzeyleri anlamlı biçimde azalmış, tau ve α-sinüklein düzeyleri ise anlamlı biçimde artmıştı [4]. Kan plazmasından elde edilen hücre dışı veziküller GBA1-PD hastalarında kontrollerden anlamlı olarak daha büyüktü ve en büyük, en çok katmanlı veziküller p.N370S taşıyıcılarında görüldü [3]. Zebra balığı Gaucher hastalığı modelinde, Aşkenaz Yahudilerde baskın olan GBA1 N370S değişimi, makrofaj lizozomlarındaki glukozilsfingozinin mikrop öldürücü etkisiyle tüberküloza direnci artırdı [5].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Tüm cümleler [1], [3], [4], [5] ile birebir destekli; sayılar doğru, hücre modeli ve zebra balığı bağlamı korunmuş, kaynak 2'nin çok mutasyonlu hasta hücresi bulgusu kullanılmamış.",
+   "takip": [
+    {"soru": "ambroksol bu mutasyonun hücre modelindeki etkilerini geri çevirebiliyor mu?",
+     "cevap": "Bir GCase şaperonu olan ambroksol, kolinerjik sinir hücrelerinde GCase etkinliğini anlamlı biçimde artırdı ve hem tau hem α-sinüklein düzeylerini düşürdü [4]. Bu bulgu, yaygın heterozigot N370S GBA1 mutasyonunu taşıyan Parkinson hastalarından alınan nöral krest kök hücrelerinden üretilmiş kolinerjik nöron modelinde elde edildi [4]. Yazarlar GCase yolunu, patolojik α-sinüklein ya da tau birikimiyle ilişkili nörodejeneratif hastalıklar için olası bir tedavi hedefi olarak sunuyor [4].",
+     "karar": "GECER",
+     "aciklama": "Ambroksol bulguları, hücre modeli bağlamı ve yazarların tedavi hedefi yorumu [4] ile uyumlu."}
+   ],
+   "cok_turlu": {"soru": "Hücre dışı veziküllerin yağ profili açısından p.N370S ile p.L444P arasında fark var mı?",
+     "cevap": "Evet, iki değişim arasında fark bildirildi [3]. Tanımlanan 237 lipid türünden 186'sı p.N370S taşıyıcılarında, 24'ü ise p.L444P taşıyıcılarında kontrollere göre değişmişti [3]. p.L444P örnekleri ağırlıklı olarak sfingolipidler bakımından zenginken, p.N370S taşıyıcılarında trigliseritler, kolesteril esterler ve fosfolipidler dahil birçok sınıfta daha yaygın bir lipid yeniden düzenlenmesi görüldü [3]. Cer 23:0 ise bütün GBA1-PD gruplarında yükselmişti [3].",
+     "karar": "GECER",
+     "aciklama": "237/186/24 sayıları, sfingolipid ve çok sınıflı yeniden düzenleme, Cer 23:0 bulgusu [3] ile birebir; özetin tekrarı değil."},
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Kaynak 2'deki hücreler N370S'in yanı sıra L444P, W378G ve LRRK2 G2019S/R1441H taşıyan bir hastadan türetilmiş, bu yüzden bulgu tek varyanta mal edilemez ve kullanılmadı. Kaynak 5 zebra balığı modeli, kaynak 4 hücre modeli; kaynak 3 ve 1 hasta verisi."},
+
+  {"girdi": "PCSK9 D374Y",
+   "ozet": "PCSK9, karaciğerde LDL reseptörünün (LDLR) epidermal büyüme faktörü öncülü homolog A (EGF-A) alanına bağlanır ve reseptörün lizozomal yolla yıkımını tetikler [1]. Bunun sonucunda plazma LDL-kolesterol düzeyi yükselir [1]. D374Y, PCSK9'un bir işlev kazanımı (gain-of-function) değişimidir ve insanlarda şiddetli hiperkolesterolemi ile ilişkilendirilmiştir [5]. Huh7 insan hepatoma hücrelerinde PCSK9-D374Y'nin geçici olarak aşırı anlatımı, olgun LDLR'nin yıkımını çok etkili biçimde artırdı [5]. HepG2 hücrelerinde PCSK9-D374Y çoğalmayı etkilemezken hücre göçünü ve kolesterol dışa atım kapasitesini anlamlı biçimde baskıladı [4]. Türkiye'de birincil dislipidemi tanılı 200 hasta ile 201 sağlıklı kişinin karşılaştırıldığı olgu-kontrol çalışmasında D374Y bakımından hasta ve kontrol grupları arasında istatistiksel olarak anlamlı fark bulundu (x2=6,078; p=0,048) [2]. Aynı çalışmanın tamamında (n=401) R496W ve D374Y mutasyonu taşıyanlarda toplam kolesterol (p=0,021), trigliserit (p=0,0001), HDL kolesterol (p=0,028) ve LDL kolesterol (p=0,028) düzeyleri artmış bulundu [2]. İnsan PCSK9 D374Y'yi aşırı anlatan farelerde, yeni bir küçük molekül PCSK9 inhibitörü olan E28362'nin 12 hafta verilmesi plazma LDL-C düzeyini ve aort ile aort kökündeki aterosklerotik lezyon alanını anlamlı biçimde azalttı [1].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Tüm cümleler kaynaklarla birebir; hücre hattı ve fare bağlamları korunmuş, kaynak 2'deki lipid bulgusu R496W ile birleşik taşıyıcı grubu olarak doğru aktarılmış.",
+   "takip": [
+    {"soru": "Bu değişim kanserle ilgili bir çalışmada da incelenmiş mi?",
+     "cevap": "Evet, PCSK9'un işlev kazanımı biçimi olan D374Y fare melanom B16 hücrelerinde kararlı olarak anlatıldı ve oluşan tümörler incelendi [3]. D374Y tümörlerinde tümörle ilişkili T hücreleri, CD8+ T hücreleri ve NK hücreleri anlamlı biçimde artmıştı; buna birçok bağışıklık kontrol noktasının, IFNγ'nın ve T hücre işlev bozukluğuyla ilişkili 143 genin artmış anlatımı eşlik ediyordu [3]. Fare tümörlerinde tümör içi kolesterol birikimi, PCSK9'un LDLR'yi düzenleme biçimini yansıtan şu sırayı izledi: Q152H, boş vektör, PCSK9 ve D374Y [3].",
+     "karar": "DUZELTILDI",
+     "aciklama": "'along with' 'bununla birlikte' (= ancak) diye çevrilip olmayan bir karşıtlık kurulmuştu; 'eşlik ediyordu' yapıldı. Kolesterol cümlesindeki 'sırasıyla arttı' ifadesi kaynaktaki sıralamaya sadık biçimde yeniden yazıldı ve fare tümörü bağlamı belirtildi."}
+   ],
+   "cok_turlu": {"soru": "D374Y'nin yol açtığı LDLR yıkımı laboratuvarda engellenebiliyor mu?",
+     "cevap": "In vitro bir çalışmada EGF-A ve kısaltılmış EGF-A peptitleri bu etkiyi engelledi [5]. PCSK9-D374Y ile transfekte edilen Huh7 hücrelerinde bu peptitler, derişime bağlı biçimde LDLR protein düzeyini artırdı [5]. Artan derişimlerde EGF-A analogları işaretli DiI-LDL'nin hücre içine alımını da yükseltti [5].",
+     "karar": "GECER",
+     "aciklama": "In vitro bağlam ve derişime bağlı etkiler [5] ile birebir; özette peptit bulgusu yok."},
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Kaynak 2'deki lipid düzeyi bulgularının bir bölümü R496W ile birleşik taşıyıcı grubuna ait; cümlede özne olduğu gibi korundu. Kaynak 1 fare/hamster modelleri, kaynak 3 fare melanom modeli, kaynak 4 ve 5 hücre hattı çalışmaları."},
+
+  {"girdi": "GALT Q188R",
+   "ozet": "Klasik galaktozemi, galaktoz-1-fosfat üridiltransferaz (GALT) enziminin şiddetli eksikliğinden kaynaklanan, karbonhidrat metabolizmasının seyrek görülen doğuştan bir bozukluğudur [2]. GALT, memelilerde galaktoz yıkımının üçüncü adımını katalizler ve iki aktif bölgesi alt birimler arası ara yüzün yakınında bulunan homodimerik bir enzimdir [3]. Klasik galaktozemide en sık görülen ve en şiddetli fenotipe eşlik eden mutasyon, enzimin aktif bölgesindeki Gln188'in Arg ile yer değiştirdiği p.Gln188Arg değişimidir [3]. İncelenen hasta grubunda en sık mutasyon olan Q188R'nin sıklığı yalnızca dörtte birdir [4]. 509 hastanın verisine dayanan GalNet kayıt çalışmasında yenidoğan taraması, diyet tedavisine başlama yaşı, galaktoz kısıtlamasının sıkılığı, p.Gln188Arg mutasyonu ve GALT enzim etkinliği klinik tabloyu etkileyen etkenler arasında sayıldı [2]. Aynı çalışmada homozigot p.Gln188Arg, %1 ve altındaki GALT enzim etkinliği ve sıkı galaktoz kısıtlaması daha az olumlu bir gidişle ilişkili bulundu [2]. Kıbrıs'ın her yanından 528 Yunan Kıbrıslının incelendiği çalışmada ise Avrupa popülasyonlarında en sık görülen p.Gln188Arg bu kohortta hiç saptanmadı [5].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Her cümle atıf verilen kaynakta açıkça var; sayılar (509, %1, dörtte bir, 528) doğru, Kıbrıs kohortunda saptanmama bilgisi doğru aktarılmış.",
+   "takip": [
+    {"soru": "diyet uygulanmasına rağmen uzun dönemde sorunlar görülüyor mu?",
+     "cevap": "GalNet kayıt çalışmasında hastaların çoğu yenidoğan döneminde belirti göstermiş (%79,8) ve diyete uymalarına karşın beyin işlevlerinde bozulma (%85,0), birincil yumurtalık yetmezliği (%79,7) ve kemik mineral yoğunluğunda azalma (%26,5) gelişmiştir [2]. Klasik galaktozemili hastalarda erken tanı ve yaşam boyu süren galaktoz kısıtlamasına karşın uzun dönem komplikasyonların sıklığı bir grup olarak yüksektir, ancak bireysel gidiş kişiden kişiye büyük farklılık gösterir [1].",
+     "karar": "GECER",
+     "aciklama": "Yüzdeler [2] ile birebir; grup düzeyinde yüksek komplikasyon ve bireysel değişkenlik [1] ile uyumlu."}
+   ],
+   "cok_turlu": {"soru": "Aynı genotipi taşıyan hastalar arasındaki gidiş farkını genotip dışında bir şey açıklıyor olabilir mi?",
+     "cevap": "Bir çalışmada GALT genotipini ve genetik zemini paylaşan 66 kardeş grubu, p.Gln188Arg/p.Gln188Arg genotipini paylaşan ama genetik zemini paylaşmayan 54 akraba olmayan hasta ve ikisini de paylaşmayan 52 hasta karşılaştırıldı [1]. Konuşma/ses/dil, bilişsel ve motor sonuçların üçü için de kalıtsallık nokta tahminleri %100 çıktı [1]. Bu kalıtsallığın %8'den azı hipomorfik GALT alellerinden gelen artık GALT etkinliğine bağlı görünüyordu [1]. Yazarlar bu sonuçları, GALT bölgesinin dışında gelişimsel gidişi etkileyen genetik değiştiricilerin varlığına güçlü bir kanıt olarak sunuyor [1].",
+     "karar": "GECER",
+     "aciklama": "66/54/52 grupları, %100 nokta tahmini, %8'den az pay ve genetik değiştirici yorumu [1] ile birebir; özette yok."},
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Kaynak 5, Q188R'nin Kıbrıslı kohortta hiç bulunmadığını bildiriyor; oradaki sıklıklar başka alellere ait. Kaynak 3 bir moleküler dinamik benzetimi çalışması."},
+
+  {"girdi": "FGFR2 S252W",
+   "ozet": "Apert sendromu, fibroblast büyüme faktörü reseptörü 2 (FGFR2) genindeki işlev kazanımı (gain-of-function) yanlış anlamlı (missense) mutasyonlarından kaynaklanan, sık görülen bir kraniyosinostozdur [1]. Hastalık otozomal baskın kalıtılır; kraniyosinostoz, orta yüz hipoplazisi ve kemiksi sindaktili ile tanımlanır ve FGFR2'deki S252W ya da P253R nokta mutasyonlarından kaynaklanır [2]. Bu mutasyonlar, FGFR2'nin ligand bağlanmasına bağlı biçimde etkinleşmesine yol açar [2]. Etkilenen bireylerin üçte ikisinde FGFR2'de S252W mutasyonu bulunur [3]. Bu mutasyonu taşıyan knock-in farelerde iskeletin yanı sıra beyin, timus, akciğer, kalp ve bağırsak gibi organlarda da anormallikler görüldü [3]. Aynı fare modelinde orta hat sütur kusuru ile anormal osteoblast çoğalması ve farklılaşmasının eşlik ettiği kraniyosinostoz saptandı [3]. Apert sendromlu yedi hastanın (p.Ser252Trp) koronal sütur periost hücrelerinde yapılan gen anlatım analizinde 263 genin anlatımı anlamlı biçimde değişmişti (118 artmış, 145 azalmış) [4]. Bu periost hücrelerinin osteoblast soyuna daha fazla yönlendiği bulundu [4].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Her cümle kaynağıyla birebir; knock-in fare ve periost hücresi bağlamları korunmuş, 263/118/145 sayıları doğru.",
+   "takip": [
+    {"soru": "fare modelinde alt çene nasıl etkilenmiş?",
+     "cevap": "28 ve 56 günlük Fgfr2(S252W/+) farelerin kontrollerle karşılaştırıldığı çalışmada mineral birikim hızındaki ve mikro-mimarideki değişiklikler istatistiksel olarak anlamlıydı [1]. Mikro-mimarideki farkın büyüklüğü yaşla birlikte azaldı [1]. Yazarlar bu mutasyonun, hem osteoblast hem osteoklast oluşumunu düzenleyerek alt çene kemiği yapımını geciktirebileceğini, kemik hacmini azaltabileceğini ve iskelet mimarisini bozabileceğini belirtiyor [1].",
+     "karar": "GECER",
+     "aciklama": "Fare bağlamı, yaşa bağlı azalma ve 'may' kesinlik derecesi [1] ile uyumlu korunmuş."}
+   ],
+   "cok_turlu": {"soru": "Bu mutasyonun yol açtığı aşırı etkinleşme deneysel olarak geri çevrilebilmiş mi?",
+     "cevap": "Kimyasal ve enzimatik yolla hazırlanan 2-O- ve N-sülfatlı heparan sülfat, aşırı etkinleşmiş FGFR2b (S252W) reseptörünü nanomolar derişimlerde temel düzeye indirdi [5]. FGFR2(S252W)'nin çözünür biçimini anlatan Apert fare modelinde ise koronal sütür, yabanil tip farelerdekine benzer bulundu [2]. Bu farelerde interfrontal sütürde ektopik kemik ya da kıkırdak oluşumu görülmedi, ancak bu sütür yabanil tiptekinden daha genişti [2]. Yazarlar çözünür FGFR2IIIc(S252W) proteininin, Apert fare modelinde kraniyosinostozu kısmen önleyebileceği sonucuna vardı [2].",
+     "karar": "DUZELTILDI",
+     "aciklama": "Kaynak 2, Ap/Sol farelerin interfrontal sütüründe hiç ektopik kemik ya da kıkırdak oluşumu olmadığını söylüyor; yazar 'kalınlaşmış kıkırdak' diyerek ifadeyi daraltmıştı (kalınlaşma yalnız Ap farelerde). Niteleyici çıkarıldı, sütur/sütür yazımı birleştirildi."},
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Kaynakların çoğu knock-in fare modeli (1, 2, 3) ya da hücre çalışması (4, 5); insan hastalarına ait doğrudan veri yalnız kaynak 4'teki yedi hastanın periost hücrelerinden geliyor."},
+
+  {"girdi": "CALR del52",
+   "ozet": "CALR genindeki çerçeve kaydıran (-1/+2) mutasyonlar esansiyel trombositemi (ET) ve birincil miyelofibroz (PMF) gelişiminden sorumludur [1]. del52, 52 baz çiftlik bir delesyondur ve 5 baz çiftlik insersiyon olan ins5 ile aynı alternatif okuma çerçevesine kayma yaratarak yeni C-uç kuyrukları oluşturur [3]. Mutant CALR proteinleri trombopoietin reseptörünü (TpoR) etkinleştirerek megakaryosit öncüllerinin sitokinden bağımsız çoğalmasını uyarır [1]. Somatik CALR mutasyonları, JAK2 ve MPL mutasyonu taşımayan ET ve PMF hastalarının yaklaşık %60-80'inde tanımlanmıştır [2]. Hastalarda del52 ve ins5 fenotip bakımından birbirinden ayrı iki miyeloproliferatif neoplazi tablosuna yol açar; ikisi ET'de eşit sıklıkta bulunurken del52 PMF'de daha sıktır [3]. Knock-in farelerde del52, ins5'e göre daha belirgin fenotip değişikliklerine yol açtı; bunlar arasında trombositoz, lökositoz, splenomegali, kemik iliği hiposellülaritesi, megakaryositik soyun artışı ve hematopoietik kök hücre bölmesinin genişlemesi vardı [3]. Heterozigot Calr del52 farelerinde yabanil tip kontrollere göre dolaşımdaki trombosit sayısı yüksekti ve ET fenotipi görüldü [1].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Gen sınıfı bulguları (%60-80, çerçeve kayması) özne olarak 'CALR mutasyonları' ile korunmuş; fare bulguları fare bağlamında; hasta fenotip farkı [3] ile birebir.",
+   "takip": [
+    {"soru": "Homozigot olmanın etkisi ne?",
+     "cevap": "Knock-in farelerde homozigotluk; trombositoz, lökositoz ve splenomegali gibi fenotip özelliklerini daha da belirginleştirdi [3]. Homozigot del52 taşıyan fareler, splenomegaliye bağlı ekstramedüller hematopoez, megakaryosit hiperplazisi ve retikülin liflerinin varlığıyla giden penetran miyelofibroz benzeri bir tablo gösterdi [3]. Başka bir knock-in fare çalışmasında tip-1 Calr mutasyonunun homozigot hâli geç embriyonik dönemde ölümcüldü ve ventrikül miyokart duvarlarının daraldığı görüldü [1].",
+     "karar": "DUZELTILDI",
+     "aciklama": "Kaynak 1'deki homozigot ölümcüllük bir fare bulgusu; 'Başka bir çalışmada' denip fare bağlamı düşürülmüştü, eklendi. Bağımsız soruda 'bu fenotip özellikleri' belirsizdi; kaynaktaki özellik listesinden örneklerle somutlaştırıldı."}
+   ],
+   "cok_turlu": {"soru": "hücre içi stres yanıtları bu mutasyondan etkileniyor mu?",
+     "cevap": "Ins5 ve Del52 CALR mutantlarını anlatan K562 hücrelerinde yapılan çalışmada mutantlar, endoplazmik retikulum stresine yanıt verme yeteneğini bozdu ve katlanmamış protein yanıtının apoptoz yönündeki yolunun etkinleşmesini azalttı [2]. Aynı çalışmada CALR mutasyonları oksidatif strese duyarlılığı artırdı ve oksidatif DNA hasarının çoğalmasına yol açtı [2]. CALR mutasyonu taşıyan hücrelerde OXR1'in baskılanması, bu artmış oksidatif stres duyarlılığından sorumlu moleküler mekanizmalardan biri olabilir [2].",
+     "karar": "DUZELTILDI",
+     "aciklama": "Kaynak 2 bulgularını Ins5 ve Del52 mutantlarına birlikte bildiriyor; soru yalnız del52'yi sorduğu için birleşik grup (başlıktaki bilgiyle) cümlede açıkça belirtildi, aksi hâlde bulgu tek varyanta mal edilmiş gibi okunuyordu."},
+   "ret_kapsam": [],
+   "gen_ret": [],
+   "not": "Kaynak 2 bulgularını Ins5 ve Del52'yi birlikte 'CALR mutantları' olarak bildiriyor; cümlelerde özne böyle korundu. Kaynak 4 (CDK6/interferon) bulguları del52 knock-in faresine ait olduğu için kullanılmadı, kaynak 1 ve 3 fare modeli."},
+
+  {"girdi": "rs3918290",
+   "ozet": "DPYD*2A olarak da bilinen rs3918290 (c.1905+1G>A, IVS14+1G>A), florpirimidin tedavisi açısından en önemli dört DPYD varyantından biridir [1]. Bu değişim DPYD geninde intron 14'te yer alan bir kırpılma (splicing) mutasyonudur ve şiddetli 5-florourasil toksisitesiyle tutarlı biçimde ilişkilendirilmiştir [3]. Florpirimidin tedavisi hastaların %30'una varan bölümünde şiddetli toksisiteye yol açabilir; bu durum sıklıkla dihidropirimidin dehidrogenaz (DPD) etkinliğinin azalmasından kaynaklanır ve bu azalmaya çoğunlukla DPYD genindeki varyantlar yol açar [1]. Hollanda'da 17 hastanede yürütülen ileriye dönük çalışmada değerlendirilebilir 1103 hastanın 85'i (%8) heterozigot DPYD varyant taşıyıcısıydı [1]. Bu çalışmada şiddetli florpirimidin kaynaklı toksisite, varyant taşıyıcılarında (85 hastanın 33'ü, %39) yabanil tip hastalardan (1018 hastanın 231'i, %23) daha sık görüldü (p=0,0013) [1]. Florpirimidinle tedavi edilen 603 kanser hastasının geriye dönük incelendiği çalışmada rs3918290, derece ≥3 toksisiteyle ilişkili bulundu (p=0,003) [2]. Hindistan popülasyonundaki DPYD varyantlarını inceleyen çalışmada birleştirilmiş Hindistan verileri, rs3918290'ın 5-FU/kapesitabin toksisitesiyle ilişkili olduğunu gösterdi [4]. Güney Brezilya'daki 800 sağlıklı kişide rs3918290 sıklığı %0,25 bulundu ve bu değer Finlandiya dışı Avrupalılardakine benzerdi [5].",
+   "ozet_karar": "DUZELTILDI",
+   "ozet_aciklama": "Kaynak 1 toksisitenin 'often' (sıklıkla) azalmış DPD etkinliğinden kaynaklandığını, bu azalmanın 'mostly' DPYD varyantlarına bağlı olduğunu söylüyor; yazar ikisini 'nedeni çoğunlukla' diye birleştirip kesinliği artırmıştı, düzeltildi. Kaynak 4'te toksisite ilişkisi taranan 2000 kişiden değil 'pooled Indian data'dan geliyor; çalışma bağlamı karışmıştı, düzeltildi.",
+   "takip": [
+    {"soru": "Genotipe göre doz ayarlaması bu varyantı taşıyanlarda işe yaramış mı?",
+     "cevap": "Hollanda'daki ileriye dönük çalışmada heterozigot DPYD*2A taşıyıcılarına başlangıçta %50 doz azaltması uygulandı [1]. Bu yaklaşımla DPYD*2A taşıyıcılarında şiddetli toksisite için göreli risk 1,31 (%95 GA 0,63-2,73) bulundu; tam dozla tedavi edilen tarihsel kohortta aynı değer 2,87 (2,14-3,86) idi [1]. Araştırmacılar DPYD*2A ve c.1679T>G taşıyıcıları için %50'lik başlangıç doz azaltmasının yeterli olduğu sonucuna vardı [1].",
+     "karar": "GECER",
+     "aciklama": "%50 doz azaltması, RR 1,31 ve 2,87 değerleri ile güven aralıkları [1] ile birebir; DPYD*2A'ya özgü veriler doğru seçilmiş."}
+   ],
+   "cok_turlu": {"soru": "Bu varyanta bakan testin özgüllüğü biliniyor mu?",
+     "cevap": "DPYD-rs3918290, rs55886062 ve rs67376798 analizinin test özgüllüğü %99 olarak belirlendi [2]. Aynı çalışmada bu üç varyanttan birini taşıyan ve derece ≥3 toksisite geliştirmeyen yedi hastanın %57'sinde, orta şiddette süregen toksisite nedeniyle florpirimidin dozunda ya da şemasında değişiklik gerekti [2]. Yazarlar bu genotipleme testinin klinik geçerliliğini ve özgüllüğünü gösterdiklerini ve testin klinik uygulamaya girmesini desteklediklerini bildiriyor [2].",
+     "karar": "GECER",
+     "aciklama": "%99 özgüllüğün üç varyantlı teste ait olduğu ve yedi hastalık birleşik grup doğru aktarılmış [2]."},
+   "ret_kapsam": [
+    {"soru": "Bu varyantın Türkiye'deki görülme sıklığı nedir?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynaklarda yalnız Hollanda, Hindistan, Güney Brezilya ve karşılaştırılan küresel popülasyonların verisi var; Türkiye sıklığı yok."}
+   ],
+   "gen_ret": [],
+   "not": "Kaynak 1'deki %39 ve %23 oranları dört varyantın tüm heterozigot taşıyıcılarına ait, yalnız rs3918290'a değil; cümlede bu korundu. Sıklık verileri Hindistan, Güney Brezilya ve Avrupa popülasyonlarına ait."},
+
+  {"girdi": "rs1061170",
+   "ozet": "rs1061170, CFH genindeki c.1204T>C değişimidir ve protein düzeyinde p.His402Tyr'ye karşılık gelir [1]. Bu alel, yaşa bağlı makula dejenerasyonu (AMD) ile ilişkili, sık görülen yüksek riskli bir aleldir [1]. Erken ya da orta evre AMD'den ileri evreye geçişi öngören bir model geliştirilen çalışmada, 232 hastanın %22,4'ü (n=52) ortalama 5,9 yıllık izlemde ileri evre AMD'ye ilerledi [5]. Bu çalışmanın son öngörü modeli yaş, CFH rs1061170 varyantı, pigment anormallikleri, drusenoid pigment epitel dekolmanı ve hiperreflektif odakları içeriyordu; modelin eğri altında kalan alanı 0,969 (%95 güven aralığı 0,948-0,990) bulundu [5]. Kuru tip AMD'li 170 hastanın incelendiği çalışmada CFH/Y402H varyantı antioksidan takviyesine yanıtla ilişkili bulundu; bir ya da iki CFH risk aleli taşıyanların yanıt verme olasılığı risk aleli taşımayanlara göre daha düşüktü [2]. Aynı çalışmada neovasküler AMD'li hastalar arasında Y402H homozigotlarının anti-VEGF tedavisine yanıt verme olasılığı heterozigotlara göre daha düşük bulundu [2]. CFH 1277T>C (rs1061170), verteporfin ile fotodinamik tedavinin (PDT-V) etkinlik düzeyleriyle ilişkisi bildirilen tek nükleotid polimorfizmleri arasında sayılmıştır [4].",
+   "ozet_karar": "DUZELTILDI",
+   "ozet_aciklama": "3. cümlede 'kurulan bir modelde ... hastaların %22,4'ü ilerledi' denerek öngörü modeli ile izlenen kohort karıştırılmıştı; çalışma/izlem olarak düzeltildi. Diğer cümleler [1], [2], [4], [5] ile birebir.",
+   "takip": [
+    {"soru": "Bu aleli laboratuvarda düzeltmeye yönelik bir çalışma yapılmış mı?",
+     "cevap": "Evet, CRISPR/Cas temelli baz düzenleyicilerle bu yüksek riskli alelin düzeltilmesi denendi [1]. Çalışmada riskli varyantı taşıyacak biçimde düzenlenmiş bir insan embriyonik böbrek hücre hattı (HEK293A-CFH) kullanıldı [1]. Target-AID baz düzenleyicisi ve ona karşılık gelen sgRNA, toplam dizileme okumalarının %21,5'inde sitozinden timine düzeltme sağladı [1]. İnsersiyon ve delesyonlar okumaların yalnızca %0,15'inde saptandı ve öngörülen ilk 11 hedef dışı bölgede neredeyse hiç hedef dışı etki görülmedi [1].",
+     "karar": "GECER",
+     "aciklama": "HEK293A hücre hattı bağlamı, %21,5 ve %0,15 değerleri ve 11 hedef dışı bölge [1] ile birebir."}
+   ],
+   "cok_turlu": {"soru": "Göz ve saç renginin AMD ile ilişkisinde bu varyantın bir rolü var mı?",
+     "cevap": "Güneş ışığı maruziyeti ve pigmentasyonu inceleyen bir çalışmada AMD'nin genetik riski CFH Y402H (rs1061170) ve ARMS2 A69S (rs10490924) polimorfizmleriyle değerlendirildi [3]. Bu çalışmada göz rengi (HR 1,36; p=0,006) ve saç rengi (HR 1,42; p=0,003) herhangi bir retina pigment anormalliğinin ortaya çıkmasıyla ilişkili bulundu [3]. Açık göz rengiyle ilişkili alellerin ya da ileri evre AMD için yüksek riskle ilişkili alellerin varlığı, göz ya da saç renginin erken AMD ile ilişkisini değiştirmedi [3]. Yazarlar, AMD genlerinin göz rengi, saç rengi ve HERC2 genotipinin retina pigment anormallikleriyle ilişkisini etkilemediği sonucuna vardı [3].",
+     "karar": "DUZELTILDI",
+     "aciklama": "Cevap soruda geçen varyanttan hiç söz etmiyordu ve son cümledeki 'söz konusu ilişkiler' belirsizdi (kaynakta göz/saç rengi ve HERC2'nin retina pigment anormallikleriyle ilişkisi). Kaynak 3'te rs1061170'in ARMS2 A69S ile birlikte genetik risk için kullanıldığı belirtildi; bulgu iki risk alelinin birleşik sonucu olarak bırakıldı, son cümle kaynağa göre netleştirildi."},
+   "ret_kapsam": [
+    {"soru": "Bu varyant glokom riskini de etkiliyor mu?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynakların hiçbiri glokomdan söz etmiyor; yalnız AMD, CNV ve pigment anormallikleri var."}
+   ],
+   "gen_ret": [],
+   "not": "Kaynak 3'ün ana konusu güneş ışığı ve pigmentasyon; rs1061170 orada yalnız genetik risk analizinde kullanılan polimorfizm olarak geçiyor. Kaynaklarda varyanta ait bir olasılık oranı ya da risk yüzdesi verilmiyor."},
+
+  {"girdi": "GRCh37:chr16:89986117:C>T",
+   "ozet": "İnsan melanokortin-1 reseptörü (MC1R) pigmentasyon sürecinin belirleyici bir öğesidir ve kodlayan dizisi insan popülasyonlarında oldukça polimorfiktir [2]. R151C, kızıl saç ve açık ten ile güçlü biçimde ilişkili dört MC1R aleli arasındadır; çok terimli regresyon analizinde bu alel için olasılık oranı (OR) 118 bulunmuştur [5]. Arg151Cys, Arg160Trp ve Asp294His alelleri deri kanserinin bütün biçimlerinde artmış riskle, ayrıca mutasyon taşıyıcılarında ailesel melanomun penetransı ve başlangıç yaşıyla ilişkili bulunmuştur [2]. Kızıl saç ve açık ten fenotipiyle (RHC) ilişkili alellerde heterozigot taşıyıcılığın deri fototipi ve deri kanseri riski üzerinde anlamlı bir etkisi vardır; bu, varyant alellerin tam anlamıyla çekinik davranmadığını gösterir [2]. Hollanda'da p16-Leiden mutasyonunu taşıyan ailelerde R151C varyantı, melanomlu hastalar arasında fazla temsil edilmişti [3]. Aynı çalışmada R151C'nin etkisinin bir bölümü ten tipi üzerindeki etkisiyle açıklanabilse de, bu etki istatistiksel olarak düzeltildikten sonra da varyantın melanom riskine katkı yaptığı görüldü [3]. HEK293 hücrelerine aktarılan R151C ve R160W reseptörleri NDP-MSH ligandı varlığında etkindi, ancak etkinlikleri yabanil tip reseptöre göre çok daha düşüktü [5].",
+   "ozet_karar": "DUZELTILDI",
+   "ozet_aciklama": "4. cümlede 'Bu RHC alellerinde' denerek kaynaktaki genel RHC aleli heterozigot taşıyıcı etkisi yalnız sayılan üç alele mal edilmişti; genel özneye döndürüldü ve tanımlanmamış RHC kısaltması kaynaktaki fenotiple açıklandı. Diğer cümleler birebir; OR 118'in kızıl saç/açık ten için olduğu, HEK293 bağlamı korunmuş.",
+   "takip": [
+    {"soru": "rs1805007 çok sayıda keratinosit kanseri riskiyle ilişkili mi?",
+     "cevap": "Daha önce bazal hücreli karsinomla ilişkilendirilmiş 19 polimorfizmin incelendiği aday gen analizinde rs1805007 (MC1R bölgesi), çok sayıda keratinosit kanseri riskiyle anlamlı biçimde ilişkili bulundu (p=2,80x10-4) [4]. Bu çalışmada çok sayıda keratinosit kanseri olan 1.666 olgu ile tek keratinosit kanseri olan 1.950 olgu karşılaştırıldı [4]. Genom çapındaki taramada öne çıkan polimorfizmler ise bağımsız kohortta doğrulanmadı [4].",
+     "karar": "GECER",
+     "aciklama": "19 SNP'lik aday gen analizi, p değeri, 1.666/1.950 olgu ve replikasyon başarısızlığı [4] ile birebir."}
+   ],
+   "cok_turlu": {"soru": "deri skuamoz hücreli karsinomunun invazivliğiyle ilgili bir bulgu var mı",
+     "cevap": "Hispanik olmayan 67.833 beyaz katılımcıda yapılan çalışmada, daha önce bildirilmiş 23 bölgeden beşinde in situ ve invaziv gruplar arasında olasılık oranı heterojenliği görüldü [1]. MC1R'deki rs1805007 bu beş bölgeden biriydi (Phet=7,71x10-3) [1]. Çalışmanın genom çapındaki taraması, invaziv ve in situ gruplar arasında sıklığı anlamlı biçimde farklı tek bir polimorfizm buldu: HLA sınıf II bölgesindeki rs41269979'un T aleli invaziv grupta daha sıktı (P=4,93x10-8) [1].",
+     "karar": "DUZELTILDI",
+     "aciklama": "Kaynak genom çapı taramada yalnız bir SNP bulunduğunu söylüyor; 'en anlamlı bulgu' ifadesi başka anlamlı bulgular varmış gibi gösteriyordu, 'tek polimorfizm' olarak düzeltildi. İlk iki cümle [1] ile birebir."},
+   "ret_kapsam": [
+    {"soru": "Bende bu varyant var, hangi koruma faktörlü güneş kremini kullanmalıyım?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynaklarda güneş kremi, koruma faktörü ya da kişisel korunma önerisi yok; kişisel tıbbi tavsiye sorusu."}
+   ],
+   "gen_ret": [],
+   "not": "Kaynak 5'teki olasılık oranları kızıl saç ve açık ten içindir, kanser riski için değil. Kaynak 3'teki bulgu p16-Leiden delesyonu taşıyan Hollandalı ailelere özgü."},
+
+  {"girdi": "chr1:156132588:C>T",
+   "ozet": "LMNA geni, çekirdek zarının altındaki protein ağı olan çekirdek laminasının bileşenleri lamin A ve lamin C proteinlerini kodlar [5]. Lamin A/C, kromatin yapısının ve gen transkripsiyonunun düzenlenmesinde ve hücrelerin mekanik strese direncinde rol oynar [5]. LMNA mutasyonları kalp ve kas distrofileri, lipodistrofiler ve progeria dahil olmak üzere birbirinden çok farklı insan hastalıklarında tanımlanmıştır [5]. LMNA, dilate kardiyomiyopati (DCM) ile ilişkili en sık mutasyona uğrayan genlerden biridir [3]. LMNA mutasyonlarına bağlı DCM, sistolik işlev bozukluğu ve kalp ritim bozukluklarıyla seyreden, sık görülen kalıtsal bir kardiyomiyopatidir [3]. LMNA ile ilişkili kardiyomiyopati yüksek penetranslı ve erken başlangıçlı bir tablo gösterir; ileri evre kalp yetmezliğine ya da ölümcül aritmiye yol açar [1]. Bu tablo var olan kalp tedavisi yaklaşımlarına dirençlidir ve hastalıkta yürütülen ilk insan klinik çalışması yakın zamanda etkisizlik bildirmiştir [1]. Gen desteklemesi, gen sessizleştirme ve genom düzenleme gibi gen tedavisi yaklaşımları bu hastalık için olası fırsatlar olarak sunulmaktadır [1].",
+   "ozet_karar": "GECER",
+   "ozet_aciklama": "Yalnız gen düzeyinde; girilen c.513+1815C>T hakkında hiçbir iddia yok. Her cümle [1], [3], [5] ile birebir.",
+   "takip": [
+    {"soru": "LMNA'da RNA kırpılmasını etkileyen değişimler nasıl saptanıyor?",
+     "cevap": "Bir çalışmada hesaplamalı araçlarla klinik önemi bilinmeyen varyantlar önceliklendirildi ve hücre temelli bir minigen kırpılma testiyle anormal kırpılma doğrulandı [2]. Kardiyomiyopati hastalarında saptanan 13 LMNA ve 35 MYBPC3 varyantının RNA kırpılmasını değiştirdiği gösterildi; bu, bu iki gende tanımlı zarar verici kırpılma varyantlarının sayısında %50'lik bir artışa karşılık geliyor [2]. Söz konusu varyantların yarısından çoğu klinik tanı laboratuvarlarında klinik önemi bilinmeyen varyant (VUS) olarak sınıflandırılmıştı [2]. Sinonim bir LMNA VUS'unun aile içi incelemesi, varyantın kardiyomiyopati durumuyla birlikte aktarıldığını ve kalpte LMNA kırpılmasını değiştirdiğini gösterdi [2].",
+     "karar": "GECER",
+     "aciklama": "İki aşamalı yöntem, 13/35 varyant, %50 artış ve sinonim VUS'un ayrışması [2] ile birebir; girilen varyant hakkında iddia yok."}
+   ],
+   "cok_turlu": null,
+   "ret_kapsam": [],
+   "gen_ret": [
+    {"soru": "Peki benim raporumda çıkan bu değişim kalp hastalığına yol açar mı?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynakların tümü gen düzeyinde; c.513+1815C>T hiçbir kaynakta anılmıyor."},
+    {"soru": "LMNA c.513+1815C>T değişimi patojenik olarak mı sınıflanıyor?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Varyantın sınıflandırması hiçbir kaynakta yok; kaynak 2 başka LMNA kırpılma varyantlarını anlatıyor."}
+   ],
+   "not": "Beş kaynağın tümü gen düzeyinde; girilen c.513+1815C>T (chr1:156132588:C>T) değişimi hiçbir kaynakta anılmıyor. Kaynak 3 ve 4 hasta kaynaklı iPSC-kardiyomiyosit modelleri, kaynak 5 Lmna fare modelleri derlemesi."},
+
+  {"girdi": "chr20:63410993:A>G",
+   "ozet": "Epilepsi ve nörogelişimsel bozukluğu olan 8.565 ardışık hastaya 70 genlik panel testinin uygulandığı çalışmada, en çok pozitif bulgu SCN1A ve KCNQ2 genlerinde saptandı [1]. Aynı çalışmada yinelenen patojenik ya da olası patojenik varyantlar 14 ayrı gende görüldü; bunlar en sık MECP2, KCNQ2, SCN1A, SCN2A, STXBP1 ve PRRT2 genlerindeydi [1]. Bu kohortta test hastaların %15,4'ünde genetik bir neden tanımladı ve moleküler tanı yaşının ortalaması 5 yıl 8 ay olarak bulundu [1]. Epilepsi genetiğini özetleyen bir derlemede KCNQ2, mutasyonları epilepsiye yatkınlığın ve patogenezin altındaki kritik yolları aydınlatan genler arasında sayılmıştır [4]. KCNQ2 genindeki patojenik varyantlar, infantil epileptik spazm sendromunun (IESS) en sık bildirilen genetik nedenleri arasında sayılır [2]. Yenidoğan döneminde başlayan epilepsilerin bazılarında, örneğin KCNQ2 ya da KCNT1 gen mutasyonu olan bebeklerde, elektroklinik fenotipin erken tanınması hedefe yönelik tanı testine ve hassas tıp tedavisine yol açarak gidişin iyileşmesi olasılığını doğurabilir [5].",
+   "ozet_karar": "DUZELTILDI",
+   "ozet_aciklama": "Kaynak 5 'in some cases, such as neonates with KCNQ2 or KCNT1' diyor; cümle tüm yenidoğan başlangıçlı epilepsilere genellenmişti, 'bazılarında' niteleyicisi geri kondu. Kaynak 2'de IESS nedeni olarak sayılan gen değil gendeki patojenik varyantlar; özne kaynağa uyduruldu. Girilen varyant hakkında iddia yok.",
+   "takip": [
+    {"soru": "KCNQ2 ile ilişkili hastalığın görülme sıklığı tahmin edilebiliyor mu?",
+     "cevap": "Genetik verilere dayanan istatistiksel bir yöntemle, de novo varyantlara bağlı 101 bilinen nörogelişimsel bozukluğun ve 3106 olası monogenik hastalığın görülme sıklığı tahmin edildi [3]. Öngörülen sıklıklar, epidemiyolojik tahmini bulunan yedi de novo varyant ilişkili hastalıktan altısında (%86) bildirilen değerlerle uyuştu; bu karşılaştırmada SCN1A, SLC2A1, SALL1, TBX5, KCNQ2 ve CDKL5 ile ilişkili hastalıklar yer alıyordu [3].",
+     "karar": "DUZELTILDI",
+     "aciklama": "Kaynakta parantezdeki gen listesi 'epidemiyolojik tahmini bulunan' hastalıklara bağlı; uyuşan altı hastalığın hangileri olduğu ve KCNQ2 tahmininin uyuşup uyuşmadığı açıkça yazmıyor. Yazar listeyi uyuşan altı hastalık olarak kesinleştirmişti; KCNQ2'nin karşılaştırmada yer aldığını söyleyecek biçimde düzeltildi."}
+   ],
+   "cok_turlu": null,
+   "ret_kapsam": [],
+   "gen_ret": [
+    {"soru": "Peki bu değişim bende epilepsiye yol açar mı?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Kaynakların tümü gen düzeyinde; c.1763+2457T>C hiçbir kaynakta anılmıyor, kişisel risk bilgisi yok."},
+    {"soru": "KCNQ2 c.1763+2457T>C varyantı zararlı olarak sınıflanmış mı?",
+     "karar": "RET_DOGRU",
+     "aciklama": "Varyantın sınıflandırması hiçbir kaynakta yok."}
+   ],
+   "not": "Beş kaynağın tümü gen düzeyinde; girilen c.1763+2457T>C (chr20:63410993:A>G) intronik değişimi hiçbir kaynakta anılmıyor. Kaynak 4 KCNQ2'yi sinaptik proteinler arasında sayıyor, bu sınıflama cümleye aktarılmadı."}
+ ],
+ "ozet": {"incelenen": 35, "gecer": 17, "duzeltildi": 11, "sil": 0, "ret_dogru": 7, "ret_yanlis": 0,
+          "tekrarlayan_sorunlar": [
+            "niteleyici düşürme / kesinlik artırma ('often' -> 'çoğunlukla', 'in some cases' -> genelleme, 'tek SNP' -> 'en anlamlı bulgu')",
+            "deney bağlamı düşürme (fare bulgusu 'başka bir çalışmada' diye bağlamsız)",
+            "birleşik grup bulgusunun soruda tek varyanta mal edilmiş gibi okunması (Ins5+Del52, CFH+ARMS2)",
+            "çalışma bağlamı karıştırma (taranan kohort vs birleştirilmiş veri; öngörü modeli vs izlem kohortu; gen listesinin hangi gruba ait olduğu)",
+            "küçük çeviri/ifade hataları ('along with' -> 'bununla birlikte', fazladan niteleyici 'kalınlaşmış')"
+          ]}}

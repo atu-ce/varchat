@@ -1,0 +1,465 @@
+{
+  "paket": 1,
+  "ornekler": [
+    {
+      "index": 15,
+      "varyant": "ABL1 T315I",
+      "tur": "ozet",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "ABL1 T315I, kronik miyeloid lösemide (KML) Philadelphia kromozomunun oluşturduğu BCR::ABL1 füzyon onkoproteininde ortaya çıkan bir nokta mutasyonudur [1].", "karar": "ATIF_HATALI", "aciklama": "[1] KML, Ph kromozomu, BCR::ABL1 füzyon onkoproteini ve T315I'yi anar ama 'nokta mutasyonu' demez; tedavi sırasında nokta mutasyonu ile direnç ve T315I [3]'te. Doğru atıf [1][3]."},
+        {"cumle": "KML, t(9;22) translokasyonu sonucu ABL1 ve BCR genlerinin birleşmesiyle karakterizedir ve tedavisinde tirozin kinaz inhibitörleri (TKİ) kullanılır [1].", "karar": "DOGRU", "aciklama": "[1] t(9;22), ABL1-BCR füzyonu ve TKİ tedavisi açıkça yazılı."},
+        {"cumle": "T315I, ilaç bağlanma cebindeki \"bekçi\" (gatekeeper) kalıntısını değiştirir ve tedavi sırasında bir nokta mutasyonu olarak ortaya çıkarak kazanılmış dirence yol açar; bu mutasyonu taşıyan hastalar kötü prognoza sahiptir [3].", "karar": "KISMEN", "aciklama": "[3] nokta mutasyonu, kazanılmış direnç ve kötü prognozu destekler; 'gatekeeper' ifadesi yalnızca [1]'de, 'ilaç bağlanma cebindeki kalıntı' hiçbir kaynakta yok."},
+        {"cumle": "T315I taşıyan hastalar mevcut TKİ'lerin çoğuna dirençlidir; yalnızca ponatinib, asciminib ve olverembatinib bu mutasyona karşı etkilidir [1].", "karar": "DOGRU", "aciklama": "[1]: ponatinib, asciminib ve olverembatinib dışındaki tüm mevcut TKİ'lere direnç."},
+        {"cumle": "Tedavi seçenekleri açısından ponatinib, T315I dahil tüm tek-mutasyonlu BCR::ABL1 varyantlarını inhibe eder; Philadelphia kromozomu pozitif akut lenfoblastik lösemide birinci basamakta imatinibe kıyasla daha yüksek minimal kalıntı hastalığı-negatif tam yanıt oranı sağlamıştır [5].", "karar": "DIL_HATASI", "aciklama": "İçerik [5] ile uyumlu; ancak 'complete remission' = 'tam remisyon', 'tam yanıt' yanlış terim; 'minimal kalıntı hastalığı-negatif' yazımı da düzeltildi."},
+        {"cumle": "Asciminib, ABL miristoil cebini özgül olarak hedefleyen (STAMP) ilk onaylı BCR::ABL1 inhibitörüdür [4] ve en az iki önceki TKİ almış ya da T315I mutasyonu taşıyan KML hastaları için onaylıdır [2].", "karar": "KISMEN", "aciklama": "STAMP [4]'te doğru; [2]'de onay yalnızca Ph+ kronik evre KML (KML-KF) için, cümle onay popülasyonunu tüm KML'ye genişletiyor."},
+        {"cumle": "En az iki TKİ'ye direnç gösteren ya da ileri evre hastalarda allojenik kök hücre nakli önemli bir seçenek olmayı sürdürür [1].", "karar": "DOGRU", "aciklama": "[1]'de birebir var."}
+      ],
+      "duzeltilmis_cevap": "ABL1 T315I, kronik miyeloid lösemide (KML) Philadelphia kromozomunun oluşturduğu BCR::ABL1 füzyon onkoproteininde ortaya çıkan bir nokta mutasyonudur [1][3]. KML, t(9;22) translokasyonu sonucu ABL1 ve BCR genlerinin birleşmesiyle karakterizedir ve tedavisinde tirozin kinaz inhibitörleri (TKİ) kullanılır [1].\n\nT315I, “bekçi” (gatekeeper) mutasyonu olarak adlandırılır [1]. Tedavi sırasında bir nokta mutasyonu olarak ortaya çıkarak kazanılmış dirence yol açar; bu mutasyonu taşıyan hastalar kötü prognoza sahiptir [3]. T315I taşıyan hastalar mevcut TKİ'lerin çoğuna dirençlidir; yalnızca ponatinib, asciminib ve olverembatinib bu mutasyona karşı etkilidir [1].\n\nTedavi seçenekleri açısından ponatinib, T315I dahil tüm tek-mutasyonlu BCR::ABL1 varyantlarını inhibe eder; Philadelphia kromozomu pozitif akut lenfoblastik lösemide birinci basamakta imatinibe kıyasla daha yüksek minimal kalıntı hastalık (MRD) negatif tam remisyon oranı sağlamıştır [5]. Asciminib, ABL miristoil cebini özgül olarak hedefleyen (STAMP) ilk onaylı BCR::ABL1 inhibitörüdür [4] ve en az iki önceki TKİ almış ya da T315I mutasyonu taşıyan, Philadelphia kromozomu pozitif kronik evre KML hastaları için onaylıdır [2]. En az iki TKİ'ye direnç gösteren ya da ileri evre hastalarda allojenik kök hücre nakli önemli bir seçenek olmayı sürdürür [1].",
+      "not": "Kaynakta olmayan 'ilaç bağlanma cebi' mekanizması çıkarıldı; 'gatekeeper' [1]'e bağlandı; onay popülasyonu kronik evreye daraltıldı; 'tam yanıt' -> 'tam remisyon'."
+    },
+    {
+      "index": 82,
+      "varyant": "ABL1 T315I",
+      "tur": "takip_cok_turlu",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "İlaç bağlanma cebindeki 'bekçi' (gatekeeper) kalıntısını değiştirerek çoğu tirozin kinaz inhibitörüne kazanılmış direnç oluşturur ve kötü prognozla ilişkilidir [3].", "karar": "KISMEN", "aciklama": "[3] yalnızca kazanılmış direnç ve kötü prognozu söyler; 'gatekeeper' ve TKİ'lere direnç kapsamı [1]'de; 'ilaç bağlanma cebi kalıntısı' hiçbir kaynakta yok."}
+      ],
+      "duzeltilmis_cevap": "“Bekçi” (gatekeeper) mutasyonu olarak adlandırılan T315I, ponatinib, asciminib ve olverembatinib dışındaki mevcut tüm tirozin kinaz inhibitörlerine direnç oluşturur [1]. Tedaviye kazanılmış direnç nedeniyle kötü prognozla ilişkilidir [3].",
+      "not": "Desteksiz mekanizma çıkarıldı, direnç bilgisi doğru kaynağa [1] bağlandı."
+    },
+    {
+      "index": 83,
+      "varyant": "ABL1 T315I",
+      "tur": "takip",
+      "karar": "AYNEN",
+      "cumleler": [
+        {"cumle": "T315I taşıyan hastalarda yalnızca ponatinib, asciminib ve olverembatinib etkilidir; diğer tirozin kinaz inhibitörlerinin çoğu bu mutasyona karşı işe yaramaz [1].", "karar": "DOGRU", "aciklama": "[1]: bu üçü dışındaki tüm mevcut TKİ'lere direnç; 'çoğu' ifadesi zayıflatıcı ama çelişkili değil."}
+      ],
+      "duzeltilmis_cevap": "",
+      "not": ""
+    },
+    {
+      "index": 84,
+      "varyant": "ABL1 T315I",
+      "tur": "takip_cok_turlu",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "Asciminib, ABL miristoil cebini özgül olarak hedefleyen (STAMP) ilk onaylı BCR::ABL1 inhibitörüdür [4] ve en az iki önceki tirozin kinaz inhibitörü almış ya da T315I taşıyan KML hastaları için onaylıdır [2].", "karar": "KISMEN", "aciklama": "STAMP [4]'te doğru; [2]'de onay Ph+ kronik evre KML içindir, cümle tüm KML'ye genelliyor."}
+      ],
+      "duzeltilmis_cevap": "Asciminib, ABL miristoil cebini özgül olarak hedefleyen (STAMP) ilk onaylı BCR::ABL1 inhibitörüdür [4] ve en az iki önceki tirozin kinaz inhibitörü almış ya da T315I taşıyan, Philadelphia kromozomu pozitif kronik evre KML hastaları için onaylıdır [2].",
+      "not": "Onay popülasyonu kaynaktaki gibi kronik evreye daraltıldı."
+    },
+    {
+      "index": 182,
+      "varyant": "ABL1 T315I",
+      "tur": "ret_kapsam_disi",
+      "karar": "RET_DOGRU",
+      "cumleler": [],
+      "duzeltilmis_cevap": "",
+      "not": "5 kaynakta aşı/aşılama ile ilgili hiçbir bilgi yok."
+    },
+    {
+      "index": 27,
+      "varyant": "CTNNB1 S45F",
+      "tur": "ozet",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "CTNNB1 S45F, β-katenini kodlayan CTNNB1 geninin ekson 3'ündeki bir mutasyondur; desmoid tip fibromatoz (desmoid tümör) vakalarının çoğunda β-katenin mutasyonları görülür ve S45F, T41A ile birlikte en sık değişimlerdendir [1][2].", "karar": "KISMEN", "aciklama": "Ekson 3 ve DTF'lerin çoğunda β-katenin mutasyonu [2]'de var; 'en sık değişimlerden' genellemesi hiçbir kaynakta yazmıyor ([1]'de yalnızca 33 hastalık seride T41A 16, S45F 4, S45P 1 olgu)."},
+        {"cumle": "Mutasyon β-kateninin çekirdekte birikmesine yol açar; S45F taşıyan olguların tümü güçlü çekirdek β-katenin ifadesi gösterir [1].", "karar": "KISMEN", "aciklama": "[1] yalnızca çekirdek ifadesi ile mutasyon durumu arasında anlamlı korelasyon bildirir; 'birikmesine yol açar' nedenselliği kaynakta yok. İkinci kısım (4 S45F olgusunun tümü güçlü ifade) doğru."},
+        {"cumle": "Klinik önemi açısından S45F, diğer CTNNB1 mutasyonlarına (ör. T41A) kıyasla cerrahi sonrası daha yüksek nüks olasılığı ve sistemik tedavilere daha fazla dirençle ilişkilidir [2].", "karar": "KISMEN", "aciklama": "[2] karşılaştırmayı yabanıl tip (WT) ve T41A tümörlerle yapıyor; 'diğer CTNNB1 mutasyonları' genellemesi kaynakta yok."},
+        {"cumle": "COX-2 seçici inhibitör meloksikam ile tedavide S45F taşıyan tüm olgular kötü yanıt (hastalık ilerlemesi) göstermiştir; diğer mutasyonların yanıt üzerine etkisi olmamıştır [1].", "karar": "DIL_HATASI", "aciklama": "İçerik [1] ile uyumlu; 'COX-2 seçici inhibitör meloksikam' tamlaması bozuk, doğrusu 'seçici COX-2 inhibitörü meloksikam'."},
+        {"cumle": "Cerrahi tedavi gören hastalarda S45F mutasyonu (HR 5,25) ve ekstremite yerleşimi, lokal nüks için bağımsız risk faktörleridir; bu iki etkeni taşıyanların nüks riski belirgin biçimde yüksektir [3].", "karar": "KISMEN", "aciklama": "HR 5,25 ve ekstremite [3]'te doğru; ancak yüksek risk grubu 'bir ya da iki etkeni taşıyanlar' (HR 8,4, hiç etkeni olmayanlara göre), cümle bunu 'iki etkeni taşıyanlar' olarak yanlış aktarıyor."},
+        {"cumle": "Bu nedenle CTNNB1 mutasyon durumu, desmoid tümörlerde tedavi kararına yardımcı prognostik bir biyobelirteç olabilir [1][3].", "karar": "DOGRU", "aciklama": "[1] meloksikam için prognostik değer, [3] potansiyel prognostik biyobelirteç ve karar vermeye yardım."}
+      ],
+      "duzeltilmis_cevap": "CTNNB1 S45F, β-katenini kodlayan CTNNB1 geninin ekson 3'ündeki bir mutasyondur; desmoid tip fibromatoz (desmoid tümör) vakalarının çoğunda β-katenin mutasyonu bulunur ve S45F ile T41A, klinik davranışları farklı iki mutasyon alt tipidir [2]. 33 hastalık bir desmoid tümör serisinde saptanan nokta mutasyonları T41A (16 olgu), S45F (4 olgu) ve S45P (1 olgu) idi [1]. Çekirdek β-katenin ifadesi CTNNB1 mutasyon durumuyla anlamlı biçimde ilişkiliydi; S45F taşıyan olguların tümü güçlü çekirdek β-katenin ifadesi gösterdi [1].\n\nKlinik önemi açısından S45F, yabanıl tip (WT) ve T41A tümörlere kıyasla cerrahi sonrası daha yüksek nüks olasılığı ve sistemik tedavilere daha fazla dirençle ilişkilidir [2]. Seçici COX-2 inhibitörü meloksikam ile tedavide S45F taşıyan tüm olgular kötü yanıt (hastalık ilerlemesi) göstermiştir; diğer mutasyonların yanıt üzerine etkisi olmamıştır [1].\n\nCerrahi tedavi gören hastalarda S45F mutasyonu (HR 5,25) ve ekstremite yerleşimi, lokal nüks için bağımsız risk faktörleridir; bu etkenlerden birini ya da ikisini taşıyan hastaların nüks riski, hiçbirini taşımayanlara göre belirgin biçimde yüksektir (HR 8,4) [3]. Bu nedenle CTNNB1 mutasyon durumu, desmoid tümörlerde tedavi kararına yardımcı prognostik bir biyobelirteç olabilir [1][3].",
+      "not": "'En sık' genellemesi yerine kaynaktaki olgu sayıları; korelasyon nedensellik gibi yazılmıştı; karşılaştırma grubu WT/T41A olarak düzeltildi; risk modeli tanımı düzeltildi."
+    },
+    {
+      "index": 118,
+      "varyant": "CTNNB1 S45F",
+      "tur": "takip_cok_turlu",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "Desmoid tip fibromatoz (desmoid tümör) vakalarında görülür; T41A ile birlikte en sık CTNNB1 değişimlerindendir [1][2].", "karar": "KISMEN", "aciklama": "Desmoid tümörde görülmesi [1][2]'de var; 'en sık CTNNB1 değişimlerinden' genellemesi kaynakta yazmıyor ([1]: 33 olguda T41A 16, S45F 4). Ayrıca [4] başlığındaki pilomatriksomada S45F bildirimi atlanmış."}
+      ],
+      "duzeltilmis_cevap": "Desmoid tip fibromatozda (desmoid tümör) görülür; 33 hastalık bir seride S45F 4 olguda, T41A ise 16 olguda saptanmıştır [1]. Ayrıca pilomatriksomada yeni bir mutasyon olarak CTNNB1 p.S45F bildirilmiştir [4].",
+      "not": "Genelleme kaynaktaki sayılarla değiştirildi; [4]'teki pilomatriksoma bilgisi eklendi (kaynakta var)."
+    },
+    {
+      "index": 119,
+      "varyant": "CTNNB1 S45F",
+      "tur": "takip",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "Evet; S45F mutasyonu (HR 5,25) ve ekstremite yerleşimi cerrahi sonrası lokal nüks için bağımsız risk faktörleridir ve diğer mutasyonlara göre daha yüksek nüks olasılığıyla ilişkilidir [2][3].", "karar": "KISMEN", "aciklama": "HR 5,25 ve ekstremite [3]'te doğru; [2] karşılaştırmayı yabanıl tip ve T41A ile yapar, 'diğer mutasyonlar' genellemesi kaynakta yok."}
+      ],
+      "duzeltilmis_cevap": "Evet; S45F mutasyonu (HR 5,25) ve ekstremite yerleşimi cerrahi sonrası lokal nüks için bağımsız risk faktörleridir [3]; S45F tümörlerin cerrahi sonrası nüks olasılığı, yabanıl tip ve T41A tümörlere göre daha yüksektir [2].",
+      "not": "Karşılaştırma grubu kaynaktaki gibi WT ve T41A yapıldı; atıflar ilgili parçalara ayrıldı."
+    },
+    {
+      "index": 120,
+      "varyant": "CTNNB1 S45F",
+      "tur": "takip_cok_turlu",
+      "karar": "AYNEN",
+      "cumleler": [
+        {"cumle": "Evet; COX-2 inhibitörü meloksikam ile tedavide S45F taşıyan tüm olgular kötü yanıt (hastalık ilerlemesi) göstermiştir, diğer mutasyonların etkisi olmamıştır [1].", "karar": "DOGRU", "aciklama": "[1]: S45F'li 4 olgunun tümü PD (p = 0,017), diğer mutasyonların etkinliğe etkisi yok."}
+      ],
+      "duzeltilmis_cevap": "",
+      "not": ""
+    },
+    {
+      "index": 194,
+      "varyant": "CTNNB1 S45F",
+      "tur": "ret_kapsam_disi",
+      "karar": "RET_DOGRU",
+      "cumleler": [],
+      "duzeltilmis_cevap": "",
+      "not": "Kaynaklarda tedavi maliyeti bilgisi yok."
+    },
+    {
+      "index": 11,
+      "varyant": "FLT3 D835Y",
+      "tur": "ozet",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "FLT3 D835Y, akut miyeloid lösemide (AML) FLT3 reseptörünün tirozin kinaz alanında (TKD) en sık görülen nokta mutasyonudur; 835. pozisyondaki aspartik asidin tirozine dönüşmesiyle reseptörü sürekli aktive eder [5].", "karar": "DOGRU", "aciklama": "[5]: en sık kinaz alanı mutasyonu, aspartik asit -> tirozin, FLT3'ü konstitütif aktive eder."},
+        {"cumle": "FLT3 mutasyonları AML'lerin yaklaşık üçte birinde bulunur; en sık, juxtamembran bölgesindeki internal tandem duplikasyonu (ITD, ~%23) ve TKD nokta mutasyonlarıdır (~%10) [2][5].", "karar": "DIL_HATASI", "aciklama": "Oranlar [5]'te (ve [2]'de %30) doğru; 'juxtamembran' İngilizce yazım, Türkçesi 'jukstamembran'; 'en sık, ...' yapısı bozuk."},
+        {"cumle": "Her iki mutasyon da FLT3'ü aktive etse de ITD taşıyan hastaların prognozu belirgin biçimde daha kötüdür; knock-in fare modellerinde D835Y'li fareler ITD'li farelere göre daha uzun yaşar ve daha az agresif miyeloproliferatif neoplazi geliştirir [5].", "karar": "DOGRU", "aciklama": "[5]'te birebir var."},
+        {"cumle": "Klinik önemi açısından D835Y, seçici FLT3 inhibitörlerine karşı kazanılmış direncin başlıca nedenlerinden biridir; FLT3-ITD'li hücrelerde inhibitör baskısı altında sekonder D835Y mutasyonu ortaya çıkabilir ve bu hücreler AC220 (quizartinib) ile sorafenibe yüksek direnç gösterir [4].", "karar": "KISMEN", "aciklama": "MLN518 ile dirençli MOLM-13'te D835Y ve AC220/sorafenib direnci [4]'te var; 'AC220 = quizartinib' hiçbir kaynakta yok; 'en sık ikincil mutasyon' bilgisi [4]'te değil [2]'de."},
+        {"cumle": "Ayrıca NPM1c mutasyonu, FLT3-TKD'nin hücre içi yerleşimini hücre yüzeyinden endoplazmik retikuluma kaydırarak STAT5'i aktive eder; bu birliktelik AML'de prognostik önem taşır [1].", "karar": "KISMEN", "aciklama": "[1] yer değişikliğinin anormal STAT5 aktivasyonuna 'yol açabileceğini' (might) söyler, kesin nedensellik yok; prognostik önem NPM1 durumunun FLT3-TKD'li hastalardaki önemi olarak yazılı."},
+        {"cumle": "Tedavi geliştirmede D835Y aracılı direnci aşmak için ikili inhibitörler üzerinde çalışılmaktadır; FLT3/Aurora A inhibitörü CCT245718, FLT3-ITD/D835Y çift mutantı taşıyan hücrelerde direnci aşmıştır [3].", "karar": "DOGRU", "aciklama": "[3]: CCT245718, ITD ve D835Y taşıyan MOLM-13 türevi hatta TKD aracılı direnci aşar."},
+        {"cumle": "Benzer şekilde bir imidazo[1,2-a]piridin türevi (bileşik 1), hem FLT3-ITD hem BCR-ABL yollarını inhibe ederek FLT3-ITD/D835Y ve FLT3-ITD/F691L sekonder mutantlarını güçlü biçimde baskılamıştır [2].", "karar": "DOGRU", "aciklama": "[2]'de birebir var."}
+      ],
+      "duzeltilmis_cevap": "FLT3 D835Y, akut miyeloid lösemide (AML) FLT3 reseptörünün tirozin kinaz alanında (TKD) en sık görülen nokta mutasyonudur; 835. pozisyondaki aspartik asidin tirozine dönüşmesiyle reseptörü sürekli aktive eder [5]. FLT3 mutasyonları AML'lerin yaklaşık üçte birinde bulunur; en sık olanları jukstamembran bölgesindeki iç tandem duplikasyonu (ITD, ~%23) ve TKD nokta mutasyonlarıdır (~%10) [2][5]. Her iki mutasyon da FLT3'ü aktive etse de ITD taşıyan hastaların prognozu belirgin biçimde daha kötüdür; knock-in fare modellerinde D835Y'li fareler ITD'li farelere göre daha uzun yaşar ve daha az agresif miyeloproliferatif neoplazi geliştirir [5].\n\nKlinik önemi açısından D835Y, FLT3-ITD'li AML'de ikincil klinik dirence yol açan en sık FLT3 ikincil mutasyonlarından biridir [2]. Seçici FLT3 inhibitörü MLN518 ile tedavi edilen FLT3-ITD'li MOLM-13 hücrelerinde yeni bir D835Y mutasyonu ortaya çıkmış ve bu dirençli hücreler AC220 ile sorafenibe yüksek direnç göstermiştir [4]. Ayrıca NPM1c mutasyonu, FLT3-TKD'nin hücre içi yerleşimini hücre yüzeyinden endoplazmik retikuluma kaydırır ve FLT3-TKD, STAT5'i yalnızca mutant NPM1c varlığında aktive eder; NPM1 mutasyon durumu, FLT3-TKD nokta mutasyonu taşıyan hastalarda güçlü prognostik öneme sahiptir [1].\n\nTedavi geliştirmede D835Y aracılı direnci aşmak için ikili inhibitörler üzerinde çalışılmaktadır; FLT3/Aurora A inhibitörü CCT245718, FLT3-ITD/D835Y çift mutantı taşıyan hücrelerde direnci aşmıştır [3]. Benzer şekilde bir imidazo[1,2-a]piridin türevi (bileşik 1), hem FLT3-ITD hem BCR-ABL yollarını inhibe ederek FLT3-ITD/D835Y ve FLT3-ITD/F691L sekonder mutantlarını güçlü biçimde baskılamıştır [2].",
+      "not": "Kaynakta olmayan 'quizartinib' eşlemesi çıkarıldı; 'başlıca neden' iddiası [2]'ye bağlandı; NPM1c-STAT5 nedenselliği kaynağın ifadesine indirildi; jukstamembran yazımı düzeltildi."
+    },
+    {
+      "index": 70,
+      "varyant": "FLT3 D835Y",
+      "tur": "takip_cok_turlu",
+      "karar": "AYNEN",
+      "cumleler": [
+        {"cumle": "Akut miyeloid lösemide (AML) FLT3 reseptörünün tirozin kinaz alanında en sık görülen nokta mutasyonudur [5].", "karar": "DOGRU", "aciklama": "[5]: AML'de en sık kinaz alanı mutasyonu."}
+      ],
+      "duzeltilmis_cevap": "",
+      "not": ""
+    },
+    {
+      "index": 71,
+      "varyant": "FLT3 D835Y",
+      "tur": "takip",
+      "karar": "AYNEN",
+      "cumleler": [
+        {"cumle": "FLT3-ITD taşıyan hastaların prognozu daha kötüdür; knock-in fare modellerinde D835Y'li fareler ITD'li farelere göre daha uzun yaşar ve daha az agresif miyeloproliferatif neoplazi geliştirir [5].", "karar": "DOGRU", "aciklama": "[5]: ITD'li hastalarda prognoz anlamlı olarak daha kötü; D835Y knock-in fareler daha uzun yaşar, daha az agresif MPN."}
+      ],
+      "duzeltilmis_cevap": "",
+      "not": ""
+    },
+    {
+      "index": 72,
+      "varyant": "FLT3 D835Y",
+      "tur": "takip_cok_turlu",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "Evet; seçici FLT3 inhibitörlerine karşı kazanılmış direncin başlıca nedenlerindendir ve bu hücreler AC220 (quizartinib) ile sorafenibe yüksek direnç gösterir [4].", "karar": "KISMEN", "aciklama": "AC220 ve sorafenib direnci [4]'te var; 'quizartinib' hiçbir kaynakta yok; 'başlıca nedenlerinden' bilgisi [2]'de (en sık ikincil mutasyonlar); 'bu hücreler' öncülsüz."},
+        {"cumle": "Direnci aşmak için FLT3/Aurora A inhibitörü CCT245718 gibi ikili inhibitörler geliştirilmektedir [3].", "karar": "DOGRU", "aciklama": "[3]: CCT245718 ikili FLT3/Aurora A inhibitörü, TKD aracılı direnci aşar."}
+      ],
+      "duzeltilmis_cevap": "Evet; D835Y, FLT3-ITD'li AML'de ikincil klinik dirence yol açan en sık FLT3 ikincil mutasyonlarındandır [2]. Seçici FLT3 inhibitörüne dirençli hale gelip D835Y mutasyonu kazanan MOLM-13 hücreleri AC220 ile sorafenibe de yüksek direnç göstermiştir [4]. Direnci aşmak için FLT3/Aurora A inhibitörü CCT245718 gibi ikili inhibitörler geliştirilmektedir [3].",
+      "not": "Desteksiz 'quizartinib' çıkarıldı; 'başlıca neden' [2]'ye bağlandı; öncülsüz 'bu hücreler' açıklandı."
+    },
+    {
+      "index": 178,
+      "varyant": "FLT3 D835Y",
+      "tur": "ret_kapsam_disi",
+      "karar": "RET_DOGRU",
+      "cumleler": [],
+      "duzeltilmis_cevap": "",
+      "not": "Kaynaklarda maliyet bilgisi yok."
+    },
+    {
+      "index": 6,
+      "varyant": "JAK2 V617F",
+      "tur": "ozet",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "JAK2 V617F, miyeloproliferatif neoplazilerde (MPN) en yaygın sürücü mutasyondur; JAK/STAT sinyal yolunu sitokinlerden bağımsız olarak sürekli aktive eder ve hastalığın başlangıcı ile ilerlemesinde önemli rol oynar [1].", "karar": "DOGRU", "aciklama": "[1]'de birebir var."},
+        {"cumle": "JAK/STAT dışında hücre çoğalması, farklılaşma, anti-apoptoz ve DNA hasarı birikimi gibi süreçleri de çeşitli yollarla etkiler [1].", "karar": "DOGRU", "aciklama": "[1]: proliferasyon, farklılaşma, anti-apoptoz, DNA hasarı birikimi, çoklu yollar."},
+        {"cumle": "JAK inhibitörleri klinikte yaygın kullanılsa da MPN hücrelerini kökten yok edemez; bu nedenle uzun süreli tedavi gerekir ve inhibitörlerin diğer ilaçlarla birlikte kullanımı araştırılmaktadır [1].", "karar": "DOGRU", "aciklama": "[1]: eradike edemez, kaçınılmaz uzun süreli tedavi, kombinasyon tedavisi."},
+        {"cumle": "V617F, nötrofillere özgü ifade edildiğinde (CALR mutasyonundan farklı olarak) IL-1 dahil pro-inflamatuar sitokinleri indükler ve nötrofillerde belirgin bir inflamatuar kemokin imzası oluşturur; bu, MPN'deki inflamasyonun önemli bir sürücüsüdür [2].", "karar": "DOGRU", "aciklama": "[2]: nötrofile özgü JAK2-V617F (CALRdel değil) IL-1 dahil sitokinleri indükler, ayrı kemokin imzası; V617F+ nötrofiller inflamasyonun patojenik sürücüsü."},
+        {"cumle": "Ayrıca VLA4 integrin aracılı yapışkan bir fenotip yaratarak trombotik riske katkıda bulunabilir [2].", "karar": "DOGRU", "aciklama": "[2]: VLA4 integrin aracılı adezif fenotip, artmış trombotik riske katkıda bulunabilir."},
+        {"cumle": "Kardiyovasküler açıdan JAK2 V617F, klonal hematopoez bağlamında miyokard enfarktüsü riskini artırır; özellikle plak erozyonuyla güçlü ilişkilidir (OR 16,2), plak rüptürüyle ise anlamlı ilişki göstermez [4].", "karar": "DOGRU", "aciklama": "[4]: CHIP mutasyonları içinde MI riskini belirgin artırır; erozyon OR 16,246, rüptür anlamsız."},
+        {"cumle": "Bu ilişkiye, taşıyıcı nötrofillerin aktivasyon, adezyon ve migrasyon genlerini artırması katkıda bulunabilir [4].", "karar": "DOGRU", "aciklama": "[4]: taşıyıcı nötrofillerde aktivasyon, adezyon, migrasyon genleri artmış; nötrofil aktivasyonu katkıda bulunabilir."},
+        {"cumle": "JAK2 rs10974944 polimorfizmi isehem V617F-pozitif hem de V617F-negatif MPN ile ilişkili bulunmuştur [5].", "karar": "DIL_HATASI", "aciklama": "İçerik [5] ile uyumlu; 'isehem' bitişik yazım hatası ('ise hem'). Ayrıca kaynak bulgunun Vietnam popülasyonunda olduğunu belirtiyor, düzeltmede eklendi."}
+      ],
+      "duzeltilmis_cevap": "JAK2 V617F, miyeloproliferatif neoplazilerde (MPN) en yaygın sürücü mutasyondur; JAK/STAT sinyal yolunu sitokinlerden bağımsız olarak sürekli aktive eder ve hastalığın başlangıcı ile ilerlemesinde önemli rol oynar [1]. JAK/STAT dışında hücre çoğalması, farklılaşma, anti-apoptoz ve DNA hasarı birikimi gibi süreçleri de çeşitli yollarla etkiler [1].\n\nJAK inhibitörleri klinikte yaygın kullanılsa da MPN hücrelerini kökten yok edemez; bu nedenle uzun süreli tedavi gerekir ve inhibitörlerin diğer ilaçlarla birlikte kullanımı araştırılmaktadır [1]. V617F, nötrofillere özgü ifade edildiğinde (CALR mutasyonundan farklı olarak) IL-1 dahil pro-inflamatuar sitokinleri indükler ve nötrofillerde belirgin bir inflamatuar kemokin imzası oluşturur; bu, MPN'deki inflamasyonun önemli bir sürücüsüdür [2]. Ayrıca VLA4 integrin aracılı yapışkan bir fenotip yaratarak trombotik riske katkıda bulunabilir [2].\n\nKardiyovasküler açıdan JAK2 V617F, klonal hematopoez bağlamında miyokard enfarktüsü riskini artırır; özellikle plak erozyonuyla güçlü ilişkilidir (OR 16,2), plak rüptürüyle ise anlamlı ilişki göstermez [4]. Bu ilişkiye, taşıyıcı nötrofillerin aktivasyon, adezyon ve migrasyon genlerini artırması katkıda bulunabilir [4]. JAK2 rs10974944 polimorfizmi ise Vietnam popülasyonunda hem V617F-pozitif hem de V617F-negatif MPN ile ilişkili bulunmuştur [5].",
+      "not": "Yalnızca son cümlede yazım hatası ('isehem') ve popülasyon bilgisi düzeltildi; geri kalanı kaynaklara sadık."
+    },
+    {
+      "index": 55,
+      "varyant": "JAK2 V617F",
+      "tur": "takip",
+      "karar": "AYNEN",
+      "cumleler": [
+        {"cumle": "Miyeloproliferatif neoplazilerde (MPN) en yaygın sürücü mutasyondur ve JAK/STAT sinyal yolunu sitokinlerden bağımsız olarak sürekli aktive eder [1].", "karar": "DOGRU", "aciklama": "[1]'de birebir var."}
+      ],
+      "duzeltilmis_cevap": "",
+      "not": ""
+    },
+    {
+      "index": 56,
+      "varyant": "JAK2 V617F",
+      "tur": "takip_cok_turlu",
+      "karar": "AYNEN",
+      "cumleler": [
+        {"cumle": "Klonal hematopoez bağlamında miyokard enfarktüsü riskini artırır; özellikle plak erozyonuyla güçlü ilişkilidir (OR 16,2), plak rüptürüyle ise anlamlı ilişki göstermez [4].", "karar": "DOGRU", "aciklama": "[4]: OR 16,246 erozyon; rüptür OR 1,677, p = 0,495."}
+      ],
+      "duzeltilmis_cevap": "",
+      "not": ""
+    },
+    {
+      "index": 57,
+      "varyant": "JAK2 V617F",
+      "tur": "takip",
+      "karar": "AYNEN",
+      "cumleler": [
+        {"cumle": "Hayır; JAK inhibitörleri yaygın kullanılsa da MPN hücrelerini kökten yok edemez, bu nedenle uzun süreli tedavi gerekir ve diğer ilaçlarla kombinasyonları araştırılmaktadır [1].", "karar": "DOGRU", "aciklama": "[1]: JAK inhibitörleri MPN'yi eradike edemez, uzun süreli tedavi yükü, kombinasyon tedavisi."}
+      ],
+      "duzeltilmis_cevap": "",
+      "not": ""
+    },
+    {
+      "index": 151,
+      "varyant": "JAK2 V617F",
+      "tur": "ret_yabanci",
+      "karar": "RET_DOGRU",
+      "cumleler": [],
+      "duzeltilmis_cevap": "",
+      "not": "JAK2 V617F kaynaklarının hiçbiri ABL1 T315I'den söz etmiyor."
+    },
+    {
+      "index": 173,
+      "varyant": "JAK2 V617F",
+      "tur": "ret_kapsam_disi",
+      "karar": "RET_DOGRU",
+      "cumleler": [],
+      "duzeltilmis_cevap": "",
+      "not": "Kaynaklarda pediatrik hasta ya da çocuklarda tedavi bilgisi yok."
+    },
+    {
+      "index": 32,
+      "varyant": "MPL W515L",
+      "tur": "ozet",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "MPL W515L, trombopoietin reseptörünü kodlayan MPL genindeki bir mutasyondur ve JAK2 V617F-negatif miyeloproliferatif neoplazilerde (özellikle esansiyel trombositoz ve primer miyelofibroz) görülür [5].", "karar": "KISMEN", "aciklama": "[5]: MPL TPO reseptörünü kodlar, W515L/K ET ve PMF'de tanımlanmış; 'JAK2 V617F-negatif MPN'de görülür' genel kuralı kaynakta yok (yalnızca 2 olgu JAK2-negatifti). Ayrıca ET'nin Türkçesi 'esansiyel trombositemi', 'trombositoz' değil."},
+        {"cumle": "Reseptörü aktive ederek hastalığı sürükler; bir çalışmada ET ve PMF hastalarında MPL W515L/K sıklığı %2,6, JAK2 V617F-negatif hastalarda ise %4,8 bulunmuş ve saptanan tüm olgular JAK2 V617F-negatif olmuştur [5].", "karar": "KISMEN", "aciklama": "%2,6 / %4,8 ve JAK2-negatiflik [5]'te doğru; 'reseptörü aktive ederek hastalığı sürükler' hiçbir kaynakta yazmıyor; 'tüm olgular' aslında yalnızca 2 PMF olgusu."},
+        {"cumle": "Bu nedenle W515L/K varlığı, Philadelphia kromozomu ya da JAK2 V617F taşımayan MPN hastalarında klonaliteyi göstermede yardımcı olabilir [5].", "karar": "DOGRU", "aciklama": "[5] sonuç cümlesiyle aynı."},
+        {"cumle": "Mekanizma açısından MPL W515L, THOC5'in tirozin fosforilasyonu yoluyla MYC ifadesini düzensizleştirerek hücre hareketini (kemokinez) artırır ve sfingozin-1-fosfat üretimiyle bağlantılı TGFβ salgısını indükler; bunlar terapötik hedefler sunar [3].", "karar": "DOGRU", "aciklama": "[3]: THOC5 tirozin 225 fosforilasyonu ile MYC düzensizliği, artmış kemokinez, S1P ile bağlantılı TGFβ salgısı, potansiyel tedavi hedefleri."},
+        {"cumle": "Fare modellerinde MPL W515L bağırsakta inflamasyonu ağırlaştırır ve kaspaz1/IL-1β yolunu aktive eder [1].", "karar": "DOGRU", "aciklama": "[1]: bağırsak inflamasyonunu ağırlaştırır, kaspaz1/IL-1β aktivasyonu artar."},
+        {"cumle": "Tedavi açısından MPN'lerin sekonder akut miyeloid lösemiye dönüşümünde artan DUSP6 ifadesi rol oynar; DUSP6 inhibisyonu, Jak2V617F ve MPLW515L MPN fare modellerinde hastalık gelişimini güçlü biçimde baskılar ve JAK2 inhibitörü direncini aşabilir [4].", "karar": "KISMEN", "aciklama": "[4]: DUSP6 artışı dönüşümün altında yatar, inhibisyonu Jak2V617F/MPLW515L modellerinde hastalığı baskılar; ancak kaynak yalnızca DUSP6'nın ektopik ifadesinin JAK2 inhibitörü direncine aracılık ettiğini söyler, 'inhibisyonu direnci aşabilir' çıkarımı yazılı değil."}
+      ],
+      "duzeltilmis_cevap": "MPL W515L, trombopoietin reseptörünü kodlayan MPL genindeki bir mutasyondur ve esansiyel trombositemi (ET) ile primer miyelofibroz (PMF) hastalarında tanımlanmıştır [5]. Bir çalışmada ET ve PMF hastalarında MPL W515L/K sıklığı %2,6, JAK2 V617F-negatif hastalarda ise %4,8 bulunmuş; mutasyon yalnızca JAK2 V617F-negatif 2 PMF olgusunda saptanmıştır [5]. Bu nedenle W515L/K varlığı, Philadelphia kromozomu ya da JAK2 V617F taşımayan MPN hastalarında klonaliteyi göstermede yardımcı olabilir [5].\n\nMekanizma açısından MPL W515L, THOC5'in tirozin fosforilasyonu yoluyla MYC ifadesini düzensizleştirerek hücre hareketini (kemokinez) artırır ve sfingozin-1-fosfat üretimiyle bağlantılı TGFβ salgısını indükler; bunlar terapötik hedefler sunar [3]. Fare modellerinde MPL W515L bağırsakta inflamasyonu ağırlaştırır ve kaspaz1/IL-1β yolunu aktive eder [1].\n\nTedavi açısından MPN'lerin sekonder akut miyeloid lösemiye dönüşümünde artan DUSP6 ifadesi rol oynar; DUSP6 inhibisyonu, Jak2V617F ve MPLW515L MPN fare modellerinde hastalık gelişimini güçlü biçimde baskılamıştır, DUSP6'nın ektopik ifadesi ise JAK2 inhibitörü direncine aracılık etmiştir [4].",
+      "not": "Desteksiz 'reseptörü aktive ederek hastalığı sürükler' ve 'JAK2 inhibitörü direncini aşabilir' çıkarıldı; 2 olguluk bulgu genel kural gibi yazılmıştı; ET terimi düzeltildi."
+    },
+    {
+      "index": 133,
+      "varyant": "MPL W515L",
+      "tur": "takip",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "JAK2 V617F-negatif miyeloproliferatif neoplazilerde, özellikle esansiyel trombositoz ve primer miyelofibrozda görülür; sıklığı düşüktür (ET/PMF'de yaklaşık %2,6) [5].", "karar": "KISMEN", "aciklama": "ET/PMF ve %2,6 [5]'te doğru; 'JAK2 V617F-negatif MPN'de görülür' genellemesi kaynakta yok (2 olguluk bulgu); 'esansiyel trombositoz' yanlış terim (esansiyel trombositemi)."}
+      ],
+      "duzeltilmis_cevap": "Miyeloproliferatif neoplazilerde, özellikle esansiyel trombositemi (ET) ve primer miyelofibrozda (PMF) tanımlanmıştır [5]. Sıklığı düşüktür: bir çalışmada ET/PMF hastalarında %2,6 bulunmuş ve mutasyon yalnızca JAK2 V617F-negatif 2 PMF olgusunda saptanmıştır [5].",
+      "not": "Genelleme kaynaktaki çalışma bulgusu olarak yeniden yazıldı; terim düzeltildi."
+    },
+    {
+      "index": 134,
+      "varyant": "MPL W515L",
+      "tur": "takip_cok_turlu",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "Philadelphia kromozomu ya da JAK2 V617F taşımayan MPN hastalarında klonaliteyi göstermede yardımcı olabilir; saptanan olgular genellikle JAK2 V617F-negatiftir [5].", "karar": "KISMEN", "aciklama": "Klonalite kısmı [5] ile birebir; 'genellikle JAK2 V617F-negatiftir' genellemesi kaynakta yok, kaynak yalnızca 2 olgunun ikisinin de negatif olduğunu bildirir."}
+      ],
+      "duzeltilmis_cevap": "Philadelphia kromozomu ya da JAK2 V617F taşımayan MPN hastalarında klonaliteyi göstermede yardımcı olabilir; bir çalışmada MPL W515L/K saptanan 2 olgunun ikisi de JAK2 V617F-negatifti [5].",
+      "not": "Küçük örneklem bulgusu genel kural gibi yazılmıştı."
+    },
+    {
+      "index": 135,
+      "varyant": "MPL W515L",
+      "tur": "takip",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "MPN'lerin lösemiye dönüşümünde rol oynayan DUSP6 inhibisyonu, MPLW515L fare modellerinde hastalık gelişimini baskılar ve JAK2 inhibitörü direncini aşabilir [4].", "karar": "KISMEN", "aciklama": "[4]: DUSP6 inhibisyonu MPLW515L modelinde hastalığı baskılar; 'JAK2 inhibitörü direncini aşabilir' yazılı değil (kaynak: DUSP6 ifadesi dirence aracılık eder). 'rol oynayan DUSP6 inhibisyonu' tamlaması da bozuk."}
+      ],
+      "duzeltilmis_cevap": "MPN'lerin sekonder akut miyeloid lösemiye dönüşümünde rol oynayan DUSP6'nın inhibisyonu, MPLW515L fare modellerinde hastalık gelişimini güçlü biçimde baskılamıştır [4]. Ayrıca MYC ve sfingozin kinaz inhibitörlerinin birlikte kullanımı, MPL W515L ifade eden hücreleri tercihli olarak öldürmüştür [3].",
+      "not": "Desteksiz direnç çıkarımı silindi; [3]'teki MYC + sfingozin kinaz inhibitörü hedefi eklendi (kaynakta var)."
+    },
+    {
+      "index": 164,
+      "varyant": "MPL W515L",
+      "tur": "ret_yabanci",
+      "karar": "RET_DOGRU",
+      "cumleler": [],
+      "duzeltilmis_cevap": "",
+      "not": "MPL kaynaklarında CFTR F508del geçmiyor."
+    },
+    {
+      "index": 199,
+      "varyant": "MPL W515L",
+      "tur": "ret_kapsam_disi",
+      "karar": "RET_DOGRU",
+      "cumleler": [],
+      "duzeltilmis_cevap": "",
+      "not": "Kaynaklarda doz bilgisi yok ([2]'de flumatinib/prednizolon adı geçiyor ama doz yok ve Ph+ALL tedavisi için)."
+    },
+    {
+      "index": 28,
+      "varyant": "POLE P286R",
+      "tur": "ozet",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "POLE P286R, DNA polimeraz epsilon'un (POLE) düzeltme-okuma (proofreading) işlevini bozan bir sıcak nokta mutasyondur; \"ultra-mutatör\" bir fenotipe yol açarak tümör mutasyon yükünü (TMB) çok yükseltir [1][4].", "karar": "KISMEN", "aciklama": "'Ultra-mutatör varyant' ve TMB artışı [1], hipermutasyon [4]'te var; 'düzeltme-okuma işlevini bozar' hiçbir kaynakta yok; 'sıcak (hot) mutasyon' ifadesi [2]'de."},
+        {"cumle": "Endometriyum (rahim) kanserinin tanımlayıcı özelliklerinden biridir ve kolorektal kanserde de görülür [2][4].", "karar": "KISMEN", "aciklama": "[2] 'POLE mutasyonları'nı (genel) endometriyum kanserinin temel özelliği sayar, P286R'ye özgü değil; kolorektal kanserde görülmesi [4]'te doğru."},
+        {"cumle": "Mekanizma ve immünojenite açısından P286R, DNA hasarını artırıp onarımını baskılayarak genomik kararsızlığa ve sitoplazmik DNA birikimine yol açar; bu da cGAS-STING yolunu aktive ederek kansere karşı içsel bağışıklığı uyarır ve endometriyal tümör oluşumunu baskılar [2].", "karar": "DOGRU", "aciklama": "[2]: DNA hasarı artışı, onarım baskısı, genomik instabilite, sitoplazmik DNA, cGAS-STING, kanser hücresi içsel bağışıklık ve anti-tümör yanıt, endometriyal tümör oluşumunun baskılanması."},
+        {"cumle": "Yüksek TMB ve kanser hücrelerine sitotoksik T hücresi infiltrasyonu bu tümörleri immünojenik kılar [1][2].", "karar": "KISMEN", "aciklama": "[1] Pole'un oluşturduğu immünojenitenin kısmen p53'e bağlı olduğunu, [2] sitotoksik T hücre infiltrasyonunu bildirir; 'yüksek TMB + infiltrasyon immünojenik kılar' nedensel sentezi yazılı değil, p53 bağımlılığı atlanmış."},
+        {"cumle": "Klinik önemi açısından POLE P286R, mikrosatellit kararlı (MSS) olmasına rağmen immün kontrol noktası blokajına duyarlı, hipermutasyonlu bir kanser alt sınıfını tanımlar ve immünoterapi için potansiyel bir genomik biyobelirteçtir [3][4].", "karar": "KISMEN", "aciklama": "[4] alt sınıfın kolorektal kanser olduğunu ve ICB'ye 'duyarlı olabileceğini' (may) söyler; cümle bunu kesin ve kanser genelinde ifade ediyor."},
+        {"cumle": "Erken başlangıçlı kolorektal kanserlerin bir kısmında (%7,2) saptanmış, geç başlangıçlılarda ise görülmemiştir [4].", "karar": "DOGRU", "aciklama": "[4]: MSS EOCRC'lerin %7,2'si (6/83), LOCRC'de yok."},
+        {"cumle": "Bununla birlikte tümör içi mutasyonel heterojenite ve azalmış antijen sunumu, yüksek TMB'ye rağmen immün dirence katkıda bulunabilir; STING agonistleri veya p53 indüksiyonu duyarlılığı artırabilir [1].", "karar": "DOGRU", "aciklama": "[1]: immün direnç kısmen azalmış antijen sunumu, kısmen mutasyonel heterojeniteden; STING agonisti veya p53 indüksiyonu duyarlılığı artırır."}
+      ],
+      "duzeltilmis_cevap": "POLE P286R, DNA polimeraz epsilon'da (POLE) “sıcak” (hotspot) olarak nitelenen bir mutasyondur [2]. “Ultra-mutatör” bir POLE varyantı olarak tümör mutasyon yükünü (TMB) anlamlı biçimde artırır ve hipermutasyona yol açar [1][4]. POLE mutasyonları endometriyum (rahim) kanserinin temel özelliklerinden biri olarak kabul edilir [2]; P286R kolorektal kanserde de görülür [4].\n\nMekanizma ve immünojenite açısından P286R, DNA hasarını artırıp onarımını baskılayarak genomik kararsızlığa ve sitoplazmik DNA birikimine yol açar; bu da cGAS-STING yolunu aktive ederek kansere karşı içsel bağışıklığı uyarır ve endometriyal tümör oluşumunu baskılar [2]. Fare akciğer kanseri modelinde Pole mutasyonunun oluşturduğu immünojenite ve immün kontrol noktası blokajına duyarlılık kısmen p53'e bağlıdır [1]; P286R ayrıca insan endometriyum kanserlerinde sitotoksik T hücresi infiltrasyonunu kolaylaştırır [2].\n\nKlinik önemi açısından POLE P286R, kolorektal kanserde mikrosatellit kararlı (MSS) fenotipte olmasına rağmen immünoterapi için etkili bir hedef olarak değerlendirilir [3]; hipermutasyonla karakterize ayrı bir kolorektal kanser alt sınıfını tanımlar, bu alt grup immün kontrol noktası blokajına duyarlı olabilir ve immünoterapi için potansiyel bir genomik biyobelirteçtir [4]. Erken başlangıçlı kolorektal kanserlerin bir kısmında (%7,2) saptanmış, geç başlangıçlılarda ise görülmemiştir [4]. Bununla birlikte tümör içi mutasyonel heterojenite ve azalmış antijen sunumu, yüksek TMB'ye rağmen immün dirence katkıda bulunabilir; STING agonistleri veya p53 indüksiyonu duyarlılığı artırabilir [1].",
+      "not": "Kaynakta olmayan 'proofreading' mekanizması çıkarıldı; genel POLE bulgusu P286R'ye atfedilmişti; ICB duyarlılığındaki çekince geri kondu; nedensel immünojenite sentezi kaynak ifadeleriyle değiştirildi."
+    },
+    {
+      "index": 121,
+      "varyant": "POLE P286R",
+      "tur": "takip",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "DNA polimeraz epsilon'un düzeltme-okuma işlevini bozarak 'ultra-mutatör' bir fenotipe ve çok yüksek tümör mutasyon yüküne yol açar; endometriyum ve kolorektal kanserde görülür [1][4].", "karar": "KISMEN", "aciklama": "'Ultra-mutatör' ve TMB artışı [1], kolorektal [4]'te var; 'düzeltme-okuma işlevini bozar' hiçbir kaynakta yok; endometriyum bilgisi [1]/[4]'te değil [2]/[5]'te."}
+      ],
+      "duzeltilmis_cevap": "POLE P286R, DNA polimeraz epsilon'un “ultra-mutatör” bir varyantıdır ve tümör mutasyon yükünü anlamlı biçimde artırır [1]. Kolorektal kanserde hipermutasyonla karakterize ayrı bir alt sınıf tanımlar [4] ve endometriyum kanserinde de görülür [2][5].",
+      "not": "Desteksiz 'proofreading' çıkarıldı; endometriyum bilgisi doğru kaynaklara bağlandı."
+    },
+    {
+      "index": 122,
+      "varyant": "POLE P286R",
+      "tur": "takip_cok_turlu",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "Evet; mikrosatellit kararlı olmasına rağmen immün kontrol noktası blokajına duyarlı, hipermutasyonlu bir alt sınıfı tanımlar ve immünoterapi için potansiyel bir biyobelirteçtir [3][4].", "karar": "KISMEN", "aciklama": "[3] MSS olmasına rağmen immünoterapi hedefi, [4] hipermutasyonlu alt sınıf ve potansiyel biyobelirteç; ancak [4] ICB'ye 'duyarlı olabilir' (may) der, cümle kesinleştiriyor; kolorektal bağlam atlanmış."}
+      ],
+      "duzeltilmis_cevap": "Evet; kolorektal kanserde mikrosatellit kararlı (MSS) fenotipte olmasına rağmen immünoterapi için etkili bir hedef olarak değerlendirilir [3]. Hipermutasyonlu bir kolorektal kanser alt sınıfı tanımlar; bu alt grup immün kontrol noktası blokajına duyarlı olabilir ve immünoterapi için potansiyel bir genomik biyobelirteçtir [4].",
+      "not": "Kaynaktaki çekince ve kolorektal bağlam geri kondu."
+    },
+    {
+      "index": 123,
+      "varyant": "POLE P286R",
+      "tur": "takip",
+      "karar": "AYNEN",
+      "cumleler": [
+        {"cumle": "DNA hasarını artırıp sitoplazmik DNA birikimine yol açar; bu, cGAS-STING yolunu aktive ederek kansere karşı içsel bağışıklığı uyarır ve tümör oluşumunu baskılar [2].", "karar": "DOGRU", "aciklama": "[2]: DNA kırığı/hasarı, sitoplazmik DNA artışı, cGAS-STING aktivasyonu, kanser hücresi içsel bağışıklık ve anti-tümör yanıt, tümör oluşumunun engellenmesi."}
+      ],
+      "duzeltilmis_cevap": "",
+      "not": ""
+    },
+    {
+      "index": 162,
+      "varyant": "POLE P286R",
+      "tur": "ret_yabanci",
+      "karar": "RET_DOGRU",
+      "cumleler": [],
+      "duzeltilmis_cevap": "",
+      "not": "POLE kaynaklarında EGFR L858R geçmiyor."
+    },
+    {
+      "index": 195,
+      "varyant": "POLE P286R",
+      "tur": "ret_kapsam_disi",
+      "karar": "RET_DOGRU",
+      "cumleler": [],
+      "duzeltilmis_cevap": "",
+      "not": "Kaynaklarda test sonuçlanma süresi bilgisi yok."
+    },
+    {
+      "index": 29,
+      "varyant": "TP53 R248Q",
+      "tur": "ozet",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "TP53 R248Q, tümör baskılayıcı p53 proteininin DNA-bağlanma alanındaki en sık görülen sıcak nokta mutasyonlardan biridir; R248 kalıntısı normalde DNA'nın küçük oluğuyla doğrudan etkileşir [5].", "karar": "KISMEN", "aciklama": "[5]: DBD'de, küçük olukla doğrudan etkileşim, 'çok çeşitli kanserlerde sık bulunur'; 'tümör baskılayıcı' ve 'en sık görülen sıcak nokta' üstünlük iddiası kaynakta yok ('hotspot' yalnızca [2]'de). 'mutasyonlardan' -> 'mutasyonlarından'."},
+        {"cumle": "Mutasyon, DNA-bağlanma alanında mutasyon bölgesinden uzak bölgelerde bile konformasyon değişikliklerine yol açar ve çinko-bağlanma cebini etkileyerek dominant-negatif etki gösterir; ayrıca proteinin kısmen açılıp agregasyona eğilim kazanmasına neden olabilir [5].", "karar": "KISMEN", "aciklama": "Uzak konformasyon değişiklikleri [5]'te var; ancak çinko cebi değişikliklerinin dominant-negatif etkiyi 'açıklayabileceği' (might) simülasyon önerisidir, cümle kesin nedensellik kuruyor."},
+        {"cumle": "Kazanılmış işlev (gain-of-function) açısından R248Q, yüksek dereceli seröz over karsinomunda aşırı ifade edildiğinde AKT fosforilasyonunu artırır ve EGFR sinyalini sürdürerek EGFR/MDM2 hedefli tedavilere yanıtı değiştirir [3].", "karar": "KISMEN", "aciklama": "AKT fosforilasyonu artışı ve EGFR/MDM2 inhibitörlerine farklı duyarlılık [3]'te var; 'EGFR sinyalini sürdürür' kaynakta genel olarak mutant p53 için söylenmiş, R248Q için gösterilmemiş."},
+        {"cumle": "Çocukluk çağı akut lenfoblastik lösemisinde TP53 mutasyonu kemoterapi direnciyle ilişkilidir; hücre modellerinde R248Q, p53 transaktivasyon aktivitesini bozarak kemoterapötik ajanlara ve ışınlamaya direnç kazandırmıştır [2].", "karar": "KISMEN", "aciklama": "[2]: ilişki 'nüks eden olguların belirli bir kısmında'; direnç tek bir (697) alt hatta gözlenmiş ve hatta düzenleme hataları sık; cümle genelliyor ve nedensellik kuruyor."},
+        {"cumle": "Diğer etkiler açısından glioblastom hücrelerinde TP53 R248Q hücre yapışmasını artırır ve özellikle hiyalüronik asit ile kondroitin sülfat üzerinde göçü belirgin biçimde teşvik eder; IDH1 R132H ile birlikte bulunduğunda en yüksek göç hızı gözlenir [1].", "karar": "DOGRU", "aciklama": "[1]'de birebir var."}
+      ],
+      "duzeltilmis_cevap": "TP53 R248Q, p53'ün DNA-bağlanma alanında yer alan ve çok çeşitli kanserlerde sık görülen bir mutasyondur; R248 kalıntısı normalde DNA'nın küçük oluğuyla doğrudan etkileşir [5]. NMR ve moleküler dinamik çalışmalarına göre mutasyon, DNA-bağlanma alanında mutasyon bölgesinden uzak bölgelerde bile konformasyon değişikliklerine ve çinko-bağlanma cebinde dominant-negatif etkisini açıklayabilecek değişikliklere yol açar; ayrıca proteinin kısmen açılma ve agregasyon eğiliminin artabileceği öne sürülmüştür [5].\n\nKazanılmış işlev (gain-of-function) açısından, yüksek dereceli seröz over karsinomu hücrelerinde R248Q'nun aşırı ifadesi AKT fosforilasyonunu artırmış ve EGFR/MDM2 hedefli inhibitörlere (gefitinib ve JNJ-26854165) farklı duyarlılığa yol açmıştır [3]. Çocukluk çağı akut lenfoblastik lösemisinde TP53 mutasyonu, nüks eden olguların bir kısmında kemoterapi direnciyle ilişkilidir [2]. Gen düzenlemeyle R248Q mutasyonu kazandırılan bir ALL hücre alt hattında p53 transaktivasyon aktivitesinin bozulduğu ve kemoterapötik ajanlara ve ışınlamaya direnç geliştiği gözlenmiştir [2].\n\nDiğer etkiler açısından glioblastom hücrelerinde TP53 R248Q hücre yapışmasını artırır ve özellikle hiyalüronik asit ile kondroitin sülfat üzerinde göçü belirgin biçimde teşvik eder; IDH1 R132H ile birlikte bulunduğunda en yüksek göç hızı gözlenir [1].",
+      "not": "Desteksiz 'tümör baskılayıcı' ve 'en sık' iddiaları çıkarıldı; simülasyon/hücre hattı bulgularındaki çekinceler geri kondu; genel mutant p53 bilgisi R248Q'ya atfedilmişti."
+    },
+    {
+      "index": 124,
+      "varyant": "TP53 R248Q",
+      "tur": "takip_cok_turlu",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "DNA-bağlanma alanındaki R248 kalıntısını değiştirir; uzak bölgelerde konformasyon değişikliğine ve çinko-bağlanma cebinde bozulmaya yol açarak dominant-negatif etki gösterir ve agregasyona eğilim kazandırır [5].", "karar": "KISMEN", "aciklama": "R248 ve uzak konformasyon değişikliği [5]'te var; çinko cebi değişikliklerinin dominant-negatif etkiyi 'açıklayabileceği' ve agregasyon eğiliminin 'olası' artışı simülasyon önerisi, cümle kesin ifade ediyor."}
+      ],
+      "duzeltilmis_cevap": "R248Q, p53'ün DNA-bağlanma alanında DNA'nın küçük oluğuyla doğrudan etkileşen R248 kalıntısını değiştirir ve mutasyon bölgesinden uzak bölgelerde de konformasyon değişikliklerine yol açar [5]. Moleküler dinamik simülasyonlarında çinko-bağlanma cebinde dominant-negatif etkisini açıklayabilecek değişiklikler ile kısmen açılma ve agregasyon eğiliminde olası bir artış gözlenmiştir [5].",
+      "not": "Kaynaktaki çekinceli (might/possibly) bulgular kesin nedensellikten arındırıldı."
+    },
+    {
+      "index": 125,
+      "varyant": "TP53 R248Q",
+      "tur": "takip",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "Evet; akut lenfoblastik lösemi hücre modellerinde R248Q, p53 transaktivasyon aktivitesini bozarak kemoterapötik ajanlara ve ışınlamaya direnç kazandırmıştır [2].", "karar": "KISMEN", "aciklama": "[2]: tek bir 697 alt hattında (büyük çoğunluğu R248Q kazanmış, düzenleme hataları sık) transaktivasyon bozukluğu ve kemoterapi/ışınlama direnci gözlenmiş; 'hücre modelleri' çoğulu ve doğrudan nedensellik abartılı."}
+      ],
+      "duzeltilmis_cevap": "Evet; gen düzenlemeyle büyük çoğunluğu R248Q mutasyonu kazanan 697 ALL hücre alt hattında p53 transaktivasyon aktivitesi bozulmuş ve kemoterapötik ajanlara ve ışınlamaya direnç gelişmiştir [2].",
+      "not": "Bulgu kaynaktaki tek hücre hattı düzeyine indirildi."
+    },
+    {
+      "index": 126,
+      "varyant": "TP53 R248Q",
+      "tur": "takip_cok_turlu",
+      "karar": "DUZELTILDI",
+      "cumleler": [
+        {"cumle": "Evet; over karsinomunda aşırı ifade edildiğinde AKT fosforilasyonunu artırır ve EGFR sinyalini sürdürür; glioblastomda ise hücre yapışması ve göçünü artırır [1][3].", "karar": "KISMEN", "aciklama": "Kazanılmış işlev tanımı ve AKT fosforilasyonu [3], yapışma ve göç artışı [1]'de var; 'EGFR sinyalini sürdürür' [3]'te genel mutant p53 için söylenmiş, R248Q için gösterilmemiş; göç artışı yalnızca hiyalüronik asit ve kondroitin sülfat üzerinde."}
+      ],
+      "duzeltilmis_cevap": "Evet; R248Q kazanılmış işlevli (gain-of-function) bir p53 mutantı olarak tanımlanır ve yüksek dereceli seröz over karsinomu hücrelerinde aşırı ifadesi AKT fosforilasyonunu artırmıştır [3]. Glioblastom hücrelerinde ise hücre yapışmasını artırmış ve hiyalüronik asit ile kondroitin sülfat üzerinde göçü belirgin biçimde teşvik etmiştir [1].",
+      "not": "Genel mutant p53 bilgisi çıkarıldı; göçün substrata özgü olduğu belirtildi; atıflar ayrıldı."
+    },
+    {
+      "index": 196,
+      "varyant": "TP53 R248Q",
+      "tur": "ret_kapsam_disi",
+      "karar": "RET_DOGRU",
+      "cumleler": [],
+      "duzeltilmis_cevap": "",
+      "not": "Kaynaklarda diyet önerisi yok."
+    }
+  ],
+  "ozet": {
+    "ornek": 38,
+    "aynen": 8,
+    "duzeltildi": 20,
+    "sil": 0,
+    "ret_dogru": 10,
+    "ret_yanlis": 0,
+    "cumle": 68,
+    "dogru": 31,
+    "atif_hatali": 1,
+    "kismen": 32,
+    "desteksiz": 0,
+    "celiski": 0,
+    "dil_hatasi": 4,
+    "tekrarlayan_sorunlar": [
+      "Kaynakta yazmayan genel tıp bilgisi ekleme: POLE 'düzeltme-okuma (proofreading)', T315I 'ilaç bağlanma cebi', 'AC220 = quizartinib', p53 'tümör baskılayıcı', MPL 'reseptörü aktive ederek hastalığı sürükler', DUSP6 inhibisyonunun 'JAK2 inhibitörü direncini aşabileceği' çıkarımı.",
+      "Kaynaktaki çekinceli ifadeleri ('may', 'might', 'possibly') kesin nedensellik olarak yazma: NPM1c-STAT5, çinko cebi/dominant-negatif etki, agregasyon, ICB duyarlılığı, β-katenin çekirdek birikimi (korelasyon -> neden).",
+      "Küçük örneklem ya da tek çalışma bulgusunu genel kurala çevirme ve popülasyon kısıtını düşürme: 2 olguluk bulgudan 'MPL W515L JAK2-negatif MPN'de görülür', 'en sık değişimlerden', WT/T41A yerine 'diğer mutasyonlar', onayda 'kronik evre'nin atlanması, 'bir ya da iki etken' yerine 'iki etken'.",
+      "Genel gen/sınıf düzeyindeki bulguları belirli varyanta atfetme: 'POLE mutasyonları' -> P286R, 'mutant p53 EGFR sinyalini sürdürür' -> R248Q.",
+      "Küçük Türkçe/terim hataları: 'complete remission' -> 'tam yanıt', 'esansiyel trombositoz' (doğrusu trombositemi), 'juxtamembran', 'isehem' bitişik yazımı, 'COX-2 seçici inhibitör meloksikam' tamlaması."
+    ]
+  }
+}

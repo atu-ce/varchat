@@ -1,0 +1,429 @@
+{
+ "paket": 2,
+ "ornekler": [
+  {
+   "index": 14,
+   "varyant": "AKT1 E17K",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "AKT1 E17K, PI3K/AKT yolunun bir üyesi olan AKT1 proteininin pleckstrin homoloji alanında 17. pozisyondaki glutamatın lizinle değişmesiyle (Glu17Lys) oluşan bir sıcak nokta mutasyondur; meme, kolorektal ve over kanserlerinde görülür [2].", "karar": "KISMEN", "aciklama": "[2] Glu17Lys değişimini, pleckstrin homoloji alanını, meme/kolorektal/over kanserlerini ve 'hotspot' nitelemesini (başlık) içeriyor; 'PI3K/AKT yolunun bir üyesi' [2]'de yazmıyor. Ayrıca 'pleckstrin' Türkçede 'plekstrin'."},
+    {"cumle": "Mutasyon AKT1 kinazı aktive eder (Ser473/Thr308 fosforilasyonu) ve aşağı yönlü büyüme sinyallerini uyararak hücreleri dönüştürür [2][4].", "karar": "CELISKI", "aciklama": "[4] fosforilasyon bölgelerini 'Ser273 ve Thr308' olarak veriyor; cevaptaki Ser473 kaynakla çelişiyor (genel bilgiden gelmiş). [2] yalnızca 'downstream signals ... cells emerge transformed' diyor; 'büyüme' sinyali yazmıyor."},
+    {"cumle": "Klinik ve tedavi açısından, NCI-MATCH çalışmasının EAY131-Y alt protokolünde AKT1 E17K mutasyonlu metastatik tümörü olan hastalara pan-AKT inhibitörü kapivasertib verilmiş; objektif yanıt oranı %28,6 bulunmuş, en sık meme (%51) ve jinekolojik (%31) kanserler yer almış ve altı aylık progresyonsuz sağkalım %50 olmuştur [1].", "karar": "DOGRU", "aciklama": "[1]: ORR %28,6, meme 18 [%51], jinekolojik 11 [%31], 6 aylık PFS %50; hepsi özette var."},
+    {"cumle": "AKT1 E17K taşıyan meningiom hücre modellerinde AKT inhibitörü AZD5363, hücre çoğalmasını azaltıp fare sağkalımını uzatmıştır [4].", "karar": "DOGRU", "aciklama": "[4]: AZD5363 mutant hücrelerde/ksenogreftlerde proliferasyonu azaltmış ve fare sağkalımını uzatmış."},
+    {"cumle": "İşleve bağlı ikili bir rolü vardır: AKT1 E17K melanomda beyin metastazını, odak adezyon kinazının (FAK) aktivasyonu yoluyla artırır ve invazyonu güçlendirir; bu etki AKT veya FAK inhibisyonuyla azalır [3].", "karar": "DIL_HATASI", "aciklama": "İçerik [3] ile uyumlu (FAK aktivasyonu, beyin metastazı, invazyon artışı, AKT/FAK inhibisyonuyla azalma). 'Odak adezyon kinazı' standart terim değil; Türkçede 'fokal adezyon kinazı'."},
+    {"cumle": "Buna karşın bazı bağlamlarda AKT1 E17K, β-katenin sinyalini baskılayıp E-kaderin ifadesini artırarak hücre göçünü ve invazyonu paradoksal olarak engeller; bu nedenle AKT inhibitörlerinin bazı genetik zeminlerde metastatik ilerlemeyi hızlandırabileceği öne sürülmüştür [2][5].", "karar": "ATIF_HATALI", "aciklama": "Tüm bilgi [5]'te (β-katenin, E-kaderin, paradoksal göç inhibisyonu, AKT inhibitörlerinin metastazı hızlandırabilmesi). [2] göç/β-katenin/E-kaderinden söz etmiyor; doğru atıf yalnızca [5]."}
+   ],
+   "duzeltilmis_cevap": "AKT1 E17K, AKT1 proteininin plekstrin homoloji alanında 17. pozisyondaki glutamatın lizinle değişmesiyle (Glu17Lys) oluşan bir sıcak nokta mutasyondur; meme, kolorektal ve over kanserlerinde görülür [2]. Mutasyon AKT1 kinazını fosforilasyon yoluyla aktive eder [4] ve aşağı yönlü sinyalleri uyararak hücrelerin dönüşmesine yol açar [2].\n\nKlinik ve tedavi açısından, NCI-MATCH çalışmasının EAY131-Y alt protokolünde AKT1 E17K mutasyonlu metastatik tümörü olan hastalara pan-AKT inhibitörü kapivasertib verilmiş; objektif yanıt oranı %28,6 bulunmuş, en sık meme (%51) ve jinekolojik (%31) kanserler yer almış ve altı aylık progresyonsuz sağkalım %50 olmuştur [1]. AKT1 E17K taşıyan meningiom hücre modellerinde AKT inhibitörü AZD5363, hücre çoğalmasını azaltıp fare sağkalımını uzatmıştır [4].\n\nİşleve bağlı ikili bir rolü vardır: AKT1 E17K melanomda beyin metastazını fokal adezyon kinazının (FAK) aktivasyonu yoluyla artırır ve invazyonu güçlendirir; bu etki AKT veya FAK inhibisyonuyla azalır [3]. Buna karşın bazı bağlamlarda AKT1 E17K, β-katenin sinyalini baskılayıp E-kaderin ifadesini artırarak hücre göçünü ve invazyonu paradoksal olarak engeller; bu nedenle AKT inhibitörlerinin bazı genetik zeminlerde metastatik ilerlemeyi hızlandırabileceği öne sürülmüştür [5].",
+   "not": "Ser473 kaynakta Ser273 olarak geçiyor (özette muhtemelen yazım hatası); kaynakla çelişmemek için düzeltmede kalıntı numaraları çıkarıldı."
+  },
+  {
+   "index": 79,
+   "varyant": "AKT1 E17K",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Meme, kolorektal ve over kanserlerinde görülen bir sıcak nokta mutasyondur [2].", "karar": "DOGRU", "aciklama": "[2]: 'found in breast, colorectal, and ovarian cancers'; başlıkta 'Hotspot Mutation'."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 80,
+   "varyant": "AKT1 E17K",
+   "tur": "takip_cok_turlu",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "NCI-MATCH çalışmasında pan-AKT inhibitörü kapivasertib, AKT1 E17K mutasyonlu metastatik tümörlerde %28,6 objektif yanıt oranı sağlamıştır [1]; meningiom modellerinde AKT inhibitörü AZD5363 etkili bulunmuştur [4].", "karar": "DOGRU", "aciklama": "[1] ORR %28,6; [4] AZD5363 proliferasyonu azaltmış, fare sağkalımını uzatmış."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 81,
+   "varyant": "AKT1 E17K",
+   "tur": "takip",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Melanomda beyin metastazını FAK aktivasyonu yoluyla artırırken [3], bazı bağlamlarda β-katenin sinyalini baskılayıp E-kaderin ifadesini artırarak hücre göçünü paradoksal olarak engeller; bu nedenle AKT inhibitörlerinin bazı genetik zeminlerde metastazı hızlandırabileceği öne sürülmüştür [2][5].", "karar": "ATIF_HATALI", "aciklama": "İlk kısım [3] ile doğru. İkinci kısmın tamamı [5]'te; [2] bu bilgiyi içermiyor, gereksiz/yanlış atıf."}
+   ],
+   "duzeltilmis_cevap": "Melanomda beyin metastazını FAK aktivasyonu yoluyla artırırken [3], bazı bağlamlarda β-katenin sinyalini baskılayıp E-kaderin ifadesini artırarak hücre göçünü paradoksal olarak engeller; bu nedenle AKT inhibitörlerinin bazı genetik zeminlerde metastazı hızlandırabileceği öne sürülmüştür [5].",
+   "not": ""
+  },
+  {
+   "index": 155,
+   "varyant": "AKT1 E17K",
+   "tur": "ret_yabanci",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Beş kaynağın hiçbiri HFE C282Y ya da metabolik sendromdan söz etmiyor."
+  },
+  {
+   "index": 181,
+   "varyant": "AKT1 E17K",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda çocuk hastalara dair bilgi yok; [1] yalnızca yetişkinleri kapsıyor, [4] hücre/fare modeli."
+  },
+  {
+   "index": 17,
+   "varyant": "DNMT3A R882H",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "DNMT3A R882H, DNA metiltransferaz 3A enzimindeki en sık nokta mutasyondur ve klonal hematopoezin (CH) en yaygın biçimini sürükleyerek akut miyeloid lösemi (AML) riskini artırır [1].", "karar": "KISMEN", "aciklama": "[1]: R882 mutasyonları CH'nin en yaygın biçimini sürükler ve 'artmış AML riskiyle ilişkilidir'. 'En sık nokta mutasyon' [1]'de yok ([4] yalnızca AITL için 'en sık' diyor); 'riski artırır' kaynaktaki ilişkiyi nedenselliğe çeviriyor. 'DNA metiltransferaz 3A' adı [5]'te."},
+    {"cumle": "Mutasyon, DNA metilasyon örüntüsünü bozarak lösemiyi başlatır [3].", "karar": "DOGRU", "aciklama": "[3]: 'corrupt the DNA methylation landscape to initiate leukemia'."},
+    {"cumle": "Rol ve mekanizma açısından DNMT3A R882 mutasyonları AML'de erken, lösemi öncesi klonal hematopoez aşamasında ortaya çıkar; CRISPR ile bu mutasyonların düzeltildiği çalışmalar, mutasyonun lösemi başlangıcı için gerekli olduğunu ancak yerleşmiş hastalığın sürdürülmesi için büyük ölçüde gereksiz olduğunu göstermiştir [3].", "karar": "DOGRU", "aciklama": "[3]: erken, pre-lösemik CH'de ortaya çıkar; CRISPR ile düzeltme; başlangıç için gerekli, sürdürme için büyük ölçüde gereksiz."},
+    {"cumle": "Mutasyon, lösemi kök hücresi sıklığının artmasıyla ilişkilidir [3].", "karar": "DOGRU", "aciklama": "[3] başlığı: 'Associated With Increased Leukemia Stem Cell Frequency'."},
+    {"cumle": "Klonal hematopoez ayrıca inflamatuar kemik kaybını (periodontit) ve IL-17 bağımlı inflamasyonu teşvik eder; bu etki rapamisinle baskılanabilir [2].", "karar": "DOGRU", "aciklama": "[2]: DNMT3A kaynaklı CH inflamatuar kemik kaybını, periodontiti, IL-17 bağımlı inflamasyonu artırır; rapamisinle baskılanır (bağlam DNMT3A kaynaklı CH)."},
+    {"cumle": "Tedaviye direnç ve önleme açısından DNMT3A R882H taşıyan AML hücreleri daunorubisine dirençlidir; bu direnç NRF2/NQO1 yolunun aktivasyonuyla ilişkilidir ve NRF2 inhibisyonu duyarlılığı artırır [5].", "karar": "DOGRU", "aciklama": "[5]: mutant hücreler daunorubisine daha az duyarlı, NRF2/NQO1 aktive, yol inhibisyonu duyarlılığı artırıyor."},
+    {"cumle": "Mutant kök/progenitör hücreler oksidatif fosforilasyona daha bağımlıdır; SLC25A1 ve kompleks I inhibitörleri (metformin dahil) klonal genişlemeyi baskılar ve metformin kullanan bireylerde DNMT3A-R882-mutant klonal hematopoez prevalansı belirgin biçimde düşük bulunmuştur [1].", "karar": "DOGRU", "aciklama": "[1]: mitokondriyal metabolizma bağımlılıkları, artmış OXPHOS kullanımı, CTPI2/IACS-010759/metformin klonal genişlemeyi baskılıyor, UK Biobank'ta metformin kullananlarda prevalans belirgin düşük."}
+   ],
+   "duzeltilmis_cevap": "DNMT3A R882H, DNA metiltransferaz 3A (DNMT3A) enzimindeki bir sıcak nokta mutasyondur [2][5]; DNMT3A-R882 mutasyonları klonal hematopoezin (CH) en yaygın biçimini sürükler ve artmış akut miyeloid lösemi (AML) riskiyle ilişkilidir [1]. Mutasyon, DNA metilasyon örüntüsünü bozarak lösemiyi başlatır [3].\n\nRol ve mekanizma açısından DNMT3A R882 mutasyonları AML'de erken, lösemi öncesi klonal hematopoez aşamasında ortaya çıkar; CRISPR ile bu mutasyonların düzeltildiği çalışmalar, mutasyonun lösemi başlangıcı için gerekli olduğunu ancak yerleşmiş hastalığın sürdürülmesi için büyük ölçüde gereksiz olduğunu göstermiştir [3]. Mutasyon, lösemi kök hücresi sıklığının artmasıyla ilişkilidir [3]. Klonal hematopoez ayrıca inflamatuar kemik kaybını (periodontit) ve IL-17 bağımlı inflamasyonu teşvik eder; bu etki rapamisinle baskılanabilir [2].\n\nTedaviye direnç ve önleme açısından DNMT3A R882H taşıyan AML hücreleri daunorubisine dirençlidir; bu direnç NRF2/NQO1 yolunun aktivasyonuyla ilişkilidir ve NRF2 inhibisyonu duyarlılığı artırır [5]. Mutant kök/progenitör hücreler oksidatif fosforilasyona daha bağımlıdır; SLC25A1 ve kompleks I inhibitörleri (metformin dahil) klonal genişlemeyi baskılar ve metformin kullanan bireylerde DNMT3A-R882-mutant klonal hematopoez prevalansı belirgin biçimde düşük bulunmuştur [1].",
+   "not": "Yalnızca ilk cümle düzeltildi."
+  },
+  {
+   "index": 88,
+   "varyant": "DNMT3A R882H",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "DNA metilasyon örüntüsünü bozarak klonal hematopoezin en yaygın biçimini sürükler ve akut miyeloid lösemi riskini artırır [1][3].", "karar": "KISMEN", "aciklama": "İki kaynak kaynakta olmayan bir nedensellikle birleştirilmiş: [3] metilasyon bozulmasını lösemi başlangıcına bağlıyor, CH'yi sürüklemeye değil; [1] CH'yi sürüklediğini ve AML riskinde artışla 'ilişkili' olduğunu söylüyor ('artırır' değil)."}
+   ],
+   "duzeltilmis_cevap": "DNMT3A R882 mutasyonları klonal hematopoezin en yaygın biçimini sürükler ve artmış akut miyeloid lösemi riskiyle ilişkilidir [1]; ayrıca DNA metilasyon örüntüsünü bozarak lösemiyi başlatır [3].",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 89,
+   "varyant": "DNMT3A R882H",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "CRISPR çalışmaları, mutasyonun lösemi başlangıcı için gerekli olduğunu ancak yerleşmiş hastalığın sürdürülmesi için büyük ölçüde gereksiz olduğunu göstermiştir [3].", "karar": "DOGRU", "aciklama": "[3]: 'initially necessary for AML initiation, but are largely dispensable for disease maintenance'."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 90,
+   "varyant": "DNMT3A R882H",
+   "tur": "takip_cok_turlu",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Mutant hücreler oksidatif fosforilasyona daha bağımlıdır; metformin klonal genişlemeyi baskılar ve metformin kullanan bireylerde DNMT3A-R882-mutant klonal hematopoez prevalansı belirgin biçimde düşük bulunmuştur [1].", "karar": "DOGRU", "aciklama": "[1]: artmış OXPHOS kullanımı ve mitokondriyal bağımlılık genleri; metformin klonal genişlemeyi baskılıyor; UK Biobank'ta metformin kullananlarda prevalans belirgin düşük."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 184,
+   "varyant": "DNMT3A R882H",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda gebelik ya da gebelik takibine dair hiçbir bilgi yok."
+  },
+  {
+   "index": 26,
+   "varyant": "GNAQ Q209L",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "GNAQ Q209L, heterotrimerik G proteininin alfa alt birimini kodlayan GNAQ genindeki aktive edici bir mutasyondur ve reseptörü sürekli aktif hale getirir [1].", "karar": "CELISKI", "aciklama": "[1] GNAQ'yu heterotrimerik G proteini alfa alt birimi olarak tanımlıyor ve mutasyonu 'onkojenik' diyor; GNAQ bir reseptör değil. Sürekli aktivasyon bilgisi [2]'de ve Gα proteininin kendisi için ('constitutive activation')."},
+    {"cumle": "Üveal (göz içi) melanomların yaklaşık %80-90'ı, GNAQ ya da homolog GNA11 genlerinde (çoğunlukla Q209 pozisyonunda) birbirini dışlayan mutasyonlar taşır; bu mutasyonlar tümör başlangıcı ve ilerlemesini sürükler [2][3].", "karar": "ATIF_HATALI", "aciklama": "%80-90 ve tümör başlangıcı/ilerlemesi [2]'de, ~%90 [3]'te; ancak 'homolog' ve 'birbirini dışlayan' bilgisi yalnızca [4]'te ('mutually exclusive mutations in the homologous genes'). [4] eklenmeli."},
+    {"cumle": "Melanositlerde GNAQ/11 Q209L ifadesi tek başına metastatik melanom oluşturmaya yeterlidir [3].", "karar": "KISMEN", "aciklama": "[3]: 'Forced expression ... sufficient to drive metastatic melanoma in immune-compromised mice'. Zorla ifade ve bağışıklığı baskılanmış fare kısıtı düşürülerek genellenmiş."},
+    {"cumle": "Görülme yerleri açısından GNAQ Q209L, üveal melanom dışında leptomeningeal melanositik neoplazileri (kranial/spinal melanositomlar ve melanomlar) de sürükler; bu, mutasyonun çok yetenekli nöral krest hücrelerinde ifade edilmesiyle oluşur [1].", "karar": "KISMEN", "aciklama": "[1]: leptomeningeal neoplazilerde GNAQ/GNA11 mutasyonları sık; farelerde nöral krest hücrelerinde zorla ifade kranial ve spinal melanositomlar ile yalnızca spinal melanomlar oluşturmuş. Fare modeli bulgusu insanda oluşum mekanizması gibi sunulmuş; 'çok yetenekli' 'multipotent' için yanlış terim."},
+    {"cumle": "Tedavi ve hedefleme açısından bu onkojenik G proteinlerini doğrudan hedefleyen bilinen bir ilaç yoktur [3].", "karar": "DOGRU", "aciklama": "[3]: 'No known drugs directly target these oncogenic G proteins'."},
+    {"cumle": "Yaklaşımlar arasında GNAQ Q209L transkriptlerini seçici olarak susturan siRNA/rAAV temelli allel-özgül stratejiler [2] ve Gαq'yu katlayan şaperon Ric-8A'nın inhibisyonu ya da forbol ester uygulaması yoluyla mutant proteinin bolluğunu azaltmak yer alır [3].", "karar": "DOGRU", "aciklama": "[2] allel-özgül siRNA/rAAV2-shRNA; [3] Ric-8A şaperon inhibisyonu ve forbol ester ile Gαq/11-Q209L bolluğunun azaltılması."},
+    {"cumle": "Ayrıca GNAQ/11 Q209L varyantı, Q209P'ye kıyasla HLA'ya daha güçlü bağlanır ve bireylerin çoğunda sunulabilir; bu, üveal melanom için neoantijen aşıları gibi immünoterapötik araçlara olanak tanıyabilir [4].", "karar": "DOGRU", "aciklama": "[4]: tahmin araçlarında Q209L'nin HLA'ya daha güçlü bağlanması, bireylerin %73'ünden fazlasında sunulma, neoantijen aşısı olasılığı."}
+   ],
+   "duzeltilmis_cevap": "GNAQ Q209L, heterotrimerik G proteininin alfa alt birimini kodlayan GNAQ genindeki onkojenik bir mutasyondur [1]; bu tek baz değişimi Gα proteininin sürekli (konstitütif) aktivasyonuna yol açar [2]. Üveal (göz içi) melanomların yaklaşık %80-90'ı GNAQ ya da GNA11 genlerinde Q209 mutasyonu taşır ve bu mutasyonlar tümör başlangıcı ve ilerlemesini sürükler [2]; GNAQ ve homolog GNA11'deki bu mutasyonlar birbirini dışlar [4]. Melanositlerde GNAQ/11 Q209L'nin zorla ifade edilmesi, bağışıklığı baskılanmış farelerde metastatik melanom oluşturmaya yeterlidir [3].\n\nGörülme yerleri açısından üveal melanom dışında, leptomeningeal melanositik neoplazilerde de GNAQ veya GNA11'de sık onkojenik mutasyonlar bulunur [1]. Farelerde GNAQ Q209L'nin multipotent nöral krest hücrelerinde ifade edilmesi, kranial ve spinal melanositomlar ile spinal melanomları içeren leptomeningeal melanositik neoplazilere yol açmıştır [1].\n\nTedavi ve hedefleme açısından bu onkojenik G proteinlerini doğrudan hedefleyen bilinen bir ilaç yoktur [3]. Yaklaşımlar arasında GNAQ Q209L transkriptlerini seçici olarak susturan siRNA/rAAV temelli allel-özgül stratejiler [2] ve Gαq'yu katlayan şaperon Ric-8A'nın inhibisyonu ya da forbol ester uygulaması yoluyla mutant proteinin bolluğunu azaltmak yer alır [3]. Ayrıca GNAQ/11 Q209L varyantı, Q209P'ye kıyasla HLA'ya daha güçlü bağlanır ve bireylerin çoğunda sunulabilir; bu, üveal melanom için neoantijen aşıları gibi immünoterapötik araçlara olanak tanıyabilir [4].",
+   "not": "En ciddi hata: GNAQ'nun 'reseptör' olarak nitelenmesi."
+  },
+  {
+   "index": 115,
+   "varyant": "GNAQ Q209L",
+   "tur": "takip",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Başlıca üveal (göz içi) melanomda görülür; bu tümörlerin %80-90'ı GNAQ ya da homolog GNA11'de Q209 mutasyonları taşır [2][3].", "karar": "ATIF_HATALI", "aciklama": "%80-90 Q209 bilgisi [2]'de, ~%90 [3]'te; 'homolog' nitelemesi yalnızca [4]'te. Düzeltmede gereksiz nitelik çıkarıldı."},
+    {"cumle": "Ayrıca leptomeningeal melanositik neoplazileri de sürükler [1].", "karar": "DOGRU", "aciklama": "[1] başlık ve özet: GNAQ Q209L leptomeningeal melanositik neoplazileri ve MSS melanomunu sürükler."}
+   ],
+   "duzeltilmis_cevap": "Başlıca üveal (göz içi) melanomda görülür; bu tümörlerin %80-90'ı GNAQ ya da GNA11'de Q209 mutasyonları taşır [2][3]. Ayrıca leptomeningeal melanositik neoplazileri de sürükler [1].",
+   "not": "Küçük atıf sorunu."
+  },
+  {
+   "index": 116,
+   "varyant": "GNAQ Q209L",
+   "tur": "takip_cok_turlu",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Bu G proteinini doğrudan hedefleyen bilinen bir ilaç yoktur; siRNA/rAAV ile allel-özgül susturma ve Gαq'yu katlayan şaperon Ric-8A'nın inhibisyonu gibi yaklaşımlar araştırılmaktadır [2][3].", "karar": "DOGRU", "aciklama": "[3] doğrudan hedefleyen ilaç yok ve Ric-8A; [2] allel-özgül siRNA/rAAV."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 117,
+   "varyant": "GNAQ Q209L",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Üveal melanomda GNAQ ve homolog GNA11 mutasyonları birbirini dışlar; ikisi de aynı Q209 pozisyonunu etkileyerek G proteinini sürekli aktive eder [2][4].", "karar": "DOGRU", "aciklama": "[4] homolog genler ve birbirini dışlayan mutasyonlar (GNAQ Q209L/P, GNA11 Q209L); [2] Gα alt birimlerinde sürekli aktivasyon."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 161,
+   "varyant": "GNAQ Q209L",
+   "tur": "ret_yabanci",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda EGFR L858R ya da ona bağlı direnç bilgisi yok."
+  },
+  {
+   "index": 193,
+   "varyant": "GNAQ Q209L",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda Türkiye'deki test merkezlerine dair bilgi yok."
+  },
+  {
+   "index": 10,
+   "varyant": "KIT D816V",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "KIT D816V, tip III tirozin kinaz reseptörü KIT'te görülen ve mastositoz ile mast hücresi aktivasyon sendromlarının (MCAS) tanı ve sınıflandırmasında temel taşı olan bir mutasyondur [1].", "karar": "ATIF_HATALI", "aciklama": "Tanı/sınıflandırmada temel taş bilgisi [1]'de; 'tip III tirozin kinaz reseptörü' bilgisi yalnızca [2]'de. [2] eklenmeli."},
+    {"cumle": "Mutasyon reseptörü sürekli (konstitütif) aktif hale getirir; yaban tip KIT ligand bağlanmasıyla dimerleşirken, D816V mutantı dimerleşmeden aktive olur ve tirozin kinaz alanının kararlılığı azalır [2].", "karar": "DOGRU", "aciklama": "[2]: konstitütif aktif, yaban tip ligandla dimerleşir, D816V dimerleşmez, kinaz alanında azalmış stabilizasyon."},
+    {"cumle": "D816V, yaban tip reseptörle benzer sinyal yollarını hedeflese de sinyali daha güçlü iletir ve mastositozda sık bozulan yolları (enfeksiyon ilişkili yollar, spliseozom) aktive eder [2].", "karar": "KISMEN", "aciklama": "[2]: sinyal mutantta güçlenmiş; başlıkta 'mastositozda sık bozulan yolları aktive eder'; ancak enfeksiyonla ilişkili yollar ve spliseozom kaynakta mutanta 'özgü' yollar olarak geçiyor, mastositozda sık bozulan yollar olarak değil. Parantezli eşitleme kaynakta yok."},
+    {"cumle": "Tanıda KIT D816V, deri lezyonu olmayan hastalarda kanda veya kemik iliğinde düşük mutant hücre yükü nedeniyle saptanamayabilir; bu nedenle ultra-duyarlı yöntemler gereklidir [1].", "karar": "DOGRU", "aciklama": "[1]: düşük mutant hücre yükü, özellikle deri lezyonu olmayanlarda; ultra-duyarlı tekniklere gereksinim."},
+    {"cumle": "Yeni Flow-SuperRCA testi, geleneksel ASO-qPCR'a göre daha duyarlıdır (saptama sınırı %0,001'e karşı %0,01 alel sıklığı) ve monoklonal MCAS hastalarının %64'ünde pozitiflik saptamıştır [1].", "karar": "DOGRU", "aciklama": "[1]: LoD %0,001'e karşı %0,01 VAF; monoklonal MCAS'ta %64 pozitiflik."},
+    {"cumle": "Anafilaksi veya sistemik mast hücresi aktivasyonu olan hastalarda periferik kanda KIT D816V prevalansı %4 bulunmuştur [5].", "karar": "DOGRU", "aciklama": "[5]: 381 hastanın 15'inde (%4) periferik kanda saptanabilir KIT D816V."},
+    {"cumle": "Tedavide patojenik C-KIT D816V mutasyonunun hedeflenmesi sistemik mastositoz tedavisini dönüştürmüştür; avapritinib bu alanda hastalığı değiştirebilen ilk ruhsatlı ilaçtır ve bezuklastinib ile elenestinib gibi giderek daha güçlü, oral ve yüksek seçicilikli KIT tirozin kinaz inhibitörleri uzun süreli remisyon olasılığı sunmaktadır [4].", "karar": "KISMEN", "aciklama": "Avapritinib, bezuklastinib, elenestinib ve uzun süreli remisyon [4]'te var; 'tedaviyi dönüştürmüştür' yazmıyor, kaynak 'hedeflemeye yönelik çok sayıda yeni araştırma' diyor."}
+   ],
+   "duzeltilmis_cevap": "KIT D816V, tip III tirozin kinaz reseptörü KIT'te görülen bir mutasyondur [2]; saptanması, mastositoz ile mast hücresi aktivasyon sendromlarının (MCAS) tanı ve sınıflandırmasında temel taşıdır [1]. Mutasyon reseptörü sürekli (konstitütif) aktif hale getirir; yaban tip KIT ligand bağlanmasıyla dimerleşirken, D816V mutantı dimerleşmeden aktive olur ve tirozin kinaz alanının kararlılığı azalır [2]. D816V, yaban tip reseptörle benzer sinyal yollarını hedeflese de sinyali daha güçlü iletir ve mastositozda sık bozulan aşağı yönlü yolları aktive eder; yaban tipten farklı olarak enfeksiyonla ilişkili yolları ve spliseozom yolunu da uyarır [2].\n\nTanıda KIT D816V, deri lezyonu olmayan hastalarda kanda veya kemik iliğinde düşük mutant hücre yükü nedeniyle saptanamayabilir; bu nedenle ultra-duyarlı yöntemler gereklidir [1]. Yeni Flow-SuperRCA testi, geleneksel ASO-qPCR'a göre daha duyarlıdır (saptama sınırı %0,001'e karşı %0,01 alel sıklığı) ve monoklonal MCAS hastalarının %64'ünde pozitiflik saptamıştır [1]. Anafilaksi veya sistemik mast hücresi aktivasyonu olan hastalarda periferik kanda KIT D816V prevalansı %4 bulunmuştur [5].\n\nTedavide patojenik C-KIT D816V mutasyonunun hedeflenmesine yönelik çok sayıda yeni araştırma yapılmıştır; avapritinib sistemik mastositozda hastalığı değiştirebilen ilk ruhsatlı ilaçtır ve bezuklastinib ile elenestinib gibi giderek daha güçlü, oral ve yüksek seçicilikli KIT tirozin kinaz inhibitörleri uzun süreli remisyon olasılığı sunmaktadır [4].",
+   "not": ""
+  },
+  {
+   "index": 67,
+   "varyant": "KIT D816V",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Mastositoz ve mast hücresi aktivasyon sendromlarının (MCAS) tanı ve sınıflandırmasında temel taşıdır [1].", "karar": "DOGRU", "aciklama": "[1]: 'cornerstone in the diagnosis and classification of MCAS and mastocytosis'."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 68,
+   "varyant": "KIT D816V",
+   "tur": "takip_cok_turlu",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Deri lezyonu olmayan hastalarda düşük mutant hücre yükü nedeniyle saptanması zordur; yeni Flow-SuperRCA testi geleneksel ASO-qPCR'a göre daha duyarlıdır (saptama sınırı %0,001'e karşı %0,01 alel sıklığı) [1].", "karar": "DOGRU", "aciklama": "[1]: düşük mutant hücre yükü, Flow-SuperRCA'nın ASOqPCR'a üstünlüğü ve saptama sınırları birebir."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 69,
+   "varyant": "KIT D816V",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Avapritinib, sistemik mastositozda hastalığı değiştirebilen ilk ruhsatlı ilaçtır; bezuklastinib ve elenestinib gibi güçlü, oral ve seçici KIT tirozin kinaz inhibitörleri de uzun süreli remisyon olasılığı sunar [4].", "karar": "DOGRU", "aciklama": "[4]: avapritinib ilk ruhsatlı hastalık değiştirici ilaç; bezuklastinib ve elenestinib oral, yüksek seçici KIT TKİ; uzun süreli remisyon olasılığı."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 153,
+   "varyant": "KIT D816V",
+   "tur": "ret_yabanci",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda FLT3 ya da D835Y geçmiyor."
+  },
+  {
+   "index": 177,
+   "varyant": "KIT D816V",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda Türkiye'deki test merkezlerine dair bilgi yok."
+  },
+  {
+   "index": 12,
+   "varyant": "MYD88 L265P",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "MYD88 L265P, MYD88 proteininin 265. pozisyonundaki lösinin proline dönüşmesiyle oluşan bir sürücü mutasyondur ve B-hücreli hematolojik malignitelerde görülür [1].", "karar": "DOGRU", "aciklama": "[1]: MYD88 sürücü gen; L265P lösin→prolin; hematolojik B-hücre malignitelerinde."},
+    {"cumle": "Waldenström makroglobulinemisi (WM) vakalarının yaklaşık %90'ında bulunur; bu, tek bir amino asit değişiminin bir kanserin neredeyse tamamında görüldüğü ender bir örnektir ve WM'yi tek nedensel mutasyon çalışmaları için model hastalık yapar [1].", "karar": "DOGRU", "aciklama": "[1]: ~%90 WM; tek amino asit değişiminin ~%90'da görüldüğü az sayıda kanser; WM tek nedensel mutasyon için paradigmatik."},
+    {"cumle": "Mutasyon ayrıca aktive B-hücre (ABC) tipi difüz büyük B-hücreli lenfomalarda (DBBHL) ve IgM monoklonal gammopatilerde önemli oranda görülür [1].", "karar": "DIL_HATASI", "aciklama": "İçerik [1] ile uyumlu, ancak kaynaktaki terim 'IgM monoclonal gammopathy of undetermined significance' (önemi belirsiz IgM monoklonal gammopatisi, IgM MGUS); 'önemi belirsiz' düşürülünce terim anlam değiştiriyor."},
+    {"cumle": "Waldenström makroglobulinemisinde L265P mutasyonu hastaların %90'ından fazlasında ve çoğu IgM MGUS hastasında saptanır; ancak tanı için zorunlu değildir [3].", "karar": "DOGRU", "aciklama": "[3]: hastaların %90'ından fazlasında, çoğu IgM MGUS hastasında; 'MYD88 is not required for the diagnosis'."},
+    {"cumle": "Mutasyon NF-κB yolunu aktive ederek hastalığı sürükler; tedavide Bruton tirozin kinaz (BTK) inhibitörleri (ör. zanubrutinib) ve kemoimmünoterapi ön plandadır [1][3].", "karar": "KISMEN", "aciklama": "Tedavi kısmı [3] (kemoimmünoterapi veya kovalent BTK inhibitörü, zanubrutinib) ve [1] (BTK hedefleme) ile doğru. NF-κB [1] ve [3]'te geçmiyor; yalnızca [2]'de MCD tipi DBBHL bağlamında var, WM için kaynakta yok."},
+    {"cumle": "Difüz büyük B-hücreli lenfomada MYD88 L265P ile CD79B mutasyonlarının birlikte bulunması, MCD adı verilen genetik bir alt grubu tanımlar; bu alt grup kötü prognoz ve ekstranodal (özellikle immün-ayrıcalıklı bölge) tutulumuyla karakterizedir; kronik aktif B-hücre reseptörü sinyali ile onkojenik MYD88 mutasyonu patolojik NF-κB aktivasyonunu birlikte sürükler [2].", "karar": "DOGRU", "aciklama": "[2]: MCD tanımı, kötü prognoz, immün-ayrıcalıklı bölgelerde ekstranodal tutulum, kronik aktif BCR sinyali ve MYD88 mutasyonuyla NF-κB aktivasyonu."},
+    {"cumle": "Merkezi sinir sistemi, göz ve testis gibi immün-ayrıcalıklı bölgelerde ortaya çıkan primer büyük B-hücreli lenfomalar sıklıkla MYD88 (L265P) ve CD79B ko-mutasyonları taşır ve BTK inhibitörleri, immünomodülatör ajanlar ve immünoterapiye duyarlı olabilir [5].", "karar": "DOGRU", "aciklama": "[5]: MSS, vitreus ve testis tutulumu; sık MYD88 (L265P) ve CD79B ko-mutasyonu; BTK inhibitörleri, immünomodülatör ajanlar ve immünoterapiye olası duyarlılık."},
+    {"cumle": "L265P'ye yönelik peptit temelli immünoterapi de araştırılan tedavi stratejileri arasındadır [1].", "karar": "DOGRU", "aciklama": "[1]: 'MYD88 L265P-specific peptide-based immunotherapy' tartışılan stratejiler arasında."}
+   ],
+   "duzeltilmis_cevap": "MYD88 L265P, MYD88 proteininin 265. pozisyonundaki lösinin proline dönüşmesiyle oluşan bir sürücü mutasyondur ve B-hücreli hematolojik malignitelerde görülür [1]. Waldenström makroglobulinemisi (WM) vakalarının yaklaşık %90'ında bulunur; bu, tek bir amino asit değişiminin bir kanserin neredeyse tamamında görüldüğü ender bir örnektir ve WM'yi tek nedensel mutasyon çalışmaları için model hastalık yapar [1]. Mutasyon ayrıca aktive B-hücre (ABC) tipi difüz büyük B-hücreli lenfomalarda (DBBHL) ve önemi belirsiz IgM monoklonal gammopatisinde (IgM MGUS) önemli oranda görülür [1].\n\nWaldenström makroglobulinemisinde L265P mutasyonu hastaların %90'ından fazlasında ve çoğu IgM MGUS hastasında saptanır; ancak tanı için zorunlu değildir [3]. Tedavide Bruton tirozin kinaz (BTK) inhibitörleri (ör. zanubrutinib) ve kemoimmünoterapi ön plandadır [1][3].\n\nDifüz büyük B-hücreli lenfomada MYD88 L265P ile CD79B mutasyonlarının birlikte bulunması, MCD adı verilen genetik bir alt grubu tanımlar; bu alt grup kötü prognoz ve ekstranodal (özellikle immün-ayrıcalıklı bölge) tutulumuyla karakterizedir; kronik aktif B-hücre reseptörü sinyali ile onkojenik MYD88 mutasyonu patolojik NF-κB aktivasyonunu birlikte sürükler [2]. Merkezi sinir sistemi, göz ve testis gibi immün-ayrıcalıklı bölgelerde ortaya çıkan primer büyük B-hücreli lenfomalar sıklıkla MYD88 (L265P) ve CD79B ko-mutasyonları taşır ve BTK inhibitörleri, immünomodülatör ajanlar ve immünoterapiye duyarlı olabilir [5]. L265P'ye yönelik peptit temelli immünoterapi de araştırılan tedavi stratejileri arasındadır [1].",
+   "not": "NF-κB bilgisi MCD paragrafında [2] ile zaten doğru verildiği için WM paragrafından çıkarıldı."
+  },
+  {
+   "index": 73,
+   "varyant": "MYD88 L265P",
+   "tur": "takip",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Waldenström makroglobulinemisi vakalarının yaklaşık %90'ında bulunur; ayrıca aktive B-hücre tipi difüz büyük B-hücreli lenfomalarda ve IgM monoklonal gammopatilerde önemli oranda görülür [1].", "karar": "DIL_HATASI", "aciklama": "İçerik [1] ile uyumlu; ancak kaynaktaki 'IgM MGUS' (önemi belirsiz IgM monoklonal gammopatisi) eksik/yanlış terimle 'IgM monoklonal gammopatiler' olarak verilmiş."}
+   ],
+   "duzeltilmis_cevap": "Waldenström makroglobulinemisi vakalarının yaklaşık %90'ında bulunur; ayrıca aktive B-hücre tipi difüz büyük B-hücreli lenfomalarda ve önemi belirsiz IgM monoklonal gammopatisinde (IgM MGUS) önemli oranda görülür [1].",
+   "not": ""
+  },
+  {
+   "index": 74,
+   "varyant": "MYD88 L265P",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Waldenström makroglobulinemisinde Bruton tirozin kinaz (BTK) inhibitörleri (ör. zanubrutinib) ve kemoimmünoterapi ön plandadır [3]; L265P, NF-κB yolunu aktive ederek hastalığı sürükler [2].", "karar": "KISMEN", "aciklama": "İlk kısım [3] ile doğru. [2] NF-κB aktivasyonunu MCD tipi DBBHL'de onkojenik MYD88 mutasyonlarına bağlıyor; cümlede 'hastalık' WM'yi işaret ediyor, WM için NF-κB bilgisi kaynakta yok."}
+   ],
+   "duzeltilmis_cevap": "Waldenström makroglobulinemisinde Bruton tirozin kinaz (BTK) inhibitörleri (ör. zanubrutinib) ve kemoimmünoterapi ön plandadır [3]; MCD tipi difüz büyük B-hücreli lenfomada ise onkojenik MYD88 mutasyonları patolojik NF-κB aktivasyonunu sürükler [2].",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 75,
+   "varyant": "MYD88 L265P",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "MYD88 L265P ile CD79B mutasyonlarının birlikte bulunmasıyla tanımlanan, kötü prognoz ve ekstranodal (özellikle immün-ayrıcalıklı bölge) tutulumuyla karakterize bir difüz büyük B-hücreli lenfoma alt grubudur [2][5].", "karar": "DOGRU", "aciklama": "[2] tanım, kötü prognoz, immün-ayrıcalıklı bölgelerde ekstranodal tutulum; [5] MCD/C5/MYD88 alt tipi ve ekstranodal yerleşim."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 154,
+   "varyant": "MYD88 L265P",
+   "tur": "ret_yabanci",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "MYD88 kaynaklarında AKT1 E17K geçmiyor."
+  },
+  {
+   "index": 179,
+   "varyant": "MYD88 L265P",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda test sonuçlanma süresine dair bilgi yok."
+  },
+  {
+   "index": 34,
+   "varyant": "PTEN R130Q",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "PTEN R130Q, en sık mutasyona uğrayan tümör baskılayıcı genlerden biri olan PTEN'in fosfataz alanındaki sık görülen bir sıcak nokta mutasyondur [3].", "karar": "ATIF_HATALI", "aciklama": "'En sık mutasyona uğrayan tümör baskılayıcı genlerden biri' ve serideki sıklık [3]'te; 'fosfataz alanı' ve 'sıcak nokta' bilgisi [4]'te (R130Q fosfataz alanı missense hotspot'ları arasında). [4] eklenmeli."},
+    {"cumle": "PTEN mutasyona uğradığında işlevini yitirir ve tümör baskılama etkisini kaybeder [2].", "karar": "DOGRU", "aciklama": "[2]: 'after mutation, PTEN will lose its function and no longer exert a tumor suppression effect'."},
+    {"cumle": "R130Q, PTEN'in PIP2'ye bağlanma yeteneğini bozarak defosforilasyon sürecini engeller [5].", "karar": "DOGRU", "aciklama": "[5] kenetlenme çalışması: D92H ve R130Q PIP2'ye bağlanmayı bozuyor, defosforilasyonu engelliyor."},
+    {"cumle": "Görülme yerleri açısından endometriyum (rahim) kanserinde en sık görülen onkojenik PTEN missense mutasyonları R130G ve R130Q'dur [3].", "karar": "KISMEN", "aciklama": "[3]'te R130G (%22,2) ve R130Q (%16,7), 13'ü endometriyum olan 18 kanserlik karma serinin tamamında en sık; endometriyum kanserine özgü bir sıklık verilmiyor."},
+    {"cumle": "Hepatoselüler karsinom örneklerinin önemli bir kısmında (40 örneğin 26'sında) R130Q saptanmıştır [2].", "karar": "DOGRU", "aciklama": "[2]: CRISPR-Cas12a ile 40 HCC örneğinin 26'sında R130Q."},
+    {"cumle": "Ayrıca glioblastom ve pineal bölge tümörleri gibi kanserlerde de görülür [1][4].", "karar": "DOGRU", "aciklama": "[1] R130Q'lu pineal bölge papiller tümörü olgusu; [4] GBM kohortunda hotspot olarak incelenen R130Q."},
+    {"cumle": "Klinik önemi ve tedavi açısından PTEN alterasyonları mTORC1 inhibitörleriyle (ör. everolimus) tedavi edilebilir; pineal bölgenin papiller tümöründe PTEN R130Q ve kromozom 10 kaybı taşıyan bir hastada tek başına everolimus tedavisiyle tümör gerilemesi bildirilmiştir [1].", "karar": "DOGRU", "aciklama": "[1]: PTEN alterasyonları mTORC1 inhibitörleriyle tedavi edilebilir; R130Q + kromozom 10 kaybı olan PTPR'de everolimus monoterapisiyle gerileme."},
+    {"cumle": "Glioblastomda bazı fosfataz-alanı missense mutasyonları ('kenar mutasyonları') hücre çeperine yerleşerek invazyonu artırır; bu invaziv fenotip PI3K/Akt inhibitörlerinden etkilenmezken mikrotübül inhibitörleriyle bozulur ve mutasyona özgü bir tedavi hedefi olabilir [4].", "karar": "DIL_HATASI", "aciklama": "İçerik [4] ile uyumlu; ancak 'hücre çeperi' Türkçede hücre duvarı demektir, kaynaktaki 'cell periphery' = hücre çevresi/periferi. Kaynakta tek bir anti-PI3K/Akt ajanı test edilmiş."},
+    {"cumle": "Doğrudan hedeflemenin zorluğu, mutant PTEN'in işlevinin geri kazandırılması (restorasyon) gerekliliğinden kaynaklanır [5].", "karar": "DOGRU", "aciklama": "[5]: doğrudan tedavi yöntemleri uygulanamaz çünkü mutant PTEN restorasyon gerektirir."}
+   ],
+   "duzeltilmis_cevap": "PTEN R130Q, en sık mutasyona uğrayan tümör baskılayıcı genlerden biri olan PTEN'in fosfataz alanındaki sık görülen bir sıcak nokta mutasyondur [3][4]. PTEN mutasyona uğradığında işlevini yitirir ve tümör baskılama etkisini kaybeder [2]. R130Q, PTEN'in PIP2'ye bağlanma yeteneğini bozarak defosforilasyon sürecini engeller [5].\n\nGörülme yerleri açısından, çoğunluğu endometriyum kanseri olan 18 tümörlük bir seride en sık görülen onkojenik PTEN missense mutasyonları R130G (%22,2) ve R130Q (%16,7) olmuştur [3]. Hepatoselüler karsinom örneklerinin önemli bir kısmında (40 örneğin 26'sında) R130Q saptanmıştır [2]. Ayrıca glioblastom ve pineal bölge tümörleri gibi kanserlerde de görülür [1][4].\n\nKlinik önemi ve tedavi açısından PTEN alterasyonları mTORC1 inhibitörleriyle (ör. everolimus) tedavi edilebilir; pineal bölgenin papiller tümöründe PTEN R130Q ve kromozom 10 kaybı taşıyan bir hastada tek başına everolimus tedavisiyle tümör gerilemesi bildirilmiştir [1]. Glioblastomda bazı fosfataz alanı missense mutasyonları ('kenar mutasyonları') hücre çevresine (periferine) yerleşerek invazyonu artırır; bu invaziv fenotip bir PI3K/Akt inhibitöründen etkilenmezken mikrotübül inhibitörleriyle bozulur ve mutasyona özgü bir tedavi hedefi olabilir [4]. Doğrudan hedeflemenin zorluğu, mutant PTEN'in işlevinin geri kazandırılması (restorasyon) gerekliliğinden kaynaklanır [5].",
+   "not": ""
+  },
+  {
+   "index": 139,
+   "varyant": "PTEN R130Q",
+   "tur": "takip",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Tümör baskılayıcı PTEN'in fosfataz alanındaki bir sıcak nokta mutasyondur; PTEN'in PIP2'ye bağlanmasını bozup işlevini yitirmesine yol açar [3][5].", "karar": "ATIF_HATALI", "aciklama": "Tümör baskılayıcı [3]'te, PIP2 bağlanma kaybı [5]'te; 'fosfataz alanı' ve 'sıcak nokta' [4]'te. [5] işlev kaybını değil defosforilasyonun engellenmesini söylüyor."}
+   ],
+   "duzeltilmis_cevap": "Tümör baskılayıcı PTEN'in fosfataz alanındaki bir sıcak nokta mutasyondur [3][4]; PTEN'in PIP2'ye bağlanma yeteneğini bozarak defosforilasyon sürecini engeller [5].",
+   "not": ""
+  },
+  {
+   "index": 140,
+   "varyant": "PTEN R130Q",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Endometriyum kanserinde en sık PTEN missense mutasyonlarından biridir (R130G ile birlikte); hepatoselüler karsinom ve glioblastomda da görülür [2][3][4].", "karar": "KISMEN", "aciklama": "[3]'teki sıklık 18 kanserlik karma serinin (13'ü endometriyum) tamamı için; endometriyuma özgü değil. HCC [2] ve GBM [4] doğru."}
+   ],
+   "duzeltilmis_cevap": "Çoğunluğu endometriyum kanseri olan 18 tümörlük bir seride R130G ile birlikte en sık görülen onkojenik PTEN missense mutasyonlarından biridir [3]; hepatoselüler karsinom ve glioblastomda da görülür [2][4].",
+   "not": "Yalnızca son cevap denetlendi."
+  },
+  {
+   "index": 141,
+   "varyant": "PTEN R130Q",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "PTEN alterasyonları mTORC1 inhibitörleriyle (ör. everolimus) tedavi edilebilir; pineal bölge tümörlü bir hastada tek başına everolimusla tümör gerilemesi bildirilmiştir [1].", "karar": "DOGRU", "aciklama": "[1]: mTORC1 inhibitörleri ile tedavi edilebilir; PTPR olgusunda everolimus monoterapisiyle gerileme."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 165,
+   "varyant": "PTEN R130Q",
+   "tur": "ret_yabanci",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "PTEN kaynaklarında T315I ya da ona etkili ilaç bilgisi yok."
+  },
+  {
+   "index": 201,
+   "varyant": "PTEN R130Q",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda Türkiye'deki test merkezlerine dair bilgi yok."
+  }
+ ],
+ "ozet": {
+  "ornek": 35,
+  "aynen": 11,
+  "duzeltildi": 13,
+  "sil": 0,
+  "ret_dogru": 11,
+  "ret_yanlis": 0,
+  "cumle": 63,
+  "dogru": 39,
+  "atif_hatali": 7,
+  "kismen": 11,
+  "desteksiz": 0,
+  "celiski": 2,
+  "dil_hatasi": 4,
+  "tekrarlayan_sorunlar": [
+   "Atıf kayması: başka kaynaktaki bilgiye yanlış numara veriliyor ('homolog/birbirini dışlayan' [4], 'tip III tirozin kinaz' [2], 'fosfataz alanı/sıcak nokta' [4]) ya da gereksiz ek numara ekleniyor (AKT1'de β-katenin için [2][5]).",
+   "Kaynakta olmayan genel tıp bilgisi ekleniyor ve kimi zaman kaynakla çelişiyor: Ser473 (kaynakta Ser273), GNAQ'yu 'reseptör' diye nitelemek, WM için NF-κB, 'PI3K/AKT yolunun üyesi', 'en sık nokta mutasyon', 'tedaviyi dönüştürmüştür'.",
+   "Bağlam ve popülasyon genelleniyor: karma serideki sıklık endometriyuma, MCD-DBBHL bulgusu WM'ye aktarılıyor; 'bağışıklığı baskılanmış fare' ve 'fare modeli' kısıtı düşürülüyor; 'ilişkili' bulgu 'artırır' diye nedenselleştiriliyor.",
+   "Farklı kaynaklardaki bulgular, kaynakta olmayan nedensel ya da eşitleyici bağlarla birleştiriliyor (metilasyon bozulması → CH'yi sürükleme; enfeksiyon/spliseozom yolları = mastositozda sık bozulan yollar).",
+   "Türkçe terim hataları: 'hücre çeperi' (hücre duvarı anlamına gelir; doğrusu hücre çevresi/periferi), 'çok yetenekli' (multipotent), 'odak adezyon' (fokal adezyon), 'IgM MGUS' yerine eksik 'IgM monoklonal gammopati', 'pleckstrin' (plekstrin)."
+  ]
+ }
+}

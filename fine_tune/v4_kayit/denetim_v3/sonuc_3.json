@@ -1,0 +1,399 @@
+{
+ "paket": 3,
+ "ornekler": [
+  {
+   "index": 36,
+   "varyant": "ALK F1174L",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "ALK F1174L, anaplastik lenfoma kinazı (ALK) kodlayan gende 1174. kodonda fenilalaninin lösine dönüşmesiyle oluşan bir nokta mutasyonudur ve reseptörü sürekli aktive eder [4].", "karar": "ATIF_HATALI", "aciklama": "1174. kodonda fenilalanin-lösin değişimi [4]'te var; nokta mutasyonu ifadesi [1]'de. 'Sürekli aktif (constitutively active) ALK F1174L' bilgisi [4]'te değil [3]'te yazıyor."},
+    {"cumle": "Nöroblastomdaki en sık ALK somatik mutasyonlarından biridir ve kötü sağkalımın en güvenilir belirteci olan MYCN amplifikasyonuyla birlikte görülür [4].", "karar": "DOGRU", "aciklama": "[4]: 'one of the most frequent of these somatic mutations ... associated with amplification of MYCN, the most reliable marker for the poor survival'."},
+    {"cumle": "Nöroblastomdaki rolü açısından fare modellerinde ALK F1174L ifadesi sempatik gangliyon progenitörlerinin çoğalmasını artırsa da tek başına nöroblastom oluşturmaya yetmez; ancak MYCN ile birlikte ifade edildiğinde, tek başına tümör yapmayan MYCN'nin onkojenik yeteneğini belirgin biçimde güçlendirerek ölümcül nöroblastoma yol açar [4].", "karar": "KISMEN", "aciklama": "İlk kısım [4] ile birebir. Ancak 'tek başına tümör yapmayan MYCN' genellemesi kaynakta yok; [4] yalnızca 'MYCN'nin tek başına belirgin tümör yapmadığı bir genetik arka planda bile' diyor ve ölümcül nöroblastomun 'sıklıkla' geliştiğini söylüyor."},
+    {"cumle": "Nöroblastom bağışıklık kaçışında NECTIN2-TIGIT ekseni kritik bir kontrol noktasıdır; TIGIT ve PD-L1 blokajının birlikte uygulanması kemoterapiye dirençli Th-ALKF1174L/MYCN modelinde tam yanıtlar sağlamıştır [2].", "karar": "KISMEN", "aciklama": "[2] NECTIN2-TIGIT'i 'crucial immune checkpoint' olarak tanımlar ama 'bağışıklık kaçışı' ifadesi yok. Th-ALKF1174L/MYCN modelinde tam yanıt, TIGIT+PD-L1 blokajının 'standart nüks tedavisine eklenmesiyle' elde edilmiş; bu koşul düşürülmüş."},
+    {"cumle": "Diğer kanserler ve direnç açısından ALK F1174L, kutanöz skuamöz hücreli karsinomda tümör oluşumunu başlatabilir; onkojenik Kras G12D ve p53 kaybıyla işbirliği yaparak daha saldırgan bir fenotipe yol açar ve başlıca Stat3 üzerinden etki eder [3].", "karar": "KISMEN", "aciklama": "cSCC başlatma (aşırı ifadeyle), Kras G12D ve p53 kaybıyla işbirliği ve daha saldırgan tip [3]'te var. 'Başlıca Stat3 üzerinden etki eder' abartı: [3] Stat3'ü 'key downstream effector' ve 'likely plays a role' diye tanımlar."},
+    {"cumle": "Ayrıca F1174L, ALK-translokasyonlu kanserlerde ALK kinaz inhibitörü krizotinibe kazanılmış direnç oluşturur; kimyasal olarak farklı bir ALK inhibitörü (TAE684) ve HSP90 inhibitörü 17-AAG bu mutasyonu taşıyan modellerde etkilidir [1][5].", "karar": "ATIF_HATALI", "aciklama": "Krizotinib direnci, TAE684 ve 17-AAG bilgisi yalnızca [5]'te. [1] ALK-TKİ direnci için G1202R'den söz eder, F1174L'yi yalnızca nöroblastomdaki nokta mutasyonu örneği olarak anar; [1] atfı çıkarılmalı."}
+   ],
+   "duzeltilmis_cevap": "ALK F1174L, anaplastik lenfoma kinazı (ALK) kodlayan gende 1174. kodonda fenilalaninin lösine dönüşmesiyle oluşan bir nokta mutasyonudur [1][4]; bu mutasyonu taşıyan ALK sürekli aktiftir [3]. Nöroblastomdaki en sık ALK somatik mutasyonlarından biridir ve kötü sağkalımın en güvenilir belirteci olan MYCN amplifikasyonuyla birlikte görülür [4].\n\nNöroblastomdaki rolü açısından fare modellerinde ALK F1174L ifadesi sempatik gangliyon progenitörlerinin çoğalmasını artırsa da tek başına nöroblastom oluşturmaya yetmez; ancak ALK F1174L ve MYCN'yi birlikte ifade eden farelerde, MYCN'nin tek başına belirgin tümör oluşturmadığı bir genetik arka planda bile sıklıkla ölümcül nöroblastom gelişir, yani ALK F1174L MYCN'nin onkojenik yeteneğini belirgin biçimde güçlendirir [4]. Nöroblastomda NECTIN2-TIGIT ekseni kritik bir bağışıklık kontrol noktası olarak tanımlanmıştır; TIGIT ve PD-L1 blokajının standart nüks tedavisine eklenmesi, kemoterapiye dirençli singeneik Th-ALKF1174L/MYCN modelinde tam yanıt sağlamıştır [2].\n\nDiğer kanserler ve direnç açısından aşırı ifade edilen ALK F1174L, kutanöz skuamöz hücreli karsinom gelişimini başlatmaya yeterlidir; onkojenik Kras G12D ve p53 kaybıyla işbirliği yaparak daha saldırgan bir kutanöz skuamöz hücreli karsinom tipine yol açar ve Stat3, ALK F1174L'nin kilit bir alt akım efektörüdür [3]. Ayrıca F1174L, ALK-translokasyonlu kanserlerde ALK kinaz inhibitörü krizotinibe kazanılmış direnç oluşturur; kimyasal olarak farklı bir ALK inhibitörü (TAE684) ve HSP90 inhibitörü 17-AAG bu mutasyonu taşıyan modellerde etkilidir [5].",
+   "not": "İki atıf hatası ([4] yerine [3], [1][5] yerine [5]) ve üç abartılı/koşulu düşürülmüş ifade düzeltildi; yeni bilgi eklenmedi."
+  },
+  {
+   "index": 145,
+   "varyant": "ALK F1174L",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Nöroblastomdaki en sık ALK somatik mutasyonlarından biridir ve kötü sağkalımın belirteci MYCN amplifikasyonuyla birlikte görülür [4].", "karar": "DOGRU", "aciklama": "[4]: 'one of the most frequent of these somatic mutations' ve MYCN amplifikasyonuyla ilişki."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 146,
+   "varyant": "ALK F1174L",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Tek başına nöroblastom oluşturmaya yetmez; ancak MYCN ile birlikte ifade edildiğinde MYCN'nin onkojenik yeteneğini belirgin biçimde güçlendirerek ölümcül nöroblastoma yol açar [4].", "karar": "KISMEN", "aciklama": "İçerik [4]'te var, ancak bulgu fare modeline ait (Cre-loxP koşullu fare) ve ölümcül nöroblastom 'sıklıkla' gelişmiş; cevap bunu insanlar için genel olgu gibi sunuyor."}
+   ],
+   "duzeltilmis_cevap": "Fare modellerinde ALK F1174L tek başına nöroblastom oluşturmaya yetmez; ancak MYCN ile birlikte ifade edildiğinde MYCN'nin onkojenik yeteneğini belirgin biçimde güçlendirerek sıklıkla ölümcül nöroblastoma yol açar [4].",
+   "not": "Yalnızca 'fare modellerinde' bağlamı ve 'sıklıkla' eklendi."
+  },
+  {
+   "index": 147,
+   "varyant": "ALK F1174L",
+   "tur": "takip",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Evet; ALK-translokasyonlu kanserlerde krizotinibe kazanılmış direnç oluşturur; kimyasal olarak farklı bir ALK inhibitörü (TAE684) ve HSP90 inhibitörü 17-AAG bu mutasyonu taşıyan modellerde etkilidir [1][5].", "karar": "ATIF_HATALI", "aciklama": "Tüm bilgi [5]'te; [1] F1174L kaynaklı krizotinib direncinden söz etmez (direnç örneği olarak G1202R'yi verir)."}
+   ],
+   "duzeltilmis_cevap": "Evet; ALK-translokasyonlu kanserlerde krizotinibe kazanılmış direnç oluşturur; kimyasal olarak farklı bir ALK inhibitörü (TAE684) ve HSP90 inhibitörü 17-AAG bu mutasyonu taşıyan modellerde etkilidir [5].",
+   "not": ""
+  },
+  {
+   "index": 166,
+   "varyant": "ALK F1174L",
+   "tur": "ret_yabanci",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Beş ALK kaynağının hiçbirinde MPL ya da W515L geçmiyor; ret doğru."
+  },
+  {
+   "index": 203,
+   "varyant": "ALK F1174L",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda test yöntemi ya da sonuçlanma süresine dair bilgi yok."
+  },
+  {
+   "index": 1,
+   "varyant": "EGFR L858R",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "EGFR L858R, küçük hücreli dışı akciğer kanserinde (KHDAK) en sık görülen onkojenik sürücülerden biri olan EGFR gen mutasyonudur [1].", "karar": "DOGRU", "aciklama": "[1]: 'The most common oncogenic driver in NSCLC is the EGFR gene mutations'; L858R ekson 21 EGFR mutasyonu olarak geçiyor."},
+    {"cumle": "EGFR mutasyonları Asya kökenli hastalarda (%30-50), Kafkas kökenlilere göre (%10-15) daha sıktır [1].", "karar": "DIL_HATASI", "aciklama": "Oranlar [1] ile birebir. 'Caucasian' Türkçede 'Kafkas kökenli' (Kafkasya'dan gelen) diye çevrilince anlam kayıyor; 'beyaz ırktan (Kafkas ırkı)' olmalı."},
+    {"cumle": "Ekson 19 delesyonu (Ex19del) ve L858R nokta mutasyonu, klasik aktive edici mutasyonların büyük çoğunluğunu oluşturur ve EGFR tirozin kinaz inhibitörlerine (TKİ) iyi klinik yanıtın güçlü öngörücüleridir [2].", "karar": "KISMEN", "aciklama": "[2]'de Ex19del ve L858R klasik aktive edici mutasyonların kendisidir ve 'EGFR mutasyonlarının' büyük çoğunluğunu oluşturur. Cevap bunu 'klasik mutasyonların büyük çoğunluğu' diye yanlış aktarıyor. Öngörücülük kısmı doğru."},
+    {"cumle": "L858R, TKİ tedavisine artmış duyarlılık anlamına gelse de belirgin bir yanıtsızlık oranı da vardır [5].", "karar": "DOGRU", "aciklama": "[5]: 'implies increased sensitivity to EGFR TKI therapy, despite a significant non-response rate'."},
+    {"cumle": "Klinik davranış Ex19del ile L858R arasında farklılık gösterir ve sonuçların Ex19del hastalarında daha iyi olabileceği giderek kabul görmektedir [1][4].", "karar": "DOGRU", "aciklama": "[1] klinik davranışın farklı olduğunu, [4] Ex19del'de sonuçların daha iyi olabileceğinin kabul gördüğünü söylüyor."},
+    {"cumle": "İkinci nesil geri dönüşümsüz bir TKİ olan dakomitinib bu hastalarda araştırılmaktadır [1].", "karar": "DOGRU", "aciklama": "[1]: dakomitinib, 'a second-generation irreversible EGFR TKI', Ex19del ve L858R'li ileri KHDAK'te inceleniyor."},
+    {"cumle": "Direnç açısından, TKİ tedavisi sırasında en sık ikincil T790M mutasyonu ile direnç gelişir; EAI045 gibi allosterik inhibitörler L858R/T790M mutantını hedeflerken yaban tip reseptörü korur ve setuksimab ile belirgin sinerji gösterir [3].", "karar": "KISMEN", "aciklama": "T790M ve EAI045 bulguları [3]'te var; ama [3] yalnızca EAI045'i inceliyor. 'EAI045 gibi allosterik inhibitörler' ifadesi bulguyu sınıfa genelliyor, bu genelleme kaynakta yok."},
+    {"cumle": "L858R tespiti çoğunlukla DNA temellidir; ancak mutasyonu mRNA düzeyinde çok yüksek duyarlılıkla (%0,01) saptayan RT-PCR yöntemleri de geliştirilmiştir [5].", "karar": "DOGRU", "aciklama": "[5]: tespit çoğunlukla DNA temelli; tek adımlı RT-PCR ile analitik duyarlılık %0,01."}
+   ],
+   "duzeltilmis_cevap": "EGFR L858R, küçük hücreli dışı akciğer kanserinde (KHDAK) en sık görülen onkojenik sürücülerden biri olan EGFR gen mutasyonudur [1]. EGFR mutasyonları Asya kökenli hastalarda (%30-50), beyaz ırktan (Kafkas ırkı) hastalara (%10-15) göre daha sıktır [1]. Klasik aktive edici mutasyonlar olan ekson 19 delesyonu (Ex19del) ve L858R nokta mutasyonu, EGFR mutasyonlarının büyük çoğunluğunu oluşturur ve EGFR tirozin kinaz inhibitörlerine (TKİ) iyi klinik yanıtın güçlü öngörücüleridir [2].\n\nL858R, TKİ tedavisine artmış duyarlılık anlamına gelse de belirgin bir yanıtsızlık oranı da vardır [5]. Klinik davranış Ex19del ile L858R arasında farklılık gösterir ve sonuçların Ex19del hastalarında daha iyi olabileceği giderek kabul görmektedir [1][4]. İkinci nesil geri dönüşümsüz bir TKİ olan dakomitinib bu hastalarda araştırılmaktadır [1].\n\nDirenç açısından, TKİ tedavisi sırasında en sık ikincil T790M mutasyonu ile direnç gelişir; allosterik inhibitör EAI045, L858R/T790M mutantını hedeflerken yaban tip reseptörü korur ve setuksimab ile belirgin sinerji gösterir [3]. L858R tespiti çoğunlukla DNA temellidir; ancak mutasyonu mRNA düzeyinde çok yüksek duyarlılıkla (%0,01) saptayan RT-PCR yöntemleri de geliştirilmiştir [5].",
+   "not": ""
+  },
+  {
+   "index": 40,
+   "varyant": "EGFR L858R",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "EGFR mutasyonları Asya kökenli hastalarda (%30-50), Kafkas kökenlilere göre (%10-15) daha sıktır [1].", "karar": "DIL_HATASI", "aciklama": "İçerik [1] ile birebir; 'Caucasian' için 'Kafkas kökenli' yanlış çeviri ('beyaz ırktan / Kafkas ırkı' olmalı)."}
+   ],
+   "duzeltilmis_cevap": "EGFR mutasyonları Asya kökenli hastalarda (%30-50), beyaz ırktan (Kafkas ırkı) hastalara (%10-15) göre daha sıktır [1].",
+   "not": "Cevap EGFR mutasyonlarının geneline ait sıklığı veriyor (L858R'ye özgü değil); kaynakla tutarlı."
+  },
+  {
+   "index": 41,
+   "varyant": "EGFR L858R",
+   "tur": "takip",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "TKİ tedavisi sırasında en sık ikincil T790M mutasyonu ile direnç gelişir; EAI045 gibi allosterik inhibitörler L858R/T790M mutantını hedefleyip setuksimab ile sinerji gösterir [3][5].", "karar": "ATIF_HATALI", "aciklama": "Tüm bilgi [3]'te; [5] (mRNA düzeyinde tespit) dirençten söz etmez. Ayrıca 'EAI045 gibi allosterik inhibitörler' genellemesi kaynakta yok; [3] yalnızca EAI045'i anlatıyor."}
+   ],
+   "duzeltilmis_cevap": "TKİ tedavisi sırasında en sık ikincil T790M mutasyonu ile direnç gelişir; allosterik inhibitör EAI045, L858R/T790M mutantını hedefler ve setuksimab ile belirgin sinerji gösterir [3].",
+   "not": ""
+  },
+  {
+   "index": 42,
+   "varyant": "EGFR L858R",
+   "tur": "takip_cok_turlu",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "İkisi de klasik aktive edici mutasyonlardır ve EGFR tirozin kinaz inhibitörlerine iyi yanıt öngörür [2]; ancak klinik davranışları farklıdır ve sonuçların ekson 19 delesyonlu hastalarda daha iyi olabileceği giderek kabul görmektedir [1][4].", "karar": "DOGRU", "aciklama": "[2] klasik aktive edici mutasyon ve iyi yanıt öngörüsü; [1] klinik davranış farkı; [4] Ex19del'de sonuçların daha iyi olabileceği."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 168,
+   "varyant": "EGFR L858R",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda gebelik ya da gebelik takibine dair bilgi yok."
+  },
+  {
+   "index": 23,
+   "varyant": "HFE C282Y",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "HFE C282Y, kromozom 6p'de yer alan ve demir emilimini düzenleyen HFE genindeki en sık patojenik varyanttır; kalıtsal hemokromatoz büyük ölçüde C282Y homozigotluğundan (iki kopya) kaynaklanır [1][3].", "karar": "KISMEN", "aciklama": "[1] C282Y'yi 'a common mutation of the HFE gene on chromosome 6p that regulates iron absorption' olarak tanımlar; 'en sık patojenik varyant' ifadesi hiçbir kaynakta yok. Hemokromatozun büyük ölçüde homozigotluktan kaynaklanması [3] ve 'iki kopya' [1] ile destekli."},
+    {"cumle": "Homozigot bireylerde transferrin satürasyonu ve serum ferritin düzeyleri yükselir; bu, vücutta demir birikimini yansıtır [1].", "karar": "KISMEN", "aciklama": "[1]: ortanca TS ve SF homozigotlarda wt/wt'ye göre daha yüksek. 'Bu, vücutta demir birikimini yansıtır' yorumu kaynakta yok (genel tıp bilgisi)."},
+    {"cumle": "Kanser riski açısından UK Biobank kohortunda C282Y homozigot erkeklerde primer karaciğer (hepatik) malignitesi riski belirgin biçimde artmıştır (HR 10,5); 75 yaşına dek karaciğer kanseri riski %7,2 iken varyant taşımayan erkeklerde %0,6'dır; bu ilişki kadınlarda istatistiksel olarak anlamlı bulunmamıştır [3].", "karar": "DOGRU", "aciklama": "[3]: HR 10,5; 75 yaşına dek %7,2'ye karşı %0,6; kadınlarda anlamlı değil (HR 2,1, P=.22)."},
+    {"cumle": "Meta-analizler C282Y varyantını homozigot modelde meme kanseri (OR 2,06) [2] ve resesif modelde kolorektal kanser (OR 2,00) riski artışıyla ilişkilendirmiştir [5].", "karar": "DOGRU", "aciklama": "[2]: homozigota karşı yaban tip OR=2,06; [5]: resesif model OR=2,00."},
+    {"cumle": "Diğer ilişkiler açısından metabolik sendrom bileşenleriyle (diyabet, hipertansiyon, lipid düzeyleri) yapılan meta-analizde anlamlı bir ilişki bulunmamıştır [4].", "karar": "DOGRU", "aciklama": "[4]: diyabet, hipertansiyon, trigliserid ve HDL ile anlamlı ilişki yok."},
+    {"cumle": "Trombosit sayısı, çalışılan HFE genotipleriyle anlamlı biçimde ilişkili değildir; anormal trombosit sayısı olan homozigot bireyler siroz açısından değerlendirilmelidir [1].", "karar": "KISMEN", "aciklama": "İlk kısım [1] ile birebir. Öneri kaynakta 'hemokromatozlu ve C282Y homozigot erişkinler' için ve 'siroz veya demir dışı trombosit bozuklukları' açısından; cevap öneriyi tüm homozigotlara genişletiyor, alternatifi de düşürüyor."}
+   ],
+   "duzeltilmis_cevap": "HFE C282Y, kromozom 6p'de yer alan ve demir emilimini düzenleyen HFE genindeki yaygın bir mutasyondur; kalıtsal hemokromatoz büyük ölçüde C282Y homozigotluğundan (iki kopya) kaynaklanır [1][3]. Homozigot bireylerde transferrin satürasyonu ve serum ferritin düzeyleri, varyant taşımayan (wt/wt) bireylere göre daha yüksek bulunmuştur [1].\n\nKanser riski açısından UK Biobank kohortunda C282Y homozigot erkeklerde primer karaciğer (hepatik) malignitesi riski belirgin biçimde artmıştır (HR 10,5); 75 yaşına dek karaciğer kanseri riski %7,2 iken varyant taşımayan erkeklerde %0,6'dır; bu ilişki kadınlarda istatistiksel olarak anlamlı bulunmamıştır [3]. Meta-analizler C282Y varyantını homozigot modelde meme kanseri (OR 2,06) [2] ve resesif modelde kolorektal kanser (OR 2,00) riski artışıyla ilişkilendirmiştir [5].\n\nDiğer ilişkiler açısından metabolik sendrom bileşenleriyle (diyabet, hipertansiyon, lipid düzeyleri) yapılan meta-analizde anlamlı bir ilişki bulunmamıştır [4]. Trombosit sayısı, çalışılan HFE genotipleriyle anlamlı biçimde ilişkili değildir; anormal trombosit sayısı olan hemokromatozlu C282Y homozigot erişkinler siroz veya demir dışı trombosit bozuklukları açısından değerlendirilmelidir [1].",
+   "not": ""
+  },
+  {
+   "index": 106,
+   "varyant": "HFE C282Y",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Demir emilimini düzenleyen HFE genindeki en sık patojenik varyanttır; kalıtsal hemokromatoz büyük ölçüde C282Y homozigotluğundan (iki kopya) kaynaklanır [1][3].", "karar": "KISMEN", "aciklama": "'En sık patojenik varyant' kaynakta yok; [1] 'a common mutation' diyor. Geri kalanı [1][3] ile destekli."}
+   ],
+   "duzeltilmis_cevap": "Demir emilimini düzenleyen HFE genindeki yaygın bir mutasyondur; kalıtsal hemokromatoz büyük ölçüde C282Y homozigotluğundan (iki kopya) kaynaklanır [1][3].",
+   "not": ""
+  },
+  {
+   "index": 107,
+   "varyant": "HFE C282Y",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "UK Biobank kohortunda C282Y homozigot erkeklerde primer karaciğer kanseri riski belirgin biçimde artmıştır (HR 10,5); meta-analizler meme ve kolorektal kanser riskiyle de ilişki bildirmiştir [2][3][5].", "karar": "DOGRU", "aciklama": "HR 10,5 [3]'te; meme kanseri meta-analizi [2]'de, kolorektal kanser meta-analizi [5]'te. Atıflar sona toplanmış ama hepsi doğru."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 108,
+   "varyant": "HFE C282Y",
+   "tur": "takip_cok_turlu",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Hayır; metabolik sendrom bileşenleriyle (diyabet, hipertansiyon, lipid düzeyleri) yapılan meta-analizde anlamlı bir ilişki bulunmamıştır [4].", "karar": "DOGRU", "aciklama": "[4] ile birebir."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 190,
+   "varyant": "HFE C282Y",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda aşı ya da aşılamaya dair bilgi yok."
+  },
+  {
+   "index": 3,
+   "varyant": "KRAS G12C",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "KRAS, kanserde en sık mutasyona uğrayan onkogendir; G12C ise ileri, skuamöz olmayan KHDAK'te en sık görülen KRAS varyantıdır (~%40) ve bu tümörlerin %10-13'ünü oluşturur [2].", "karar": "ATIF_HATALI", "aciklama": "'Kanserde en sık mutasyona uğrayan onkogen' [1]'de yazıyor ([2] bunu yalnızca Batı'daki ileri, skuamöz olmayan KHDAK için söylüyor). G12C oranları [2] ile doğru."},
+    {"cumle": "G12C mutantı, kovalent inhibitör tasarımına olanak tanıyan bir sistein kalıntısı taşır [1].", "karar": "DOGRU", "aciklama": "[1]: 'has a cysteine residue that has been exploited to design covalent inhibitors'."},
+    {"cumle": "Tedavide AMG 510 (sotorasib), klinik geliştirmeye giren ilk KRAS G12C inhibitörüdür; preklinik çalışmalarda tümör gerilemesi sağlamış, immün-yeterli farelerde kalıcı yanıtlar oluşturmuş ve immün kontrol noktası inhibitörleriyle sinerji göstermiştir [1].", "karar": "KISMEN", "aciklama": "AMG 510'un sotorasib olduğu hiçbir kaynakta yazmıyor (genel bilgi). [1]'de 'sinerji' ifadesi yok; tek başına ve immün kontrol noktası inhibitörleriyle birlikte 'kalıcı iyileşme (durable cures)' sağlandığı yazıyor."},
+    {"cumle": "Sotorasib ve adagrasib, ileri/metastatik KHDAK için ikinci basamak ve sonrasında onaylanmıştır [2].", "karar": "DOGRU", "aciklama": "[2]: 'approved for use in the second-line setting and beyond'."},
+    {"cumle": "Adagrasib, KHDAK ve kolorektal kanser dışındaki KRAS G12C'li solid tümörlerde (pankreas, safra yolu dahil) yaklaşık %35 objektif yanıt oranıyla etkinlik göstermiştir [5].", "karar": "DOGRU", "aciklama": "[5]: 57 hastanın 20'sinde (%35,1) objektif yanıt; pankreas ve safra yolu kanserleri dahil."},
+    {"cumle": "Direnç açısından, KHDAK'in aksine kolorektal kanser G12C inhibitörlerine nadiren yanıt verir; başlıca neden EGFR sinyalinin yeniden aktive olmasıdır ve EGFR ile G12C'nin birlikte hedeflenmesi direnci aşar [4].", "karar": "KISMEN", "aciklama": "[4] EGFR sinyalini direncin 'baskın mekanizması' olarak tanımlar, kolorektal modellerde yüksek bazal RTK aktivasyonu ve fosfo-ERK geri tepmesinden söz eder; 'EGFR sinyalinin yeniden aktive olması' ifadesi kaynakta yok."},
+    {"cumle": "Erken adaptif direnç, başta EGFR olmak üzere reseptör tirozin kinazların ve MRAS:SHOC2:PP1C kompleksinin aktivasyonuyla oluşur [3].", "karar": "DOGRU", "aciklama": "[3]: RTK'ler (başta EGFR) aktive olur; sotorasib MRAS:SHOC2:PP1C kompleksini tetikler."},
+    {"cumle": "STK11, KEAP1 ve TP53 sık görülen ko-mutasyonlardır; STK11 birlikteliği immünoterapinin etkisini zayıflatabilir [2][3].", "karar": "KISMEN", "aciklama": "Eşlik eden mutasyonlar [2]'de var. [3] STK11'in 'immune checkpoint (anti-PD1/PDL1) inhibitörlerinin' etkisini zayıflattığını söylüyor; bunu 'immünoterapi' diye genellemek kaynağın kapsamını aşıyor. 'Ko-mutasyon' yerine 'eşlik eden mutasyon' daha uygun."}
+   ],
+   "duzeltilmis_cevap": "KRAS, kanserde en sık mutasyona uğrayan onkogendir [1]; G12C ise ileri, skuamöz olmayan KHDAK'te en sık görülen KRAS varyantıdır (~%40) ve bu tümörlerin %10-13'ünü oluşturur [2]. G12C mutantı, kovalent inhibitör tasarımına olanak tanıyan bir sistein kalıntısı taşır [1].\n\nTedavide AMG 510, klinik geliştirmeye giren ilk KRAS G12C inhibitörüdür; preklinik çalışmalarda tümör gerilemesi sağlamış ve immün-yeterli farelerde tek başına ya da immün kontrol noktası inhibitörleriyle birlikte kalıcı iyileşme oluşturmuştur [1]. Sotorasib ve adagrasib, ileri/metastatik KHDAK için ikinci basamak ve sonrasında onaylanmıştır [2]. Adagrasib, KHDAK ve kolorektal kanser dışındaki KRAS G12C'li solid tümörlerde (pankreas, safra yolu dahil) yaklaşık %35 objektif yanıt oranıyla etkinlik göstermiştir [5].\n\nDirenç açısından, KHDAK'in aksine kolorektal kanser KRAS G12C inhibitörlerine nadiren yanıt verir; direncin baskın mekanizması EGFR sinyalidir ve EGFR ile KRAS G12C'nin birlikte hedeflenmesi direnci aşar [4]. Erken adaptif direnç, başta EGFR olmak üzere reseptör tirozin kinazların ve MRAS:SHOC2:PP1C kompleksinin aktivasyonuyla oluşur [3]. STK11, KEAP1 ve TP53 sık eşlik eden mutasyonlardır [2]; STK11 birlikteliği immün kontrol noktası (anti-PD1/PDL1) inhibitörlerinin etkisini zayıflatabilir [3].",
+   "not": "AMG 510 = sotorasib eşleştirmesi kaynakta olmadığı için çıkarıldı."
+  },
+  {
+   "index": 46,
+   "varyant": "KRAS G12C",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "AMG 510 (sotorasib) klinik geliştirmeye giren ilk KRAS G12C inhibitörüdür [1]; sotorasib ve adagrasib ileri/metastatik küçük hücreli dışı akciğer kanseri için onaylanmıştır [2].", "karar": "KISMEN", "aciklama": "'AMG 510 = sotorasib' eşleştirmesi hiçbir kaynakta yok. Geri kalanı [1] ve [2] ile destekli."}
+   ],
+   "duzeltilmis_cevap": "AMG 510 klinik geliştirmeye giren ilk KRAS G12C inhibitörüdür [1]; sotorasib ve adagrasib ise KRAS G12C taşıyan ileri/metastatik küçük hücreli dışı akciğer kanseri için onaylanmıştır [2].",
+   "not": ""
+  },
+  {
+   "index": 47,
+   "varyant": "KRAS G12C",
+   "tur": "takip",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Küçük hücreli dışı akciğer kanserinin aksine kolorektal kanser bu inhibitörlere nadiren yanıt verir; başlıca neden EGFR sinyalinin yeniden aktive olmasıdır ve EGFR ile G12C'nin birlikte hedeflenmesi direnci aşar [4].", "karar": "KISMEN", "aciklama": "[4] EGFR sinyalini direncin baskın mekanizması olarak tanımlar; 'yeniden aktive olması' kaynakta yok (kaynak yüksek bazal RTK aktivasyonu ve fosfo-ERK geri tepmesinden söz eder)."}
+   ],
+   "duzeltilmis_cevap": "Küçük hücreli dışı akciğer kanserinin aksine kolorektal kanser bu inhibitörlere nadiren yanıt verir; direncin baskın mekanizması EGFR sinyalidir ve EGFR ile KRAS G12C'nin birlikte hedeflenmesi direnci aşar [4].",
+   "not": ""
+  },
+  {
+   "index": 48,
+   "varyant": "KRAS G12C",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "STK11, KEAP1 ve TP53 sık görülen ko-mutasyonlardır; STK11 birlikteliği immünoterapinin etkisini zayıflatabilir [2][3].", "karar": "KISMEN", "aciklama": "[3] yalnızca immün kontrol noktası (anti-PD1/PDL1) inhibitörlerinden söz eder; 'immünoterapi' geneli kaynakta yok. Atıflar da cümle parçalarına ayrılmalı (eşlik eden mutasyonlar [2], STK11 ve kontrol noktası etkisi [3])."}
+   ],
+   "duzeltilmis_cevap": "STK11, KEAP1 ve TP53 sık eşlik eden mutasyonlardır [2]; STK11 birlikteliği immün kontrol noktası (anti-PD1/PDL1) inhibitörlerinin etkisini zayıflatabilir [3].",
+   "not": ""
+  },
+  {
+   "index": 170,
+   "varyant": "KRAS G12C",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda maliyet bilgisi yok."
+  },
+  {
+   "index": 8,
+   "varyant": "NRAS Q61R",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "NRAS Q61R, RAS/MAPK sinyal yolunu aktive eden NRAS genindeki bir mutasyondur ve melanomda en sık ikinci onkojenik sürücü olan NRAS Q61* mutasyonları arasında yer alır [4].", "karar": "DOGRU", "aciklama": "[4]: RAS genlerindeki aktive edici mutasyonlar; NRAS(Q61*) 'the second-most-frequent oncogenic driver in melanoma'; RAS-mutant modellerde MAPK sinyali."},
+    {"cumle": "Hücrelerde ERK fosforilasyonunu artırarak MAPK/ERK yolunu aşırı aktive eder [1].", "karar": "KISMEN", "aciklama": "[1] bunu yalnızca insan endotel hücreleri için gösteriyor; 'hücrelerde' diye genellemek kaynağın kapsamını aşıyor."},
+    {"cumle": "Tanıda NRAS Q61R immünohistokimyası, tiroid patolojisinde RAS Q61R mutasyonunu saptamada yüksek duyarlılık (%90,6) ve özgüllük (%92,3) gösterir; ancak antikor NRAS, KRAS ve HRAS Q61R proteinlerine çapraz reaksiyon verir ve en sık papiller tiroid karsinomunun foliküler varyantında pozitiftir [2].", "karar": "KISMEN", "aciklama": "Duyarlılık, özgüllük ve çapraz reaksiyon [2] ile doğru. 'En sık PTK foliküler varyantında pozitif' bulgusu kaynakta yalnızca 'primer tiroid karsinomları arasında' (%48,0) geçerli; pozitiflik benign ve neoplastik olmayan lezyonlarda da görülmüş."},
+    {"cumle": "Damar ve deri hastalıklarında da rol oynar: NRAS Q61R insan endotel hücrelerinde iğ şeklinde morfoloji, artmış çoğalma ve göçe yol açarak damar malformasyonlarına neden olur; MEK inhibitörü U0126 bu değişimi önlerken mTOR inhibitörü rapamisin önlememiştir [1].", "karar": "KISMEN", "aciklama": "[1] U0126'yı 'MAP kinase inhibitor' olarak tanımlar; 'MEK inhibitörü' kaynakta yazmıyor. 'Deri' kısmı [1]'de değil ([5]'te). Morfoloji, çoğalma, göç ve damar malformasyonu [1] ile doğru."},
+    {"cumle": "Mutasyon, endotel hücrelerinde anjiopoietin-2 (Ang-2) ifadesini artırır ve bu artışın baskılanmasında MEK inhibitörü trametinib rapamisinden daha etkilidir [3].", "karar": "DOGRU", "aciklama": "[3]: Ang-2 artışı; 'MEK1/2 inhibitor trametinib was more effective' (rapamisine göre)."},
+    {"cumle": "Konjenital melanositik nevüslerde en sık görülen değişimdir (%61,8) ve NRAS p.Q61R/K alel yükü lezyon büyüklüğü, renk değişkenliği ve hipertrikoz gibi fenotiplerle ilişkilidir [5].", "karar": "KISMEN", "aciklama": "[5]'teki %61,8, Q61R ve Q61K varyantlarının toplamı (NRAS p.Q61R/K); cevap bu oranı yalnızca Q61R'ye atfediyor. Alel yükü-fenotip ilişkisi doğru."},
+    {"cumle": "Tedavi geliştirmede NRAS Q61* mutantlarını seçici hedefleyen klinik ajanlar henüz yoktur; ancak NRAS Q61R ile doğrudan etkileşen SHOC2-MRAS-PP1C kompleksinin bir bileşeni olan SHOC2, RAS Q61* tümörleri için bir bağımlılık olarak tanımlanmış ve SHOC2-RAS etkileşimini bozan küçük moleküller geliştirilmiştir [4].", "karar": "DOGRU", "aciklama": "[4] ile birebir."}
+   ],
+   "duzeltilmis_cevap": "NRAS Q61R, RAS/MAPK sinyal yolunu aktive eden NRAS genindeki bir mutasyondur ve melanomda en sık ikinci onkojenik sürücü olan NRAS Q61* mutasyonları arasında yer alır [4]. İnsan endotel hücrelerinde ERK fosforilasyonunu artırarak MAPK/ERK yolunu aşırı aktive eder [1].\n\nTanıda NRAS Q61R immünohistokimyası, tiroid patolojisinde RAS Q61R mutasyonunu saptamada yüksek duyarlılık (%90,6) ve özgüllük (%92,3) gösterir; ancak antikor NRAS, KRAS ve HRAS Q61R proteinlerine çapraz reaksiyon verir ve primer tiroid karsinomları arasında en sık papiller tiroid karsinomunun foliküler varyantında (%48,0) pozitiftir [2].\n\nDamar anomalilerinde de rol oynar: NRAS Q61R insan endotel hücrelerinde iğ şeklinde anormal morfolojiye, artmış çoğalma ve göçe yol açar ve damar malformasyonlarına neden olur; MAP kinaz inhibitörü U0126 iğ şekilli morfolojiye geçişi önlerken mTOR inhibitörü rapamisin önlememiştir [1]. Mutasyon, endotel hücrelerinde anjiopoietin-2 (Ang-2) ifadesini artırır ve bu artışın baskılanmasında MEK inhibitörü trametinib rapamisinden daha etkilidir [3]. Konjenital melanositik nevüslerde baskın varyantlar NRAS p.Q61R/K'dir (%61,8) ve NRAS p.Q61R/K alel yükü lezyon büyüklüğü, renk değişkenliği ve hipertrikoz gibi fenotiplerle ilişkilidir [5].\n\nTedavi geliştirmede NRAS Q61* mutantlarını seçici hedefleyen klinik ajanlar henüz yoktur; ancak NRAS Q61R ile doğrudan etkileşen SHOC2-MRAS-PP1C kompleksinin bir bileşeni olan SHOC2, RAS Q61* tümörleri için bir bağımlılık olarak tanımlanmış ve SHOC2-RAS etkileşimini bozan küçük moleküller geliştirilmiştir [4].",
+   "not": ""
+  },
+  {
+   "index": 61,
+   "varyant": "NRAS Q61R",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Melanomda en sık ikinci onkojenik sürücü olan NRAS Q61* mutasyonları arasında yer alır [4].", "karar": "DOGRU", "aciklama": "[4]: NRAS(Q61*) 'the second-most-frequent oncogenic driver in melanoma'."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 62,
+   "varyant": "NRAS Q61R",
+   "tur": "takip_cok_turlu",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Tiroid patolojisinde NRAS Q61R immünohistokimyası, RAS Q61R mutasyonunu yüksek duyarlılık (%90,6) ve özgüllükle (%92,3) saptar; ancak antikor NRAS, KRAS ve HRAS Q61R proteinlerine çapraz reaksiyon verir [2].", "karar": "DOGRU", "aciklama": "[2] ile birebir."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 63,
+   "varyant": "NRAS Q61R",
+   "tur": "takip",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "NRAS Q61* mutantlarını seçici hedefleyen klinik ajanlar henüz yoktur; ancak NRAS Q61R ile doğrudan etkileşen SHOC2, RAS Q61* tümörleri için bir bağımlılık olarak tanımlanmış ve SHOC2-RAS etkileşimini bozan küçük moleküller geliştirilmiştir [4].", "karar": "DOGRU", "aciklama": "[4] ile birebir."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 152,
+   "varyant": "NRAS Q61R",
+   "tur": "ret_yabanci",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "NRAS kaynaklarının hiçbirinde RET geni ya da M918T geçmiyor; ret doğru."
+  },
+  {
+   "index": 175,
+   "varyant": "NRAS Q61R",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda gebelik takibine dair bilgi yok."
+  },
+  {
+   "index": 19,
+   "varyant": "RET M918T",
+   "tur": "ozet",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "RET M918T, RET proto-onkogeninin kodladığı reseptör tirozin kinazı sürekli aktive eden bir mutasyondur ve medüller tiroid karsinomunun (MTK) başlıca sürücülerindendir [1][2].", "karar": "ATIF_HATALI", "aciklama": "RET tirozin kinaz reseptörünün aktivasyonu [1]'de, RET'in reseptör tirozin kinaz kodladığı [5]'te yazıyor. 'Onkojenik sürücü mutasyon' (MTK'lerin ~%40'ı) [3]'te. [2] M918T'den hiç söz etmez; 'sürekli aktivasyon' ifadesi orada RET nokta mutasyonlarının geneli için kullanılıyor."},
+    {"cumle": "Germline (kalıtsal) düzeyde çoklu endokrin neoplazi tip 2B bağlamında kalıtılabilir ya da yaşam boyu somatik olarak edinilebilir; MEN2B vakalarının %95'inde ve sporadik MTK'lerin yaklaşık %50'sinde bulunur [5].", "karar": "ATIF_HATALI", "aciklama": "Kalıtsal (MEN2B, germ hattı) ya da yaşam süresince edinilme bilgisi [1]'de; %95 ve %50 oranları [5]'te. Ayrıca 'Germline' çevrilmemiş (germ hattı)."},
+    {"cumle": "RET nokta mutasyonları MTK'lerin %25-65'inde saptanır [2].", "karar": "DOGRU", "aciklama": "[2] ile birebir."},
+    {"cumle": "Klinik seyir açısından RET M918T'ye bağlı MTK ilerlemesi, hastalık başlangıcı ve çok odaklı büyüme farkları hesaba katıldığında kalıtsal ve sporadik hastalıkta benzerdir; ancak kalıtsal MTK daha erken gelişir ve daha sık çok odaklıdır [1].", "karar": "DOGRU", "aciklama": "[1] sonucu: ilerleme benzer; kalıtsal MTK daha erken ve daha sık çok odaklı."},
+    {"cumle": "Dolaşımdaki hücre dışı DNA'da (cfDNA) RET M918T saptanması kötü genel sağkalımla güçlü biçimde ilişkilidir ve kalsitonin ikilenme süresinden daha güvenilir bir prognostik belirteç olabilir [4].", "karar": "DOGRU", "aciklama": "[4]: 'strongly correlated with worse overall survival and more accurately predicted a worse outcome than calcitonin doubling time'."},
+    {"cumle": "Tedavide vandetanib ve kabozantinib gibi çoklu kinaz inhibitörleri ileri MTK'de hastalık ilerlemesini yavaşlatan ilk etkili ajanlardı; sonrasında yüksek seçicilikli RET inhibitörleri selperkatinib ve pralsetinib, daha yüksek etkinlik ve daha az hedef-dışı yan etkiyle kliniğe girmiştir [2].", "karar": "KISMEN", "aciklama": "[2] selperkatinib/pralsetinib için 'high efficacy' der; çoklu kinaz inhibitörlerine göre 'daha yüksek' etkinlik karşılaştırması kaynakta yok. Yan etki kısmı: hedef dışı etkilerin azalmasına bağlı daha olumlu yan etki profili."},
+    {"cumle": "Ayrıca RET M918T neoepitopunu hedefleyen mühendislik ürünü T hücreleri (adoptif hücre tedavisi) preklinik olarak araştırılmaktadır [3].", "karar": "DOGRU", "aciklama": "[3]: HLA-DPB1*04:01/02 kısıtlı, RET M918T'ye özgü TCR taşıyan T hücreleri; preklinik veri."}
+   ],
+   "duzeltilmis_cevap": "RET M918T, RET proto-onkogeninin kodladığı reseptör tirozin kinazı aktive eden bir mutasyondur [1][5] ve medüller tiroid karsinomunun (MTK) başlıca sürücülerindendir [3]. Çoklu endokrin neoplazi tip 2B bağlamında germ hattı (kalıtsal) düzeyinde kalıtılabilir ya da yaşam süresince edinilebilir [1]; MEN2B vakalarının %95'inde ve sporadik MTK'lerin yaklaşık %50'sinde bulunur [5]. RET nokta mutasyonları MTK'lerin %25-65'inde saptanır [2].\n\nKlinik seyir açısından RET M918T'ye bağlı MTK ilerlemesi, hastalık başlangıcı ve çok odaklı büyüme farkları hesaba katıldığında kalıtsal ve sporadik hastalıkta benzerdir; ancak kalıtsal MTK daha erken gelişir ve daha sık çok odaklıdır [1]. Dolaşımdaki hücre dışı DNA'da (cfDNA) RET M918T saptanması kötü genel sağkalımla güçlü biçimde ilişkilidir ve kalsitonin ikilenme süresinden daha güvenilir bir prognostik belirteç olabilir [4].\n\nTedavide vandetanib ve kabozantinib gibi çoklu kinaz inhibitörleri ileri MTK'de hastalık ilerlemesini yavaşlatan ilk etkili ajanlardı; sonrasında yüksek seçicilikli RET inhibitörleri selperkatinib ve pralsetinib, yüksek etkinlik ve hedef dışı etkilerin azalmasına bağlı daha olumlu bir yan etki profiliyle kliniğe girmiştir [2]. Ayrıca RET M918T neoepitopunu hedefleyen mühendislik ürünü T hücreleri (adoptif hücre tedavisi) preklinik olarak araştırılmaktadır [3].",
+   "not": "Tedavi cümlesindeki [2] RET mutasyonlu MTK'nin genelinden söz ediyor, M918T'ye özgü değil; cümle bu kapsamda bırakıldı."
+  },
+  {
+   "index": 94,
+   "varyant": "RET M918T",
+   "tur": "takip_cok_turlu",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Medüller tiroid karsinomunun başlıca sürücülerindendir; MEN2B vakalarının %95'inde ve sporadik medüller tiroid karsinomlarının yaklaşık %50'sinde bulunur [5].", "karar": "ATIF_HATALI", "aciklama": "Oranlar [5]'te var; ama M918T'nin MTK'de 'onkojenik sürücü' olduğu [5]'te değil [3]'te yazıyor."}
+   ],
+   "duzeltilmis_cevap": "Medüller tiroid karsinomunun başlıca sürücülerindendir [3]; MEN2B vakalarının %95'inde ve sporadik medüller tiroid karsinomlarının yaklaşık %50'sinde bulunur [5].",
+   "not": ""
+  },
+  {
+   "index": 95,
+   "varyant": "RET M918T",
+   "tur": "takip",
+   "karar": "DUZELTILDI",
+   "cumleler": [
+    {"cumle": "Vandetanib ve kabozantinib gibi çoklu kinaz inhibitörleri ileri hastalıkta etkilidir; sonrasında yüksek seçicilikli RET inhibitörleri selperkatinib ve pralsetinib daha yüksek etkinlik ve daha az hedef-dışı yan etkiyle kliniğe girmiştir [2].", "karar": "KISMEN", "aciklama": "[2] 'high efficacy' der; çoklu kinaz inhibitörlerine göre 'daha yüksek etkinlik' karşılaştırması kaynakta yok."}
+   ],
+   "duzeltilmis_cevap": "Vandetanib ve kabozantinib gibi çoklu kinaz inhibitörleri ileri hastalıkta etkilidir; sonrasında yüksek seçicilikli RET inhibitörleri selperkatinib ve pralsetinib, yüksek etkinlik ve hedef dışı etkilerin azalmasına bağlı daha olumlu bir yan etki profiliyle kliniğe girmiştir [2].",
+   "not": ""
+  },
+  {
+   "index": 96,
+   "varyant": "RET M918T",
+   "tur": "takip_cok_turlu",
+   "karar": "AYNEN",
+   "cumleler": [
+    {"cumle": "Dolaşımdaki hücre dışı DNA'da (cfDNA) RET M918T saptanması, kötü genel sağkalımla güçlü biçimde ilişkilidir ve kalsitonin ikilenme süresinden daha güvenilir bir prognostik belirteç olabilir [4].", "karar": "DOGRU", "aciklama": "[4] ile birebir."}
+   ],
+   "duzeltilmis_cevap": "",
+   "not": ""
+  },
+  {
+   "index": 186,
+   "varyant": "RET M918T",
+   "tur": "ret_kapsam_disi",
+   "karar": "RET_DOGRU",
+   "cumleler": [],
+   "duzeltilmis_cevap": "",
+   "not": "Kaynaklarda maliyet bilgisi yok."
+  }
+ ],
+ "ozet": {
+  "ornek": 32,
+  "aynen": 8,
+  "duzeltildi": 16,
+  "sil": 0,
+  "ret_dogru": 8,
+  "ret_yanlis": 0,
+  "cumle": 60,
+  "dogru": 28,
+  "atif_hatali": 8,
+  "kismen": 22,
+  "desteksiz": 0,
+  "celiski": 0,
+  "dil_hatasi": 2,
+  "tekrarlayan_sorunlar": [
+   "Ek atıf numarası ekleme ya da bilgiyi yanlış kaynağa bağlama: [1][5] (ALK direnci yalnızca [5]'te), [3][5] (EGFR direnci yalnızca [3]'te), [1][2] ve [5] (RET M918T'nin MTK sürücüsü olduğu [3]'te), [2] (KRAS'ın kanserde en sık onkogen olduğu [1]'de).",
+   "Kaynakta yazmayan genel tıp bilgisi ekleme: AMG 510 = sotorasib, U0126 = MEK inhibitörü, HFE C282Y 'en sık patojenik varyant', TS/ferritin artışının 'demir birikimini yansıttığı'.",
+   "Bağlamı ve kapsamı genelleme: fare ya da endotel hücresi bulgularını genel olgu gibi sunma; tek bileşiği sınıfa genelleme ('EAI045 gibi allosterik inhibitörler'); kontrol noktası inhibitörünü 'immünoterapi' diye genişletme; Q61R/K toplam oranını yalnızca Q61R'ye atfetme.",
+   "Koşul ve nüansları düşürme ya da abartma: 'standart nüks tedavisine ekleme' koşulu, 'muhtemelen rol oynar' yerine 'başlıca etki eder', 'high efficacy' yerine 'daha yüksek etkinlik', 'siroz veya demir dışı trombosit bozuklukları' yerine yalnızca siroz.",
+   "Terim ve çeviri sorunları: 'Caucasian' için 'Kafkas kökenli' (beyaz ırk / Kafkas ırkı olmalı), çevrilmemiş 'Germline', 'ko-mutasyon'."
+  ]
+ }
+}

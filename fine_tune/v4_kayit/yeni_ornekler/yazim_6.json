@@ -1,0 +1,161 @@
+{"paket": 6, "girdiler": [
+  {
+    "girdi": "SOD1 A4V",
+    "ozet": "SOD1'in 4. kodonunda alaninin valine dönüşmesiyle oluşan A4V mutasyonu, yalnızca alt motor nöron tutulumuyla seyreden, hızlı ilerleyen baskın kalıtımlı amiyotrofik lateral skleroz (ALS) biçimine yol açar [1]. Kuzey Amerika'da ailesel ALS ile ilişkili SOD1 mutasyonlarının %50'sinden bu değişim sorumludur, Avrupa'da ise seyrektir [1]. Bir çalışmada beyaz kontroller kullanıldığında 5,86-cM'lik bir bölgedeki 10 polimorfizmden oluşan tek bir haplotip A4V ile ilişkili bulunmuş (p = 3,0e-11) ve bu bir kurucu etkiyi düşündürmüştür [1]. Avrupa haplotipi Kuzey Amerika haplotipinden farklı olduğundan, A4V için iki ayrı kurucu etki (Amerind ve Avrupa kökenli) öne sürülmüştür [1]. Değişimin yaşı r² dejenerasyonu yöntemiyle 458 ± 59 yıl olarak tahmin edilmiş ve Bayes yöntemiyle elde edilen 554-734 yıl aralığıyla uyumlu bulunmuştur [1]. Deney ve benzetimin birleştirildiği bir çalışmada A4V SOD1'in etkin bölge ilmeklerinde yerel hareketliliğin arttığı, bunun β-fıçının kararsızlaşmasına ve hidrofobik temasların yitirilmesine yol açtığı gösterilmiştir [2]. Metal içermeyen A4V yapısında metal bağlayan ilmek öğeleri belirgin biçimde düzensiz görülmüştür [4]. Buna karşın yabanil tip ile A4V mutant proteininde çinko için benzer koordinasyon yapıları saptanmış, bu da çinko bağlanma bölgesinin A4V'de yapısal olarak değişmediğini düşündürmüştür [3].",
+    "takip": [
+      {
+        "soru": "Bu varyantın yanlış katlanmasını engelleyebilecek bir molekül denenmiş mi?",
+        "cevap": "Bir çalışmada SOD1 dimer arayüzündeki iki cebe yaklaşık 4400 ilaç ve doğal bileşikten oluşan bir kitaplık bilgisayarla yerleştirilmiş, çıkan adaylardan yedisi A4V mutant SOD1 ile denenmiştir [5]. Quercitrin, quercetin-3-β-d-glucoside (Q3BDG) ve belirgin biçimde daha az olmak üzere epigallocatechin gallate (EGCG), fizyolojik olarak anlamlı bir stres olan hidrojen peroksitin tetiklediği yanlış katlanmayı ve kümelenmeyi azaltmıştır [5]. İzotermal titrasyon kalorimetrisi ve renkölçer bir deney, bu moleküllerin A4V SOD1'e doğrudan bağlandığını göstermiştir [5]. Yazarlar bu bulgulara dayanarak quercitrin ve Q3BDG'nin olası tedavi edici kümelenme engelleyicileri olabileceğini öne sürmüştür [5]."
+      }
+    ],
+    "cok_turlu": {
+      "soru": "bu kurucu etki çalışmasında hangi gruplar genotiplendirilmiş?",
+      "cevap": "Çalışmada A4V değişimi doğrulanmış 54 Kuzey Amerikalı hasta ile 3 İsveçli ve 6 İtalyan A4V hastası genotiplendirilmiştir [1]. Buna ek olarak A4V dışı SOD1 mutasyonu taşıyan 66 ALS hastası ve 96 sporadik ALS hastası incelenmiştir [1]. Kontrol olarak 96 sağlıklı beyaz, 17 Afrikalı Amerikalı, 53 Çinli, 11 Amerind ve 12 Hispanik birey kullanılmıştır [1]. Genotipleme 384 kuyulu düzende Taqman yöntemiyle yapılmış, SOD1'in 5. ekzonunda A4V ile sıkı bağlantılı yeni bir biallelik CA yinelemesi de dizileme jellerinde genotiplendirilmiştir [1]."
+    },
+    "ret_kapsam": [],
+    "gen_ret": [],
+    "not": "Kaynak 4 hem A4V hem G93A yapılarını bildiriyor; G93A'ya ait ayrıntılar (fare modellerinde aşırı anlatım) A4V'ye mal edilmemeli. Kaynak 2, 3 ve 5 tümüyle protein/in vitro çalışmaları."
+  },
+  {
+    "girdi": "NOD2 L1007fs",
+    "ozet": "NOD2 (eski adıyla CARD15), Crohn hastalığı için bulunan ilk yatkınlık genidir [1]. Bir derlemeye göre en sık görülen NOD2 varyantları hastalığa yakalanma riskini artırır, darlık yapan (stricturing) fenotip ve ileum tutulumuyla ilişkilidir ve steroide yanıtsızlık riskini yükseltir [1]. Bu varyantların cerrahi riskini artırdığı açıktır ve bu durum özellikle L1007fs varyantını taşıyanlar için geçerlidir [1]. Azatiyoprin, biyolojik ilaçlar ve küçük moleküllere yanıtı öngörmedeki rolleri konusunda ise kanıtlar sınırlı ve kesin değildir [1]. Crohn hastalığıyla ilişkili üç NOD2 varyantının (Arg702Trp, Gly908Arg ve Leu1007fs) Behçet hastalığındaki sıklığını araştıran bir çalışmada Leu1007fs, hasta grubunda sağlıklı kontrollere göre anlamlı biçimde daha seyrek bulunmuştur (%0,0'a karşı %1,8; P < 0,007) [3]. Bir hücre çalışmasında ELMO1 ile mutant NOD2'nin (L1007fs) aşırı üretimi, Crohn hastalığıyla ilişkili yapışkan-invaziv E. coli'yi (AIEC-LF82) temizlemeye yetmemiştir [5]. NOD2 varyantı taşıyan 194 hastanın incelendiği bir kohortta hastalar sıklıkla iki ya da daha fazla varyant taşımış ve bu birleşimlerden biri IVS8+158/L1007fs olmuştur [2]. Aynı çalışma, NOD2 genindeki varyantların inflamatuvar bağırsak hastalığından otoinflamatuvar hastalığa uzanan bir yelpazeye yol açabileceği sonucuna varmıştır [2].",
+    "takip": [
+      {
+        "soru": "NOD2 risk aleli taşıyan Crohn hastalarının ileumunda gen anlatımı farklı mı?",
+        "cevap": "Keşif amaçlı bir çalışmada hastalar üç başlıca NOD2 risk aleli (Arg702Trp, Gly908Arg, Leu1007fs) için genotiplendirilmiş ve ileum örnekleri incelenmiştir [4]. En az bir risk aleli taşıyan Crohn hastalarının tutulmuş ileumunda, risk aleli taşımayan Crohn hastalarına göre lenfosit etkinleşmesiyle ilgili genlerin de bulunduğu 18 gende artış saptanmıştır [4]. qRT-PCR, tutulmuş örneklerde artmış CD3D anlatımının en az bir risk aleli taşıma durumuyla ilişkili olduğunu doğrulamıştır [4]. Mikrodizi incelemesi dört risk aleli taşıyan hasta, dört taşımayan hasta ve dört kontrol örneğiyle sınırlıydı [4]."
+      }
+    ],
+    "cok_turlu": {
+      "soru": "behçet çalışmasında kaç kişi incelenmiş ve diğer varyant için sonuç ne çıkmış",
+      "cevap": "Çalışmada 200 Behçet hastası (59 Kafkas kökenli, 139 Arap kökenli Orta Doğulu, 2 Asyalı) ve 520 sağlıklı kontrol (444 Kafkas kökenli, 76 Orta Doğulu) Taqman yöntemiyle genotiplendirilmiştir [3]. Arg702Trp varyantı da hasta grubunda kontrollere göre anlamlı biçimde daha seyrek bulunmuştur (%0,5'e karşı %5,8; P < 1,10e-5) [3]. Kafkas kökenli alt grupta Arg702Trp anlamlı biçimde daha seyrekti (P = 0,04), Orta Doğulu alt grupta ise yalnızca bir eğilim gözlendi (P < 0,06) [3]. Yazarlar bu sonucun Kafkas kökenli Behçet hastalarında koruyucu bir ilişkiyi düşündürdüğünü belirtmiştir [3]."
+    },
+    "ret_kapsam": [],
+    "gen_ret": [],
+    "not": "Kaynak 4'teki bulgular 'en az bir risk aleli taşıyan' hasta grubuna ait, yalnız L1007fs'ye değil. Kaynak 2'de hastalar çoğunlukla birleşik varyantlar taşıyor, bulgu tek varyanta mal edilemez."
+  },
+  {
+    "girdi": "RHO P23H",
+    "ozet": "RHO genindeki c.68C>A (p.P23H) değişimi, otozomal baskın retinitis pigmentosa (adRP) ile ilişkilendirilen bir varyanttır [3]. Pro23His gibi RHO mutasyonları, Kuzey Amerika'da baskın kalıtımlı retinitis pigmentosanın başlıca nedenidir [4]. Bu baskın retina distrofilerinde zararlı bir protein ürünü oluştuğu için tedavinin mutant alelin baskılanmasını gerektireceği belirtilmektedir [4]. Amerika Birleşik Devletleri'nde bu varyanta bağlı adRP'nin klinik yaygınlığı, yazın taramasına dayanan meta-analizde yaklaşık 2000-3000 hasta olarak tahmin edilmiştir [3]. Aynı çalışmada varyantı taşıyan kişi sayısı popülasyon genetiği modellemesiyle 6176 (%90 güven aralığı: 3333-11398) olarak hesaplanmış ve bunların yalnızca yarısının Avrupa kökenli genetik soyla kümelenmesi beklenmiştir [3]. Varyant beklenmedik biçimde Afrikalı Amerikalı ve diğer Avrupa dışı biyocoğrafi soy alt gruplarında daha yüksek sıklıkta bulunmuştur [3]. Mutasyona özgü bir antisens oligonükleotid olan QR-1123 RHO genindeki P23H varyantını hedeflemekte, otozomal baskın RP için klinik olarak araştırılmakta ve klinik öncesi çalışmalarda umut verici sonuçlar vermiştir [2]. Katalitik olarak etkisiz dCas9-KRAB ile RHO uyarıcı bölgesini baskılama denemesinde, insan retina eksplantlarına ve transgenik Pro23His mutant domuzlara retina altı aktarım sonrasında rodopsin proteininde anlamlı azalma sağlanmıştır [4].",
+    "takip": [
+      {
+        "soru": "P23H fare modelinde retina proteomunda ne bulunmuş?",
+        "cevap": "RhoP23H/WT faresi, otozomal baskın retinitis pigmentosa modeli olarak kullanılmıştır [5]. Üç ayrı kalıtsal retina dejenerasyonu modelinin karşılaştırıldığı bu çalışmada, modellerin tümünde iltihap, hücresel stres ve fototransdüksiyonda azalma gözlenmiştir [5]. İki RP modelinde (rd10 ve P23H) birincil çomak hücre ölümünün mekanizması farklı olmasına karşın proteom fenotipinde belirgin bir yakınsama görülmüştür [5]. Veriler, cAMP ve cGMP ikinci mesajcı yollarını olası tedavi hedefleri olarak öne çıkarmıştır [5]."
+      }
+    ],
+    "cok_turlu": {
+      "soru": "Bu alele özgü düzenleme için özel bir Cas9 enzimi tasarlanmış mı?",
+      "cevap": "Yüksek verimli protein mühendisliğinin makine öğrenmesiyle birleştirildiği bir çalışmada, belirli hedeflere daha uygun özel Cas9 düzenleyicileri türetilmiştir [1]. Bilgisayarda yürütülen yönlendirilmiş evrim yöntemi kullanıcının belirlediği Cas9 tasarımına olanak vermiş, insan hücrelerinde ve farelerde RHO P23H aleline alel seçici hedefleme bunun örnekleri arasında sayılmıştır [1]."
+    },
+    "ret_kapsam": [],
+    "gen_ret": [],
+    "not": "Kaynak 1 esas olarak Cas9 enzim mühendisliği hakkında; P23H yalnız bir uygulama örneği olarak anılıyor. Kaynak 4'teki baskılama bulguları hücre, insan retina eksplantı ve transgenik domuz düzeyinde; kaynak 5 fare modeli."
+  },
+  {
+    "girdi": "XPO1 E571K",
+    "ozet": "XPO1 geni, yük proteinlerinin ve RNA'ların çekirdekten dışa taşınmasını denetleyen eksportin 1 proteinini kodlar [2]. Birincil mediastinal B hücreli lenfoma (PMBL) ve klasik Hodgkin lenfoma olgularının yaklaşık %25'inde, proteinin yük bağlanma bölgesi olan hidrofobik oyuğunda E571K değişimine yol açan yinelenen bir XPO1 nokta mutasyonu (chr2:g61718472C>T) saptanmıştır [2]. CRISPR-Cas9 ile düzenlenmiş hücrelerin de kullanıldığı bir çalışmada bu mutasyonun dışa taşıma kapasitesini değiştirmediği, bunun yerine XPO1'in kendi hücre içi yerleşimini değiştirdiği gözlenmiştir [2]. İmportin β1'e bağlanan mutant XPO1, ilgili yüklerin çekirdekten dışa taşınma ve içe alınma dinamiklerini değiştirmiştir [2]. STAT6'nın XPO1 aracılı dışa taşınması, yabanil tip ya da E571K mutant XPO1 üreten hücrelerin her ikisinde de gerçekleşmiştir [1]. Kronik lenfositik lösemide 1286 olguluk geriye dönük bir incelemede, çoğunlukla E571K ya da E571G olan eşanlamsız XPO1 mutasyonları (n = 72) yüksek riskli genetik ve epigenetik özelliklerle ve hızlanmış hastalık seyriyle ilişkili bulunmuştur [3]. Lenfomada XPO1E571K sık gözlenen bir değişim olup iyi bir prognoz göstergesi olarak tanımlanmıştır [4]. Varyant, hastaların tümör dokusunda ve plazma hücre dışı DNA'sında dijital PCR ve yeni nesil dizileme gibi çok duyarlı yöntemlerle ölçülebildiği için minimal kalıntı hastalık izleminde bir araç olarak önerilmiştir [5].",
+    "takip": [
+      {
+        "soru": "bu mutasyon selinexor gibi ilaçların etkisini azaltır mı?",
+        "cevap": "Bir çalışmada yabanil tip E571 ve E571K XPO1'in, çekirdek dışa taşımasının seçici engelleyicileri (SINE) olan KPT-185, KPT-330/Selinexor ve KPT-8602/Eltanexor'a bağlı kristal yapıları belirlenmiştir [3]. Bu yapılar birbirine çok benzer bulunmuş ve bu durum, kronik lenfositik lösemi hastalarında E571'deki XPO1 mutasyonlarının bu bileşik sınıfının etkinliğini etkilemeyeceğini düşündürmüştür [3]."
+      }
+    ],
+    "cok_turlu": {
+      "soru": "Fare modelinde bu mutasyonun lösemi gelişimine etkisi incelendi mi?",
+      "cevap": "Çalışmada XPO1'in yabanil tip ya da mutant (E571K veya E571G) biçimlerinin anlatımı B hücrelerine sınırlandırılmış bir fare modeli (Eµ-XPO1) kurulmuştur [3]. Yaşlı farelerde B hücrelerinde yabanil tip ya da mutant XPO1'in sürekli aşırı anlatımının, kronik lenfositik lösemi benzeri bir hastalığın gelişimini etkileyebildiği bulunmuştur [3]. E571K ya da E571G mutasyonlu XPO1 ile TCL1'in B hücrelerinde birlikte anlatılması, lösemogenez hızını Eµ-TCL1 farelerine göre artırmıştır [3]."
+    },
+    "ret_kapsam": [],
+    "gen_ret": [],
+    "not": "Kaynak 3'teki lösemi bulguları E571K ve E571G mutasyonlarını birlikte ele alıyor; tek başına E571K'ye mal edilemez. Kaynak 1 ve 2'deki bulgular hücre hatları ve düzenlenmiş hücreler üzerinde."
+  },
+  {
+    "girdi": "APC R1450*",
+    "ozet": "Ailesel adenomatöz polipozis (FAP), APC genindeki tek bir germ hattı heterozigot olası patojenik/patojenik varyanttan kaynaklanan ve çok sayıda kolorektal adenomatöz polibin görüldüğü bir kolorektal kanser yatkınlık sendromudur [1]. APC c.4348C>T (p.Arg1450Ter), patojenik bir APC varyantı olarak tanımlanmıştır [1]. Aynı patojenik varyantı taşıyan iki hastanın sunulduğu bir olgu çalışmasında, hastaların klinik görünümleri ve bulguları birbirinden belirgin biçimde farklı seyretmiştir [1]. Birinci olgu, geniş bir kanser aile öyküsü olan ve 4 yaşında FAP tanısı alan 21 yaşında bir erkektir [1]. İkinci olgu, aile öyküsü olmayan ve önce desmoid tümörle başvurduktan sonra FAP tanısı alan 22 yaşında bir kadındır [1]. Yazarlar bu iki olgunun FAP'taki değişken dışavurumu (variable expressivity) vurguladığını ve genotipin tek başına klinik gidişi öngörmeyebileceğini belirtmiştir [1]. Ailesel FAP öyküsü olmayan 68 yaşında bir kadının duodenum karsinomu olgusunda, yeni nesil dizilemeyle APC c.4348C>T (p.Arg1450Ter) mutasyonu normal mukoza, adenom ve karsinom dokularının tümünde saptanmıştır [2]. Bu mutasyonun FAP hastalarında sık görüldüğü belirtilmiştir [2].",
+    "takip": [
+      {
+        "soru": "R1450X bir tümörde ikinci vuruş olarak da görülmüş mü?",
+        "cevap": "Ailesel adenomatöz polipozisi olan 52 yaşında bir kadının proksimal jejunumundaki iki tümörde yapılan genetik incelemede, germ hattı mutasyonuna (c.3984del5) ek olarak her tümörde birer somatik mutasyon (c.4450delAG ve p.R1450X) saptanmıştır [3]. Bu mutasyonların tümü durdurma kodonu oluşturarak kısalmış APC ürünlerine yol açmaktadır [3]. Yazarlar bunun, APC genine gelen ikinci vuruşun ailesel adenomatöz polipozisli bir hastada jejunum karsinogenezinde rol alabileceğini gösteren ilk tanım olduğunu belirtmiştir [3]."
+      }
+    ],
+    "cok_turlu": {
+      "soru": "klasik FAP ile hafif seyirli FAP arasındaki fark nedir?",
+      "cevap": "Klasik FAP, APC'de germ hattı olası patojenik/patojenik varyantı olan ve ortalama olarak ergenlikte başlayan 100 ya da daha fazla kolorektal adenomatöz polibi bulunan kişilerde düşünülür [1]. Hafifletilmiş (attenuated) FAP ise erişkinlikte daha az sayıda, 10 ile 100'den az arasında kolorektal adenomatöz polipe yol açar [1]. Her iki biçimde desmoid tümör, tiroit kanseri ve osteom gibi kolon dışı bulgular görülebilir [1]."
+    },
+    "ret_kapsam": [
+      "Bu varyant Türkiye'de ne sıklıkta görülüyor?"
+    ],
+    "gen_ret": [],
+    "not": "Kaynak 5 konu dışı: APC kısaltmasını aktive protein C anlamında kullanıyor, APC geniyle ilgisi yok. Kaynak 3'te p.R1450X somatik ikinci vuruş olarak saptanmış, hastanın germ hattı mutasyonu başka bir değişim (c.3984del5)."
+  },
+  {
+    "girdi": "rs4988235",
+    "ozet": "MCM6 genindeki rs4988235-T varyantı, erişkin Avrupa popülasyonlarında laktaz kalıcılığını büyük ölçüde belirler ve laktazı kodlayan LCT geninin anlatımını artırır [1][4]. C/C genotipini taşıyanlar laktoz intoleransı gösterirken, T/T ya da T/C taşıyanlarda laktaz etkinliği sürer ve bu kişiler erişkinlikte laktozu sindirebilir [1]. Erişkinlikte laktozu sindirme yeteneği, yaklaşık 10.000 yıl önce sığırın evcilleştirilmesinin ardından ortaya çıkan bir genetik değişime bağlanmaktadır [2]. Laktaz kalıcılığı oranları Avrupalılarda en yüksek, Doğu Asya popülasyonlarında en düşüktür [4]. Hipolaktazi ile ilişkili rs4988235-C alelinin sıklığı Orta Asya'da %87, Güney Sibirya'da %90,6 ve Kuzeydoğu Sibirya'da %92,9 bildirilmiştir [4]. Rusya'da 56 popülasyondan 24.439 kişiyle yapılan bir çalışmada rs4988235 GG genotipine göre laktaz yetmezliği yaygınlığı genel olarak %45,2, Doğu Slav grubunda %42,8 bulunmuş ve bölgeler arasında %22,8-83,2 gibi belirgin bir değişkenlik saptanmıştır [2]. Macaristan'da genel popülasyondan 397 ve Roman popülasyonundan 368 kişinin genotiplendirildiği bir çalışmada C/C genotipi Roman grupta daha yaygın bulunmuştur (%65,5'e karşı %40,3) [1]. Aynı çalışmada C/C genotipi daha yüksek LDL-kolesterol (B = 0,126; p = 0,047) ve daha yüksek ApoB100 düzeyiyle (B = 0,046; p = 0,013) ilişkili bulunmuştur [1].",
+    "takip": [
+      {
+        "soru": "Bu genotip kemik yoğunluğu ya da diyabet riskiyle ilişkilendirildi mi?",
+        "cevap": "Menopoz sonrası dönemdeki 607 kadında yapılan bir çalışmada rs4988235'in GG homozigotları, A aleli taşıyanlara göre anlamlı biçimde daha sık tip 2 diyabetliydi (p = 0,023) [3]. GG homozigotları, kalsiyum (p = 0,010), D vitamini (p = 0,01) ve osteoporoz ilaçlarını (p = 0,040) daha sık kullanmalarına karşın daha düşük femoral ve vertebral mineral yoğunluğuna sahipti [3]. Bu kadınlar anlamlı biçimde daha az kalsiyum (süt ürünü) tüketmişti ve bunun gözlenen laktoz intoleransıyla ilişkili olabileceği belirtilmiştir [3]."
+      }
+    ],
+    "cok_turlu": {
+      "soru": "Bu genotipin kalp-damar riski hesaplarıyla ilişkisi ne çıktı?",
+      "cevap": "C/C genotipi, SCORE (B = 0,235; p = 0,034), SCORE2 (p = 0,009), PCE (p = 0,008) ve RPCE (p = 0,045) algoritmalarıyla tahmin edilen kalp-damar riskinde artışla ilişkili bulunmuştur [1]. Framingham Risk Skoru ile ise böyle bir ilişki saptanmamıştır [1]. İstatistik model ApoAI ve ApoB100 düzeyleri için de düzeltildiğinde bu anlamlı ilişkiler ortadan kalkmıştır [1]. Yazarlar, laktoz intoleransı genotipi ile kalp-damar riski arasındaki ilişkinin apolipoprotein profilindeki değişiklik üzerinden dolaylı olabileceğini öne sürmüştür [1]."
+    },
+    "ret_kapsam": [
+      "Laktoz intoleransım varsa günde hangi dozda laktaz enzimi almam gerekir?"
+    ],
+    "gen_ret": [],
+    "not": "Kaynak 2 ve 3 aynı polimorfizmi GG/A aleli gösterimiyle, kaynak 1 ve 4 C/T gösterimiyle veriyor; her cümlede kaynağın gösterimi korundu. Kaynak 5 esas olarak bağırsak mikrobiyomu GWAS'ı ve rs4988235 ile Bifidobacterium ilişkisini yalnız daha önce bildirilmiş bir sinyal olarak anıyor, kullanılmadı."
+  },
+  {
+    "girdi": "chr2:233760498:G>A",
+    "ozet": "UDP-glukuronoziltransferazlar, karaciğer içi ve dışı dokularda birçok yabancı ve içsel maddenin zararsızlaştırılmasında ve atılmasında görevli bir enzim grubudur [1]. UGT1A1'deki mutasyonlar kalıtsal konjuge olmamış hiperbilirubinemilere, yani Crigler-Najjar sendromu tip I ve tip II ile Gilbert sendromuna yol açar [1]. UGT1A1'in iki başlıca polimorfizmi vardır: yanlış anlamlı (missense) G71R değişimi ve TATA kutusundaki bir ekleme mutasyonu [1]. Gilbert sendromunun yaygınlığı bu polimorfizmlere bağlanmaktadır [1]. Kodlayan 1. ekzondaki G71R, Japonlarda ve Asya kökenlilerde Gilbert fenotipine yol açabilen ikinci sık heterozigot mutasyon olarak tanımlanmıştır [2]. Japonya'da 72 yenidoğanın incelendiği bir çalışmada G71R mutasyonu, hiperbilirubinemili grupta (23 bebeğin 15'i) hiperbilirubinemisi olmayan gruba (49 bebeğin 16'sı) göre anlamlı biçimde daha sık bulunmuştur [3]. Toplam 32 çalışma ve 6520 katılımcıyı kapsayan bir meta-analizde, Gly71Arg için AA ile AG+GG karşılaştırmasında yenidoğan hiperbilirubinemisi açısından anlamlı bir fark saptanmıştır (OR = 3,47; %95 GA = 2,29-5,28; P < 0,0001) [5]. Bu meta-analiz, UGT1A1 polimorfizmlerinin (Gly71Arg ve TATA uyarıcı bölgesi) yenidoğan hiperbilirubinemisi riskini anlamlı biçimde artırdığı sonucuna varmıştır [5].",
+    "takip": [
+      {
+        "soru": "bu değişim ilaç yanıtını etkiler mi?",
+        "cevap": "UGT1A1 yalnızca bilirubini değil hormonları ve ilaçları da metabolize ettiğinden, bu gendeki mutasyonların kanser oluşumuna ve ilaç yan etkilerine karışabileceği belirtilmektedir [1]. Gilbert sendromu olarak tanımlanan genetik değişkenliğin, ilaçların glukuronidasyonunda farklılıklara ve tedavi edici ajanlardan beklenmeyen toksisiteye yol açabileceği bildirilmiştir [2]."
+      }
+    ],
+    "cok_turlu": {
+      "soru": "Bu varyant büyük bir genom çapında ilişkilendirme çalışmasında nasıl görülmüş?",
+      "cevap": "Elektronik sağlık kayıtlarına dayanan eMERGE verisinde, Avrupa kökenli 3294 katılımcıyla genom çapında bir ilişkilendirme çalışması yürütülmüştür [4]. Toplam serum bilirubin düzeyi için UGT1A gen kümesinde güçlü bir ilişki sinyali saptanmıştır (en iyi SNP rs887829; beta = 0,15; p = 1,30e-118) [4]. Seyrek varyantlar arasında, kodlayan rs4148323 (G71R) SNP'si için homozigot iki Asya kökenli birey belirlenmiştir [4]. Çalışma, erişkinlerde olduğu gibi çocuk popülasyonunda da UGT1A1'in serum bilirubinindeki normal değişkenlikten sorumlu başlıca lokus olduğunu bildirmiştir [4]."
+    },
+    "ret_kapsam": [
+      "Bu varyantı taşıyan bir hastada irinotekan dozu nasıl ayarlanmalı?"
+    ],
+    "gen_ret": [],
+    "not": "Kaynak 4'teki güçlü sinyal rs887829'a ait; G71R (rs4148323) bu çalışmada yalnız seyrek varyant olarak iki homozigot bireyde anılıyor. Kaynak 1 ve 2 derleme niteliğinde; kaynak 3'ün bulgusu yalnız Japon yenidoğanlardan."
+  },
+  {
+    "girdi": "chr17:31157568:T>C",
+    "ozet": "Nörofibromatozis tip 1 (NF1), tüm etnik gruplarda yaklaşık 3500 kişiden birini etkiler [1]. NF1 hastalarının çoğunda, gen boyunca dağılmış ve aileye özgü olan işlev kaybı mutasyonları bulunur [1]. Akraba olmayan 565 hastanın incelendiği bir çalışmada 546 hastada NF1 mutasyonu saptanmış ve mutasyon bulma oranı %97 olmuştur [1]. Aynı çalışmada cDNA ve DNA yaklaşımlarının birleştirilmesiyle, NF1 yanlış anlamlı (missense) mutasyonlarının önemli bir bölümünün (%30) pre-mRNA kırpılmasını (splicing) etkileyerek zararlı olduğu gösterilmiştir [1]. Hollanda'daki 18 yıllık moleküler tanı verisinde 1985 indeks hastanın %59,3'ünde (1178) patojenik bir mutasyon bulunmuş ve bunların çoğu (%73,8) de novo idi [4]. Aynı seride tip 1 mikrodelesyonu olan NF1 hastalarında özel eğitim gereksinimi riski, gen içi mutasyonu olan hastalara göre altı kat yüksek bulunmuştur [4]. Yinelenen varyantların incelendiği bir çalışmada p.Arg440*, p.Tyr489Cys ve p.Arg1947* varyantları, büyük gen delesyonlarıyla birlikte en yüksek komplikasyon oranlarını göstermiştir [5]. Kutanöz nörofibromlar NF1'li kişilerin %99'undan fazlasında gelişir ve bunların tedavisi için FDA onaylı bir ilaç yoktur [3].",
+    "takip": [
+      {
+        "soru": "Altı ya da daha fazla sütlü kahve rengi lekesi olan bir çocukta NF1 testi negatif çıkarsa bu ne anlama gelir?",
+        "cevap": "Kandan kapsamlı RNA incelemesi yapılan bir çalışmada nedensel NF1 mutasyonu, ailesel olguların %97,08'inde (166/171) ve sporadik de novo olguların %95,8'inde (182/190) bulunmuştur [2]. Altı ya da daha fazla sütlü kahve rengi lekesi (café au lait) olan ve pigment dışı ölçütü bulunmayan 0-20 yaş arası 71 kişinin 47'sinde (%66,2) NF1 varyantı saptanmıştır [2]. Bu kişilerin 6'sında (%8,5) SPRED1 varyantı bulunmuş, 18'inde (%25,3) ise hastalığa neden olan bir varyant saptanmamıştır [2]. Yazarlar, %95,8'lik bulma oranı kullanıldığında altı ya da daha fazla lekesi olan bir çocukta yapısal NF1 olasılığının olumsuz RNA incelemesinden sonra 2/3'ten 1/9'a düştüğünü bildirmiştir [2]."
+      }
+    ],
+    "cok_turlu": null,
+    "ret_kapsam": [],
+    "gen_ret": [
+      "Peki bende bulunan bu değişim zararlı mı?",
+      "NF1 c.204+1442T>C (chr17:31157568:T>C) varyantı hangi hastalığa yol açıyor?"
+    ],
+    "not": "Beş kaynağın tümü gen düzeyinde; hiçbiri girilen intronik c.204+1442T>C değişimini anmıyor. Kaynak 3'teki ilaç bulguları hücre modeli, fare hücreleri ve insan ksenogreftlerinden."
+  },
+  {
+    "girdi": "chr22:29637983:T>C",
+    "ozet": "Nörofibromatozis tip 2 (NF2), 22. kromozomdaki NF2 tümör baskılayıcı genindeki mutasyonların yol açtığı otozomal baskın bir hastalıktır [3]. Yaklaşık 33.000 kişiden biri NF2 mutasyonuyla doğar; olguların %60'ı de novo olup bunların üçte birinden fazlasında mutasyon döllenme sırasında değil, embriyo gelişimi sırasında ortaya çıkmıştır (mozaikler) [3]. Mutasyonlu NF2 genini kalıtan kişilerin tümü hastalığı geliştirir ve hastalık, üçüncü on yıldan önce genellikle vestibüler siniri iki yanlı tutan schwannomlarla, meningiomlarla ve diğer iyi huylu merkezi sinir sistemi tümörleriyle belirir [1]. Hastaların büyük çoğunluğunda iki yanlı vestibüler schwannom gelişir, birçoğunda ise diğer kraniyal, spinal ve çevresel sinirlerde de schwannomlar görülür [3]. Kraniyal ve spinal meningiomlar ile omurga içi düşük dereceli, sinsi seyirli ependimomlar diğer önemli tümör bulgularıdır [3]. NF2 yaşam süresini belirgin biçimde etkiler ve yapısal kısaltıcı mutasyonu olan kişilerin prognozu en kötüdür [3]. Aile öyküsü olmayan, görünürde sporadik NF2 hastalarının yaklaşık %20'ye varan bölümü aslında bu mutasyon için mozaik bireylerdir [1]. Bu tümörlerin yol açtığı sorunların önemli bir bölümü, başta cerrahi olmak üzere tedavilerinden kaynaklanır [1].",
+    "takip": [
+      {
+        "soru": "NF2 ile schwannomatozis ayrımında genetik test ne kadar yardımcı oluyor?",
+        "cevap": "Hedefli yeni nesil dizilemenin kullanıldığı 196 hastalık bir seride kan DNA'sında NF2, SMARCB1, LZTR1, SMARCE1 ve SUFU genleri incelenmiştir [5]. NF2 tanılı 79 hastanın 41'inde (%52) bir NF2 varyantı bulunmuştur [5]. Schwannomatozisli 40 hastanın 5'inde (%12,5) SMARCB1, 13'ünde (yaklaşık %32) LZTR1 varyantı saptanmıştır [5]. Yazarlar NF2, SMARCB1, LZTR1 ve SMARCE1'in birlikte incelenmesinin NF2, schwannomatozis ve meningiomatozis ayırıcı tanısında önemli bir öğe olduğu sonucuna varmıştır [5]."
+      }
+    ],
+    "cok_turlu": null,
+    "ret_kapsam": [],
+    "gen_ret": [
+      "Peki bende bulunan bu değişim hastalığa yol açar mı?",
+      "NF2 c.240+1107T>C (chr22:29637983:T>C) varyantı patojenik mi?"
+    ],
+    "not": "Kaynakların hiçbiri girilen intronik c.240+1107T>C değişimini anmıyor. Kaynak 2 ağırlıkla LZTR1 ve schwannomatozis hakkında, kaynak 4 ise meningiom hücreleri ve ksenogreft fare modeli çalışması; ikisi de özette kullanılmadı."
+  }
+]}
