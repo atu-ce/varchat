@@ -16,3 +16,6 @@ __pycache__/
 
 # İndirilen gen listesi (c05 ilk çalıştırmada yeniden oluşturur)
 genler.txt
+
+# Ölçüm betiklerinin yerel yedekleri (dogru_cevap / eski arama kayıtları); git geçmişi asıl kayıttır
+degerlendirme/sonuclar/yedek/

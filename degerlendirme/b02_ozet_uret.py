@@ -1,11 +1,10 @@
 """
 BENCHMARK 2 — Faithfulness (halüsinasyon) için veri üretimi.
 
-Gerçek sistemi (c04 pipeline'ı, sıkılaştırılmış promptu) kullanarak birkaç varyant
-özeti üretir ve KAYNAKLARIYLA birlikte bir dosyaya yazar. Sonra bu dosya okunup
-her özet, kaynaklara sadık mı (yoksa uyduruyor mu) diye değerlendirilir.
+Gerçek sistemi (c04 pipeline'ı) kullanarak birkaç varyant özeti üretir ve KAYNAKLARIYLA birlikte
+bir dosyaya yazar. Sonra bu dosya okunup her özet, kaynaklara sadık mı (yoksa uyduruyor mu) diye değerlendirilir.
 
-Çıktı: faithfulness_verisi.jsonl  (her satır: varyant, kaynaklar, özet)
+Çıktı: faithfulness_verisi.jsonl  (her satır: varyant, kademe, kaynaklar [modele giden metnin aynısı], soru, özet)
 """
 
 import json
@@ -13,10 +12,13 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.stdout.reconfigure(encoding="utf-8")
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except (AttributeError, ValueError):
+    pass
 
 import c04_varchat_ollama as app          # gerçek sistemin pipeline'ı
-from c03_varchat_gemini import baglam_metni
+from c07_sorgu_kur import baglam_metni    # modele giden kaynak metniyle BİREBİR aynı (gen düzeyi etiketi dahil)
 
 CIKTI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "faithfulness_verisi.jsonl")
 
@@ -30,11 +32,13 @@ def main():
             if not makaleler:
                 print(f"{v}: makale yok, atlandı")
                 continue
+            soru = app.ilk_soru(v)                    # varyant/gen düzeyine göre doğru soru
             grounded = [{"role": "system", "content": sistem}]
             print(f"{v}: özet üretiliyor (CPU, biraz sürer)...")
-            ozet = app.grounded_sor(grounded, f"{v} varyantını kaynaklı olarak özetle.")
+            ozet = app.grounded_sor(grounded, soru)
             f.write(json.dumps(
-                {"varyant": v, "kaynaklar": baglam_metni(makaleler), "ozet": ozet},
+                {"varyant": v, "kademe": app.SON_BAGLAM.get("kademe"), "kaynaklar": baglam_metni(makaleler),
+                 "soru": soru, "ozet": ozet, "pmidler": [m["pmid"] for m in makaleler]},
                 ensure_ascii=False) + "\n")
             f.flush()
             print(f"{v}: ✓ yazıldı ({len(ozet)} karakter)")
