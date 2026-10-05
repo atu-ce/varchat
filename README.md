@@ -66,7 +66,8 @@ verilen kaynakları özetler. Kaynak listesini model değil kod bastığı için
 | `degerlendirme/test_seti.py` | Sınav kâğıdı | Dondurulmuş 45 girdi, 4 katman (kanser hotspot, eski adlı kalıtsal, rsID, literatürsüz); eğitim varyantlarıyla kesişimsiz. |
 | `degerlendirme/b04_dogru_cevap.py` | Cevap anahtarı | Her girdi için "bu varyantı anan makaleler" listesi: girdiyle uyuşan tüm LitVar2 kayıtları birleştirilir (rsID, ad, eski ad, VEP proteini). rsID'lerden GRCh38/GRCh37 koordinat biçimleri türetilir. |
 | `degerlendirme/b05_arama_dondur.py` | Arama ölçümü | Aramayı tarih damgasıyla dondurur, yeni hattın ve eski hattın P@5'ini aynı tanımla ölçer. Eski hat, git `b87d8a8` kodunun birebir kopyasıyla (`eski_hat/`) koşar. Hakem kararları sonradan çevrimdışı uygulanır (`--hakem`). |
-| `degerlendirme/b06_toplu_uret.py`, `b07_sadakat.py`, `gece_kos.ps1` | Üretim ölçümü | Donmuş kaynaklarla her girdi için özet üretir; özeti cümle cümle yerel bir yargıç modelle kaynağa karşı denetler (destekleniyor / desteklenmiyor / çelişiyor). Gece arka planda koşar, kaldığı yerden devam eder. |
+| `degerlendirme/b06_toplu_uret.py`, `b07_sadakat.py`, `gece_kos.ps1` | Üretim ölçümü | Donmuş kaynaklarla her girdi için özet üretir; özeti cümle cümle yerel bir yargıç modelle kaynağa karşı denetler (destekleniyor / desteklenmiyor / çelişiyor). Kaldığı yerden devam eder. |
+| `degerlendirme/colab_olcum.ipynb` | Colab'da ölçüm | Ollama'yı Colab GPU'suna kurar; ham `qwen2.5:7b` ve eğitilmiş `varchat` modelini aynı ortamda `b06` + `b07` ile ölçer, karşılaştırma tablosu çıkarır. Sonuçlar Drive'a yazılır. |
 | `degerlendirme/b02`, `b03`, `denetim_testi.py` | Küçük ölçümler | `b02`: tek özet + modele giden kaynak metni. `b03`: yönlendirici doğruluğu. `denetim_testi.py`: atıf, cümle bölme ve çelişki denetimlerinin model çağırmadan çalışan testleri. (`b01` eski kelime eşleşmesi; sorguyla döngüsel, kullanılmıyor.) Sonuçlar `sonuclar/` altına. |
 | `fine_tune/` | Oryantasyon paketi | 37 varyant, öğretmen (Claude) yazımı 204 örnek: özet, takip, çok turlu takip, başka gen sorusuna ret, kapsam dışı soruya ret. Gen bazlı ayrım: 171 eğitim / 33 doğrulama. Colab QLoRA defteri (Qwen2.5-7B, yalnız cevap üzerinden kayıp). |
 | `arsiv/`, `beklemede/` | Denemeler | Eski testler; embedding denemesi (bge-m3). |
@@ -125,7 +126,7 @@ en büyük fark koordinat girdisinde.
 
 **Bilinen eksikler (öncelik sırasıyla):**
 
-1. Üretim ölçümü (ham 7B ile toplu özet + iddia düzeyinde sadakat) betikleri hazır, koşu sırada.
+1. Üretim ölçümü (ham 7B ile toplu özet + iddia düzeyinde sadakat) hazır, Colab'da koşulacak (`colab_olcum.ipynb`).
 2. Fine-tune henüz **yapılmadı**: düzeltilmiş 7B defteri hazır, eğitim çıktısı yok.
 3. Otomatik doğru cevap listesi alt sınır: "GNASR201C" gibi bitişik yazımları kaçırıyor. 14 makale insan hakem onayı bekliyor
    (`sonuclar/hakem_taslak_2026-10-05.jsonl`); onaylananlar `hakem.jsonl`'a yazılıp `b05 --hakem` ile çevrimdışı uygulanacak.
@@ -146,8 +147,8 @@ en büyük fark koordinat girdisinde.
 | D | Test seti (45 girdi + 11 türetilmiş koordinat, 4 katman) + LitVar2/PubTator3 doğru cevap listesi + dondurulmuş arama kaydı | ✅ `test_seti.py`, `b04`, `b05` (hakem onayı bekleyen 14 makale) |
 | E | Üretim: pencere 8.192, sıcaklık 0, kayan geçmiş, atıf ve dil kontrolü, ClinVar ile çelişki uyarısı, takip sınıfı | ✅ `c04` (prompt'a veritabanı kartı: bayrakla, ablasyon) |
 | F | ClinVar: rsID yolu, yıldız (kanıt düzeyi), üç sınıflandırma, kanonik kayıt seçimi | ✅ `c06` v2 |
-| G | Taban ölçümleri: ham 7B aynı test setinde (özet üretimi + iddia düzeyinde sadakat) | ⏳ betikler hazır (`b06`, `b07`), gece koşusu sırada |
-| H | Fine-tune (7B, Colab Pro): düzeltilmiş defterle eğitim, aynı test setinde ölçüm | sırada (defter 7B'ye ayarlı) |
+| G | Taban ölçümleri: ham 7B aynı test setinde (özet üretimi + iddia düzeyinde sadakat) | ⏳ Colab'da `colab_olcum.ipynb` ile, sırada |
+| H | Fine-tune (7B, Colab Pro): düzeltilmiş defterle eğitim, aynı test setinde ölçüm | sırada: `colab_egitim.ipynb`, sonra `colab_olcum.ipynb` |
 | I | Kendi arama motoru: PubTator3 varyant-anotasyonlu alt küme üzerinde BM25 + bge-m3 karma sıralama | zaman kalırsa |
 | J | Tez yazımı | ☐ |
 
