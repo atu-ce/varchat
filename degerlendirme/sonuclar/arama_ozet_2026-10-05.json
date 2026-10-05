@@ -2,7 +2,7 @@
  "kayit": "arama_2026-10-05.jsonl",
  "hesap_tarihi": "2026-10-05",
  "adet": 5,
- "hakem_karari": 0,
+ "hakem_karari": 14,
  "katmanlar": {
   "A_hotspot": {
    "girdi": 15,
@@ -15,8 +15,8 @@
    "v1_bos": 0,
    "v1_ag_hatasi": 0,
    "v1_ozet_yok_hit": 0,
-   "p5_v2_hakem": 0.84,
-   "p5_v1_hakem": 0.787,
+   "p5_v2_hakem": 0.907,
+   "p5_v1_hakem": 0.88,
    "p5_v2_varyant_etiketli": 0.827,
    "gen_etiketli_dogru": 1,
    "recall5_sinirli_ort": 0.773,
@@ -24,7 +24,7 @@
     "litvar": 58,
     "pubtator": 5,
     "kurasyon": 0,
-    "hakem": 0
+    "hakem": 5
    },
    "kapsama_ozet_medyan": 0.112,
    "gt_bos": 0,
@@ -46,8 +46,8 @@
    "v1_bos": 0,
    "v1_ag_hatasi": 0,
    "v1_ozet_yok_hit": 3,
-   "p5_v2_hakem": 0.893,
-   "p5_v1_hakem": 0.853,
+   "p5_v2_hakem": 0.907,
+   "p5_v1_hakem": 0.867,
    "p5_v2_varyant_etiketli": 0.867,
    "gen_etiketli_dogru": 2,
    "recall5_sinirli_ort": 0.8,
@@ -55,7 +55,7 @@
     "litvar": 60,
     "pubtator": 7,
     "kurasyon": 0,
-    "hakem": 0
+    "hakem": 1
    },
    "kapsama_ozet_medyan": 0.053,
    "gt_bos": 0,
@@ -77,7 +77,7 @@
    "v1_bos": 1,
    "v1_ag_hatasi": 0,
    "v1_ozet_yok_hit": 1,
-   "p5_v2_hakem": 0.96,
+   "p5_v2_hakem": 1.0,
    "p5_v1_hakem": 0.9,
    "p5_v2_varyant_etiketli": 0.96,
    "gen_etiketli_dogru": 0,
@@ -86,7 +86,7 @@
     "litvar": 45,
     "pubtator": 3,
     "kurasyon": 0,
-    "hakem": 0
+    "hakem": 2
    },
    "kapsama_ozet_medyan": 0.146,
    "gt_bos": 0,
@@ -108,7 +108,7 @@
    "v1_bos": 4,
    "v1_ag_hatasi": 0,
    "v1_ozet_yok_hit": 1,
-   "p5_v2_hakem": 0.982,
+   "p5_v2_hakem": 1.0,
    "p5_v1_hakem": 0.2,
    "p5_v2_varyant_etiketli": 0.982,
    "gen_etiketli_dogru": 0,
@@ -117,7 +117,7 @@
     "litvar": 43,
     "pubtator": 11,
     "kurasyon": 0,
-    "hakem": 0
+    "hakem": 1
    },
    "kapsama_ozet_medyan": 0.11,
    "gt_bos": 0,
@@ -151,8 +151,8 @@
    "v1_bos": 5,
    "v1_ag_hatasi": 0,
    "v1_ozet_yok_hit": 5,
-   "p5_v2_hakem": 0.91,
-   "p5_v1_hakem": 0.702,
+   "p5_v2_hakem": 0.945,
+   "p5_v1_hakem": 0.733,
    "p5_v2_varyant_etiketli": 0.898,
    "gen_etiketli_dogru": 3,
    "recall5_sinirli_ort": 0.808,
@@ -160,7 +160,7 @@
     "litvar": 206,
     "pubtator": 26,
     "kurasyon": 0,
-    "hakem": 0
+    "hakem": 9
    },
    "kapsama_ozet_medyan": 0.112,
    "gt_bos": 0,
@@ -321,8 +321,8 @@
    "gt_toplam": 358,
    "p5_v2": 2,
    "p5_v1": 0,
-   "p5_v2_hakem": 2,
-   "p5_v1_hakem": 0,
+   "p5_v2_hakem": 5,
+   "p5_v1_hakem": 4,
    "n_v2": 5,
    "n_v1": 5,
    "v1_ozet_yok_hit": 0,
@@ -334,11 +334,11 @@
    "yanlis_varyant_iddiasi": false,
    "v1_hata": false,
    "dogru_kaynak_v2": [
-    null,
+    "hakem",
     "litvar",
-    null,
+    "hakem",
     "litvar",
-    null
+    "hakem"
    ]
   },
   {
@@ -433,8 +433,8 @@
    "gt_toplam": 342,
    "p5_v2": 4,
    "p5_v1": 4,
-   "p5_v2_hakem": 4,
-   "p5_v1_hakem": 4,
+   "p5_v2_hakem": 5,
+   "p5_v1_hakem": 5,
    "n_v2": 5,
    "n_v1": 5,
    "v1_ozet_yok_hit": 0,
@@ -448,7 +448,7 @@
    "dogru_kaynak_v2": [
     "litvar",
     "litvar",
-    null,
+    "hakem",
     "litvar",
     "pubtator"
    ]
@@ -517,8 +517,8 @@
    "gt_toplam": 257,
    "p5_v2": 4,
    "p5_v1": 4,
-   "p5_v2_hakem": 4,
-   "p5_v1_hakem": 4,
+   "p5_v2_hakem": 5,
+   "p5_v1_hakem": 5,
    "n_v2": 5,
    "n_v1": 5,
    "v1_ozet_yok_hit": 0,
@@ -534,7 +534,7 @@
     "litvar",
     "litvar",
     "litvar",
-    null
+    "hakem"
    ]
   },
   {
@@ -574,7 +574,7 @@
    "p5_v2": 5,
    "p5_v1": 4,
    "p5_v2_hakem": 5,
-   "p5_v1_hakem": 4,
+   "p5_v1_hakem": 5,
    "n_v2": 5,
    "n_v1": 5,
    "v1_ozet_yok_hit": 0,
@@ -770,7 +770,7 @@
    "p5_v2": 5,
    "p5_v1": 2,
    "p5_v2_hakem": 5,
-   "p5_v1_hakem": 2,
+   "p5_v1_hakem": 3,
    "n_v2": 5,
    "n_v1": 3,
    "v1_ozet_yok_hit": 0,
@@ -825,7 +825,7 @@
    "gt_toplam": 908,
    "p5_v2": 4,
    "p5_v1": 5,
-   "p5_v2_hakem": 4,
+   "p5_v2_hakem": 5,
    "p5_v1_hakem": 5,
    "n_v2": 5,
    "n_v1": 5,
@@ -842,7 +842,7 @@
     "litvar",
     "litvar",
     "litvar",
-    null
+    "hakem"
    ]
   },
   {
@@ -1441,7 +1441,7 @@
    "gt_toplam": 82,
    "p5_v2": 3,
    "p5_v1": 0,
-   "p5_v2_hakem": 3,
+   "p5_v2_hakem": 5,
    "p5_v1_hakem": 0,
    "n_v2": 5,
    "n_v1": 0,
@@ -1454,11 +1454,11 @@
    "yanlis_varyant_iddiasi": false,
    "v1_hata": false,
    "dogru_kaynak_v2": [
-    null,
+    "hakem",
     "litvar",
     "pubtator",
     "pubtator",
-    null
+    "hakem"
    ]
   },
   {
@@ -1469,7 +1469,7 @@
    "gt_toplam": 82,
    "p5_v2": 4,
    "p5_v1": 1,
-   "p5_v2_hakem": 4,
+   "p5_v2_hakem": 5,
    "p5_v1_hakem": 1,
    "n_v2": 5,
    "n_v1": 5,
@@ -1486,7 +1486,7 @@
     "pubtator",
     "pubtator",
     "pubtator",
-    null
+    "hakem"
    ]
   },
   {

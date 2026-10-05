@@ -110,15 +110,16 @@ Kod 13 Eylül 2026'da baştan sona denetlendi; 26 Eylül ve 4-5 Ekim'de denetim 
 - Yönlendirici: kural katmanı + aktif varyantı bilen model + takip sınıfı (39 mesajlık ölçümde 39/39).
 
 **Arama ölçümü (5 Ekim 2026, `sonuclar/arama_ozet_2026-10-05.json`):** P@5, iki hat için aynı tanımla.
-Eski hat = Temmuz'daki kod (git `b87d8a8`), birebir.
+Eski hat = Temmuz'daki kod (git `b87d8a8`), birebir. "Otomatik" sütunu yalnız LitVar2/PubTator3/kürasyon listesine göre;
+"hakemli" sütunu buna 14 insan hakem kararını ekler (`degerlendirme/hakem.jsonl`, 5 Ekim, ATU).
 
-| Katman | Girdi | Yeni hat | Eski hat |
-|---|---|---|---|
-| A: kanser hotspot | 15 | 0.84 | 0.79 |
-| B: eski adlı kalıtsal | 15 | 0.89 | 0.85 |
-| C: rsID | 10 | 0.96 | 0.90 |
-| C: koordinat (GRCh38/GRCh37) | 11 | 0.98 | 0.20 |
-| A+B+C | 51 | 0.91 | 0.70 |
+| Katman | Girdi | Yeni hat, otomatik | Eski hat, otomatik | Yeni hat, hakemli | Eski hat, hakemli |
+|---|---|---|---|---|---|
+| A: kanser hotspot | 15 | 0.84 | 0.79 | 0.91 | 0.88 |
+| B: eski adlı kalıtsal | 15 | 0.89 | 0.85 | 0.91 | 0.87 |
+| C: rsID | 10 | 0.96 | 0.90 | 1.00 | 0.90 |
+| C: koordinat (GRCh38/GRCh37) | 11 | 0.98 | 0.20 | 1.00 | 0.20 |
+| A+B+C | 51 | 0.91 | 0.70 | 0.94 | 0.73 |
 
 Literatürsüz 5 girdinin 5'inde de sistem "gen düzeyi" uyarısı verdi, varyant hakkında iddia üretmedi.
 Eski hat daha az makale döndürdüğü için yalnız döndürdükleri üzerinden kesinliği A/B'de biraz daha yüksek (0.88 ve 0.98);
@@ -128,8 +129,8 @@ en büyük fark koordinat girdisinde.
 
 1. Üretim ölçümü (ham 7B ile toplu özet + iddia düzeyinde sadakat) hazır, Colab'da koşulacak (`colab_olcum.ipynb`).
 2. Fine-tune henüz **yapılmadı**: düzeltilmiş 7B defteri hazır, eğitim çıktısı yok.
-3. Otomatik doğru cevap listesi alt sınır: "GNASR201C" gibi bitişik yazımları kaçırıyor. 14 makale insan hakem onayı bekliyor
-   (`sonuclar/hakem_taslak_2026-10-05.jsonl`); onaylananlar `hakem.jsonl`'a yazılıp `b05 --hakem` ile çevrimdışı uygulanacak.
+3. Otomatik doğru cevap listesi alt sınır: "GNASR201C" gibi bitişik yazımları kaçırıyor. Bu yüzden iki sütun raporlanıyor;
+   kaçırılan 14 makale insan hakem kararıyla eklendi (`hakem.jsonl`, `b05 --hakem` ile çevrimdışı uygulandı).
 4. Sistem yıldız alel adlarını (TPMT\*3A) ve eski numaralamayı (EZH2 Y641N = Y646N) bilmiyor; bu girdilerde P@5 düşük.
 5. Çeviri kalitesi (ham 7B): yanlış Türkçe terimler ve bazı atıfsız cümleler; fine-tune'un birincil hedefi.
 6. Anotasyon/ClinVar kartı prompt'a varsayılan olarak verilmiyor (eğitim verisiyle eşitlik için); `VERITABANI_PROMPTA`
@@ -144,7 +145,7 @@ en büyük fark koordinat girdisinde.
 | A | README ve iddiaları kanıta bağlamak; araştırma sorusunu tek cümleye indirmek | bu dosya |
 | B | Girdiyi yapısal kayda çevirmek (gen, rsID, p./c. HGVS); referans harf ve GRCh37 kontrolü; indel | ✅ `c02` v2 |
 | C | Sorgu kurucu: `gen AND (V600E OR Val600Glu OR rsID)`; alaka kapısı ("varyanta özgü yayın yok" uyarısı) | ✅ `c07` |
-| D | Test seti (45 girdi + 11 türetilmiş koordinat, 4 katman) + LitVar2/PubTator3 doğru cevap listesi + dondurulmuş arama kaydı | ✅ `test_seti.py`, `b04`, `b05` (hakem onayı bekleyen 14 makale) |
+| D | Test seti (45 girdi + 11 türetilmiş koordinat, 4 katman) + LitVar2/PubTator3 doğru cevap listesi + dondurulmuş arama kaydı | ✅ `test_seti.py`, `b04`, `b05` (14 hakem kararı uygulandı) |
 | E | Üretim: pencere 8.192, sıcaklık 0, kayan geçmiş, atıf ve dil kontrolü, ClinVar ile çelişki uyarısı, takip sınıfı | ✅ `c04` (prompt'a veritabanı kartı: bayrakla, ablasyon) |
 | F | ClinVar: rsID yolu, yıldız (kanıt düzeyi), üç sınıflandırma, kanonik kayıt seçimi | ✅ `c06` v2 |
 | G | Taban ölçümleri: ham 7B aynı test setinde (özet üretimi + iddia düzeyinde sadakat) | ⏳ Colab'da `colab_olcum.ipynb` ile, sırada |
