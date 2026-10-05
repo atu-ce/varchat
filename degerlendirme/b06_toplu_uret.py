@@ -72,6 +72,13 @@ def cikti_sec(model_ad, snapshot_ad, yeni=False):
     return yol
 
 
+def model_kaynakli_hata(hata):
+    """Kayıtlı bir üretim hatası MODELİN başarısızlığı mı (ölçüme sayılır), yoksa kurulum/bağlantı hatası mı (sayılmaz)?
+    Model tarafı: Ollama'nın tekrar döngüsünü kesmesi ('token repeat limit reached', 'prediction aborted')."""
+    h = (hata or "").lower()
+    return "repeat" in h or "prediction aborted" in h
+
+
 def istem(r):
     """Bir arama kaydı satırı için modele gidecek (system, ilk soru). Canlı uygulamayla aynı fonksiyonlar; varyant adı model_etiketi."""
     gen = (r.get("kayit") or {}).get("gen")
@@ -89,6 +96,10 @@ def main():
     snapshot = son_snapshot()
     satirlar = [json.loads(l) for l in open(snapshot, encoding="utf-8")]
     model_ad = model_dosya_adi(app.MODEL)
+    try:                                                   # model kurulu değilse hiçbir satır yazmadan dur
+        app.ollama.show(app.MODEL)
+    except app.ollama.ResponseError as e:
+        raise SystemExit(f"DURDU: '{app.MODEL}' Ollama'da bulunamadı ({e}). Önce modeli oluştur ('ollama list' ile kontrol et).")
     cikti = cikti_sec(model_ad, os.path.basename(snapshot), yeni="--yeni" in sys.argv)
     yapilan = set()
     if os.path.exists(cikti):
@@ -96,9 +107,10 @@ def main():
         # (5 Ekim: koordinat/rsID girdilerinde modele verilen varyant adı değişti)
         bekleyen = {r["girdi"]: istem(r) for r in satirlar}
         onceki = [json.loads(l) for l in open(cikti, encoding="utf-8") if l.strip()]
-        gecerli = [k for k in onceki if k.get("soru") is None or (k.get("sistem"), k.get("soru")) == bekleyen.get(k["girdi"])]
+        gecerli = [k for k in onceki if (k.get("soru") is None or (k.get("sistem"), k.get("soru")) == bekleyen.get(k["girdi"]))
+                   and (not k.get("hata") or model_kaynakli_hata(k["hata"]))]      # 'model bulunamadı' gibi kurulum hataları silinir
         if len(gecerli) != len(onceki):
-            print(f"  ({len(onceki) - len(gecerli)} satırın istemi değişmiş; bu satırlar yeniden üretilecek)")
+            print(f"  ({len(onceki) - len(gecerli)} satırın istemi değişmiş ya da kurulum hatasıyla kaydedilmiş; bu satırlar yeniden üretilecek)")
             with open(cikti, "w", encoding="utf-8") as f:
                 for k in gecerli:
                     f.write(json.dumps(k, ensure_ascii=False) + "\n")
@@ -130,6 +142,9 @@ def main():
             try:
                 cevap = app.grounded_sor([{"role": "system", "content": sistem}], soru)
             except app.ollama.ResponseError as e:
+                if not model_kaynakli_hata(str(e)):
+                    # Ör. 'model not found' (404): model Ollama'da yok, kurulum hatası. Kaydetmeden DUR (5 Ekim: 56 satır boşa yazılmıştı)
+                    raise SystemExit(f"DURDU: {app.MODEL} için Ollama hatası: {e}. Model Ollama'da kurulu mu? ('ollama list' ile bak)")
                 # Model tarafı hata (ör. iki denemede de tekrar döngüsü): modelin başarısızlığıdır, KAYDEDİLİR ve ölçüme sayılır
                 print(f"[{i}/{len(satirlar)}] {girdi}: ÜRETİM HATASI (model) {e}")
                 kayit.update(soru=soru, sistem=sistem, cevap=None, hata=str(e)[:200], denetim=dict(app.SON_YANIT),
