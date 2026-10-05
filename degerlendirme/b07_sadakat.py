@@ -16,6 +16,7 @@ Kaynak metinleri, üretim satırının kendi 'snapshot' alanındaki arama kaydı
 satırın PMID listesi o kayıtla uyuşmazsa satır yargılanmaz (atıf numarası başka makaleye eşlenmesin).
 
 Kullanım: python degerlendirme/b07_sadakat.py [uretim_dosyasi] [--model MODEL] [--yargic MODEL]
+  --yargic varsayılan dışıysa (ör. qwen2.5:14b) çıktı adlarına '__yargic-<ad>' eklenir: 7B yargıcın sonuçları ezilmez.
   uretim_dosyasi yoksa: --model verilmişse o modelin, verilmemişse herhangi bir modelin EN SON YAZILAN üretim dosyası.
 """
 
@@ -160,6 +161,8 @@ def main():
             return None
         return mk
     etiket = os.path.basename(uretim).replace("uretim_", "").replace(".jsonl", "")
+    if yargic != app.MODEL:                     # ikinci yargıç: ayrı dosyalar (sadakat_<model>_<tarih>__yargic-qwen2.5-14b.jsonl)
+        etiket += "__yargic-" + yargic.replace(":", "-").replace("/", "-")
     cikti = os.path.join(BURASI, "sonuclar", f"sadakat_{etiket}.jsonl")
     yapilan = set()
     if os.path.exists(cikti):
