@@ -38,23 +38,24 @@ def arama_terimi_belirle(girdi):
 
     - Koordinat/HGVS-genomik ise VEP ile anlamlandırıp GEN adını döndürür.
     - Değilse (gen / rsID / protein HGVS) girdiyi olduğu gibi kullanır.
+
+    v2: c07_sorgu_kur ile yapısal kayıt -> varyanta özgü sorgu ("BRAF[tiab] AND (V600E[tiab] OR ...)").
+    Varyant düzeyi sorgu kurulamazsa gen düzeyi sorgu, o da yoksa girdinin kendisi döner.
     """
+    from c07_sorgu_kur import varyant_kaydi, pubmed_sorgulari   # döngüsel import olmasın diye burada
     g = girdi.strip()
     try:
-        if ":g." in g:                          # HGVS-genomik: GRCh38:1:g.17001759A>T
-            bilgi = anlamlandir_hgvs(g)
-        elif ">" in g and g.count(":") >= 2:    # VCF tarzı: chr1:17001759:A>T
-            bilgi = anlamlandir(g)
-        else:
-            return g                            # gen / rsID / protein HGVS -> doğrudan ara
-        genler = bilgi.get("genler")
-        if genler:
-            print(f"(Koordinat anlamlandırıldı → gen: {genler[0]}, rsID: {bilgi.get('rsid')})")
-            return genler[0]
-        print("(Anlamlandırıldı ama gen bulunamadı; girdi olduğu gibi aranıyor.)")
-        return g
+        kayit = varyant_kaydi(g)
+        if kayit.get("hata"):
+            print(f"(Anlamlandırma: {kayit['hata']})")
+        for u in kayit.get("uyarilar", []):
+            print(f"(Uyarı: {u})")
+        k1, k2 = pubmed_sorgulari(kayit)
+        if kayit.get("kart") and "hata" not in kayit["kart"]:
+            print(f"(Anlamlandırıldı → gen: {kayit['gen']}, rsID: {kayit['rsid']}, protein: {kayit['protein_kisa']})")
+        return k1 or k2 or g
     except Exception as e:
-        print(f"(Anlamlandırma başarısız: {e}; girdi olduğu gibi aranıyor.)")
+        print(f"(Sorgu kurulamadı: {e}; girdi olduğu gibi aranıyor.)")
         return g
 
 

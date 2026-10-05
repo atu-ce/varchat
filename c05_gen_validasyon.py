@@ -4,8 +4,8 @@ VALİDASYON (Faz 2, ikinci yarı): varyant/gen kimliği geçerli mi?
 Kullanıcı 'BRFA' gibi yanlış yazarsa yakalar ve 'BRAF mı demek istediniz?' diye önerir.
 Geçerli gen sembolleri listesini (HGNC) genler.txt'de tutar; dosya yoksa bir kez indirir.
 
-- Gen sembolü (BRAF, TP53...) -> listeye karşı doğrulanır; yanlışsa difflib ile öneri.
-- rsID (rs334) ve koordinat (chr1:...) -> gen doğrulaması gerekmez; onları VEP/pipeline doğrular.
+- Gen sembolü (BRAF, TP53...) -> listeye karşı doğrulanır; yanlışsa Jaro-Winkler benzerliğiyle öneri.
+- rsID (rs334), koordinat (chr1:...) ve HGVS (NM_...:c.) -> gen doğrulaması gerekmez; onları VEP (c02) doğrular.
 """
 
 import csv
@@ -18,7 +18,12 @@ import requests
 from rapidfuzz import process
 from rapidfuzz.distance import JaroWinkler
 
-sys.stdout.reconfigure(encoding="utf-8")
+from c02_varyant_anlamlandir import girdi_turu
+
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except (AttributeError, ValueError):       # Jupyter/Colab gibi ortamlarda stdout'un reconfigure'u yoktur
+    pass
 
 GENLER_DOSYA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "genler.txt")
 HGNC_URLLER = [
@@ -61,12 +66,12 @@ _GEN_LISTE = list(GEN_LISTESI)      # rapidfuzz için liste hali
 
 
 def gen_cikar(kimlik):
-    """Varyant kimliğinden gen sembolünü çıkarır. rsID/koordinat için None döner."""
+    """Varyant kimliğinden gen sembolünü çıkarır. rsID / koordinat / HGVS için None döner."""
     k = kimlik.strip()
     if re.match(r"^rs\d+$", k, re.IGNORECASE):
         return None                                 # rsID -> gen doğrulaması yok
-    if ":g." in k or (">" in k and k.count(":") >= 2):
-        return None                                 # koordinat/HGVS -> VEP doğrular
+    if girdi_turu(k):
+        return None                                 # koordinat / HGVS -> VEP (c02) doğrular
     return re.split(r"[\s:]", k)[0].upper()         # gen sembolü (ilk token)
 
 
@@ -81,12 +86,13 @@ def gen_gecerli_mi(gen):
 
 if __name__ == "__main__":
     print(f"\nGen listesi: {len(GEN_LISTESI)} sembol yüklü.\n")
-    testler = ["BRAF V600E", "BRFA V600E", "rs334", "chr1:17001759:A>T", "TP53", "TPP53", "XQZWK"]
+    testler = ["BRAF V600E", "BRFA V600E", "rs334", "chr1:17001759:A>T", "7:140753336 A>T",
+               "NM_004333.6:c.1799T>A", "TP53", "TPP53", "XQZWK"]
     for t in testler:
         gen = gen_cikar(t)
         if gen is None:
-            print(f"{t!r:22} -> gen doğrulaması gerekmez (rsID/koordinat)")
+            print(f"{t!r:26} -> gen doğrulaması gerekmez (rsID/koordinat/HGVS)")
         else:
             gecerli, oneriler = gen_gecerli_mi(gen)
             durum = "GEÇERLİ" if gecerli else f"GEÇERSİZ -> öneri: {oneriler}"
-            print(f"{t!r:22} -> gen={gen}: {durum}")
+            print(f"{t!r:26} -> gen={gen}: {durum}")
