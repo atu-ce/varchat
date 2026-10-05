@@ -8,7 +8,10 @@ Aynı 56 girdi, aynı istem, aynı yargıç; modeller girdi girdi eşleştirilir
 Bağımlılık yok (scipy gerekmez).
 
 Kullanım: python degerlendirme/b08_karsilastir.py [--dizin degerlendirme/colab_son] [--a qwen-taban] [--b varchat]
-                                                  [--yargic qwen2.5:14b] [--uyum qwen2.5:14b]
+                                                  [--yargic qwen2.5:32b] [--uyum qwen2.5:32b]
+                                                  [--ciftler "qwen-taban>varchat,varchat>qwen2.5:14b"]
+  --ciftler: eşleştirilmiş karşılaştırılacak model çiftleri ("A>B": B - A raporlanır; model adlarında ':' olduğu için ayraç '>');
+             verilmezse --a > --b
   --yargic: hangi yargıcın puanları kullanılsın (varsayılan: ana yargıç qwen2.5:7b; dosya adında '__yargic-' eki yok)
   --uyum  : ana yargıç ile verilen yargıç aynı iddialarda ne kadar anlaşıyor (yüzde uyum + Cohen kappa, model başına)
 Çıktı   : <dizin>/karsilastirma_istatistik_<tarih>[__yargic-<ad>].json
@@ -151,11 +154,43 @@ def yargic_uyumu(dizin, model, yargic):
             "sadakat_ikinci": round(sum(b == "DESTEKLENIYOR" for _, b in ciftler) / len(ortak), 3) if ortak else None}
 
 
+def eslestir(olcu, girdiler, a_ad, b_ad):
+    """A -> B eşleştirilmiş karşılaştırma (aynı girdiler)."""
+    A, B = [olcu[a_ad][g] for g in girdiler], [olcu[b_ad][g] for g in girdiler]
+    fark, alt, ust = bootstrap_fark(A, B)
+    iki_yargili = [(a, b) for a, b in zip(A, B) if a["yarg"] and b["yarg"]]
+    artan = sum(1 for a, b in iki_yargili if b["destek"] / b["yarg"] > a["destek"] / a["yarg"])
+    azalan = sum(1 for a, b in iki_yargili if b["destek"] / b["yarg"] < a["destek"] / a["yarg"])
+    atif_art = sum(1 for a, b in zip(A, B) if a["cumle"] and b["cumle"] and b["atifsiz"] / b["cumle"] < a["atifsiz"] / a["cumle"])
+    atif_az = sum(1 for a, b in zip(A, B) if a["cumle"] and b["cumle"] and b["atifsiz"] / b["cumle"] > a["atifsiz"] / a["cumle"])
+    ret_yalniz_a = sum(1 for a, b in zip(A, B) if a["ret"] and not b["ret"])
+    ret_yalniz_b = sum(1 for a, b in zip(A, B) if b["ret"] and not a["ret"])
+    ist = {"a": a_ad, "b": b_ad, "girdi": len(girdiler),
+           "sadakat_fark_b_eksi_a": fark, "sadakat_fark_guven_95": [alt, ust],
+           "sadakat_isaret_testi": {"b_daha_iyi": artan, "a_daha_iyi": azalan, "esit": len(iki_yargili) - artan - azalan,
+                                    "p": binom_iki_yonlu(artan, artan + azalan)},
+           "atifsiz_isaret_testi": {"b_daha_az_atifsiz": atif_art, "a_daha_az_atifsiz": atif_az, "p": binom_iki_yonlu(atif_art, atif_art + atif_az)},
+           "yalniz_ret_mcnemar": {"yalniz_a_reddetti": ret_yalniz_a, "yalniz_b_reddetti": ret_yalniz_b,
+                                  "p": binom_iki_yonlu(ret_yalniz_a, ret_yalniz_a + ret_yalniz_b)}}
+    print(f"\nEŞLEŞTİRİLMİŞ: {a_ad} -> {b_ad} ({len(girdiler)} girdi)")
+    print(f"   sadakat farkı {fark:+.3f}  (%95 bootstrap GA: {alt:+.3f} .. {ust:+.3f})")
+    s = ist["sadakat_isaret_testi"]
+    print(f"   girdi başına sadakat: {b_ad} daha iyi {s['b_daha_iyi']}, {a_ad} daha iyi {s['a_daha_iyi']}, eşit {s['esit']} | işaret testi p={s['p']}")
+    s = ist["atifsiz_isaret_testi"]
+    print(f"   atıfsız cümle oranı: {b_ad} daha az {s['b_daha_az_atifsiz']}, {a_ad} daha az {s['a_daha_az_atifsiz']} | p={s['p']}")
+    s = ist["yalniz_ret_mcnemar"]
+    print(f"   yalnız 'bilgi yok': yalnız {a_ad} {s['yalniz_a_reddetti']}, yalnız {b_ad} {s['yalniz_b_reddetti']} | McNemar p={s['p']}")
+    return ist
+
+
 def main():
     dizin = arguman("--dizin", os.path.join(os.path.dirname(os.path.abspath(__file__)), "sonuclar"))
     a_ad, b_ad = arguman("--a", "qwen-taban"), arguman("--b", "varchat")
+    ciftler = [tuple(x.strip() for x in c.split(">", 1)) for c in (arguman("--ciftler", None) or "").split(",") if ">" in c]
+    ciftler = ciftler or [(a_ad, b_ad)]
     yargic = arguman("--yargic", None)
-    modeller = [m for m in ("qwen2.5:7b", a_ad, b_ad)
+    adaylar = ("qwen2.5:7b", "qwen-taban", "varchat", "qwen2.5:14b") + tuple(x for c in ciftler for x in c)
+    modeller = [m for m in dict.fromkeys(adaylar)
                 if son(dizin, f"uretim_{dosya_adi(m)}_*.jsonl") and sadakat_dosyasi(dizin, dosya_adi(m), yargic)]
     if not modeller:
         raise SystemExit(f"{dizin} içinde {'yargıç ' + yargic + ' için ' if yargic else ''}sadakat dosyası yok")
@@ -177,39 +212,16 @@ def main():
         for anahtar, ad in basliklar:
             print(f"   {ad:22} " + "  ".join(f"{m}={satir[m][anahtar]}" for m in olcu))
 
-    # ---- eşleştirilmiş karşılaştırma: A -> B
-    ist = {}
-    if a_ad in olcu and b_ad in olcu:
-        A, B = [olcu[a_ad][g] for g in girdiler], [olcu[b_ad][g] for g in girdiler]
-        fark, alt, ust = bootstrap_fark(A, B)
-        iki_yargili = [(a, b) for a, b in zip(A, B) if a["yarg"] and b["yarg"]]
-        artan = sum(1 for a, b in iki_yargili if b["destek"] / b["yarg"] > a["destek"] / a["yarg"])
-        azalan = sum(1 for a, b in iki_yargili if b["destek"] / b["yarg"] < a["destek"] / a["yarg"])
-        atif_art = sum(1 for a, b in zip(A, B) if a["cumle"] and b["cumle"] and b["atifsiz"] / b["cumle"] < a["atifsiz"] / a["cumle"])
-        atif_az = sum(1 for a, b in zip(A, B) if a["cumle"] and b["cumle"] and b["atifsiz"] / b["cumle"] > a["atifsiz"] / a["cumle"])
-        ret_yalniz_a = sum(1 for a, b in zip(A, B) if a["ret"] and not b["ret"])
-        ret_yalniz_b = sum(1 for a, b in zip(A, B) if b["ret"] and not a["ret"])
-        ist = {"a": a_ad, "b": b_ad, "girdi": len(girdiler),
-               "sadakat_fark_b_eksi_a": fark, "sadakat_fark_guven_95": [alt, ust],
-               "sadakat_isaret_testi": {"b_daha_iyi": artan, "a_daha_iyi": azalan, "esit": len(iki_yargili) - artan - azalan,
-                                        "p": binom_iki_yonlu(artan, artan + azalan)},
-               "atifsiz_isaret_testi": {"b_daha_az_atifsiz": atif_art, "a_daha_az_atifsiz": atif_az, "p": binom_iki_yonlu(atif_art, atif_art + atif_az)},
-               "yalniz_ret_mcnemar": {"yalniz_a_reddetti": ret_yalniz_a, "yalniz_b_reddetti": ret_yalniz_b,
-                                      "p": binom_iki_yonlu(ret_yalniz_a, ret_yalniz_a + ret_yalniz_b)}}
-        print(f"\nEŞLEŞTİRİLMİŞ: {a_ad} -> {b_ad} ({len(girdiler)} girdi)")
-        print(f"   sadakat farkı {fark:+.3f}  (%95 bootstrap GA: {alt:+.3f} .. {ust:+.3f})")
-        s = ist["sadakat_isaret_testi"]
-        print(f"   girdi başına sadakat: {b_ad} daha iyi {s['b_daha_iyi']}, {a_ad} daha iyi {s['a_daha_iyi']}, eşit {s['esit']} | işaret testi p={s['p']}")
-        s = ist["atifsiz_isaret_testi"]
-        print(f"   atıfsız cümle oranı: {b_ad} daha az {s['b_daha_az_atifsiz']}, {a_ad} daha az {s['a_daha_az_atifsiz']} | p={s['p']}")
-        s = ist["yalniz_ret_mcnemar"]
-        print(f"   yalnız 'bilgi yok': yalnız {a_ad} {s['yalniz_a_reddetti']}, yalnız {b_ad} {s['yalniz_b_reddetti']} | McNemar p={s['p']}")
+    # ---- eşleştirilmiş karşılaştırmalar: her çift için A -> B
+    ist = [eslestir(olcu, girdiler, a, b) for a, b in ciftler if a in olcu and b in olcu]
+    if len(ist) == 1:
+        ist = ist[0]                                  # eski biçimle uyumlu (tek çift)
 
     uyum = {}
     if "--uyum" in sys.argv:
         ikinci = arguman("--uyum", None)
         print(f"\nYARGIÇ UYUMU: ana (qwen2.5:7b) ile {ikinci}, aynı iddialarda")
-        for m in ("qwen2.5:7b", a_ad, b_ad):
+        for m in olcu:
             u = yargic_uyumu(dizin, m, ikinci)
             if u:
                 uyum[m] = u
