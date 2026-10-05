@@ -27,7 +27,7 @@ except (AttributeError, ValueError):
 
 import c04_varchat_ollama as app
 from c06_clinvar import clinvar_bilgisi
-from c07_sorgu_kur import varyant_kaydi
+from c07_sorgu_kur import model_etiketi, varyant_kaydi
 
 BURASI = os.path.dirname(os.path.abspath(__file__))
 
@@ -72,6 +72,15 @@ def cikti_sec(model_ad, snapshot_ad, yeni=False):
     return yol
 
 
+def istem(r):
+    """Bir arama kaydı satırı için modele gidecek (system, ilk soru). Canlı uygulamayla aynı fonksiyonlar; varyant adı model_etiketi."""
+    gen = (r.get("kayit") or {}).get("gen")
+    etiket = model_etiketi(dict(r.get("kayit") or {}, girdi=r["girdi"]), r["girdi"])
+    app.SON_BAGLAM.clear()
+    app.SON_BAGLAM.update(kademe=r["kademe"], gen=gen, varyant=r["girdi"], etiket=etiket, n_kaynak=len(r["makaleler"]))
+    return app.sistem_metni(etiket, r["makaleler"], r["kademe"], gen), app.ilk_soru(etiket)
+
+
 def main():
     argv = [a for a in sys.argv[1:] if a != "--yeni"]
     uyanik_tut()
@@ -83,7 +92,17 @@ def main():
     cikti = cikti_sec(model_ad, os.path.basename(snapshot), yeni="--yeni" in sys.argv)
     yapilan = set()
     if os.path.exists(cikti):
-        yapilan = {json.loads(l)["girdi"] for l in open(cikti, encoding="utf-8") if l.strip()}
+        # İstemi (system + soru) bugünkü kodla DEĞİŞMİŞ satırlar yeniden üretilir: iki model aynı istemlerle ölçülmeli
+        # (5 Ekim: koordinat/rsID girdilerinde modele verilen varyant adı değişti)
+        bekleyen = {r["girdi"]: istem(r) for r in satirlar}
+        onceki = [json.loads(l) for l in open(cikti, encoding="utf-8") if l.strip()]
+        gecerli = [k for k in onceki if k.get("soru") is None or (k.get("sistem"), k.get("soru")) == bekleyen.get(k["girdi"])]
+        if len(gecerli) != len(onceki):
+            print(f"  ({len(onceki) - len(gecerli)} satırın istemi değişmiş; bu satırlar yeniden üretilecek)")
+            with open(cikti, "w", encoding="utf-8") as f:
+                for k in gecerli:
+                    f.write(json.dumps(k, ensure_ascii=False) + "\n")
+        yapilan = {k["girdi"] for k in gecerli}
     print(f"model={app.MODEL} | snapshot={os.path.basename(snapshot)} | çıktı={os.path.basename(cikti)} | {len(satirlar)} girdi, "
           f"{len(yapilan)} tamamlanmış | ayarlar={app.AYARLAR}")
     with open(cikti, "a", encoding="utf-8") as f:
@@ -105,10 +124,8 @@ def main():
             except Exception as e:
                 cv = None
                 print(f"  (ClinVar: {type(e).__name__})")
-            app.SON_BAGLAM.clear()
-            app.SON_BAGLAM.update(kademe=r["kademe"], gen=gen, varyant=girdi, n_kaynak=len(r["makaleler"]), clinvar=cv)
-            sistem = app.sistem_metni(girdi, r["makaleler"], r["kademe"], gen)
-            soru = app.ilk_soru(girdi)
+            sistem, soru = istem(r)
+            app.SON_BAGLAM["clinvar"] = cv
             t = time.time()
             try:
                 cevap = app.grounded_sor([{"role": "system", "content": sistem}], soru)
@@ -124,7 +141,7 @@ def main():
                 print(f"[{i}/{len(satirlar)}] {girdi}: ÜRETİM HATASI {type(e).__name__}: {e} (yeniden çalıştırınca tekrar denenecek)")
                 continue
             sure = round(time.time() - t, 1)
-            kayit.update(soru=soru, sistem=sistem, cevap=cevap, denetim=dict(app.SON_YANIT), sure_s=sure,
+            kayit.update(etiket=app.SON_BAGLAM.get("etiket"), soru=soru, sistem=sistem, cevap=cevap, denetim=dict(app.SON_YANIT), sure_s=sure,
                          clinvar_onem=((cv or {}).get("germline") or {}).get("onem"),
                          pmidler=[m["pmid"] for m in r["makaleler"]], alaka=[m.get("alaka") for m in r["makaleler"]])
             f.write(json.dumps(kayit, ensure_ascii=False) + "\n"); f.flush()

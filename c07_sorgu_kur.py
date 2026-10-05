@@ -142,6 +142,28 @@ def varyant_kaydi(girdi):
     return kayit
 
 
+def model_etiketi(kayit, girdi=None):
+    """Modele (system mesajı ve ilk soru) verilecek varyant adı. Kaynaklar varyantı gen + değişim ya da rsID ile anar, koordinatla
+    anmaz; model 'chr1:11796321:G>A hakkında' sorulunca kaynaklarda bu diziyi bulamayıp 'bilgi yok' diyordu (5 Ekim, 11/11).
+      'BRAF V600E', 'MET exon 14 skipping'  -> aynen (eğitim verisindeki biçim)
+      'rs1801133'                           -> 'MTHFR A222V (rs1801133)'
+      'chr1:11796321:G>A'                   -> 'MTHFR A222V (rs1801133; chr1:11796321:G>A)'
+      'chr1:17001759:A>T' (intron)          -> 'ATP13A2 c.705+275T>A (rs898043018; chr1:17001759:A>T)'
+    Gen ya da değişim çözülemediyse girdinin kendisi döner."""
+    girdi = (girdi or kayit.get("girdi") or "").strip()
+    tur = kayit.get("tur")
+    if tur not in ("rsid", "koordinat", "hgvs"):
+        return girdi
+    gen = kayit.get("gen")
+    degisim = kayit.get("protein_kisa") or kayit.get("cdna")
+    if not gen or not degisim:
+        return girdi
+    kimlikler = list((kayit.get("rsid") or [])[:1])
+    if tur in ("koordinat", "hgvs"):
+        kimlikler.append(girdi)
+    return f"{gen} {degisim}" + (f" ({'; '.join(kimlikler)})" if kimlikler else "")
+
+
 def _tiab(terim):
     """PubMed alan etiketi: boşluk/özel karakter içerenler tırnaklanır."""
     return f'"{terim}"[tiab]' if re.search(r"[\s>.]", terim) else f"{terim}[tiab]"

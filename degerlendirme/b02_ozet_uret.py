@@ -32,7 +32,7 @@ def main():
             if not makaleler:
                 print(f"{v}: makale yok, atlandı")
                 continue
-            soru = app.ilk_soru(v)                    # varyant/gen düzeyine göre doğru soru
+            soru = app.ilk_soru(app.SON_BAGLAM.get("etiket") or v)   # varyant/gen düzeyine göre doğru soru; modelin gördüğü adla
             grounded = [{"role": "system", "content": sistem}]
             print(f"{v}: özet üretiliyor (CPU, biraz sürer)...")
             ozet = app.grounded_sor(grounded, soru)

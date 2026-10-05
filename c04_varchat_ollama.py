@@ -22,7 +22,7 @@ import ollama
 from c01_makale_getir import kunye
 from c05_gen_validasyon import gen_cikar, gen_gecerli_mi, GEN_LISTESI
 from c06_clinvar import clinvar_bilgisi, clinvar_satirlari
-from c07_sorgu_kur import kaynaklari_getir, baglam_metni   # kademeli arama + alaka kapısı (adım 4)
+from c07_sorgu_kur import kaynaklari_getir, baglam_metni, model_etiketi   # kademeli arama + alaka kapısı (adım 4)
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -463,7 +463,8 @@ def varyant_baglami_kur(varyant):
           + f"; {len(s['makaleler'])} kaynak seçildi ({s['kademe']} düzeyi).")
     makaleler = s["makaleler"]
     gen = kayit.get("gen") or "ilgili gen"
-    SON_BAGLAM.update(kademe=s["kademe"], gen=gen, varyant=varyant, n_kaynak=len(makaleler))
+    etiket = model_etiketi(kayit, varyant)        # modele 'chr1:...' değil 'MTHFR A222V (rs1801133; chr1:...)' verilir
+    SON_BAGLAM.update(kademe=s["kademe"], gen=gen, varyant=varyant, etiket=etiket, n_kaynak=len(makaleler))
     veritabani = ""
     if VERITABANI_PROMPTA and (cv or (kart and "hata" not in kart)):
         satirlar = []
@@ -472,7 +473,7 @@ def varyant_baglami_kur(varyant):
         if kart and "hata" not in kart and kart.get("gnomad_af") is not None:
             satirlar.append(f"gnomAD sıklığı: {kart['gnomad_af']}")
         veritabani = "VERİTABANI BİLGİSİ (kaynaklarla çelişirse çelişkiyi açıkça söyle): " + "; ".join(satirlar) + "\n\n"
-    sistem = sistem_metni(varyant, makaleler, s["kademe"], gen, veritabani)
+    sistem = sistem_metni(etiket, makaleler, s["kademe"], gen, veritabani)
     return makaleler, sistem
 
 
@@ -666,7 +667,7 @@ def main():
                           f"{SON_BAGLAM['gen']} geni hakkındadır, varyantın etkisi hakkında bir şey söylemez.")
                 print("  (özet üretiliyor, biraz sürebilir...)")
                 try:
-                    ozet = grounded_sor(grounded, ilk_soru(varyant))
+                    ozet = grounded_sor(grounded, ilk_soru(SON_BAGLAM.get("etiket") or varyant))
                 except Exception as e:
                     print(f"\nBot: {model_hata_mesaji(e)}\n")
                     continue

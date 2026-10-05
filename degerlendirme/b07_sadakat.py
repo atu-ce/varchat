@@ -109,6 +109,26 @@ def yargila(iddia, kaynaklar, model):
     return "BELIRSIZ", f"yargıç hatası ({sorun})", len(denemeler)
 
 
+def cevap_ozeti(cevap):
+    """Yargılanan cevabın kısa parmak izi (b06 satırı yeniden üretilirse değişir)."""
+    import hashlib
+    return hashlib.sha1((cevap or "").encode("utf-8")).hexdigest()[:12] if cevap else None
+
+
+def _iddialar(cevap):
+    return sorted(c for c in app.cumlelere_bol(cevap or "") if c != app.RET_CEVAP and len(c.split()) >= 4)
+
+
+def iddia_kumesi(h):
+    return sorted(i["iddia"] for i in h.get("iddialar") or [])
+
+
+def iddia_kumesi_cevaptan(satirlar, girdi):
+    """Eski (parmak izsiz) sadakat satırları için: üretim dosyasındaki cevabın cümleleri yargılananlarla aynı mı?"""
+    r = next((x for x in satirlar if x["girdi"] == girdi), {})
+    return _iddialar(r.get("cevap"))
+
+
 def main():
     argv = sys.argv[1:]
     uyanik_tut()
@@ -144,9 +164,19 @@ def main():
     yapilan = set()
     if os.path.exists(cikti):
         onceki = [json.loads(l) for l in open(cikti, encoding="utf-8") if l.strip()]
-        gecerli = [h for h in onceki if h.get("yargic_surumu") == YARGIC_SURUMU]
-        if len(gecerli) != len(onceki):                       # tüm girdiler AYNI yargıç sürümüyle puanlanmalı
-            print(f"  ({len(onceki) - len(gecerli)} satır eski yargıç sürümüyle yargılanmıştı; yeniden yargılanacak)")
+        guncel = {r["girdi"]: cevap_ozeti(r.get("cevap")) for r in satirlar}
+
+        def gecerli_mi(h):
+            # Aynı yargıç sürümü VE yargılanan cevap üretim dosyasındakiyle aynı (b06 satırı yeniden üretmişse yeniden yargılanır).
+            # Parmak izi olmayan eski satırlarda cevabın cümleleri yargılanan cümlelerle karşılaştırılır.
+            if h.get("yargic_surumu") != YARGIC_SURUMU:
+                return False
+            if h.get("cevap_ozeti"):
+                return h["cevap_ozeti"] == guncel.get(h["girdi"])
+            return iddia_kumesi(h) == iddia_kumesi_cevaptan(satirlar, h["girdi"])
+        gecerli = [h for h in onceki if gecerli_mi(h)]
+        if len(gecerli) != len(onceki):                       # tüm girdiler AYNI yargıç ve AYNI cevapla puanlanmalı
+            print(f"  ({len(onceki) - len(gecerli)} satır eski yargıç sürümüyle ya da eski cevapla yargılanmıştı; yeniden yargılanacak)")
             with open(cikti, "w", encoding="utf-8") as f:
                 for h in gecerli:
                     f.write(json.dumps(h, ensure_ascii=False) + "\n")
@@ -181,7 +211,7 @@ def main():
                 "sadakat": round(sum(i["karar"] == "DESTEKLENIYOR" for i in yarg) / len(yarg), 3) if yarg else None,
             }
             kayit = {"girdi": r["girdi"], "katman": r["katman"], "kademe": r["kademe"], "model": r["model"], "yargic": yargic,
-                     "yargic_surumu": YARGIC_SURUMU,
+                     "yargic_surumu": YARGIC_SURUMU, "cevap_ozeti": cevap_ozeti(r.get("cevap")),
                      "yargic_ayarlari": {k: YARGIC_AYARLARI.get(k) for k in ("temperature", "seed", "num_predict", "num_ctx")},
                      "snapshot": r.get("snapshot"), "uretim": os.path.basename(uretim),
                      "iddialar": iddialar, "ozet": ozet, "denetim": r.get("denetim"), "sure_s": r.get("sure_s"), "tarih": date.today().isoformat()}

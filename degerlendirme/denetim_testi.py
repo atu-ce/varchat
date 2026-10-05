@@ -159,6 +159,23 @@ kontrol("gen kademesinde denetim yok", celiski("Benign", "TTN geni patojenik var
 kontrol("çelişkili (Conflicting) sınıfta denetim yok", celiski("Conflicting classifications of pathogenicity", "Bu varyant patojeniktir [1]."), False)
 app.SON_BAGLAM.clear()
 
+# ---------------------------------------------------------------- modele verilen varyant adı
+print("MODEL ETİKETİ")
+from c07_sorgu_kur import model_etiketi
+kontrol("gen + değişim girdisi aynen kalır (eğitimdeki biçim)",
+        model_etiketi({"tur": "gen_degisim", "gen": "BRAF", "protein_kisa": "V600E"}, "BRAF V600E"), "BRAF V600E")
+kontrol("rsID -> 'GEN DEĞİŞİM (rsID)'",
+        model_etiketi({"tur": "rsid", "gen": "MTHFR", "protein_kisa": "A222V", "rsid": ["rs1801133"]}, "rs1801133"), "MTHFR A222V (rs1801133)")
+kontrol("koordinat -> 'GEN DEĞİŞİM (rsID; koordinat)' (kaynaklar koordinatı anmaz; 5 Ekim'de 11/11 'bilgi yok')",
+        model_etiketi({"tur": "koordinat", "gen": "MTHFR", "protein_kisa": "A222V", "rsid": ["rs1801133"]}, "chr1:11796321:G>A"),
+        "MTHFR A222V (rs1801133; chr1:11796321:G>A)")
+kontrol("protein yoksa cDNA kullanılır (intron)",
+        model_etiketi({"tur": "koordinat", "gen": "ATP13A2", "cdna": "c.705+275T>A", "rsid": ["rs898043018"]}, "chr1:17001759:A>T"),
+        "ATP13A2 c.705+275T>A (rs898043018; chr1:17001759:A>T)")
+kontrol("gen çözülemediyse girdi aynen", model_etiketi({"tur": "koordinat", "gen": None}, "chr1:1:A>T"), "chr1:1:A>T")
+kontrol("rsID'siz koordinat", model_etiketi({"tur": "koordinat", "gen": "TP53", "protein_kisa": "R175H", "rsid": []}, "chr17:7675088:C>T"),
+        "TP53 R175H (chr17:7675088:C>T)")
+
 # ---------------------------------------------------------------- tekrar döngüsü (Ollama 'token repeat limit reached')
 print("TEKRAR DÖNGÜSÜ")
 import ollama as _ollama
