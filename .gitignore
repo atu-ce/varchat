@@ -19,3 +19,8 @@ genler.txt
 
 # Ölçüm betiklerinin yerel yedekleri (dogru_cevap / eski arama kayıtları); git geçmişi asıl kayıttır
 degerlendirme/sonuclar/yedek/
+
+# Model dosyaları (Drive/yerelde; repoya girmez)
+modeller/
+*.gguf
+degerlendirme/son_ciktilar/varchat-lora-v2/
