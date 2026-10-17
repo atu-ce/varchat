@@ -183,16 +183,27 @@ en düşük kayıplı 2. tur saklandı (3. turda ezber başlıyor).
 
 ---
 
-## 5. Sıradaki işler
+## 5. Bilinen eksikler ve sonraki adımlar
 
-1. Gen düzeyi kaynaklarda varyant adını anıp "bilgi yok" demeyen cümleleri silen kod denetimi.
-2. Çelişen iddiaları azaltmak (rakam/yön hataları): eğitim verisinde ya da üretim sonrası denetimde.
-3. Sistem yıldız alel adlarını (TPMT\*3A) ve eski numaralamayı (EZH2 Y641N = Y646N) bilmiyor; bu girdilerde P@5 düşük.
-4. Arama: gen kısaltması çakışması (APC = aktive protein C) bir girdide konu dışı kaynak getirdi.
-5. İsteğe bağlı: aynı veriyle 14B eğitimi.
-6. Tez yazımı.
+### Bilinen eksikler
 
-Araştırma sorusu danışmanla birlikte netleştirilecek.
+- **Gen düzeyi modda varyant iddiası:** Varyanta özgü kaynak yoksa model yalnız gen hakkında yazmalı. Bir test girdisinde
+  (chr1:17001759:A>T) yine de varyanta kaynakta olmayan bir hastalık ilişkisi yükledi; bunu yakalayan bir üretim sonrası kod
+  denetimi yok.
+- **Çelişen iddialar:** varchat-v2'nin atıflı iddialarının %14'ü kaynağıyla çelişiyor (yanlış rakam, ters yön, yanlış alel ya da
+  hastalık). Üretim sonrası denetim yalnız ClinVar sınıfıyla yön çelişkisini yakalıyor; cümledeki rakam ve yön kaynak metniyle
+  karşılaştırılmıyor.
+- **Yıldız alel adları ve eski numaralama:** Sistem farmakogenetik yıldız alel adlarını (TPMT\*3A) ve bazı genlerin eski
+  numaralamasını (EZH2 Y641N = Y646N) tanımıyor; bu girdilerde P@5 düşük.
+- **Gen kısaltması çakışması:** Kısaltması başka bir terimle çakışan genlerde (APC = aktive protein C) arama konu dışı kaynak
+  getirebiliyor; çakışma filtresi bu kısaltmayı içermiyor.
+
+### Sonraki adımlar
+
+- **Daha büyük modeller:** Yüksek bellekli GPU'da aynı 501 örnekle Qwen2.5-14B ve Qwen2.5-32B'yi eğitip aynı test seti ve
+  yargıçla ölçmek. Şu an 14B yalnız eğitimsiz hâliyle ölçüldü, 32B ise yalnız yargıç olarak kullanıldı. 14B eğitimi A100 40 GB'a
+  sığar; 32B eğitimi için 80 GB sınıfı GPU gerekeceği tahmin ediliyor.
+- **Tez yazımı.** Araştırma sorusu danışmanla birlikte netleştirilecek.
 
 ---
 
