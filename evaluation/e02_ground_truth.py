@@ -25,8 +25,8 @@ Ek kurallar (4 Ekim):
     (rs6025 -> 'F5 R506Q' kayıtları da birleşir; böylece 'rs6025' ile 'F5 R506Q' aynı listeyi alır).
   - VEP geçici hatası boş küme olarak ÖNBELLEĞE ALINMAZ; denenemeyen 'vep' eşleşmesi satırın uyarilar alanına yazılır.
 
-Çıktı: evaluation/sonuclar/dogru_cevap.jsonl  (tarih damgalı; git'e girer). Yeni liste önce geçici dosyaya yazılır; eskisi
-sonuclar/yedek/dogru_cevap_<tarih_saat>.jsonl olarak saklanır (koşu yarıda kalırsa eski liste yerinde kalır, aynı gün ikinci koşu ezmez).
+Çıktı: evaluation/results/dogru_cevap.jsonl  (tarih damgalı; git'e girer). Yeni liste önce geçici dosyaya yazılır; eskisi
+results/yedek/dogru_cevap_<tarih_saat>.jsonl olarak saklanır (koşu yarıda kalırsa eski liste yerinde kalır, aynı gün ikinci koşu ezmez).
 """
 
 import json
@@ -51,7 +51,7 @@ from e01_test_set import KATMANLAR, KOORDINAT_TURET
 
 LITVAR = "https://www.ncbi.nlm.nih.gov/research/litvar2-api/"
 PUBTATOR = "https://www.ncbi.nlm.nih.gov/research/pubtator3-api/"
-CIKTI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sonuclar", "dogru_cevap.jsonl")
+CIKTI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results", "dogru_cevap.jsonl")
 ARALIK = 0.4
 NUK = re.compile(r"^([acgt])(\d+)([acgt])$")                 # c677t, a1298c, g20210a (nükleotid tarzı eski ad; küçük harf)
 HGVS_NUK = re.compile(r"^[cg]\.(\d+)([acgt])>([acgt])$")     # LitVar hgvs: c.677C>T / g.20210G>A (küçük harfe çevrilmiş)

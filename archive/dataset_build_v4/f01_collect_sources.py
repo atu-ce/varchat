@@ -11,8 +11,8 @@ Kaynaklar UYGULAMANIN KENDİ HATTIYLA çekilir (m04.kaynaklari_getir): modele gi
 Kural: hiçbir gen test setinde (evaluation/e01_test_set.py, 56 girdi) ya da v3 eğitim verisinde yoktur (çeşitlilik + sızıntı yok).
 Test setinin donmuş arama kaydıyla ortak PMID varsa raporlanır.
 
-Çıktı: fine_tune/ara_veri/kaynaklar_v4.jsonl  (v3'ün kaynakları: arsiv/fine_tune_v3/kaynaklar.jsonl)
-Kullanım: python fine_tune/f01_collect_sources.py
+Çıktı: archive/dataset_build_v4/inputs/kaynaklar_v4.jsonl  (v3'ün kaynakları: arsiv/fine_tune_v3/kaynaklar.jsonl)
+Kullanım: python archive/dataset_build_v4/f01_collect_sources.py
 """
 
 import json
@@ -20,7 +20,7 @@ import os
 import sys
 import time
 
-KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+KOK = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # repo kökü (archive/dataset_build_v4/)
 sys.path.insert(0, KOK)
 sys.path.insert(0, os.path.join(KOK, "evaluation"))
 try:
@@ -33,8 +33,8 @@ import m01_main as app
 from m04_retrieval import kaynaklari_getir, model_etiketi
 from e01_test_set import EGITIM_GENLERI, KATMANLAR
 
-CIKTI = os.path.join(KOK, "fine_tune", "ara_veri", "kaynaklar_v4.jsonl")
-TEST_SNAPSHOT = os.path.join(KOK, "evaluation", "sonuclar", "arama_2026-10-05.jsonl")
+CIKTI = os.path.join(KOK, "archive", "dataset_build_v4", "inputs", "kaynaklar_v4.jsonl")
+TEST_SNAPSHOT = os.path.join(KOK, "evaluation", "results", "arama_2026-10-05.jsonl")
 
 # (girdi, alan, biçim) — biçim: gen_degisim | eski_ad | ifade | rsid
 GIRDILER = [

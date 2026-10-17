@@ -20,7 +20,7 @@ Mesaj
  │
  ▼
 [Yönlendirici]  selamlama / kendini tanıt / konu dışı / varyant / takip / belirsiz
- │               önce kurallar, emin değilse ham qwen2.5:7b
+ │               önce kurallar, emin değilse model (varchat-v2)
  ▼ (varyant)
 [Gen doğrulama] gen sembolü HGNC listesinde var mı? "BRFA" → "BRAF mı demek istediniz?"
  ▼
@@ -59,7 +59,7 @@ Kaynak listesini model değil kod bastığı için makale uydurulamaz (cümle d�
 | `m04_retrieval.py` | Sorgu kurucu + alaka kapısı: PubMed'i kademeli arar, kaynakları `varyant` / `gen` diye etiketler. |
 | `m05_pubmed.py` | NCBI E-utilities (PubMed) istemcisi. |
 | `m06_clinvar.py` | ClinVar kaydını bulur, kanonik kaydı seçer, sınıflandırmaları yıldızıyla gösterir. |
-| `models/` | Yerel model dosyaları (repoda yalnız `Modelfile.varchat-v2`; GGUF ve adaptör repo dışı). |
+| `models/` | Yerel model dosyaları: `Modelfile.varchat-v2` (Ollama ayarı, repoda), `varchat-v2-Q4_K_M.gguf` (model, 4,7 GB) ve `varchat-lora-v2/` (eğitilmiş adaptör, 166 MB; model dosyasını yeniden üretmek için). Son ikisi repo dışı. |
 
 ### Değerlendirme (`evaluation/`)
 
@@ -76,29 +76,25 @@ Kaynak listesini model değil kod bastığı için makale uydurulamaz (cümle d�
 | `e09_router_eval.py` | Yönlendirici doğruluğu (39 mesaj). |
 | `e10_check_tests.py` | Üretim sonrası denetimlerin model çağırmadan çalışan testleri. |
 | `e11_judge_check.py` | Yargıç kontrolü: bütün iddiaları kör paketlere böler, daha güçlü üçüncü yargıcın (Claude) kararlarını toplar, 7B/32B yargıcın doğruluğunu ve üçüncü yargıçla model sadakatini hesaplar. |
-| `sonuclar/` | Ölçüm girdileri: donmuş arama kaydı, doğru cevap listesi, hakem kararları (`hakem.jsonl`), özetler. |
-| `sonuclar_colab/` | Colab üretim/sadakat sonuçları (5 model, 7B ve 32B yargıç); `v1_` önekliler ilk eğitimin ölçüm koşusuna ait. |
+| `results/` | Bütün ölçüm dosyaları. Girdiler: donmuş arama kaydı (`arama_*`), doğru cevap listesi, hakem kararları (`hakem.jsonl`). Çıktılar: modellerin cevapları (`uretim_*`), yargıç kararları (`sadakat_*`; `__yargic-qwen2.5-32b` ekli olanlar 32B yargıç), karşılaştırmalar (`karsilastirma_*`), üçüncü yargıç kontrolü (`yargic_kontrol*`), yönlendirici testleri (`router_<model>_*`), ortam kayıtları; `v1_` önekliler ilk eğitimin ölçüm koşusuna ait. |
 
 ### Eğitim (`fine_tune/`)
 
-| Dosya | Ne yapar |
-|---|---|
 Eğitim yalnız Qwen2.5-7B-Instruct'a yapıldı (14B eğitilmedi; ham hâli yalnız karşılaştırma için ölçüldü).
 
 | Dosya | Ne yapar |
 |---|---|
-| `f01_collect_sources.py` | Yeni eğitim girdilerinin kaynaklarını uygulamanın kendi hattıyla toplar → `ara_veri/kaynaklar_v4.jsonl`. |
-| `f02_build_dataset.py` | `ara_veri/` içindeki dört dosyadan **`egitim_verisi.jsonl`**'ı (501 örnek) üretir: v3'ün 204 örneğine denetim düzeltmelerini uygular, 297 yeni örneği ekler. |
-| `f03_colab_train.ipynb` | QLoRA eğitimi (Qwen2.5-7B-Instruct, 4-bit, yalnız cevap tokenlarında kayıp, gen bazlı doğrulama). |
-| `f04_colab_gguf.ipynb` | Yalnız model dosyası üretir: adaptör + taban → birleştir → GGUF → Q4_K_M. |
-| `egitim_verisi.jsonl` | **Eğitim verisi** (438 eğitim / 63 doğrulama); `f03` bunu okur. |
-| `ara_veri/` | `f02`'nin girdileri: `egitim_verisi_v3.jsonl` (v3'ün 204 örneği, değiştirilmemiş), `denetim_v3.json` (bu örneklerin denetim kararları), `kaynaklar_v4.jsonl`, `yeni_ornekler_v4.jsonl`. Silinirse eğitim verisi yeniden üretilemez. |
-| `v4_kayit/` | Verinin nasıl üretildiğinin ham kayıtları (denetim ve yazım/doğrulama ajanlarının çıktıları, yönergeler); bkz. `v4_kayit/README.md`. |
-| `egitim_ciktilari_v1/`, `egitim_ciktilari_v2/` | Eğitim kayıtları (kayıp geçmişi, sürümler, doğrulama varyantları). |
+| `egitim_verisi.jsonl` | **Eğitim verisi: 501 örnek** (438 eğitim / 63 doğrulama, gen bazlı ayrım); `f01` bunu okur. |
+| `f01_colab_train.ipynb` | Colab'da QLoRA eğitimi (Qwen2.5-7B-Instruct, 4-bit, yalnız cevap tokenlarında kayıp); adaptörü Drive'a yazar. |
+| `f02_colab_gguf.ipynb` | Adaptör + taban → birleştir → GGUF → Q4_K_M: Ollama'nın çalıştırdığı tek model dosyası. |
+| `results/v1/`, `results/v2/` | Eğitim kayıtları (kayıp geçmişi, kütüphane sürümleri, doğrulama varyantları; v2'de adaptör ayarları ve en iyi epoch). |
 
-### Arşiv (`arsiv/`)
+Verinin nasıl üretildiği (204 eski örneğin denetimi, 297 yeni örnek, üretim betikleri ve girdileri) arşivde:
+`archive/dataset_build_v4/` (betikler orada da çalışır ve aynı 501 örneği yeniden üretir).
 
-Kullanılmayan eski sürümler ve denemeler; içerik ve nedenleri `arsiv/README.md`'de.
+### Arşiv (`archive/`)
+
+Kullanılmayan eski sürümler ve denemeler; içerik ve nedenleri `archive/README.md`'de.
 
 ---
 
@@ -110,13 +106,8 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-[Ollama](https://ollama.com) kurulu olmalı. Yönlendirici ham modeli kullanır:
-
-```bash
-ollama pull qwen2.5:7b
-```
-
-Eğitilmiş model (`varchat-v2`): `f04_colab_gguf.ipynb`'nin ürettiği `varchat-v2-Q4_K_M.gguf` dosyasını `models/` klasörüne koy, sonra:
+[Ollama](https://ollama.com) kurulu olmalı. Uygulama tek model kullanır: `varchat-v2` (cevap üretimi ve yönlendirici;
+yönlendirici testinde 39/39). `f02_colab_gguf.ipynb`'nin ürettiği `varchat-v2-Q4_K_M.gguf` dosyasını `models/` klasörüne koy, sonra:
 
 ```bash
 cd models
@@ -127,7 +118,7 @@ python m01_main.py
 
 `Modelfile.varchat-v2`, `ollama show qwen2.5:7b --modelfile` çıktısının yalnız `FROM` satırı değiştirilmiş hâlidir
 (aynı sohbet şablonu). Linux satır sonuyla (LF) kalmalı; Windows satır sonu şablonu bozuyor.
-Ham modelle çalıştırmak için `m01_main.py`'de `MODEL = "qwen2.5:7b"`.
+Ham modelle çalıştırmak için `ollama pull qwen2.5:7b` ve `m01_main.py`'de `MODEL = "qwen2.5:7b"`.
 
 İnternet PubMed, VEP ve ClinVar sorguları için gerekir. `.env` içinde NCBI anahtarı isteğe bağlıdır (bkz. `.env.example`).
 GPU olmayan bilgisayarda bir özet birkaç dakika sürer.
@@ -136,10 +127,10 @@ GPU olmayan bilgisayarda bir özet birkaç dakika sürer.
 
 ## 4. Sonuçlar
 
-### Arama (5 Ekim 2026, `evaluation/sonuclar/arama_ozet_2026-10-05.json`)
+### Arama (5 Ekim 2026, `evaluation/results/arama_ozet_2026-10-05.json`)
 
 P@5 = seçilen ilk 5 makaleden doğru olanların oranı. Eski hat = Temmuz'daki kod (git `b87d8a8`), birebir.
-"Hakemli" sütunu otomatik listeye 14 insan hakem kararını ekler (`evaluation/sonuclar/hakem.jsonl`).
+"Hakemli" sütunu otomatik listeye 14 insan hakem kararını ekler (`evaluation/results/hakem.jsonl`).
 
 | Katman | Girdi | Yeni hat, otomatik | Eski hat, otomatik | Yeni hat, hakemli | Eski hat, hakemli |
 |---|---|---|---|---|---|
@@ -151,7 +142,7 @@ P@5 = seçilen ilk 5 makaleden doğru olanların oranı. Eski hat = Temmuz'daki 
 
 Literatürsüz 5 girdinin 5'inde sistem "gen düzeyi" moduna geçti.
 
-### Üretim (Colab L4/A100, aynı 56 girdi, `evaluation/sonuclar_colab/`)
+### Üretim (Colab L4/A100, aynı 56 girdi, `evaluation/results/`)
 
 Sadakat = yargıcın "kaynakta destekleniyor" dediği iddiaların oranı (yalnız atıflı cümleler yargılanır). Üç yargıç:
 qwen2.5:7b ve qwen2.5:32b (`e05`) ve bütün 1.434 iddiayı kör (model adı ve öbür kararlar gizli) yeniden değerlendiren
@@ -183,14 +174,14 @@ Eşleştirilmiş karşılaştırma (`e06`, %95 bootstrap güven aralığı):
 **Bilinen sorunlar (varchat-v2):** iddiaların %14'ü kaynakla çelişiyor (Claude; modeller arasında en yüksek oran): rakam ve
 özne karışması, ters yön, yanlış alel ya da hastalık. Daha uzun ve ayrıntılı yazdıkça hata fırsatı artıyor. Gen düzeyi bir girdide
 (chr1:17001759:A>T) varyanta kaynakta olmayan bir hastalık ilişkisi yüklendi. Türkçe terimlerde bozulmalar var.
-Kararların tamamı: `sonuclar_colab/yargic_kontrol.jsonl` (her iddia için 7B, 32B ve Claude kararı + Claude gerekçesi);
+Kararların tamamı: `results/yargic_kontrol.jsonl` (her iddia için 7B, 32B ve Claude kararı + Claude gerekçesi);
 özet: `yargic_kontrol_ozet.json`.
 
 ### Eğitim
 
 QLoRA, Qwen2.5-7B-Instruct, 3 epoch, en düşük doğrulama kaybındaki epoch saklanır.
 v2: 501 örnek (438 eğitim / 63 doğrulama, 14 doğrulama geni), A100'de 26 dk; doğrulama kaybı 0.717 → **0.684** → 0.708 (epoch 2 saklandı).
-Eğitim verisinin denetimi ve üretimi: `fine_tune/v4_kayit/README.md`.
+Eğitim verisinin denetimi ve üretimi: `archive/dataset_build_v4/README.md`.
 
 ---
 

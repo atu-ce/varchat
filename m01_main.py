@@ -32,8 +32,8 @@ except (AttributeError, ValueError):
 
 MODEL = "varchat-v2"                # grounded üretim: Qwen2.5-7B-Instruct + LoRA (501 örnek), birleştirilmiş Q4_K_M
                                     # (kurulum: models/Modelfile.varchat-v2; ham model için "qwen2.5:7b")
-SINIFLANDIRICI_MODEL = "qwen2.5:7b" # niyet_belirle ham modelde kalır: eğitim verisinde sınıflandırma örneği yok,
-                                    # yönlendirici ölçümü (e09, 39/39) ham modelle yapıldı
+SINIFLANDIRICI_MODEL = MODEL        # niyet_belirle de aynı model: e09 yönlendirici testinde varchat-v2 39/39
+                                    # (ham qwen2.5:7b de 39/39); tek model = bellekte tek 4,7 GB, model değiştirme beklemesi yok
 
 # --- Üretim ayarları: TEK yerden. Her ollama.chat çağrısı bunları alır. ---
 # num_ctx        : bağlam penceresi (modelin "masası"). Ollama varsayılanı 4096; 5 makale özeti tek başına

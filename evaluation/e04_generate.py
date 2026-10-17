@@ -1,8 +1,8 @@
 """
 BENCHMARK 6 — TOPLU ÜRETİM (adım 9): dondurulmuş arama kaydı üzerinde, aynı ayarlarla, bir modelin özetlerini üretir.
 
-Girdi : evaluation/sonuclar/arama_<tarih>.jsonl  (e03: her girdi için seçilen makaleler + kademe; PubMed'e gidilmez)
-Çıktı : evaluation/sonuclar/uretim_<model>_<tarih>.jsonl  (girdi, katman, kademe, soru, system, cevap, denetimler, süre)
+Girdi : evaluation/results/arama_<tarih>.jsonl  (e03: her girdi için seçilen makaleler + kademe; PubMed'e gidilmez)
+Çıktı : evaluation/results/uretim_<model>_<tarih>.jsonl  (girdi, katman, kademe, soru, system, cevap, denetimler, süre)
 Kaldığı yerden devam eder: aynı model + aynı snapshot için yazılmış en yeni üretim dosyası bulunur ve içindeki girdiler atlanır
 (gece yarısını geçen ya da ertesi gün yeniden başlatılan koşu yeni dosyaya sıfırdan BAŞLAMAZ). CPU'da saatler sürer, gece çalıştırılır.
 
@@ -45,7 +45,7 @@ def uyanik_tut():
 
 def son_snapshot():
     """En son YAZILAN arama kaydı (ad sıralaması değil: aynı gün açılan arama_<tarih>_2.jsonl de doğru seçilsin)."""
-    dosyalar = glob.glob(os.path.join(BURASI, "sonuclar", "arama_*.jsonl"))
+    dosyalar = glob.glob(os.path.join(BURASI, "results", "arama_*.jsonl"))
     if not dosyalar:
         raise SystemExit("Önce e03_retrieval_eval.py çalıştırılmalı (arama_<tarih>.jsonl yok).")
     return max(dosyalar, key=os.path.getmtime)
@@ -58,16 +58,16 @@ def model_dosya_adi(model):
 def cikti_sec(model_ad, snapshot_ad, yeni=False):
     """Devam edilecek üretim dosyası: aynı model + aynı snapshot'la yazılmış en yeni dosya. Yoksa (ya da yeni=True) yeni ad."""
     if not yeni:
-        adaylar = sorted(glob.glob(os.path.join(BURASI, "sonuclar", f"uretim_{model_ad}_*.jsonl")), key=os.path.getmtime, reverse=True)
+        adaylar = sorted(glob.glob(os.path.join(BURASI, "results", f"uretim_{model_ad}_*.jsonl")), key=os.path.getmtime, reverse=True)
         for yol in adaylar:
             with open(yol, encoding="utf-8") as f:
                 ilk = next((l for l in f if l.strip()), None)
             if ilk and json.loads(ilk).get("snapshot") == snapshot_ad:
                 return yol
-    yol = os.path.join(BURASI, "sonuclar", f"uretim_{model_ad}_{date.today().isoformat()}.jsonl")
+    yol = os.path.join(BURASI, "results", f"uretim_{model_ad}_{date.today().isoformat()}.jsonl")
     n = 2
     while os.path.exists(yol):
-        yol = os.path.join(BURASI, "sonuclar", f"uretim_{model_ad}_{date.today().isoformat()}_{n}.jsonl")
+        yol = os.path.join(BURASI, "results", f"uretim_{model_ad}_{date.today().isoformat()}_{n}.jsonl")
         n += 1
     return yol
 

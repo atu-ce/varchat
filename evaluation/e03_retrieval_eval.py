@@ -13,7 +13,7 @@ PubTator3 anotasyonları, v1 makalelerinin başlık+özeti ve her makalenin hang
   - P@5             : ilk 5'in kaçı doğru / 5 (payda SABİT; eksik sonuç = yanlış, kullanıcıya 5 kaynak vaadi)
   - kesinlik(dönen) : doğru / dönen (yalnızca dönen makaleler; az döndürmek cezalandırılmaz)
   - doğru (oto)     : LitVar2 listesinde ∪ PubTator3 o makalede varyantı etiketlemiş (rsID / protein / cDNA / eski ad) ∪ kürasyon PMID'i
-  - doğru (hakem)   : oto ∪ insan hakem kararı (evaluation/sonuclar/hakem.jsonl; yoksa hakemli sütun = oto)
+  - doğru (hakem)   : oto ∪ insan hakem kararı (evaluation/results/hakem.jsonl; yoksa hakemli sütun = oto)
   - recall5_sinirli : yalnız LitVar ∪ kürasyon listesindeki isabetler / min(|liste|, 5)  (PubTator-only isabet recall'a girmez)
   - gen_etiketli_dogru: sistemin 'gen düzeyi' dediği ama listede doğru sayılan makaleler (liste tam metinden, sistem özetten okur)
   Otomatik doğru cevap listesi bir ALT SINIRDIR (tmVar 'GNASR201C', 'c-MetD1228N' gibi bitişik yazımları kaçırır);
@@ -27,7 +27,7 @@ Kullanım:
   python evaluation/e03_retrieval_eval.py --hakem arama_<etiket>.jsonl   çevrimdışı: hakem.jsonl kararlarını donmuş kayda uygula,
                                                                     özeti yeniden hesapla (PubMed'e gidilmez)
 Çıktılar (var olan dosya EZİLMEZ, _2/_3 eki alır):
-  sonuclar/arama_<tarih>.jsonl  (kayıt)   sonuclar/arama_ozet_<etiket>.json (tablo)   sonuclar/hakem_adaylari_<etiket>.jsonl
+  results/arama_<tarih>.jsonl  (kayıt)   results/arama_ozet_<etiket>.json (tablo)   results/hakem_adaylari_<etiket>.jsonl
 """
 
 import importlib.util
@@ -51,8 +51,8 @@ from m04_retrieval import alaka_etiketi, kaynaklari_getir
 from e01_test_set import BEKLENEN_KADEME
 
 BURASI = os.path.dirname(os.path.abspath(__file__))
-GT_DOSYA = os.path.join(BURASI, "sonuclar", "dogru_cevap.jsonl")
-HAKEM = os.path.join(BURASI, "sonuclar", "hakem.jsonl")
+GT_DOSYA = os.path.join(BURASI, "results", "dogru_cevap.jsonl")
+HAKEM = os.path.join(BURASI, "results", "hakem.jsonl")
 ESKI = os.path.join(BURASI, "eski_hat")
 PUBTATOR = "https://www.ncbi.nlm.nih.gov/research/pubtator3-api/"
 ADET = 5
@@ -85,11 +85,11 @@ def eski_hat_yukle():
 
 
 def yeni_yol(taban, uzanti):
-    """sonuclar/<taban>.<uzanti>; varsa <taban>_2, _3 ... (aynı gün ikinci koşu öncekini ezmesin)."""
-    yol = os.path.join(BURASI, "sonuclar", f"{taban}.{uzanti}")
+    """results/<taban>.<uzanti>; varsa <taban>_2, _3 ... (aynı gün ikinci koşu öncekini ezmesin)."""
+    yol = os.path.join(BURASI, "results", f"{taban}.{uzanti}")
     n = 2
     while os.path.exists(yol):
-        yol = os.path.join(BURASI, "sonuclar", f"{taban}_{n}.{uzanti}")
+        yol = os.path.join(BURASI, "results", f"{taban}_{n}.{uzanti}")
         n += 1
     return yol
 
@@ -218,7 +218,7 @@ def pubtator_bicimleri(gt, kayit):
 
 
 def hakem_yukle():
-    """evaluation/sonuclar/hakem.jsonl: {"girdi","pmid","karar":"varyant|gen|ilgisiz","kanit","tarih","hakem"} satırları (insan kararı)."""
+    """evaluation/results/hakem.jsonl: {"girdi","pmid","karar":"varyant|gen|ilgisiz","kanit","tarih","hakem"} satırları (insan kararı)."""
     h = {}
     if os.path.exists(HAKEM):
         for l in open(HAKEM, encoding="utf-8"):
@@ -324,13 +324,13 @@ def ozet_yaz(satirlar, hakem, ozet_yolu, kayit_adi):
 
 def hakem_cevrimdisi(kayit_adi):
     """Donmuş kayda hakem.jsonl kararlarını uygular ve özeti yeniden yazar (ağa gidilmez)."""
-    kayit_yolu = kayit_adi if os.path.isabs(kayit_adi) else os.path.join(BURASI, "sonuclar", os.path.basename(kayit_adi))
+    kayit_yolu = kayit_adi if os.path.isabs(kayit_adi) else os.path.join(BURASI, "results", os.path.basename(kayit_adi))
     hakem = hakem_yukle()
     satirlar = [json.loads(l) for l in open(kayit_yolu, encoding="utf-8") if l.strip()]
     for s in satirlar:
         hakemi_uygula(s, hakem)
     etiket = os.path.basename(kayit_yolu).replace("arama_", "").replace(".jsonl", "")
-    ozet_yaz(satirlar, hakem, os.path.join(BURASI, "sonuclar", f"arama_ozet_{etiket}.json"), os.path.basename(kayit_yolu))
+    ozet_yaz(satirlar, hakem, os.path.join(BURASI, "results", f"arama_ozet_{etiket}.json"), os.path.basename(kayit_yolu))
 
 
 def main():
@@ -343,8 +343,8 @@ def main():
     bugun = date.today().isoformat()
     kayit_yolu = yeni_yol(f"arama_{bugun}", "jsonl")
     etiket = os.path.basename(kayit_yolu).replace("arama_", "").replace(".jsonl", "")
-    ozet_yolu = os.path.join(BURASI, "sonuclar", f"arama_ozet_{etiket}.json")
-    hakem_yolu = os.path.join(BURASI, "sonuclar", f"hakem_adaylari_{etiket}.jsonl")
+    ozet_yolu = os.path.join(BURASI, "results", f"arama_ozet_{etiket}.json")
+    hakem_yolu = os.path.join(BURASI, "results", f"hakem_adaylari_{etiket}.jsonl")
     satirlar, hakem_adaylari = [], []
     print(f"doğru cevap: {len(gts)} satır | hakem kararı: {len(hakem)} | kayıt -> {os.path.basename(kayit_yolu)}")
     with open(kayit_yolu, "w", encoding="utf-8") as f:

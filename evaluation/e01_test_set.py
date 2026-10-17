@@ -63,7 +63,7 @@ def gen_kesisimi():
     import json
     import os
     genler = {g.split()[0].upper() for k, g in hepsi() if not g.lower().startswith(("rs", "chr", "grch"))}
-    gt = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sonuclar", "dogru_cevap.jsonl")
+    gt = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results", "dogru_cevap.jsonl")
     if os.path.exists(gt):
         for satir in open(gt, encoding="utf-8"):
             d = json.loads(satir)

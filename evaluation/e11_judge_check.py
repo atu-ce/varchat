@@ -10,8 +10,8 @@ DESTEKLENIYOR / DESTEKLENMIYOR / CELISIYOR. Atıfsız cümleler yargılanmaz (AT
 
 Kullanım:
   python evaluation/e11_judge_check.py hazirla <calisma_dizini> [paket_sayisi]   kör paketler + gizli anahtar (repo dışı)
-  python evaluation/e11_judge_check.py topla <calisma_dizini>                    etiket_<N>.json -> sonuclar_colab/yargic_kontrol.jsonl
-  python evaluation/e11_judge_check.py ozet                                      -> sonuclar_colab/yargic_kontrol_ozet.json
+  python evaluation/e11_judge_check.py topla <calisma_dizini>                    etiket_<N>.json -> results/yargic_kontrol.jsonl
+  python evaluation/e11_judge_check.py ozet                                      -> results/yargic_kontrol_ozet.json
 Çıktı (tek dosya + özet): her satır bir model cevabındaki bir iddia: model, girdi, katman, iddia, atif,
   karar_7b (ham 14B için yok), karar_32b, karar_claude, gerekce_claude.
 """
@@ -33,8 +33,8 @@ except (AttributeError, ValueError):
 
 import e06_compare as e06
 
-SONUC = os.path.join(BURASI, "sonuclar_colab")
-GIRDI = os.path.join(BURASI, "sonuclar")
+SONUC = os.path.join(BURASI, "results")
+GIRDI = os.path.join(BURASI, "results")
 CIKTI = os.path.join(SONUC, "yargic_kontrol.jsonl")
 OZET = os.path.join(SONUC, "yargic_kontrol_ozet.json")
 MODELLER = ["qwen2.5:7b", "qwen-taban", "varchat", "varchat-v2", "qwen2.5:14b"]

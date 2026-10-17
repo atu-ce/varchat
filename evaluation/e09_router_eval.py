@@ -3,7 +3,7 @@ BENCHMARK 3 — Yönlendirici (router) doğruluğu.
 
 Soru: Resepsiyonist mesajları doğru odaya yolluyor mu?
 Etiketli mesaj seti (aktif varyant bağlamıyla) -> m01.niyet (kural + model) -> karışıklık matrisi + doğruluk.
-Sonuç evaluation/sonuclar/router_<tarih>.json dosyasına yazılır (tez tablosu için ham veri).
+Sonuç evaluation/results/router_<tarih>.json dosyasına yazılır (tez tablosu için ham veri).
 
 Çalıştırma: python evaluation/e09_router_eval.py   (Ollama gerekir; ~40 mesaj, model çağrısı olanlar ~10-15 sn/mesaj CPU)
 """
@@ -106,9 +106,9 @@ def main():
         print(f"  {b:14} {dict(c)}")
     kural = sum(1 for k in kayitlar if k["kaynak"] == "kural")
     print(f"Kural katmanı {kural}/{len(SET)} mesajı modele gitmeden çözdü.")
-    klasor = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sonuclar")
+    klasor = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results")
     os.makedirs(klasor, exist_ok=True)
-    yol = os.path.join(klasor, f"router_{date.today().isoformat()}.json")
+    yol = os.path.join(klasor, f"router_{app.SINIFLANDIRICI_MODEL.replace(':', '-')}_{date.today().isoformat()}.json")
     with open(yol, "w", encoding="utf-8") as f:
         json.dump({"model": app.SINIFLANDIRICI_MODEL, "ayarlar": app.AYARLAR, "dogruluk": dogru / len(SET),
                    "kayitlar": kayitlar}, f, ensure_ascii=False, indent=1)

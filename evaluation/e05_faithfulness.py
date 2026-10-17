@@ -1,7 +1,7 @@
 """
 BENCHMARK 7 — İDDİA DÜZEYİNDE SADAKAT (faithfulness) + çıktı metrikleri (adım 9).
 
-Girdi : evaluation/sonuclar/uretim_<model>_<tarih>.jsonl (e04) + arama_<tarih>.jsonl (kaynak metinleri)
+Girdi : evaluation/results/uretim_<model>_<tarih>.jsonl (e04) + arama_<tarih>.jsonl (kaynak metinleri)
 Yöntem (RAGAS'ın sadakat fikri, yerel yargıçla):
   1) Cevap cümlelere bölünür. Ret cümlesi ("...bilgi yok.") atlanır.
   2) Atıfsız cümle -> ATIFSIZ (yargılanmaz, ayrı sayılır).
@@ -67,7 +67,7 @@ def uyanik_tut():
 
 def son_dosya(desen):
     """En son yazılan dosya (ad sıralaması model adını tarihten önce karşılaştırdığı için yanlış dosyayı seçebilirdi)."""
-    d = glob.glob(os.path.join(BURASI, "sonuclar", desen))
+    d = glob.glob(os.path.join(BURASI, "results", desen))
     return max(d, key=os.path.getmtime) if d else None
 
 
@@ -147,7 +147,7 @@ def main():
     def kaynaklar_icin(r):
         """Satırın üretildiği snapshot'taki makaleler; snapshot yoksa ya da PMID listesi uyuşmazsa None."""
         ad = r.get("snapshot")
-        yol = os.path.join(BURASI, "sonuclar", ad) if ad else None
+        yol = os.path.join(BURASI, "results", ad) if ad else None
         if not yol or not os.path.exists(yol):
             print(f"  UYARI: {r['girdi']}: snapshot dosyası yok ({ad}); atlandı")
             return None
@@ -161,7 +161,7 @@ def main():
     etiket = os.path.basename(uretim).replace("uretim_", "").replace(".jsonl", "")
     if yargic != app.MODEL:                     # ikinci yargıç: ayrı dosyalar (sadakat_<model>_<tarih>__yargic-qwen2.5-14b.jsonl)
         etiket += "__yargic-" + yargic.replace(":", "-").replace("/", "-")
-    cikti = os.path.join(BURASI, "sonuclar", f"sadakat_{etiket}.jsonl")
+    cikti = os.path.join(BURASI, "results", f"sadakat_{etiket}.jsonl")
     yapilan = set()
     if os.path.exists(cikti):
         onceki = [json.loads(l) for l in open(cikti, encoding="utf-8") if l.strip()]
@@ -238,7 +238,7 @@ def main():
                     "yargic_hatasi": sum(h["ozet"].get("yargic_hatasi", 0) for h in alt),
                     "uretim_hatasi": sum(1 for r in satirlar if r.get("hata") and (k == "TÜMÜ" or r["katman"] == k)),
                     "ort_sure_s": round(sum(h.get("sure_s") or 0 for h in alt) / len(alt), 1) if alt else None}
-    ozet_yolu = os.path.join(BURASI, "sonuclar", f"sadakat_ozet_{etiket}.json")
+    ozet_yolu = os.path.join(BURASI, "results", f"sadakat_ozet_{etiket}.json")
     json.dump({"uretim": os.path.basename(uretim), "yargic": yargic, "tablo": tablo}, open(ozet_yolu, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("\nKATMAN ÖZETİ")
     for k, v in tablo.items():

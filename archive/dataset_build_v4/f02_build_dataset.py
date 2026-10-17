@@ -1,7 +1,7 @@
 """
 FINE-TUNE v4 — BİRLEŞTİRME: v3'ün 204 örneği (denetlenmiş ve düzeltilmiş) + v4 yeni örnekler -> egitim_verisi.jsonl
 
-Girdiler (hepsi fine_tune/ara_veri/ altında):
+Girdiler (hepsi archive/dataset_build_v4/inputs/ altında):
   egitim_verisi_v3.jsonl  v3'ün 204 örneği (değişmez kopya; yoksa mevcut egitim_verisi.jsonl'dan bir kez oluşturulur)
   denetim_v3.json         v3 denetim kararları (index başına): AYNEN | DUZELTILDI | SIL | RET_DOGRU | RET_YANLIS
   kaynaklar_v4.jsonl      yeni girdilerin kaynakları + canlı sistemle AYNI system mesajı ve ilk soru (f01_collect_sources.py)
@@ -17,7 +17,7 @@ Kurallar:
     soruları başka bağlamda cevaplanabilir olduğu için kullanılmaz).
   - Bölme gen bazlı: v3 doğrulama genleri + yeni girdilerden VAL_YENI genleri doğrulamaya.
 
-Kullanım: python fine_tune/f02_build_dataset.py
+Kullanım: python archive/dataset_build_v4/f02_build_dataset.py
 """
 
 import collections
@@ -28,11 +28,12 @@ import re
 import shutil
 
 BURASI = os.path.dirname(os.path.abspath(__file__))
-V3 = os.path.join(BURASI, "ara_veri", "egitim_verisi_v3.jsonl")
-DENETIM = os.path.join(BURASI, "ara_veri", "denetim_v3.json")
-KAYNAK_V4 = os.path.join(BURASI, "ara_veri", "kaynaklar_v4.jsonl")
-YENI = os.path.join(BURASI, "ara_veri", "yeni_ornekler_v4.jsonl")
-CIKTI = os.path.join(BURASI, "egitim_verisi.jsonl")
+KOK = os.path.dirname(os.path.dirname(BURASI))   # repo kökü (archive/dataset_build_v4/)
+V3 = os.path.join(BURASI, "inputs", "egitim_verisi_v3.jsonl")
+DENETIM = os.path.join(BURASI, "inputs", "denetim_v3.json")
+KAYNAK_V4 = os.path.join(BURASI, "inputs", "kaynaklar_v4.jsonl")
+YENI = os.path.join(BURASI, "inputs", "yeni_ornekler_v4.jsonl")
+CIKTI = os.path.join(KOK, "fine_tune", "egitim_verisi.jsonl")
 
 RET_CEVAP = "Bu konuda elimdeki kaynaklarda bilgi yok."
 VAL_GENLER_V3 = {"AKT1", "DNMT3A", "HFE", "HRAS", "IDH2", "MYD88"}

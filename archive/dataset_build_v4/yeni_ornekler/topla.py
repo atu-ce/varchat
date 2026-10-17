@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
-"""dogrulama_N.json (doğrulanmış yeni örnekler) -> fine_tune/ara_veri/yeni_ornekler_v4.jsonl (f02_build_dataset.py'nin girdisi) + istatistik."""
+"""dogrulama_N.json (doğrulanmış yeni örnekler) -> archive/dataset_build_v4/inputs/yeni_ornekler_v4.jsonl (f02_build_dataset.py'nin girdisi) + istatistik."""
 import collections
 import glob
 import json
 import os
 import re
 
-KOK = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))   # repo kökü (fine_tune/v4_kayit/<klasör>/)
+KOK = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))   # repo kökü (archive/dataset_build_v4/<klasör>/)
 BURASI = os.path.dirname(os.path.abspath(__file__))
 ATIF = re.compile(r"\[(\d+)\]")
 ATIF_SONU = re.compile(r"\[\d+\](?:\s*,?\s*\[\d+\])*[.)]?\s*$")
 CJK = re.compile(r"[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]")
 
-kaynak = {json.loads(l)["girdi"]: json.loads(l) for l in open(os.path.join(KOK, "fine_tune", "ara_veri", "kaynaklar_v4.jsonl"), encoding="utf-8") if l.strip()}
+kaynak = {json.loads(l)["girdi"]: json.loads(l) for l in open(os.path.join(KOK, "archive", "dataset_build_v4", "inputs", "kaynaklar_v4.jsonl"), encoding="utf-8") if l.strip()}
 # Doğrulamadan sonra elle yapılan düzeltmeler: (girdi, alan, eski parça, yeni parça, gerekçe) — tezde raporlanır
 ELLE = [("rs9923231", "ozet",
          "rs9923231 polimorfizminin kardiyovasküler ve serebrovasküler hastalık yüksek riskiyle yakından ilişkili olduğunu bildirmiştir",
@@ -81,7 +81,7 @@ assert len(elle_uygulanan) == len(ELLE), "bir elle düzeltme uygulanamadı"
 print(f"otomatik kontrol sorunları: {len(sorun)}")
 for s in sorun[:40]:
     print("  ", s)
-with open(os.path.join(KOK, "fine_tune", "ara_veri", "yeni_ornekler_v4.jsonl"), "w", encoding="utf-8") as f:
+with open(os.path.join(KOK, "archive", "dataset_build_v4", "inputs", "yeni_ornekler_v4.jsonl"), "w", encoding="utf-8") as f:
     for o in cikti:
         f.write(json.dumps(o, ensure_ascii=False) + "\n")
-print("-> fine_tune/ara_veri/yeni_ornekler_v4.jsonl")
+print("-> archive/dataset_build_v4/inputs/yeni_ornekler_v4.jsonl")

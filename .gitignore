@@ -18,7 +18,7 @@ __pycache__/
 genler.txt
 
 # Ölçüm betiklerinin yerel yedekleri (dogru_cevap / eski arama kayıtları); git geçmişi asıl kayıttır
-evaluation/sonuclar/yedek/
+evaluation/results/yedek/
 
 # Model dosyaları (yerelde: GGUF ~4,7 GB, LoRA adaptörü); repoya yalnız Ollama ayar dosyası (Modelfile) girer
 models/*

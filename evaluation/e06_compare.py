@@ -7,7 +7,7 @@ Aynı 56 girdi, aynı istem, aynı yargıç; modeller girdi girdi eşleştirilir
   - Atıfsız cümle oranı, çelişki, yalnızca ret ("bilgi yok") cevapları (McNemar, kesin binom), dil çöküşü, cevap uzunluğu.
 Bağımlılık yok (scipy gerekmez).
 
-Kullanım: python evaluation/e06_compare.py [--dizin evaluation/sonuclar_colab] [--a qwen-taban] [--b varchat]
+Kullanım: python evaluation/e06_compare.py [--dizin evaluation/results] [--a qwen-taban] [--b varchat]
                                                   [--yargic qwen2.5:32b] [--uyum qwen2.5:32b]
                                                   [--ciftler "qwen-taban>varchat,varchat>qwen2.5:14b"]
   --ciftler: eşleştirilmiş karşılaştırılacak model çiftleri ("A>B": B - A raporlanır; model adlarında ':' olduğu için ayraç '>');
@@ -184,7 +184,7 @@ def eslestir(olcu, girdiler, a_ad, b_ad):
 
 
 def main():
-    dizin = arguman("--dizin", os.path.join(os.path.dirname(os.path.abspath(__file__)), "sonuclar"))
+    dizin = arguman("--dizin", os.path.join(os.path.dirname(os.path.abspath(__file__)), "results"))
     a_ad, b_ad = arguman("--a", "qwen-taban"), arguman("--b", "varchat")
     ciftler = [tuple(x.strip() for x in c.split(">", 1)) for c in (arguman("--ciftler", None) or "").split(",") if ">" in c]
     ciftler = ciftler or [(a_ad, b_ad)]

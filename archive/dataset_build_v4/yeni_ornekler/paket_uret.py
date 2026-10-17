@@ -4,11 +4,11 @@ import json
 import os
 import sys
 
-KOK = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))   # repo kökü (fine_tune/v4_kayit/<klasör>/)
+KOK = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))   # repo kökü (archive/dataset_build_v4/<klasör>/)
 BURASI = os.path.dirname(os.path.abspath(__file__))
 PAKET_SAYISI = int(sys.argv[1]) if len(sys.argv) > 1 else 8
 
-satirlar = [json.loads(l) for l in open(os.path.join(KOK, "fine_tune", "ara_veri", "kaynaklar_v4.jsonl"), encoding="utf-8") if l.strip()]
+satirlar = [json.loads(l) for l in open(os.path.join(KOK, "archive", "dataset_build_v4", "inputs", "kaynaklar_v4.jsonl"), encoding="utf-8") if l.strip()]
 girdiler = []
 # ~500 toplam hedefi (v3'ten 204 + yeni ~300) ve ret oranı ~%28 (v3 ile aynı; fazla ret modeli gereksiz reddetmeye iter)
 varyant_sira = 0

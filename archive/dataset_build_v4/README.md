@@ -7,7 +7,7 @@
 - **Ne:** v3 verisindeki (Temmuz 2026, öğretmen = Claude) her cevabın her cümlesi, atıf verdiği kaynağın başlık + özetiyle karşılaştırıldı.
   Denetimi 6 bağımsız Claude alt ajanı yaptı (paket başına 32-38 örnek).
 - **Kararlar:** `AYNEN`, `DUZELTILDI` (düzeltilmiş metin eklenir), `SIL`, `RET_DOGRU`, `RET_YANLIS`. Ham çıktılar `sonuc_1..6.json`.
-- **Birleştirme:** `birlestir_denetim.py` → `fine_tune/ara_veri/denetim_v3.json`. Bir karar elle geri çevrildi (örnek 172; gerekçe betikte).
+- **Birleştirme:** `birlestir_denetim.py` → `archive/dataset_build_v4/inputs/denetim_v3.json`. Bir karar elle geri çevrildi (örnek 172; gerekçe betikte).
 - **Sonuç:** 56 aynen, 92 düzeltildi, 0 silindi, 56/56 ret doğru. Özetlerin 35/37'si düzeltme istedi.
   377 cümlenin %56'sı tam destekli, %32'si kısmen, %7'si yanlış kaynağa atıflı, %5'i dil hatalı.
 - **Tekrarlayan hatalar:** kaynakta olmayan genel bilgi, fare/hücre bulgusunun insana genellenmesi, birleşik bulgunun tek varyanta
@@ -15,7 +15,7 @@
 
 ## 2. 74 yeni girdinin örnekleri (`yeni_ornekler/`)
 
-- **Girdiler ve kaynaklar:** `fine_tune/f01_collect_sources.py` → `fine_tune/ara_veri/kaynaklar_v4.jsonl`. Uygulamanın kendi arama hattı
+- **Girdiler ve kaynaklar:** `archive/dataset_build_v4/f01_collect_sources.py` → `archive/dataset_build_v4/inputs/kaynaklar_v4.jsonl`. Uygulamanın kendi arama hattı
   (m04) kullanıldı; system mesajı canlı sistemle aynı.
   - 19 tıp alanı.
   - Biçimler: gen-değişim, eski ad, rsID, GRCh38/GRCh37 koordinat, intron (gen düzeyi).
@@ -24,11 +24,11 @@
 - **Doğrulama:** `DOGRULAMA.md` ile, yazmamış 8 ayrı alt ajan cümle cümle denetledi (`dogrulama_1..8.json`).
   - Ret dışı 207 cevabın 42'si (%20) düzeltildi, 0 silindi.
   - 60 ret sorusundan 1'i değiştirildi.
-- **Toplama:** `topla.py` → `fine_tune/ara_veri/yeni_ornekler_v4.jsonl`. Bir özet elle düzeltildi (rs9923231; gerekçe betikte).
+- **Toplama:** `topla.py` → `archive/dataset_build_v4/inputs/yeni_ornekler_v4.jsonl`. Bir özet elle düzeltildi (rs9923231; gerekçe betikte).
 
 ## 3. Birleştirme
 
-`fine_tune/f02_build_dataset.py` → `fine_tune/egitim_verisi.jsonl`.
+`archive/dataset_build_v4/f02_build_dataset.py` → `fine_tune/egitim_verisi.jsonl`.
 
 - **Ne yapar:**
   - Denetim kararlarını uygular; çok turlu örneklerde önceki özet de düzeltilmiş hâliyle değişir.
@@ -40,4 +40,4 @@
   - Tür dağılımı: 111 özet, 130 takip, 114 çok turlu, 146 ret (%29).
   - En uzun örnek 4146 token (Qwen tokenizer); defterdeki sınır 4608.
 
-v3'ün değişmemiş hâli: `fine_tune/ara_veri/egitim_verisi_v3.jsonl`.
+v3'ün değişmemiş hâli: `archive/dataset_build_v4/inputs/egitim_verisi_v3.jsonl`.
