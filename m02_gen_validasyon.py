@@ -5,7 +5,7 @@ Kullanıcı 'BRFA' gibi yanlış yazarsa yakalar ve 'BRAF mı demek istediniz?' 
 Geçerli gen sembolleri listesini (HGNC) genler.txt'de tutar; dosya yoksa bir kez indirir.
 
 - Gen sembolü (BRAF, TP53...) -> listeye karşı doğrulanır; yanlışsa Jaro-Winkler benzerliğiyle öneri.
-- rsID (rs334), koordinat (chr1:...) ve HGVS (NM_...:c.) -> gen doğrulaması gerekmez; onları VEP (c02) doğrular.
+- rsID (rs334), koordinat (chr1:...) ve HGVS (NM_...:c.) -> gen doğrulaması gerekmez; onları VEP (m03) doğrular.
 """
 
 import csv
@@ -18,7 +18,7 @@ import requests
 from rapidfuzz import process
 from rapidfuzz.distance import JaroWinkler
 
-from c02_varyant_anlamlandir import girdi_turu
+from m03_varyant_anlamlandir import girdi_turu
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -71,7 +71,7 @@ def gen_cikar(kimlik):
     if re.match(r"^rs\d+$", k, re.IGNORECASE):
         return None                                 # rsID -> gen doğrulaması yok
     if girdi_turu(k):
-        return None                                 # koordinat / HGVS -> VEP (c02) doğrular
+        return None                                 # koordinat / HGVS -> VEP (m03) doğrular
     return re.split(r"[\s:]", k)[0].upper()         # gen sembolü (ilk token)
 
 

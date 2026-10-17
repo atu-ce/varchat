@@ -5,7 +5,7 @@ Neden: Eski hat koordinat girdisinde yalnızca GEN adını arıyordu (BRAF: 28.7
 varyant hakkındaymış gibi özetliyordu. Kelime araması yazıma da duyarlıydı ("BRAF:p.V600E" -> 270 sonuç).
 
 Akış:
-  girdi -> varyant_kaydi()   : gen, rsID, protein değişimi (V600E ve Val600Glu), cDNA; koordinat/HGVS/rsID ise c02 kartı
+  girdi -> varyant_kaydi()   : gen, rsID, protein değişimi (V600E ve Val600Glu), cDNA; koordinat/HGVS/rsID ise m03 kartı
         -> kaynaklari_getir() : 1) varyanta özgü PubMed sorgusu  "BRAF[tiab] AND (V600E[tiab] OR Val600Glu[tiab] OR rs113488022[tiab])"
                                 2) VEP/dbSNP'nin kürasyonlu PMID listesi (varyanta ÖZGÜ; metinde ad geçmese de dbSNP bağlamış)
                                 3) yetmezse gen düzeyi sorgu  "BRAF[tiab] AND (variant* OR mutation* OR polymorphism*)"
@@ -17,15 +17,15 @@ Akış:
 import re
 import sys
 
-import c02_varyant_anlamlandir as c02
-from c01_makale_getir import makale_ara_ayrintili, makale_detaylari_al, kunye
+import m03_varyant_anlamlandir as m03
+from m05_makale_getir import makale_ara_ayrintili, makale_detaylari_al, kunye
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
 except (AttributeError, ValueError):
     pass
 
-AMINO_1TO3 = {v: k for k, v in c02.AMINO_3TO1.items() if len(v) == 1 and v != "*"}
+AMINO_1TO3 = {v: k for k, v in m03.AMINO_3TO1.items() if len(v) == 1 and v != "*"}
 AMINO_1TO3["*"] = "Ter"
 
 # Klinikte/literatürde yaygın takma adlar -> HGNC sembolü
@@ -55,8 +55,8 @@ def _protein_bicimleri(deg):
         a, poz, b = m3.groups()
         a = a.capitalize()
         b = b.capitalize() if len(b) == 3 and b.isalpha() else b.lower()
-        a1 = c02.AMINO_3TO1.get(a, a)
-        b1 = c02.AMINO_3TO1.get(b, b) if len(b) == 3 and b.isalpha() else b
+        a1 = m03.AMINO_3TO1.get(a, a)
+        b1 = m03.AMINO_3TO1.get(b, b) if len(b) == 3 and b.isalpha() else b
         if b1 == "*":
             b1 = "X"
         return f"{a1}{poz}{b1}", f"{a}{poz}{b}"
@@ -93,9 +93,9 @@ def varyant_kaydi(girdi):
     g = re.sub(r"^rs\s+(\d+)$", r"rs\1", g, flags=re.IGNORECASE)      # "rs 334" -> "rs334"
     kayit = {"girdi": g, "tur": None, "gen": None, "rsid": [], "protein_kisa": None, "protein_3harf": None,
              "protein_diger": [], "cdna": None, "ek_terimler": [], "kart": None, "pubmed_kurasyon": [], "uyarilar": []}
-    tur = c02.girdi_turu(g)
+    tur = m03.girdi_turu(g)
     if tur in ("koordinat", "hgvs") or RSID.match(g):
-        kart = c02.anlamlandir_rsid(g) if RSID.match(g) else c02.anlamlandir_herhangi(g)
+        kart = m03.anlamlandir_rsid(g) if RSID.match(g) else m03.anlamlandir_herhangi(g)
         kayit["tur"] = "rsid" if RSID.match(g) else tur
         kayit["kart"] = kart
         if "hata" in kart:

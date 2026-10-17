@@ -53,12 +53,12 @@ Kaynak listesini model değil kod bastığı için makale uydurulamaz (cümle d�
 
 | Dosya | Ne yapar |
 |---|---|
-| `c04_varchat_ollama.py` | **Uygulama.** Sohbet döngüsü, yönlendirici, üretim, üretim sonrası denetimler. Diğer modülleri çağırır. |
-| `c05_gen_validasyon.py` | Gen sembolü doğrulama (HGNC, 45.019 sembol; `genler.txt` ilk çalıştırmada indirilir) ve yazım önerisi. |
-| `c02_varyant_anlamlandir.py` | Girdiyi Ensembl VEP ile anotasyon kartına çevirir (GRCh38, gerekirse GRCh37). |
-| `c07_sorgu_kur.py` | Sorgu kurucu + alaka kapısı: PubMed'i kademeli arar, kaynakları `varyant` / `gen` diye etiketler. |
-| `c01_makale_getir.py` | NCBI E-utilities (PubMed) istemcisi. |
-| `c06_clinvar.py` | ClinVar kaydını bulur, kanonik kaydı seçer, sınıflandırmaları yıldızıyla gösterir. |
+| `m01_varchat_ollama.py` | **Uygulama.** Sohbet döngüsü, yönlendirici, üretim, üretim sonrası denetimler. Diğer modülleri çağırır. |
+| `m02_gen_validasyon.py` | Gen sembolü doğrulama (HGNC, 45.019 sembol; `genler.txt` ilk çalıştırmada indirilir) ve yazım önerisi. |
+| `m03_varyant_anlamlandir.py` | Girdiyi Ensembl VEP ile anotasyon kartına çevirir (GRCh38, gerekirse GRCh37). |
+| `m04_sorgu_kur.py` | Sorgu kurucu + alaka kapısı: PubMed'i kademeli arar, kaynakları `varyant` / `gen` diye etiketler. |
+| `m05_makale_getir.py` | NCBI E-utilities (PubMed) istemcisi. |
+| `m06_clinvar.py` | ClinVar kaydını bulur, kanonik kaydı seçer, sınıflandırmaları yıldızıyla gösterir. |
 | `models/` | Yerel model dosyaları (repoda yalnız `Modelfile.varchat-v2`; GGUF ve adaptör repo dışı). |
 
 ### Değerlendirme (`degerlendirme/`)
@@ -115,12 +115,12 @@ Eğitilmiş model (`varchat-v2`): `colab_gguf.ipynb`'nin ürettiği `varchat-v2-
 cd models
 ollama create varchat-v2 -f Modelfile.varchat-v2
 cd ..
-python c04_varchat_ollama.py
+python m01_varchat_ollama.py
 ```
 
 `Modelfile.varchat-v2`, `ollama show qwen2.5:7b --modelfile` çıktısının yalnız `FROM` satırı değiştirilmiş hâlidir
 (aynı sohbet şablonu). Linux satır sonuyla (LF) kalmalı; Windows satır sonu şablonu bozuyor.
-Ham modelle çalıştırmak için `c04_varchat_ollama.py`'de `MODEL = "qwen2.5:7b"`.
+Ham modelle çalıştırmak için `m01_varchat_ollama.py`'de `MODEL = "qwen2.5:7b"`.
 
 İnternet PubMed, VEP ve ClinVar sorguları için gerekir. `.env` içinde NCBI anahtarı isteğe bağlıdır (bkz. `.env.example`).
 GPU olmayan bilgisayarda bir özet birkaç dakika sürer.

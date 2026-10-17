@@ -5,8 +5,8 @@ Eğitim verisini ~500 örneğe çıkarmak için yeni ve ÇEŞİTLİ girdiler: fa
 ilaç yanıtı, kanser), farklı yazım biçimleri ("GEN DEĞİŞİM", eski klinik ad, rsID, genom koordinatı GRCh38/GRCh37) ve
 literatürü olmayan gen düzeyi girdiler (intron koordinatı).
 
-Kaynaklar UYGULAMANIN KENDİ HATTIYLA çekilir (c07.kaynaklari_getir): modele giden system mesajı ve ilk soru, canlı sistemle
-(c04.sistem_metni, c04.ilk_soru, c07.model_etiketi) birebir aynıdır -> eğitim/kullanım eşitliği.
+Kaynaklar UYGULAMANIN KENDİ HATTIYLA çekilir (m04.kaynaklari_getir): modele giden system mesajı ve ilk soru, canlı sistemle
+(m01.sistem_metni, m01.ilk_soru, m04.model_etiketi) birebir aynıdır -> eğitim/kullanım eşitliği.
 
 Kural: hiçbir gen test setinde (degerlendirme/test_seti.py, 56 girdi) ya da v3 eğitim verisinde yoktur (çeşitlilik + sızıntı yok).
 Test setinin donmuş arama kaydıyla ortak PMID varsa raporlanır.
@@ -28,9 +28,9 @@ try:
 except (AttributeError, ValueError):
     pass
 
-import c02_varyant_anlamlandir as c02
-import c04_varchat_ollama as app
-from c07_sorgu_kur import kaynaklari_getir, model_etiketi
+import m03_varyant_anlamlandir as m03
+import m01_varchat_ollama as app
+from m04_sorgu_kur import kaynaklari_getir, model_etiketi
 from test_seti import EGITIM_GENLERI, KATMANLAR
 
 CIKTI = os.path.join(KOK, "fine_tune", "kaynaklar_v4.jsonl")
@@ -65,7 +65,7 @@ GIRDILER = [
     ("rs7903146", "endokrinoloji", "rsid"), ("rs4988235", "beslenme", "rsid"), ("rs1815739", "spor / kas", "rsid"),
     ("rs73885319", "nefroloji", "rsid"), ("rs10490924", "göz", "rsid"), ("rs1061170", "göz", "rsid"),
 ]
-# rsID'den türetilen KOORDİNAT girdileri (alel ClinVar'da önemi olan aleldir: c02.klinik_alel_sec); 3'ü GRCh37 biçiminde
+# rsID'den türetilen KOORDİNAT girdileri (alel ClinVar'da önemi olan aleldir: m03.klinik_alel_sec); 3'ü GRCh37 biçiminde
 KOORDINAT_RSID = [("rs1799990", "nöroloji", "GRCh38"), ("rs3892097", "farmakogenomik", "GRCh38"), ("rs776746", "farmakogenomik", "GRCh38"),
                   ("rs4148323", "farmakogenomik", "GRCh38"), ("rs5219", "endokrinoloji", "GRCh38"), ("rs601338", "immünoloji", "GRCh38"),
                   ("rs12979860", "enfeksiyon", "GRCh38"), ("rs1805007", "dermatoloji", "GRCh37"), ("rs58542926", "metabolizma", "GRCh37"),
@@ -101,7 +101,7 @@ def tekrar_dene(is_, *argumanlar, deneme=4):
 
 def rsid_koordinati(rs, surum):
     """rsID -> 'chrN:pos:REF>ALT' (yalnız tek bazlık değişim); geri çözümde aynı protein/cDNA çıkmazsa None."""
-    kart = c02.anlamlandir_rsid(rs, surum=surum)
+    kart = m03.anlamlandir_rsid(rs, surum=surum)
     if "hata" in kart:
         if "500" in str(kart["hata"]) or "ulaşılamadı" in str(kart["hata"]):
             raise RuntimeError(kart["hata"])           # geçici sunucu hatası: tekrar_dene yeniden dener
@@ -112,7 +112,7 @@ def rsid_koordinati(rs, surum):
         return None
     koord = f"chr{kart['kromozom']}:{kart['pozisyon']}:{ref}>{alt}"
     girdi = koord if surum == "GRCh38" else f"GRCh37:{koord}"
-    geri = c02.anlamlandir_herhangi(girdi) or {}
+    geri = m03.anlamlandir_herhangi(girdi) or {}
     if "500" in str(geri.get("hata", "")):
         raise RuntimeError(geri["hata"])
     if "hata" in geri or (geri.get("protein_kisa") or geri.get("hgvsc")) != (kart.get("protein_kisa") or kart.get("hgvsc")):
@@ -124,14 +124,14 @@ def rsid_koordinati(rs, surum):
 def intron_koordinati(gen):
     # Önce yalnız kanonik transkriptin kimliği, sonra o transkriptin ekzonları: genin bütün transkriptlerini birden istemek
     # (expand=1) büyük genlerde (SCN1A, DMD) Ensembl'den 500 döndürüyor.
-    v = c02._ensembl_get(f"{c02.SUNUCU['GRCh38']}/lookup/symbol/homo_sapiens/{gen}", {})
+    v = m03._ensembl_get(f"{m03.SUNUCU['GRCh38']}/lookup/symbol/homo_sapiens/{gen}", {})
     tid = (v.get("canonical_transcript") or "").split(".")[0]
-    tr = c02._ensembl_get(f"{c02.SUNUCU['GRCh38']}/lookup/id/{tid}", {"expand": 1}) if tid else None
+    tr = m03._ensembl_get(f"{m03.SUNUCU['GRCh38']}/lookup/id/{tid}", {"expand": 1}) if tid else None
     if not tr or len(tr.get("Exon", [])) < 3:
         return None
     ex = sorted(tr["Exon"], key=lambda e: e["start"])
     pos = (ex[1]["end"] + ex[2]["start"]) // 2
-    ref = c02._ensembl_get(f"{c02.SUNUCU['GRCh38']}/sequence/region/human/{v['seq_region_name']}:{pos}..{pos}:1", {}).get("seq", "").upper()
+    ref = m03._ensembl_get(f"{m03.SUNUCU['GRCh38']}/sequence/region/human/{v['seq_region_name']}:{pos}..{pos}:1", {}).get("seq", "").upper()
     if ref not in GECIS:
         return None
     return f"chr{v['seq_region_name']}:{pos}:{ref}>{GECIS[ref]}"

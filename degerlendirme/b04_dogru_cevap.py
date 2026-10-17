@@ -8,7 +8,7 @@ Kaynak: NCBI LitVar2 (varyant -> PMID listesi; tmVar anotasyonu, tam metin/PMC d
 Not: LitVar/tmVar, literatürdeki eski adı ('c.677C>T', '6174delT') bazen başka bir rsID'ye normalize eder (rs1217691063, rs786204278);
 o kayıtların makaleleri yine bizim varyantı o adla anan makalelerdir, bu yüzden LİTERAL ad eşleşmesi rsID'den bağımsız kabul edilir.
 Uyuşma kuralı (gen eşleşmesi zorunlu; en az biri):
-  - girdi rsID'si == adayın rsID'si (c06.ESKI_ADLAR tablosundan gelen rsID dahil: 'MTHFR A1298C' -> rs1801131)
+  - girdi rsID'si == adayın rsID'si (m06.ESKI_ADLAR tablosundan gelen rsID dahil: 'MTHFR A1298C' -> rs1801131)
   - adayın adı/HGVS'i girdinin yazımlarından biri (E6V, Glu6Val, E7V, c.79G>A, 35delG, 5382insC ...)
   - nükleotid tarzı eski ad <-> HGVS: 'A1298C' <-> 'c.1298A>C', 'G20210A' <-> 'g.20210G>A'
   - rsID'li aday: VEP'in o rsID için verdiği protein/cDNA yazımı girdiyle kesişiyor (rs33950507 -> p.Glu27Lys -> E27K; EZH2 Y641N -> Y646N)
@@ -21,7 +21,7 @@ Ek kurallar (4 Ekim):
     doğrudur; LitVar'ın insan rsID listeleri bu makaleleri zaten içerir, hakem kuralı da aynıdır). rsID'siz '#<GeneID>#' kayıtlarında tür
     NCBI Gene'den okunur ve insan dışıysa satırın uyarilar alanına NOT düşülür, kayıt ELENMEZ (fare Hbb #15127; 'hindi' GJB2 #100551196
     aslında tmVar'ın 'Turkey' kelimesini tür sanmasıdır: makaleler Türk hasta çalışmalarıdır).
-  - Aynı varyantın GT'si girdi biçiminden bağımsız olsun: rsID/koordinat girdisinde c06.ESKI_ADLAR'daki eski adlar da aranır
+  - Aynı varyantın GT'si girdi biçiminden bağımsız olsun: rsID/koordinat girdisinde m06.ESKI_ADLAR'daki eski adlar da aranır
     (rs6025 -> 'F5 R506Q' kayıtları da birleşir; böylece 'rs6025' ile 'F5 R506Q' aynı listeyi alır).
   - VEP geçici hatası boş küme olarak ÖNBELLEĞE ALINMAZ; denenemeyen 'vep' eşleşmesi satırın uyarilar alanına yazılır.
 
@@ -44,9 +44,9 @@ except (AttributeError, ValueError):
 
 import requests
 
-import c02_varyant_anlamlandir as c02
-from c06_clinvar import ESKI_ADLAR
-from c07_sorgu_kur import varyant_kaydi
+import m03_varyant_anlamlandir as m03
+from m06_clinvar import ESKI_ADLAR
+from m04_sorgu_kur import varyant_kaydi
 from test_seti import KATMANLAR, KOORDINAT_TURET
 
 LITVAR = "https://www.ncbi.nlm.nih.gov/research/litvar2-api/"
@@ -79,7 +79,7 @@ def _bicimler(kayit):
     adaylar = [kayit.get("protein_kisa"), kayit.get("protein_3harf"), *kayit.get("protein_diger", []),
                kayit.get("cdna"), *kayit.get("ek_terimler", [])]
     b = {_temiz(a) for a in adaylar if a}
-    b |= {x[:-1] + "*" for x in b if x.endswith("x")}      # R175X -> R175* (c07 '*'ı PubMed jokeri diye X yazar)
+    b |= {x[:-1] + "*" for x in b if x.endswith("x")}      # R175X -> R175* (m04 '*'ı PubMed jokeri diye X yazar)
     b |= {x[:-3] + "*" for x in b if x.endswith("ter")}
     return b
 
@@ -105,7 +105,7 @@ def _vep_bicimleri(rsid):
     sorun = None
     for deneme in range(2):
         try:
-            kart = c02.anlamlandir_rsid(rsid)
+            kart = m03.anlamlandir_rsid(rsid)
         except Exception as e:
             sorun = type(e).__name__
             time.sleep(3)
@@ -143,7 +143,7 @@ def _insan_geni_mi(gene_id):
 
 
 def _eski_ad_rsid(kayit):
-    """c06.ESKI_ADLAR: klinikte kullanılan eski ad -> rsID ('MTHFR A1298C' -> rs1801131, 'BRCA1 5382insC' -> rs80357906)."""
+    """m06.ESKI_ADLAR: klinikte kullanılan eski ad -> rsID ('MTHFR A1298C' -> rs1801131, 'BRCA1 5382insC' -> rs80357906)."""
     gen = kayit.get("gen") or ""
     adaylar = [kayit.get("girdi", ""), f"{gen} {kayit.get('protein_kisa') or ''}", f"{gen} {(kayit.get('ek_terimler') or [''])[0]}"]
     for a in adaylar:
@@ -268,8 +268,8 @@ def koordinat_turet(rsid, hedef_protein):
     secim38 = None
     for surum in ("GRCh38", "GRCh37"):
         try:
-            veri = c02._ensembl_get(f"{c02.SUNUCU[surum]}/vep/human/id/{rsid}", {})
-        except c02.VepHata as e:
+            veri = m03._ensembl_get(f"{m03.SUNUCU[surum]}/vep/human/id/{rsid}", {})
+        except m03.VepHata as e:
             uyarilar.append(f"{rsid} {surum}: VEP hatası ({str(e)[:80]})")
             continue
         if not veri:
@@ -284,7 +284,7 @@ def koordinat_turet(rsid, hedef_protein):
             koord = f"chr{chrom}:{pos}:{ref}>{alt}"
             girdi = koord if surum == "GRCh38" else f"GRCh37:{koord}"
             try:
-                kart = c02.anlamlandir_herhangi(girdi) or {}
+                kart = m03.anlamlandir_herhangi(girdi) or {}
             except Exception as e:
                 uyarilar.append(f"{girdi}: çözülemedi ({type(e).__name__})")
                 continue

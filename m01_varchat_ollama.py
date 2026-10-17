@@ -19,10 +19,10 @@ import sys
 
 import ollama
 
-from c01_makale_getir import kunye
-from c05_gen_validasyon import gen_cikar, gen_gecerli_mi, GEN_LISTESI
-from c06_clinvar import clinvar_bilgisi, clinvar_satirlari
-from c07_sorgu_kur import kaynaklari_getir, baglam_metni, model_etiketi   # kademeli arama + alaka kapısı (adım 4)
+from m05_makale_getir import kunye
+from m02_gen_validasyon import gen_cikar, gen_gecerli_mi, GEN_LISTESI
+from m06_clinvar import clinvar_bilgisi, clinvar_satirlari
+from m04_sorgu_kur import kaynaklari_getir, baglam_metni, model_etiketi   # kademeli arama + alaka kapısı (adım 4)
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -437,7 +437,7 @@ def niyet(mesaj, aktif_varyant=None):
 
 
 def varyant_baglami_kur(varyant):
-    """Bir varyant için kaynakları kademeli arar (c07), anlamlandırma kartını ve uyarıları basar,
+    """Bir varyant için kaynakları kademeli arar (m04), anlamlandırma kartını ve uyarıları basar,
     grounded sohbet system mesajını hazırlar. (makaleler, system_mesaji) döndürür; kaynak yoksa (None, None).
     Kaynaklar GEN düzeyindeyse (varyanta özgü makale yok) 3. kural yumuşatılır: varyant hakkında iddia yasak,
     gen hakkında özet serbest. Kademe/gen bilgisi SON_BAGLAM'a yazılır (ilk_soru bunu kullanır)."""

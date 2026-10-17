@@ -7,9 +7,9 @@ Kaldığı yerden devam eder: aynı model + aynı snapshot için yazılmış en 
 (gece yarısını geçen ya da ertesi gün yeniden başlatılan koşu yeni dosyaya sıfırdan BAŞLAMAZ). CPU'da saatler sürer, gece çalıştırılır.
 
 Kullanım: python degerlendirme/b06_toplu_uret.py [model_adi] [--yeni]
-  model_adi: varsayılan c04.MODEL; örn. 'varchat' (fine-tune'lu model)
+  model_adi: varsayılan m01.MODEL; örn. 'varchat' (fine-tune'lu model)
   --yeni   : var olan dosyaya devam etme, yeni tarihli dosya aç (aynı modeli ikinci kez ölçmek için)
-Ölçüm (sadakat, atıf, dil) b07'de yapılır; bu betik yalnızca üretir ve c04'ün üretim-sonrası denetim sonuçlarını kaydeder.
+Ölçüm (sadakat, atıf, dil) b07'de yapılır; bu betik yalnızca üretir ve m01'in üretim-sonrası denetim sonuçlarını kaydeder.
 """
 
 import glob
@@ -25,9 +25,9 @@ try:
 except (AttributeError, ValueError):
     pass
 
-import c04_varchat_ollama as app
-from c06_clinvar import clinvar_bilgisi
-from c07_sorgu_kur import model_etiketi, varyant_kaydi
+import m01_varchat_ollama as app
+from m06_clinvar import clinvar_bilgisi
+from m04_sorgu_kur import model_etiketi, varyant_kaydi
 
 BURASI = os.path.dirname(os.path.abspath(__file__))
 

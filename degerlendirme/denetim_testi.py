@@ -1,5 +1,5 @@
 """
-DENETİM TESTİ — c04'ün üretim sonrası denetimleri için çevrimdışı testler (Ollama çağrılmaz, birkaç saniye sürer).
+DENETİM TESTİ — m01'in üretim sonrası denetimleri için çevrimdışı testler (Ollama çağrılmaz, birkaç saniye sürer).
 
 Neden: atıf, cümle bölme, kesik cümle, çeviri düzeltmesi ve çelişki denetimi ölçüm tablosuna doğrudan sayı yazar
 (atıfsız cümle oranı, geçersiz atıf, çelişki). Düzenli ifadeler (regex) küçük bir değişiklikle sessizce bozulabilir;
@@ -17,7 +17,7 @@ try:
 except (AttributeError, ValueError):
     pass
 
-import c04_varchat_ollama as app
+import m01_varchat_ollama as app
 
 RET = app.RET_CEVAP
 basarisiz = []
@@ -161,7 +161,7 @@ app.SON_BAGLAM.clear()
 
 # ---------------------------------------------------------------- modele verilen varyant adı
 print("MODEL ETİKETİ")
-from c07_sorgu_kur import model_etiketi
+from m04_sorgu_kur import model_etiketi
 kontrol("gen + değişim girdisi aynen kalır (eğitimdeki biçim)",
         model_etiketi({"tur": "gen_degisim", "gen": "BRAF", "protein_kisa": "V600E"}, "BRAF V600E"), "BRAF V600E")
 kontrol("rsID -> 'GEN DEĞİŞİM (rsID)'",

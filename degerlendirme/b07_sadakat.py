@@ -9,7 +9,7 @@ Yöntem (RAGAS'ın sadakat fikri, yerel yargıçla):
      DESTEKLENIYOR / DESTEKLENMIYOR / CELISIYOR  (JSON, sıcaklık 0)
   4) Sadakat = DESTEKLENIYOR / yargılanan iddia; çelişki oranı ayrı (tıpta en ağır hata).
 Ek metrikler (b06'nın denetimlerinden): atıfsız cümle oranı, geçersiz atıf sayısı, yabancı alfabe oranı, kesilme, süre.
-Yargıç varsayılan olarak c04.MODEL (aynı model kendini yargılar — bilinen zayıflık; --yargic ile başka model verilebilir).
+Yargıç varsayılan olarak m01.MODEL (aynı model kendini yargılar — bilinen zayıflık; --yargic ile başka model verilebilir).
 İnsan kontrolü için 30 rastgele iddia sonuclar/insan_kontrol_<tarih>.csv'ye boş etiket sütunuyla yazılır (kappa için).
 
 Kaynak metinleri, üretim satırının kendi 'snapshot' alanındaki arama kaydından okunur (en yeni arama dosyasından DEĞİL);
@@ -37,7 +37,7 @@ except (AttributeError, ValueError):
 
 import ollama
 
-import c04_varchat_ollama as app
+import m01_varchat_ollama as app
 
 BURASI = os.path.dirname(os.path.abspath(__file__))
 KARARLAR = ("DESTEKLENIYOR", "DESTEKLENMIYOR", "CELISIYOR")

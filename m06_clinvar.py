@@ -13,7 +13,7 @@ v2 ile gelenler:
   - Eski adlar: MTHFR C677T, Faktör V Leiden, GJB2 35delG gibi klinikte yaygın, ClinVar başlığıyla eşleşmeyen adlar rsID'ye çevrilir.
 v2.1 (denetim sonrası):
   - Kanonik kaydı seçme sırası: kullanıcının/VEP'in protein değişimi > cDNA > genomik (m.) > gönderim sayısı > yıldız.
-    Çıplak çok alelli rsID'de (rs113488022: A/C/G/T) c02 kartı ClinVar önemi olan aleli seçtiyse (klinik_alel_sec) o alel kullanılır,
+    Çıplak çok alelli rsID'de (rs113488022: A/C/G/T) m03 kartı ClinVar önemi olan aleli seçtiyse (klinik_alel_sec) o alel kullanılır,
     böylece anlamlandırma satırı ile ClinVar satırı aynı aleli gösterir (rs121913671: D1228N); seçemediyse en çok gönderimli alel.
   - Hastalıklar: VCV XML'inden koşul başına gönderim sayısı (RCV SubmissionCount); HPO fenotip terimleri ('Abdominal pain') ve
     'not provided' elenir. 'drug response' toplu sınıfı ayrı etiketlenir, patojenite gönderimleri koşul bazında gösterilir.
@@ -26,8 +26,8 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 
-from c01_makale_getir import ncbi_get
-from c07_sorgu_kur import varyant_kaydi
+from m05_makale_getir import ncbi_get
+from m04_sorgu_kur import varyant_kaydi
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -197,7 +197,7 @@ def _eski_ad(girdi, kayit_bilgi):
 
 def clinvar_bilgisi(varyant, kayit=None):
     """Varyantı ClinVar'da güvenle bulursa klinik önem sözlüğü, bulamazsa None döndürür.
-    kayit: c07.varyant_kaydi çıktısı (varsa yeniden VEP'e gidilmez).
+    kayit: m04.varyant_kaydi çıktısı (varsa yeniden VEP'e gidilmez).
     Yollar: rsID (girdi rsID ise, koordinatsa VEP'in rsID'si, eski adsa tablo) -> dbSNP xref doğrulaması;
             gen + protein değişimi -> başlıkta 3-harfli değişim eşleşmesi."""
     girdi = (varyant or "").strip()
@@ -209,7 +209,7 @@ def clinvar_bilgisi(varyant, kayit=None):
     protein3 = [p for p in [kayit_bilgi.get("protein_3harf"), *kayit_bilgi.get("protein_diger", [])]
                 if p and re.match(r"^[A-Z][a-z]{2}\d+", p)]
     gen = kayit_bilgi.get("gen")
-    # Çıplak rsID + çok alelli kayıt: kart alelini ClinVar kanıtıyla seçtiyse (c02.klinik_alel_sec) o alel esas alınır;
+    # Çıplak rsID + çok alelli kayıt: kart alelini ClinVar kanıtıyla seçtiyse (m03.klinik_alel_sec) o alel esas alınır;
     # yalnızca sıklık/etkiyle seçtiyse protein/cDNA seçimde kullanılmaz (en çok gönderimli kayıt)
     cok_alelli = kayit_bilgi.get("tur") == "rsid" and (kart.get("alel") or "").count("/") > 1
     kart_aleli = cok_alelli and kart.get("alel_secim_nedeni") in ("klinik", "clinvar_kaydi")
@@ -254,7 +254,7 @@ def clinvar_bilgisi(varyant, kayit=None):
 
 
 def clinvar_satirlari(cv):
-    """Kullanıcıya gösterilecek satırlar (c04 kullanır). Somatik satırlar önce; ilaç yanıtı ayrı etiket."""
+    """Kullanıcıya gösterilecek satırlar (m01 kullanır). Somatik satırlar önce; ilaç yanıtı ayrı etiket."""
     satirlar = []
     e, o, g = cv.get("klinik_etki"), cv.get("onkojenite"), cv.get("germline")
     if e:

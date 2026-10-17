@@ -14,7 +14,7 @@ __pycache__/
 .vscode/
 .idea/
 
-# İndirilen gen listesi (c05 ilk çalıştırmada yeniden oluşturur)
+# İndirilen gen listesi (m02 ilk çalıştırmada yeniden oluşturur)
 genler.txt
 
 # Ölçüm betiklerinin yerel yedekleri (dogru_cevap / eski arama kayıtları); git geçmişi asıl kayıttır

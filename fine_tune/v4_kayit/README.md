@@ -16,7 +16,7 @@
 ## 2. 74 yeni girdinin örnekleri (`yeni_ornekler/`)
 
 - **Girdiler ve kaynaklar:** `fine_tune/kaynak_topla_v4.py` → `fine_tune/kaynaklar_v4.jsonl`. Uygulamanın kendi arama hattı
-  (c07) kullanıldı; system mesajı canlı sistemle aynı.
+  (m04) kullanıldı; system mesajı canlı sistemle aynı.
   - 19 tıp alanı.
   - Biçimler: gen-değişim, eski ad, rsID, GRCh38/GRCh37 koordinat, intron (gen düzeyi).
   - Test setinin ve v3'ün genleri dışarıda bırakıldı.

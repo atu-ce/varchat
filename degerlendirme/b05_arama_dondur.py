@@ -1,7 +1,7 @@
 """
 BENCHMARK 5 — ARAMAYI DONDUR + RETRIEVAL ÖLÇÜMÜ (adım 8, v3 — 4 Ekim düzeltmeleri).
 
-Her test girdisi için c07.kaynaklari_getir'in sonucunu (sorgu, çeviri, sayılar, kademe, seçilen makalelerin PMID/başlık/özet/etiket)
+Her test girdisi için m04.kaynaklari_getir'in sonucunu (sorgu, çeviri, sayılar, kademe, seçilen makalelerin PMID/başlık/özet/etiket)
 VE eski hattın (v1) sonucunu tarih damgasıyla kaydeder; ölçümler bir daha canlı PubMed'e gitmez (kayma %17/47 gün ölçüldü).
 v1 = git b87d8a8 sürümündeki kod BİREBİR (degerlendirme/eski_hat/): koordinat -> VEP region ucu -> ALFABETİK ilk gen adı;
 'GRCh37:' öneki eski kodda çöker -> ham metin aranır; diğer girdiler ham metin; 'özet yok' makaleler elenmez.
@@ -17,7 +17,7 @@ PubTator3 anotasyonları, v1 makalelerinin başlık+özeti ve her makalenin hang
   - gen_etiketli_dogru: sistemin 'gen düzeyi' dediği ama listede doğru sayılan makaleler (liste tam metinden, sistem özetten okur)
   Otomatik doğru cevap listesi bir ALT SINIRDIR (tmVar 'GNASR201C', 'c-MetD1228N' gibi bitişik yazımları kaçırır);
   iki hattın da 'varyant' etiketli ama listede olmayan makaleleri hakem_adaylari_<etiket>.jsonl'a yazılır (insan kararı için;
-  v1 makaleleri c07.alaka_etiketi ile aynı kuralla etiketlenir).
+  v1 makaleleri m04.alaka_etiketi ile aynı kuralla etiketlenir).
 D katmanı (doğru cevap listesi yok): ölçü P@5 değil BEKLENEN KADEME (test_seti.BEKLENEN_KADEME): varyanta özgü iddia yapılmaması
   (kademe gen/yok = doğru); 'yanlış varyant iddiası' (kademe varyant) sayılır.
 
@@ -46,7 +46,7 @@ except (AttributeError, ValueError):
 
 import requests
 
-from c07_sorgu_kur import alaka_etiketi, kaynaklari_getir
+from m04_sorgu_kur import alaka_etiketi, kaynaklari_getir
 from test_seti import BEKLENEN_KADEME
 
 BURASI = os.path.dirname(os.path.abspath(__file__))
@@ -105,7 +105,7 @@ def _tekrar(fn, *args, **kwargs):
 # ---------------- v1 (eski hat, b87d8a8) ----------------
 def eski_sorgu(girdi):
     """b87d8a8 c03.arama_terimi_belirle BİREBİR (print'ler atıldı): ':g.' -> HGVS ucu; 'chr:pos:R>A' -> region ucu (yalnız SNV);
-    'GRCh37:' öneki eski c02'de ValueError -> ham metin; gen bulununca ALFABETİK ilk gen (chr19 APOE bölgesinde 'APOC1').
+    'GRCh37:' öneki eski m03'te ValueError -> ham metin; gen bulununca ALFABETİK ilk gen (chr19 APOE bölgesinde 'APOC1').
     (terim, ag_hatasi|None): eski kodun kendi hatası (ValueError, 400) None döner — o eski davranıştır; ağ kesintisi 3 denemeden sonra adıyla."""
     g = girdi.strip()
     for deneme in range(3):

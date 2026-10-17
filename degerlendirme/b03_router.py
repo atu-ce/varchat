@@ -2,7 +2,7 @@
 BENCHMARK 3 — Yönlendirici (router) doğruluğu.
 
 Soru: Resepsiyonist mesajları doğru odaya yolluyor mu?
-Etiketli mesaj seti (aktif varyant bağlamıyla) -> c04.niyet (kural + model) -> karışıklık matrisi + doğruluk.
+Etiketli mesaj seti (aktif varyant bağlamıyla) -> m01.niyet (kural + model) -> karışıklık matrisi + doğruluk.
 Sonuç degerlendirme/sonuclar/router_<tarih>.json dosyasına yazılır (tez tablosu için ham veri).
 
 Çalıştırma: python degerlendirme/b03_router.py   (Ollama gerekir; ~40 mesaj, model çağrısı olanlar ~10-15 sn/mesaj CPU)
@@ -21,7 +21,7 @@ try:
 except (AttributeError, ValueError):
     pass
 
-import c04_varchat_ollama as app
+import m01_varchat_ollama as app
 
 # (mesaj, aktif_varyant, beklenen_kategori, beklenen_varyant_or_None)
 SET = [

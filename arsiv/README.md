@@ -5,8 +5,8 @@ göstermek içindir; taşındıkları için birbirlerini ya da kök klasördeki 
 
 | Dosya / klasör | Ne idi | Neden arşivde |
 |---|---|---|
-| `a01`-`a05` | İlk denemeler (Gemini, Ollama, sohbet, yönlendirici) | Yerlerini `c04` ve `degerlendirme/b03` aldı |
-| `c03_varchat_gemini.py` | Uygulamanın ilk sürümü (Gemini, bulut modeli) | Uygulama yerel modele (`c04`, Ollama) geçti |
+| `a01`-`a05` | İlk denemeler (Gemini, Ollama, sohbet, yönlendirici) | Yerlerini `m01` ve `degerlendirme/b03` aldı |
+| `c03_varchat_gemini.py` | Uygulamanın ilk sürümü (Gemini, bulut modeli) | Uygulama yerel modele (`m01`, Ollama) geçti |
 | `beklemede/` | Embedding denemesi, Gemini ile veri üretme denemesi, ilk küçük eğitim verisi | Kullanılmadı |
 | `degerlendirme/b01`, `b02`, `faithfulness_verisi.jsonl` | İlk arama ve sadakat ölçümleri | Yerlerini `b04`-`b07` aldı (b01 sorguyla döngüseldi) |
 | `degerlendirme/b09_ogretmen_denetimi.py` | Eğitim verisini yerel yargıçla denetleme | Denetim Claude alt ajanlarıyla yapıldı (`fine_tune/v4_kayit/`) |
