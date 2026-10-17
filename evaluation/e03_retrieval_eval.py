@@ -3,7 +3,8 @@ BENCHMARK 5 — ARAMAYI DONDUR + RETRIEVAL ÖLÇÜMÜ (adım 8, v3 — 4 Ekim d�
 
 Her test girdisi için m04.kaynaklari_getir'in sonucunu (sorgu, çeviri, sayılar, kademe, seçilen makalelerin PMID/başlık/özet/etiket)
 VE eski hattın (v1) sonucunu tarih damgasıyla kaydeder; ölçümler bir daha canlı PubMed'e gitmez (kayma %17/47 gün ölçüldü).
-v1 = git b87d8a8 sürümündeki kod BİREBİR (evaluation/eski_hat/): koordinat -> VEP region ucu -> ALFABETİK ilk gen adı;
+v1 = git b87d8a8 sürümündeki kod BİREBİR (evaluation/eski_hat/; 17 Ekim'de kaldırıldı, gerekirse: git checkout 2016e2c -- evaluation/eski_hat):
+koordinat -> VEP region ucu -> ALFABETİK ilk gen adı;
 'GRCh37:' öneki eski kodda çöker -> ham metin aranır; diğer girdiler ham metin; 'özet yok' makaleler elenmez.
 Ağ kesintisi (429/5xx/zaman aşımı) eski kodun davranışı değildir: iki hatta da 3 deneme yapılır, kalıcı hata satıra yazılır.
 PubTator3 anotasyonları, v1 makalelerinin başlık+özeti ve her makalenin hangi kaynakla doğru sayıldığı kayda yazılır.
@@ -68,8 +69,19 @@ def _yukle(ad, yol):
     return m
 
 
-c02_v1 = _yukle("c02_v1", os.path.join(ESKI, "c02_v1.py"))
-c01_v1 = _yukle("c01_v1", os.path.join(ESKI, "c01_v1.py"))
+c02_v1 = c01_v1 = None     # eski hat yalnız canlı ölçümde gerekir (eski_hat_yukle); çevrimdışı --hakem modu donmuş kaydı kullanır
+
+
+def eski_hat_yukle():
+    """Eski hattın (v1) kodunu yükler. Klasör 17 Ekim 2026'da repodan kaldırıldı (v1 sonuçları donmuş kayıtta duruyor);
+    v1 ile yeniden karşılaştırmalı canlı ölçüm gerekirse git geçmişinden geri getirilir."""
+    global c02_v1, c01_v1
+    if not os.path.exists(os.path.join(ESKI, "c02_v1.py")):
+        raise SystemExit("Canlı ölçüm eski hattı (v1) da çalıştırır ama evaluation/eski_hat/ yok. Geri getirmek için:\n"
+                         "  git checkout 2016e2c -- evaluation/eski_hat\n"
+                         "Yalnız donmuş kaydı yeniden puanlamak için: --hakem arama_<etiket>.jsonl")
+    c02_v1 = _yukle("c02_v1", os.path.join(ESKI, "c02_v1.py"))
+    c01_v1 = _yukle("c01_v1", os.path.join(ESKI, "c01_v1.py"))
 
 
 def yeni_yol(taban, uzanti):
@@ -325,7 +337,8 @@ def main():
     if "--hakem" in sys.argv:
         hakem_cevrimdisi(sys.argv[sys.argv.index("--hakem") + 1])
         return
-    gts = [json.loads(l) for l in open(GT_DOSYA, encoding="utf-8") if l.strip()]
+    eski_hat_yukle()
+    gts =[json.loads(l) for l in open(GT_DOSYA, encoding="utf-8") if l.strip()]
     hakem = hakem_yukle()
     bugun = date.today().isoformat()
     kayit_yolu = yeni_yol(f"arama_{bugun}", "jsonl")
