@@ -1,26 +1,21 @@
-# Gizli bilgiler — API anahtarı asla repoya girmemeli
+# Gizli bilgiler (NCBI anahtarı); şablonu .env.example
 .env
 
-# Python sanal ortamı
+# Python sanal ortamı ve önbelleği
 .venv/
-venv/
-
-# Python derleme/cache dosyaları
 __pycache__/
-*.py[cod]
-*.egg-info/
 
-# Editör / IDE
+# VS Code çalışma alanı ayarları (ayar değiştirilince oluşur)
 .vscode/
-.idea/
 
 # İndirilen gen listesi (m02 ilk çalıştırmada yeniden oluşturur)
 genler.txt
 
-# Ölçüm betiklerinin yerel yedekleri (dogru_cevap / eski arama kayıtları); git geçmişi asıl kayıttır
+# e02'nin eski doğru cevap listesi yedekleri; git geçmişi asıl kayıttır
 evaluation/results/yedek/
 
-# Model dosyaları (yerelde: GGUF ~4,7 GB, LoRA adaptörü); repoya yalnız Ollama ayar dosyası (Modelfile) girer
+# Model dosyaları (GGUF ~4,7 GB, LoRA adaptörü); repoya yalnız Ollama ayar dosyası (Modelfile) girer.
+# *.gguf: model dosyası yanlışlıkla başka klasöre indirilirse de repoya girmesin (GitHub 100 MB sınırı)
 models/*
 !models/Modelfile.*
 *.gguf
