@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""sonuc_1..6.json (v3 denetimi) -> fine_tune/denetim_v3.json + özet istatistik."""
+"""sonuc_1..6.json (v3 denetimi) -> fine_tune/ara_veri/denetim_v3.json + özet istatistik."""
 import collections
 import json
 import os
@@ -7,7 +7,7 @@ import re
 
 KOK = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))   # repo kökü (fine_tune/v4_kayit/<klasör>/)
 BURASI = os.path.dirname(os.path.abspath(__file__))
-v3 = [json.loads(l) for l in open(os.path.join(KOK, "fine_tune", "egitim_verisi_v3.jsonl"), encoding="utf-8") if l.strip()]
+v3 = [json.loads(l) for l in open(os.path.join(KOK, "fine_tune", "ara_veri", "egitim_verisi_v3.jsonl"), encoding="utf-8") if l.strip()]
 GECERLI = {"AYNEN", "DUZELTILDI", "SIL", "RET_DOGRU", "RET_YANLIS"}
 # Denetçi kararının elle geri çevrildiği örnekler (gerekçesiyle; tezde raporlanır)
 ELLE = {172: ("RET_DOGRU", "Soru diyet önerisi istiyor; [2]'deki bilgi in silico doking (çay polifenolleri p53'e bağlanır). Bu bir diyet "
@@ -51,5 +51,5 @@ for tur in sorted({t for t, _ in tur_karar}):
 print("\ncümle kararları:", dict(cumle_say))
 print("genel:", dict(collections.Counter(k["karar"] for k in kararlar.values())))
 json.dump({"kaynak": "Claude alt ajanları, 6 paket, kaynak başlık+özet ile cümle cümle", "ornekler": [kararlar[i] for i in sorted(kararlar)]},
-          open(os.path.join(KOK, "fine_tune", "denetim_v3.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-print("-> fine_tune/denetim_v3.json")
+          open(os.path.join(KOK, "fine_tune", "ara_veri", "denetim_v3.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+print("-> fine_tune/ara_veri/denetim_v3.json")

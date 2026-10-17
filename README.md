@@ -83,11 +83,17 @@ Kaynak listesini model değil kod bastığı için makale uydurulamaz (cümle d�
 
 | Dosya | Ne yapar |
 |---|---|
-| `kaynak_topla_v4.py` | Yeni eğitim girdilerinin kaynaklarını uygulamanın kendi hattıyla toplar → `kaynaklar_v4.jsonl`. |
-| `birlestir_v4.py` | v3'ün denetlenmiş 204 örneği + v4'ün yeni örnekleri → **`egitim_verisi.jsonl`** (501 örnek). |
-| `egitim_verisi_v3.jsonl`, `denetim_v3.json`, `yeni_ornekler_v4.jsonl`, `v4_kayit/` | Verinin nasıl üretildiğinin kayıtları (bkz. `v4_kayit/README.md`). |
-| `colab_egitim.ipynb` | QLoRA eğitimi (Qwen2.5-7B-Instruct, 4-bit, yalnız cevap tokenlarında kayıp, gen bazlı doğrulama). |
-| `colab_gguf.ipynb` | Yalnız model dosyası üretir: adaptör + taban → birleştir → GGUF → Q4_K_M. |
+Eğitim yalnız Qwen2.5-7B-Instruct'a yapıldı (14B eğitilmedi; ham hâli yalnız karşılaştırma için ölçüldü).
+
+| Dosya | Ne yapar |
+|---|---|
+| `f01_collect_sources.py` | Yeni eğitim girdilerinin kaynaklarını uygulamanın kendi hattıyla toplar → `ara_veri/kaynaklar_v4.jsonl`. |
+| `f02_build_dataset.py` | `ara_veri/` içindeki dört dosyadan **`egitim_verisi.jsonl`**'ı (501 örnek) üretir: v3'ün 204 örneğine denetim düzeltmelerini uygular, 297 yeni örneği ekler. |
+| `f03_colab_train.ipynb` | QLoRA eğitimi (Qwen2.5-7B-Instruct, 4-bit, yalnız cevap tokenlarında kayıp, gen bazlı doğrulama). |
+| `f04_colab_gguf.ipynb` | Yalnız model dosyası üretir: adaptör + taban → birleştir → GGUF → Q4_K_M. |
+| `egitim_verisi.jsonl` | **Eğitim verisi** (438 eğitim / 63 doğrulama); `f03` bunu okur. |
+| `ara_veri/` | `f02`'nin girdileri: `egitim_verisi_v3.jsonl` (v3'ün 204 örneği, değiştirilmemiş), `denetim_v3.json` (bu örneklerin denetim kararları), `kaynaklar_v4.jsonl`, `yeni_ornekler_v4.jsonl`. Silinirse eğitim verisi yeniden üretilemez. |
+| `v4_kayit/` | Verinin nasıl üretildiğinin ham kayıtları (denetim ve yazım/doğrulama ajanlarının çıktıları, yönergeler); bkz. `v4_kayit/README.md`. |
 | `egitim_ciktilari_v1/`, `egitim_ciktilari_v2/` | Eğitim kayıtları (kayıp geçmişi, sürümler, doğrulama varyantları). |
 
 ### Arşiv (`arsiv/`)
@@ -110,7 +116,7 @@ pip install -r requirements.txt
 ollama pull qwen2.5:7b
 ```
 
-Eğitilmiş model (`varchat-v2`): `colab_gguf.ipynb`'nin ürettiği `varchat-v2-Q4_K_M.gguf` dosyasını `models/` klasörüne koy, sonra:
+Eğitilmiş model (`varchat-v2`): `f04_colab_gguf.ipynb`'nin ürettiği `varchat-v2-Q4_K_M.gguf` dosyasını `models/` klasörüne koy, sonra:
 
 ```bash
 cd models
