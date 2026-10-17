@@ -11,7 +11,7 @@ Kaynaklar UYGULAMANIN KENDİ HATTIYLA çekilir (m04.kaynaklari_getir): modele gi
 Kural: hiçbir gen test setinde (evaluation/e01_test_set.py, 56 girdi) ya da v3 eğitim verisinde yoktur (çeşitlilik + sızıntı yok).
 Test setinin donmuş arama kaydıyla ortak PMID varsa raporlanır.
 
-Çıktı: archive/dataset_build_v4/inputs/kaynaklar_v4.jsonl  (v3'ün kaynakları: arsiv/fine_tune_v3/kaynaklar.jsonl)
+Çıktı: archive/dataset_build_v4/inputs/kaynaklar_v4.jsonl  (v3'ün kaynakları: archive/fine_tune_v3/kaynaklar.jsonl)
 Kullanım: python archive/dataset_build_v4/f01_collect_sources.py
 """
 

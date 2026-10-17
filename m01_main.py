@@ -57,7 +57,7 @@ SABLON_PAYI = 6          # Qwen chat şablonu: <|im_start|>rol ... <|im_end|> (~
 # Gözlenen kötü çeviriler: kod tarafında deterministik düzeltme (kalıcı çözüm fine-tune verisinde doğru terimler)
 YASAK_CEVIRI = [(re.compile(r"siki[şs]\s*hücre", re.IGNORECASE), "orak hücre")]
 
-# varyant_baglami_kur'un son çağrısının bilgisi: {'kademe', 'gen', 'varyant', 'n_kaynak', 'clinvar'} (imza değişmesin diye; b02 kullanır)
+# varyant_baglami_kur'un son çağrısının bilgisi: {'kademe', 'gen', 'varyant', 'n_kaynak', 'clinvar'} (imza değişmesin diye; e04_generate de kullanır)
 SON_BAGLAM = {}
 # grounded_sor'un son cevabı için denetim sonuçları: {'gecersiz_atif', 'atifsiz_cumle', 'cumle', 'cjk_orani', 'yeniden_uretildi', 'bozuk',
 #   'kesik_cumle_atildi', 'celiski', 'girdi_token', 'cikti_token', 'bitis', 'sure_ms'}

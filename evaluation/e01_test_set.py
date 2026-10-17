@@ -1,7 +1,7 @@
 """
 DONDURULMUŞ TEST SETİ (adım 8) — fine-tune eğitim setiyle (31 gen) KESİŞMEYEN varyantlar, dört katman.
 
-Neden: b01'in 8 varyantı eğitim setindeydi; fine-tune sonrası aynı setle ölçüm "öğrendi" ile "hatırladı"yı ayıramaz.
+Neden: ilk arama ölçümünün (arşivdeki b01) 8 varyantı eğitim setindeydi; fine-tune sonrası aynı setle ölçüm "öğrendi" ile "hatırladı"yı ayıramaz.
 Bu liste bir kez dondurulur ve eğitime ASLA katılmaz. Koordinat biçimleri VEP'ten türetilir (e02), elle yazılmaz.
 
 Katmanlar:
