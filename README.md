@@ -127,61 +127,59 @@ GPU olmayan bilgisayarda bir özet birkaç dakika sürer.
 
 ## 4. Sonuçlar
 
-### Arama (5 Ekim 2026, `evaluation/results/arama_ozet_2026-10-05.json`)
+### Arama (`evaluation/results/arama_ozet_2026-10-05.json`)
 
-P@5 = seçilen ilk 5 makaleden doğru olanların oranı. Eski hat = Temmuz'daki kod (git `b87d8a8`), birebir.
-"Hakemli" sütunu otomatik listeye 14 insan hakem kararını ekler (`evaluation/results/hakem.jsonl`).
+P@5 = sistemin seçtiği ilk 5 makaleden kaçının gerçekten o varyantı anlattığı. "Otomatik": LitVar2, PubTator3 ve ClinVar
+kürasyon listesine göre; "hakemli": bu listenin kaçırdığı makaleler için 14 insan hakem kararı eklenmiş hâli
+(`evaluation/results/hakem.jsonl`).
 
-| Katman | Girdi | Yeni hat, otomatik | Eski hat, otomatik | Yeni hat, hakemli | Eski hat, hakemli |
-|---|---|---|---|---|---|
-| A: kanser hotspot | 15 | 0.84 | 0.79 | 0.91 | 0.88 |
-| B: eski adlı kalıtsal | 15 | 0.89 | 0.85 | 0.91 | 0.87 |
-| C: rsID | 10 | 0.96 | 0.90 | 1.00 | 0.90 |
-| C: koordinat (GRCh38/GRCh37) | 11 | 0.98 | 0.20 | 1.00 | 0.20 |
-| A+B+C | 51 | 0.91 | 0.70 | 0.94 | 0.73 |
+| Katman | Girdi | P@5 otomatik | P@5 hakemli |
+|---|---|---|---|
+| A: kanser hotspot | 15 | 0.84 | 0.91 |
+| B: eski adlı kalıtsal | 15 | 0.89 | 0.91 |
+| C: rsID | 10 | 0.96 | 1.00 |
+| C: koordinat (GRCh38/GRCh37) | 11 | 0.98 | 1.00 |
+| **A+B+C** | 51 | **0.91** | **0.94** |
 
-Literatürsüz 5 girdinin 5'inde sistem "gen düzeyi" moduna geçti.
+D katmanı (literatürü olmayan 5 varyant): 5'inde de sistem "gen düzeyi" moduna geçti; varyanta özgü kaynak varmış gibi davranmadı.
 
-### Üretim (Colab L4/A100, aynı 56 girdi, `evaluation/results/`)
+### Cevap kalitesi (`evaluation/results/`)
 
-Sadakat = yargıcın "kaynakta destekleniyor" dediği iddiaların oranı (yalnız atıflı cümleler yargılanır). Üç yargıç:
-qwen2.5:7b ve qwen2.5:32b (`e05`) ve bütün 1.434 iddiayı kör (model adı ve öbür kararlar gizli) yeniden değerlendiren
-Claude Opus 5.5 (`e11_judge_check.py`; aynı tanımlar + iki netleştirme: kısmen destek ya da anlamı çözülemeyen Türkçe =
-desteklenmiyor). Claude etiketleri insan etiketi değildir; varchat'in eğitim örneklerini de Claude yazdığı için yanlılık riski not edilir.
+**Nasıl ölçüldü:** 56 test girdisinin her biri için model, dondurulmuş aynı 5 makaleyle özet yazar (`e04`). Özetteki her atıflı
+cümle, gösterdiği makalenin başlık ve özetine karşı yargılanır: destekleniyor / desteklenmiyor / çelişiyor. Yargıç Claude Opus 5.5;
+değerlendirme kördür, cümlenin hangi modelden geldiği gizlidir (`e11_judge_check.py`). Otomatik Qwen yargıçlar (7B ve 32B) aynı
+cümlelerde Claude ile ancak %62-65 oranında aynı kararı verdi (kappa 0.25-0.31) ve bozuk ya da yanlış cümleleri çoğu zaman
+"destekleniyor" saydı; ana ölçü bu yüzden Claude. Claude etiketleri insan etiketi değildir; eğitim örneklerini de Claude yazdığı
+için yanlılık riski vardır.
 
-| Model | Sadakat 7B | Sadakat 32B | **Sadakat Claude** | Çelişki (Claude) | Atıfsız cümle | Desteklenen iddia (Claude) | Çıplak "bilgi yok" |
-|---|---|---|---|---|---|---|---|
-| ham qwen2.5:7b | 0.763 | 0.769 | 0.572 | %10,9 | %34 | 131 | 9 |
-| qwen-taban (aynı ağırlıklar, bizim dönüştürme hattımız) | 0.806 | 0.848 | **0.637** | %7,2 | %33 | 142 | 10 |
-| varchat v1 (204 örnek) | 0.649 | 0.711 | 0.356 | %12,6 | %7 | 116 | 0 |
-| **varchat-v2 (501 denetlenmiş örnek)** | **0.828** | 0.810 | 0.605 | %14,0 | **%0,9** | **268** | 0 |
-| ham qwen2.5:14b | – | 0.831 | 0.526 | %9,4 | %42 | 112 | 0 |
+| Model | Sadakat | Çelişen iddia | Atıfsız cümle | Desteklenen iddia | "Bilgi yok" diye geçiştirme | Dil çöküşü |
+|---|---|---|---|---|---|---|
+| **varchat-v2** (kullanılan) | 0.605 | %14,0 | %0,9 | **268** | 0 | 0 |
+| Eğitimsiz Qwen2.5-7B | 0.637 | %7,2 | %33 | 142 | 10 | 0 |
+| Ham Qwen2.5-14B | 0.526 | %9,4 | %42 | 112 | 0 | 6 |
 
-**Yargıçların doğruluğu (Claude kararına göre, aynı iddialar):** 7B %61,5 aynı karar (kappa 0.25), 32B %64,8 (kappa 0.31).
-İki küçük yargıç da hoşgörülü: Claude'un desteksiz bulduğu bozuk ya da yanlış cümlelerin önemli kısmına "destekleniyor" demişler;
-mutlak sadakat değerleri bu yüzden 7B/32B sütunlarında şişkin. Sıralama ve aşağıdaki sonuçlar üç yargıçta da aynı yönde.
+Sadakat = desteklenen / yargılanan atıflı iddia; değerler 56 girdinin toplamı. Dil çöküşü = cevabın %2'sinden fazlası yabancı
+alfabe (Çince/Arapça).
 
-Eşleştirilmiş karşılaştırma (`e06`, %95 bootstrap güven aralığı):
+**Çıkarımlar** (eşleştirilmiş karşılaştırma, `e06`, %95 bootstrap güven aralığı):
 
-- varchat v1 → v2: +0.18 (7B, GA +0.12…+0.23), +0.10 (32B, GA +0.03…+0.17), **+0.25 (Claude, GA +0.18…+0.32)**: veri denetimi
-  ve büyütme ilk eğitimdeki düşüşü giderdi (üç yargıçta da anlamlı).
-- qwen-taban → v2: +0.02 / −0.04 / −0.03 (Claude, GA −0.12…+0.06): iddia başına sadakatte fark yok; v2 yaklaşık iki kat
-  desteklenen iddia üretiyor (268 / 142), neredeyse her cümleye atıf veriyor ve girdiyi "bilgi yok" diye geçiştirmiyor.
-  Atıfsız cümleler de desteksiz sayılırsa (Claude): v2 0.60, qwen-taban 0.42, ham 14B 0.31.
-- v2 → ham 14B: +0.02 (32B), −0.08 (Claude, GA −0.17…+0.02): fark yok; 14B'nin 56 cevabından 7'si Çince/Arapçaya kayıyor.
-- 7B ile 32B yargıcın birbirine uyumu orta (kappa 0.42–0.56).
+- **Eğitim cümle başına doğruluğu değiştirmedi:** varchat-v2 − eğitimsiz 7B = −0.03 (GA −0.12…+0.06). Kazandırdığı: cevap
+  başına yaklaşık iki kat desteklenen bilgi (268'e 142), neredeyse her cümlede atıf (atıfsız cümle %0,9'a %33) ve hiçbir girdiyi
+  "bilgi yok" diye geçiştirmeme (0'a 10). Atıfsız cümleler de desteksiz sayılırsa: varchat-v2 0.60, eğitimsiz 7B 0.42.
+- **Ham 14B daha iyi değil:** 14B − varchat-v2 = −0.08 (GA −0.17…+0.02); cümlelerinin %42'si atıfsız, 6 cevabı yabancı alfabeye
+  kayıyor. İki kat donanım isteyen 14B yerine eğitilmiş 7B kullanılıyor.
+- **Bedeli:** varchat-v2 daha uzun ve ayrıntılı yazıyor; çelişen iddia oranı en yüksek onda (%14).
 
-**Bilinen sorunlar (varchat-v2):** iddiaların %14'ü kaynakla çelişiyor (Claude; modeller arasında en yüksek oran): rakam ve
-özne karışması, ters yön, yanlış alel ya da hastalık. Daha uzun ve ayrıntılı yazdıkça hata fırsatı artıyor. Gen düzeyi bir girdide
-(chr1:17001759:A>T) varyanta kaynakta olmayan bir hastalık ilişkisi yüklendi. Türkçe terimlerde bozulmalar var.
-Kararların tamamı: `results/yargic_kontrol.jsonl` (her iddia için 7B, 32B ve Claude kararı + Claude gerekçesi);
-özet: `yargic_kontrol_ozet.json`.
+**Bilinen sorunlar (varchat-v2):** çelişen iddialar rakam ve özne karışması, ters yön, yanlış alel ya da hastalık şeklinde.
+Gen düzeyi bir girdide (chr1:17001759:A>T) varyanta kaynakta olmayan bir hastalık ilişkisi yüklendi. Türkçe terimlerde bozulmalar
+var. Kararların tamamı `evaluation/results/yargic_kontrol.jsonl` (her iddia için Claude kararı ve gerekçesi), özet
+`yargic_kontrol_ozet.json`.
 
-### Eğitim
+### Eğitim (`fine_tune/results/v2/`)
 
-QLoRA, Qwen2.5-7B-Instruct, 3 epoch, en düşük doğrulama kaybındaki epoch saklanır.
-v2: 501 örnek (438 eğitim / 63 doğrulama, 14 doğrulama geni), A100'de 26 dk; doğrulama kaybı 0.717 → **0.684** → 0.708 (epoch 2 saklandı).
-Eğitim verisinin denetimi ve üretimi: `archive/dataset_build_v4/README.md`.
+Qwen2.5-7B-Instruct, QLoRA (taban 4-bit, adaptör r=16, kayıp yalnız cevap tokenlarında). 501 örnek: 438 eğitim, 63 doğrulama;
+doğrulamadaki 14 gen eğitimde yok. 3 tur, Colab A100'de 26 dakika. Doğrulama kaybı turlara göre 0.717 → **0.684** → 0.708;
+en düşük kayıplı 2. tur saklandı (3. turda ezber başlıyor).
 
 ---
 
