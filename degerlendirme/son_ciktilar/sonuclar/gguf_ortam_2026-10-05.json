@@ -1,0 +1,13 @@
+{
+ "tarih": "2026-10-05T18:18",
+ "llama_cpp": "\u001b[33m8345f3339\u001b[m\u001b[33m (\u001b[m\u001b[1;36mHEAD\u001b[m\u001b[33m -> \u001b[m\u001b[1;32mmaster\u001b[m\u001b[33m, \u001b[m\u001b[1;33mtag: \u001b[m\u001b[1;33mb11430\u001b[m\u001b[33m, \u001b[m\u001b[1;31morigin/master\u001b[m\u001b[33m, \u001b[m\u001b[1;31morigin/HEAD\u001b[m\u001b[33m)\u001b[m hexagon: matmul and flash-atten scalability updates (#29974)",
+ "donusturme_python": "/usr/bin/python3",
+ "dosyalar": {
+  "qwen-taban": {
+   "boyut": 4683074080
+  },
+  "varchat-v2": {
+   "boyut": 4683073536
+  }
+ }
+}

@@ -1,0 +1,67 @@
+﻿katman,ölçü,qwen2.5:7b (Ollama),qwen-taban,"varchat (v1, 204 örnek)",varchat-v2 (taban+LoRA)
+A_hotspot,Sadakat ↑,0.862,0.919,0.772,0.846
+A_hotspot,Çelişki oranı ↓,0.0,0.0,0.011,0.008
+A_hotspot,Atıfsız cümle oranı ↓,0.298,0.265,0.021,0.0
+A_hotspot,Geçersiz atıf ↓,0.0,0.0,0.0,0.0
+A_hotspot,Dil çöküşü ↓,0.0,0.0,0.0,0.0
+A_hotspot,Kesilen cevap ↓,0.0,0.0,0.0,0.0
+A_hotspot,Üretim hatası (model döngüsü) ↓,0.0,0.0,0.0,0.0
+A_hotspot,Yargılanan iddia,65.0,74.0,92.0,123.0
+A_hotspot,Belirsiz yargı (sadakate girmez),1.0,1.0,0.0,0.0
+A_hotspot,  bunun yargıç hatası olanı,0.0,1.0,0.0,0.0
+A_hotspot,Ortalama süre (sn),12.5,9.4,8.8,12.2
+B_germline_yaygin,Sadakat ↑,0.8,0.767,0.679,0.842
+B_germline_yaygin,Çelişki oranı ↓,0.013,0.014,0.048,0.009
+B_germline_yaygin,Atıfsız cümle oranı ↓,0.336,0.291,0.076,0.0
+B_germline_yaygin,Geçersiz atıf ↓,0.0,0.0,0.0,0.0
+B_germline_yaygin,Dil çöküşü ↓,0.0,0.0,0.0,0.0
+B_germline_yaygin,Kesilen cevap ↓,0.0,0.0,1.0,0.0
+B_germline_yaygin,Üretim hatası (model döngüsü) ↓,0.0,0.0,0.0,0.0
+B_germline_yaygin,Yargılanan iddia,75.0,73.0,84.0,114.0
+B_germline_yaygin,Belirsiz yargı (sadakate girmez),0.0,0.0,1.0,0.0
+B_germline_yaygin,  bunun yargıç hatası olanı,0.0,0.0,1.0,0.0
+B_germline_yaygin,Ortalama süre (sn),18.0,8.7,10.3,12.4
+C_kimlik,Sadakat ↑,0.75,0.812,0.586,0.816
+C_kimlik,Çelişki oranı ↓,0.0,0.0,0.034,0.013
+C_kimlik,Atıfsız cümle oranı ↓,0.368,0.396,0.094,0.038
+C_kimlik,Geçersiz atıf ↓,0.0,0.0,0.0,1.0
+C_kimlik,Dil çöküşü ↓,0.0,0.0,0.0,0.0
+C_kimlik,Kesilen cevap ↓,0.0,0.0,0.0,0.0
+C_kimlik,Üretim hatası (model döngüsü) ↓,0.0,0.0,0.0,0.0
+C_kimlik,Yargılanan iddia,36.0,32.0,58.0,76.0
+C_kimlik,Belirsiz yargı (sadakate girmez),0.0,0.0,0.0,0.0
+C_kimlik,  bunun yargıç hatası olanı,0.0,0.0,0.0,0.0
+C_kimlik,Ortalama süre (sn),12.1,6.2,9.5,12.2
+C_koordinat,Sadakat ↑,0.667,0.815,0.547,0.89
+C_koordinat,Çelişki oranı ↓,0.0,0.0,0.019,0.0
+C_koordinat,Atıfsız cümle oranı ↓,0.388,0.386,0.102,0.0
+C_koordinat,Geçersiz atıf ↓,0.0,0.0,0.0,0.0
+C_koordinat,Dil çöküşü ↓,0.0,0.0,0.0,0.0
+C_koordinat,Kesilen cevap ↓,0.0,0.0,0.0,0.0
+C_koordinat,Üretim hatası (model döngüsü) ↓,0.0,0.0,0.0,0.0
+C_koordinat,Yargılanan iddia,30.0,27.0,53.0,91.0
+C_koordinat,Belirsiz yargı (sadakate girmez),0.0,0.0,0.0,0.0
+C_koordinat,  bunun yargıç hatası olanı,0.0,0.0,0.0,0.0
+C_koordinat,Ortalama süre (sn),10.2,5.6,8.1,12.7
+D_literatursuz,Sadakat ↑,0.5,0.438,0.526,0.615
+D_literatursuz,Çelişki oranı ↓,0.0,0.0,0.0,0.0
+D_literatursuz,Atıfsız cümle oranı ↓,0.312,0.515,0.073,0.025
+D_literatursuz,Geçersiz atıf ↓,0.0,0.0,0.0,0.0
+D_literatursuz,Dil çöküşü ↓,0.0,0.0,0.0,0.0
+D_literatursuz,Kesilen cevap ↓,0.0,0.0,0.0,0.0
+D_literatursuz,Üretim hatası (model döngüsü) ↓,0.0,0.0,0.0,0.0
+D_literatursuz,Yargılanan iddia,22.0,16.0,38.0,39.0
+D_literatursuz,Belirsiz yargı (sadakate girmez),0.0,0.0,0.0,0.0
+D_literatursuz,  bunun yargıç hatası olanı,0.0,0.0,0.0,0.0
+D_literatursuz,Ortalama süre (sn),12.7,9.0,11.1,11.7
+TÜMÜ,Sadakat ↑,0.763,0.806,0.649,0.828
+TÜMÜ,Çelişki oranı ↓,0.004,0.005,0.025,0.007
+TÜMÜ,Atıfsız cümle oranı ↓,0.336,0.334,0.069,0.009
+TÜMÜ,Geçersiz atıf ↓,0.0,0.0,0.0,1.0
+TÜMÜ,Dil çöküşü ↓,0.0,0.0,0.0,0.0
+TÜMÜ,Kesilen cevap ↓,0.0,0.0,1.0,0.0
+TÜMÜ,Üretim hatası (model döngüsü) ↓,0.0,0.0,0.0,0.0
+TÜMÜ,Yargılanan iddia,228.0,222.0,325.0,443.0
+TÜMÜ,Belirsiz yargı (sadakate girmez),1.0,1.0,1.0,0.0
+TÜMÜ,  bunun yargıç hatası olanı,0.0,1.0,1.0,0.0
+TÜMÜ,Ortalama süre (sn),13.5,7.9,9.4,12.3
