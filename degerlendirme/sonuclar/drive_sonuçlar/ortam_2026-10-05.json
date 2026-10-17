@@ -1,0 +1,16 @@
+{
+ "tarih": "2026-10-05T05:29",
+ "gpu": [
+  "Tesla T4"
+ ],
+ "ollama": {
+  "version": "0.35.1"
+ },
+ "modeller": [
+  "NAME          ID              SIZE      MODIFIED           ",
+  "qwen2.5:7b    845dbda0ea48    4.7 GB    About a minute ago    "
+ ],
+ "kod": [
+  "\u001b[33m8442021\u001b[m\u001b[33m (\u001b[m\u001b[1;36mHEAD\u001b[m\u001b[33m -> \u001b[m\u001b[1;32mmain\u001b[m\u001b[33m, \u001b[m\u001b[1;31morigin/main\u001b[m\u001b[33m, \u001b[m\u001b[1;31morigin/HEAD\u001b[m\u001b[33m)\u001b[m fix: Ollama tekrar dongusu (token repeat limit) olcumu durdurmasin"
+ ]
+}
