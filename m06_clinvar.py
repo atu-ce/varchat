@@ -26,8 +26,8 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 
-from m05_makale_getir import ncbi_get
-from m04_sorgu_kur import varyant_kaydi
+from m05_pubmed import ncbi_get
+from m04_retrieval import varyant_kaydi
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")

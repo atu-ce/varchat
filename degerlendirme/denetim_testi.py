@@ -17,7 +17,7 @@ try:
 except (AttributeError, ValueError):
     pass
 
-import m01_varchat_ollama as app
+import m01_main as app
 
 RET = app.RET_CEVAP
 basarisiz = []
@@ -161,7 +161,7 @@ app.SON_BAGLAM.clear()
 
 # ---------------------------------------------------------------- modele verilen varyant adı
 print("MODEL ETİKETİ")
-from m04_sorgu_kur import model_etiketi
+from m04_retrieval import model_etiketi
 kontrol("gen + değişim girdisi aynen kalır (eğitimdeki biçim)",
         model_etiketi({"tur": "gen_degisim", "gen": "BRAF", "protein_kisa": "V600E"}, "BRAF V600E"), "BRAF V600E")
 kontrol("rsID -> 'GEN DEĞİŞİM (rsID)'",

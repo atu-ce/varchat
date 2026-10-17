@@ -28,9 +28,9 @@ try:
 except (AttributeError, ValueError):
     pass
 
-import m03_varyant_anlamlandir as m03
-import m01_varchat_ollama as app
-from m04_sorgu_kur import kaynaklari_getir, model_etiketi
+import m03_vep as m03
+import m01_main as app
+from m04_retrieval import kaynaklari_getir, model_etiketi
 from test_seti import EGITIM_GENLERI, KATMANLAR
 
 CIKTI = os.path.join(KOK, "fine_tune", "kaynaklar_v4.jsonl")

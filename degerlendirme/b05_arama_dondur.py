@@ -46,7 +46,7 @@ except (AttributeError, ValueError):
 
 import requests
 
-from m04_sorgu_kur import alaka_etiketi, kaynaklari_getir
+from m04_retrieval import alaka_etiketi, kaynaklari_getir
 from test_seti import BEKLENEN_KADEME
 
 BURASI = os.path.dirname(os.path.abspath(__file__))

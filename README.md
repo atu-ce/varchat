@@ -53,11 +53,11 @@ Kaynak listesini model değil kod bastığı için makale uydurulamaz (cümle d�
 
 | Dosya | Ne yapar |
 |---|---|
-| `m01_varchat_ollama.py` | **Uygulama.** Sohbet döngüsü, yönlendirici, üretim, üretim sonrası denetimler. Diğer modülleri çağırır. |
-| `m02_gen_validasyon.py` | Gen sembolü doğrulama (HGNC, 45.019 sembol; `genler.txt` ilk çalıştırmada indirilir) ve yazım önerisi. |
-| `m03_varyant_anlamlandir.py` | Girdiyi Ensembl VEP ile anotasyon kartına çevirir (GRCh38, gerekirse GRCh37). |
-| `m04_sorgu_kur.py` | Sorgu kurucu + alaka kapısı: PubMed'i kademeli arar, kaynakları `varyant` / `gen` diye etiketler. |
-| `m05_makale_getir.py` | NCBI E-utilities (PubMed) istemcisi. |
+| `m01_main.py` | **Uygulama.** Sohbet döngüsü, yönlendirici, üretim, üretim sonrası denetimler. Diğer modülleri çağırır. |
+| `m02_hgnc_check.py` | Gen sembolü doğrulama (HGNC, 45.019 sembol; `genler.txt` ilk çalıştırmada indirilir) ve yazım önerisi. |
+| `m03_vep.py` | Girdiyi Ensembl VEP ile anotasyon kartına çevirir (GRCh38, gerekirse GRCh37). |
+| `m04_retrieval.py` | Sorgu kurucu + alaka kapısı: PubMed'i kademeli arar, kaynakları `varyant` / `gen` diye etiketler. |
+| `m05_pubmed.py` | NCBI E-utilities (PubMed) istemcisi. |
 | `m06_clinvar.py` | ClinVar kaydını bulur, kanonik kaydı seçer, sınıflandırmaları yıldızıyla gösterir. |
 | `models/` | Yerel model dosyaları (repoda yalnız `Modelfile.varchat-v2`; GGUF ve adaptör repo dışı). |
 
@@ -115,12 +115,12 @@ Eğitilmiş model (`varchat-v2`): `colab_gguf.ipynb`'nin ürettiği `varchat-v2-
 cd models
 ollama create varchat-v2 -f Modelfile.varchat-v2
 cd ..
-python m01_varchat_ollama.py
+python m01_main.py
 ```
 
 `Modelfile.varchat-v2`, `ollama show qwen2.5:7b --modelfile` çıktısının yalnız `FROM` satırı değiştirilmiş hâlidir
 (aynı sohbet şablonu). Linux satır sonuyla (LF) kalmalı; Windows satır sonu şablonu bozuyor.
-Ham modelle çalıştırmak için `m01_varchat_ollama.py`'de `MODEL = "qwen2.5:7b"`.
+Ham modelle çalıştırmak için `m01_main.py`'de `MODEL = "qwen2.5:7b"`.
 
 İnternet PubMed, VEP ve ClinVar sorguları için gerekir. `.env` içinde NCBI anahtarı isteğe bağlıdır (bkz. `.env.example`).
 GPU olmayan bilgisayarda bir özet birkaç dakika sürer.

@@ -18,7 +18,7 @@ import requests
 from rapidfuzz import process
 from rapidfuzz.distance import JaroWinkler
 
-from m03_varyant_anlamlandir import girdi_turu
+from m03_vep import girdi_turu
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")

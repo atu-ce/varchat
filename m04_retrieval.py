@@ -17,8 +17,8 @@ Akış:
 import re
 import sys
 
-import m03_varyant_anlamlandir as m03
-from m05_makale_getir import makale_ara_ayrintili, makale_detaylari_al, kunye
+import m03_vep as m03
+from m05_pubmed import makale_ara_ayrintili, makale_detaylari_al, kunye
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")

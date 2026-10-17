@@ -19,10 +19,10 @@ import sys
 
 import ollama
 
-from m05_makale_getir import kunye
-from m02_gen_validasyon import gen_cikar, gen_gecerli_mi, GEN_LISTESI
+from m05_pubmed import kunye
+from m02_hgnc_check import gen_cikar, gen_gecerli_mi, GEN_LISTESI
 from m06_clinvar import clinvar_bilgisi, clinvar_satirlari
-from m04_sorgu_kur import kaynaklari_getir, baglam_metni, model_etiketi   # kademeli arama + alaka kapısı (adım 4)
+from m04_retrieval import kaynaklari_getir, baglam_metni, model_etiketi   # kademeli arama + alaka kapısı (adım 4)
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")

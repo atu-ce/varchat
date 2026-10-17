@@ -44,9 +44,9 @@ except (AttributeError, ValueError):
 
 import requests
 
-import m03_varyant_anlamlandir as m03
+import m03_vep as m03
 from m06_clinvar import ESKI_ADLAR
-from m04_sorgu_kur import varyant_kaydi
+from m04_retrieval import varyant_kaydi
 from test_seti import KATMANLAR, KOORDINAT_TURET
 
 LITVAR = "https://www.ncbi.nlm.nih.gov/research/litvar2-api/"

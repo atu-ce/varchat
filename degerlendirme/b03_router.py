@@ -21,7 +21,7 @@ try:
 except (AttributeError, ValueError):
     pass
 
-import m01_varchat_ollama as app
+import m01_main as app
 
 # (mesaj, aktif_varyant, beklenen_kategori, beklenen_varyant_or_None)
 SET = [

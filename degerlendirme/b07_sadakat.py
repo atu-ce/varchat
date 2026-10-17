@@ -37,7 +37,7 @@ except (AttributeError, ValueError):
 
 import ollama
 
-import m01_varchat_ollama as app
+import m01_main as app
 
 BURASI = os.path.dirname(os.path.abspath(__file__))
 KARARLAR = ("DESTEKLENIYOR", "DESTEKLENMIYOR", "CELISIYOR")

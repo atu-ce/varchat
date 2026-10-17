@@ -25,9 +25,9 @@ try:
 except (AttributeError, ValueError):
     pass
 
-import m01_varchat_ollama as app
+import m01_main as app
 from m06_clinvar import clinvar_bilgisi
-from m04_sorgu_kur import model_etiketi, varyant_kaydi
+from m04_retrieval import model_etiketi, varyant_kaydi
 
 BURASI = os.path.dirname(os.path.abspath(__file__))
 
