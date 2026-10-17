@@ -1,0 +1,2 @@
+# Ollama Modelfile'ları LF kalmalı: CRLF sohbet şablonunu değiştirir ve cevapları farklılaştırır
+models/Modelfile.* text eol=lf

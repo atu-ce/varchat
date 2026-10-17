@@ -30,8 +30,10 @@ try:
 except (AttributeError, ValueError):
     pass
 
-MODEL = "qwen2.5:7b"                # grounded üretim (LoRA gelince: "varchat")
-SINIFLANDIRICI_MODEL = MODEL        # niyet_belirle; LoRA'ya geçince bilinçli karar ver (eğitim verisinde sınıflandırma örneği yok)
+MODEL = "varchat-v2"                # grounded üretim: Qwen2.5-7B-Instruct + LoRA (501 örnek), birleştirilmiş Q4_K_M
+                                    # (kurulum: models/Modelfile.varchat-v2; ham model için "qwen2.5:7b")
+SINIFLANDIRICI_MODEL = "qwen2.5:7b" # niyet_belirle ham modelde kalır: eğitim verisinde sınıflandırma örneği yok,
+                                    # yönlendirici ölçümü (b03, 39/39) ham modelle yapıldı
 
 # --- Üretim ayarları: TEK yerden. Her ollama.chat çağrısı bunları alır. ---
 # num_ctx        : bağlam penceresi (modelin "masası"). Ollama varsayılanı 4096; 5 makale özeti tek başına
