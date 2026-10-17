@@ -2,12 +2,12 @@
 DONDURULMUŞ TEST SETİ (adım 8) — fine-tune eğitim setiyle (31 gen) KESİŞMEYEN varyantlar, dört katman.
 
 Neden: b01'in 8 varyantı eğitim setindeydi; fine-tune sonrası aynı setle ölçüm "öğrendi" ile "hatırladı"yı ayıramaz.
-Bu liste bir kez dondurulur ve eğitime ASLA katılmaz. Koordinat biçimleri VEP'ten türetilir (b04), elle yazılmaz.
+Bu liste bir kez dondurulur ve eğitime ASLA katılmaz. Koordinat biçimleri VEP'ten türetilir (e02), elle yazılmaz.
 
 Katmanlar:
   A_hotspot         : iyi çalışılmış somatik kanser varyantları (kolay; literatür bol)
   B_germline_yaygin : klinikte sık istenen kalıtsal varyantlar, çoğu ESKİ adla (ClinVar başlığıyla eşleşmez)
-  C_kimlik          : rsID girdileri (+ b04'ün türettiği GRCh38/GRCh37 koordinat biçimleri = C_koordinat)
+  C_kimlik          : rsID girdileri (+ e02'ün türettiği GRCh38/GRCh37 koordinat biçimleri = C_koordinat)
   D_literatursuz    : varyanta özgü yayını olmayan / özette anılmayan girdiler (beklenen davranış: 'gen düzeyi' uyarısı, varyant iddiası YOK)
 
 Sürüm notu (26 Eylül 2026 denetimi):
@@ -39,8 +39,8 @@ KATMANLAR = {
     ],
 }
 
-# C katmanı: b04 bu rsID'ler için GRCh38 (çıplak) ve GRCh37 ('GRCh37:' önekli) koordinat biçimi türetir (C_koordinat).
-# Hedef, VEP numaralamasıyla PROTEİN DEĞİŞİMİ: b04 her sürümde alt alelleri tek tek çözer, hedefi veren aleli seçer;
+# C katmanı: e02 bu rsID'ler için GRCh38 (çıplak) ve GRCh37 ('GRCh37:' önekli) koordinat biçimi türetir (C_koordinat).
+# Hedef, VEP numaralamasıyla PROTEİN DEĞİŞİMİ: e02 her sürümde alt alelleri tek tek çözer, hedefi veren aleli seçer;
 # hiçbir alel vermiyorsa (GRCh37'de rs6025 referansı zaten Leiden alelidir) o sürüm için satır üretmez ve uyarı yazar.
 KOORDINAT_TURET = {"rs1801133": "A222V", "rs6025": "R534Q", "rs4244285": "P227=", "rs121913671": "D1228N",
                    "rs1799853": "R144C", "rs429358": "C130R"}
@@ -57,7 +57,7 @@ def hepsi():
 
 
 def gen_kesisimi():
-    """Test setindeki gen sembolleri (rsID/koordinat girdilerinin VEP çözümü dahil, b04 çıktısı varsa) eğitim setiyle kesişiyor mu?
+    """Test setindeki gen sembolleri (rsID/koordinat girdilerinin VEP çözümü dahil, e02 çıktısı varsa) eğitim setiyle kesişiyor mu?
     Boş küme beklenir. Not: gen DÜZEYİNDE bazı semboller (CDK4, MET, MAP2K1, ERBB2) eğitim özet metinlerinde anılıyor;
     kesişimsizlik VARYANT düzeyindedir, tezde 'gen düzeyinde sızıntı yok' denmemeli."""
     import json

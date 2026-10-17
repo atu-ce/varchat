@@ -3,9 +3,9 @@ BENCHMARK 3 — Yönlendirici (router) doğruluğu.
 
 Soru: Resepsiyonist mesajları doğru odaya yolluyor mu?
 Etiketli mesaj seti (aktif varyant bağlamıyla) -> m01.niyet (kural + model) -> karışıklık matrisi + doğruluk.
-Sonuç degerlendirme/sonuclar/router_<tarih>.json dosyasına yazılır (tez tablosu için ham veri).
+Sonuç evaluation/sonuclar/router_<tarih>.json dosyasına yazılır (tez tablosu için ham veri).
 
-Çalıştırma: python degerlendirme/b03_router.py   (Ollama gerekir; ~40 mesaj, model çağrısı olanlar ~10-15 sn/mesaj CPU)
+Çalıştırma: python evaluation/e09_router_eval.py   (Ollama gerekir; ~40 mesaj, model çağrısı olanlar ~10-15 sn/mesaj CPU)
 """
 
 import collections

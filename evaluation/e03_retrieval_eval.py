@@ -3,27 +3,27 @@ BENCHMARK 5 — ARAMAYI DONDUR + RETRIEVAL ÖLÇÜMÜ (adım 8, v3 — 4 Ekim d�
 
 Her test girdisi için m04.kaynaklari_getir'in sonucunu (sorgu, çeviri, sayılar, kademe, seçilen makalelerin PMID/başlık/özet/etiket)
 VE eski hattın (v1) sonucunu tarih damgasıyla kaydeder; ölçümler bir daha canlı PubMed'e gitmez (kayma %17/47 gün ölçüldü).
-v1 = git b87d8a8 sürümündeki kod BİREBİR (degerlendirme/eski_hat/): koordinat -> VEP region ucu -> ALFABETİK ilk gen adı;
+v1 = git b87d8a8 sürümündeki kod BİREBİR (evaluation/eski_hat/): koordinat -> VEP region ucu -> ALFABETİK ilk gen adı;
 'GRCh37:' öneki eski kodda çöker -> ham metin aranır; diğer girdiler ham metin; 'özet yok' makaleler elenmez.
 Ağ kesintisi (429/5xx/zaman aşımı) eski kodun davranışı değildir: iki hatta da 3 deneme yapılır, kalıcı hata satıra yazılır.
 PubTator3 anotasyonları, v1 makalelerinin başlık+özeti ve her makalenin hangi kaynakla doğru sayıldığı kayda yazılır.
 
-Ölçüm (b04'ün doğru cevap listesine karşı; A/B/C katmanları) — iki hat için AYNI tanımlar:
+Ölçüm (e02'ün doğru cevap listesine karşı; A/B/C katmanları) — iki hat için AYNI tanımlar:
   - P@5             : ilk 5'in kaçı doğru / 5 (payda SABİT; eksik sonuç = yanlış, kullanıcıya 5 kaynak vaadi)
   - kesinlik(dönen) : doğru / dönen (yalnızca dönen makaleler; az döndürmek cezalandırılmaz)
   - doğru (oto)     : LitVar2 listesinde ∪ PubTator3 o makalede varyantı etiketlemiş (rsID / protein / cDNA / eski ad) ∪ kürasyon PMID'i
-  - doğru (hakem)   : oto ∪ insan hakem kararı (degerlendirme/sonuclar/hakem.jsonl; yoksa hakemli sütun = oto)
+  - doğru (hakem)   : oto ∪ insan hakem kararı (evaluation/sonuclar/hakem.jsonl; yoksa hakemli sütun = oto)
   - recall5_sinirli : yalnız LitVar ∪ kürasyon listesindeki isabetler / min(|liste|, 5)  (PubTator-only isabet recall'a girmez)
   - gen_etiketli_dogru: sistemin 'gen düzeyi' dediği ama listede doğru sayılan makaleler (liste tam metinden, sistem özetten okur)
   Otomatik doğru cevap listesi bir ALT SINIRDIR (tmVar 'GNASR201C', 'c-MetD1228N' gibi bitişik yazımları kaçırır);
   iki hattın da 'varyant' etiketli ama listede olmayan makaleleri hakem_adaylari_<etiket>.jsonl'a yazılır (insan kararı için;
   v1 makaleleri m04.alaka_etiketi ile aynı kuralla etiketlenir).
-D katmanı (doğru cevap listesi yok): ölçü P@5 değil BEKLENEN KADEME (test_seti.BEKLENEN_KADEME): varyanta özgü iddia yapılmaması
+D katmanı (doğru cevap listesi yok): ölçü P@5 değil BEKLENEN KADEME (e01_test_set.BEKLENEN_KADEME): varyanta özgü iddia yapılmaması
   (kademe gen/yok = doğru); 'yanlış varyant iddiası' (kademe varyant) sayılır.
 
 Kullanım:
-  python degerlendirme/b05_arama_dondur.py                         canlı: aramayı dondur + ölç
-  python degerlendirme/b05_arama_dondur.py --hakem arama_<etiket>.jsonl   çevrimdışı: hakem.jsonl kararlarını donmuş kayda uygula,
+  python evaluation/e03_retrieval_eval.py                         canlı: aramayı dondur + ölç
+  python evaluation/e03_retrieval_eval.py --hakem arama_<etiket>.jsonl   çevrimdışı: hakem.jsonl kararlarını donmuş kayda uygula,
                                                                     özeti yeniden hesapla (PubMed'e gidilmez)
 Çıktılar (var olan dosya EZİLMEZ, _2/_3 eki alır):
   sonuclar/arama_<tarih>.jsonl  (kayıt)   sonuclar/arama_ozet_<etiket>.json (tablo)   sonuclar/hakem_adaylari_<etiket>.jsonl
@@ -47,7 +47,7 @@ except (AttributeError, ValueError):
 import requests
 
 from m04_retrieval import alaka_etiketi, kaynaklari_getir
-from test_seti import BEKLENEN_KADEME
+from e01_test_set import BEKLENEN_KADEME
 
 BURASI = os.path.dirname(os.path.abspath(__file__))
 GT_DOSYA = os.path.join(BURASI, "sonuclar", "dogru_cevap.jsonl")
@@ -206,7 +206,7 @@ def pubtator_bicimleri(gt, kayit):
 
 
 def hakem_yukle():
-    """degerlendirme/sonuclar/hakem.jsonl: {"girdi","pmid","karar":"varyant|gen|ilgisiz","kanit","tarih","hakem"} satırları (insan kararı)."""
+    """evaluation/sonuclar/hakem.jsonl: {"girdi","pmid","karar":"varyant|gen|ilgisiz","kanit","tarih","hakem"} satırları (insan kararı)."""
     h = {}
     if os.path.exists(HAKEM):
         for l in open(HAKEM, encoding="utf-8"):

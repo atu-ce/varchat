@@ -1,21 +1,21 @@
 """
 BENCHMARK 7 — İDDİA DÜZEYİNDE SADAKAT (faithfulness) + çıktı metrikleri (adım 9).
 
-Girdi : degerlendirme/sonuclar/uretim_<model>_<tarih>.jsonl (b06) + arama_<tarih>.jsonl (kaynak metinleri)
+Girdi : evaluation/sonuclar/uretim_<model>_<tarih>.jsonl (e04) + arama_<tarih>.jsonl (kaynak metinleri)
 Yöntem (RAGAS'ın sadakat fikri, yerel yargıçla):
   1) Cevap cümlelere bölünür. Ret cümlesi ("...bilgi yok.") atlanır.
   2) Atıfsız cümle -> ATIFSIZ (yargılanmaz, ayrı sayılır).
   3) Atıflı cümle -> atıf yaptığı kaynak(lar)ın başlık+özeti ile birlikte YARGIÇ modele sorulur:
      DESTEKLENIYOR / DESTEKLENMIYOR / CELISIYOR  (JSON, sıcaklık 0)
   4) Sadakat = DESTEKLENIYOR / yargılanan iddia; çelişki oranı ayrı (tıpta en ağır hata).
-Ek metrikler (b06'nın denetimlerinden): atıfsız cümle oranı, geçersiz atıf sayısı, yabancı alfabe oranı, kesilme, süre.
+Ek metrikler (e04'nın denetimlerinden): atıfsız cümle oranı, geçersiz atıf sayısı, yabancı alfabe oranı, kesilme, süre.
 Yargıç varsayılan olarak m01.MODEL (aynı model kendini yargılar — bilinen zayıflık; --yargic ile başka model verilebilir).
 İnsan kontrolü için 30 rastgele iddia sonuclar/insan_kontrol_<tarih>.csv'ye boş etiket sütunuyla yazılır (kappa için).
 
 Kaynak metinleri, üretim satırının kendi 'snapshot' alanındaki arama kaydından okunur (en yeni arama dosyasından DEĞİL);
 satırın PMID listesi o kayıtla uyuşmazsa satır yargılanmaz (atıf numarası başka makaleye eşlenmesin).
 
-Kullanım: python degerlendirme/b07_sadakat.py [uretim_dosyasi] [--model MODEL] [--yargic MODEL]
+Kullanım: python evaluation/e05_faithfulness.py [uretim_dosyasi] [--model MODEL] [--yargic MODEL]
   --yargic varsayılan dışıysa (ör. qwen2.5:14b) çıktı adlarına '__yargic-<ad>' eklenir: 7B yargıcın sonuçları ezilmez.
   uretim_dosyasi yoksa: --model verilmişse o modelin, verilmemişse herhangi bir modelin EN SON YAZILAN üretim dosyası.
 """
@@ -111,7 +111,7 @@ def yargila(iddia, kaynaklar, model):
 
 
 def cevap_ozeti(cevap):
-    """Yargılanan cevabın kısa parmak izi (b06 satırı yeniden üretilirse değişir)."""
+    """Yargılanan cevabın kısa parmak izi (e04 satırı yeniden üretilirse değişir)."""
     import hashlib
     return hashlib.sha1((cevap or "").encode("utf-8")).hexdigest()[:12] if cevap else None
 
@@ -142,7 +142,7 @@ def main():
     desen = f"uretim_{model.replace(':', '-').replace('/', '-')}_*.jsonl" if model else "uretim_*.jsonl"
     uretim = argv[0] if argv else son_dosya(desen)
     if not uretim:
-        raise SystemExit(f"{desen} (b06 çıktısı) bulunamadı.")
+        raise SystemExit(f"{desen} (e04 çıktısı) bulunamadı.")
     satirlar = [json.loads(l) for l in open(uretim, encoding="utf-8") if l.strip()]
     haritalar = {}
 
@@ -170,7 +170,7 @@ def main():
         guncel = {r["girdi"]: cevap_ozeti(r.get("cevap")) for r in satirlar}
 
         def gecerli_mi(h):
-            # Aynı yargıç sürümü VE yargılanan cevap üretim dosyasındakiyle aynı (b06 satırı yeniden üretmişse yeniden yargılanır).
+            # Aynı yargıç sürümü VE yargılanan cevap üretim dosyasındakiyle aynı (e04 satırı yeniden üretmişse yeniden yargılanır).
             # Parmak izi olmayan eski satırlarda cevabın cümleleri yargılanan cümlelerle karşılaştırılır.
             if h.get("yargic_surumu") != YARGIC_SURUMU:
                 return False

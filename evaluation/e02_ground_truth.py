@@ -12,7 +12,7 @@ Uyuşma kuralı (gen eşleşmesi zorunlu; en az biri):
   - adayın adı/HGVS'i girdinin yazımlarından biri (E6V, Glu6Val, E7V, c.79G>A, 35delG, 5382insC ...)
   - nükleotid tarzı eski ad <-> HGVS: 'A1298C' <-> 'c.1298A>C', 'G20210A' <-> 'g.20210G>A'
   - rsID'li aday: VEP'in o rsID için verdiği protein/cDNA yazımı girdiyle kesişiyor (rs33950507 -> p.Glu27Lys -> E27K; EZH2 Y641N -> Y646N)
-PubTator3 varlık kimliği yalnızca META VERİ (per-makale doğrulama b05'te export anotasyonuyla yapılır); insan türü ve LitVar kimliği eşleşmesi aranır.
+PubTator3 varlık kimliği yalnızca META VERİ (per-makale doğrulama e03'te export anotasyonuyla yapılır); insan türü ve LitVar kimliği eşleşmesi aranır.
 C katmanı rsID'leri için VEP'ten GRCh38/GRCh37 koordinat biçimi türetilir; hedef alel HARF değil PROTEİN DEĞİŞİMİ ile seçilir
 (rs6025: GRCh37 referansı Leiden alelini taşır -> o sürümde satır üretilmez, uyarı yazılır).
 
@@ -25,7 +25,7 @@ Ek kurallar (4 Ekim):
     (rs6025 -> 'F5 R506Q' kayıtları da birleşir; böylece 'rs6025' ile 'F5 R506Q' aynı listeyi alır).
   - VEP geçici hatası boş küme olarak ÖNBELLEĞE ALINMAZ; denenemeyen 'vep' eşleşmesi satırın uyarilar alanına yazılır.
 
-Çıktı: degerlendirme/sonuclar/dogru_cevap.jsonl  (tarih damgalı; git'e girer). Yeni liste önce geçici dosyaya yazılır; eskisi
+Çıktı: evaluation/sonuclar/dogru_cevap.jsonl  (tarih damgalı; git'e girer). Yeni liste önce geçici dosyaya yazılır; eskisi
 sonuclar/yedek/dogru_cevap_<tarih_saat>.jsonl olarak saklanır (koşu yarıda kalırsa eski liste yerinde kalır, aynı gün ikinci koşu ezmez).
 """
 
@@ -47,7 +47,7 @@ import requests
 import m03_vep as m03
 from m06_clinvar import ESKI_ADLAR
 from m04_retrieval import varyant_kaydi
-from test_seti import KATMANLAR, KOORDINAT_TURET
+from e01_test_set import KATMANLAR, KOORDINAT_TURET
 
 LITVAR = "https://www.ncbi.nlm.nih.gov/research/litvar2-api/"
 PUBTATOR = "https://www.ncbi.nlm.nih.gov/research/pubtator3-api/"

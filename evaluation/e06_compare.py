@@ -1,5 +1,5 @@
 """
-BENCHMARK 8 — MODEL KARŞILAŞTIRMASI (adım 9): b06 + b07 çıktılarından katman tablosu ve EŞLEŞTİRİLMİŞ istatistik.
+BENCHMARK 8 — MODEL KARŞILAŞTIRMASI (adım 9): e04 + e05 çıktılarından katman tablosu ve EŞLEŞTİRİLMİŞ istatistik.
 
 Aynı 56 girdi, aynı istem, aynı yargıç; modeller girdi girdi eşleştirilir:
   - Sadakat (iddia düzeyi): kaynağın DESTEKLEDİĞİ iddia / yargılanan iddia. Fark için %95 bootstrap güven aralığı
@@ -7,7 +7,7 @@ Aynı 56 girdi, aynı istem, aynı yargıç; modeller girdi girdi eşleştirilir
   - Atıfsız cümle oranı, çelişki, yalnızca ret ("bilgi yok") cevapları (McNemar, kesin binom), dil çöküşü, cevap uzunluğu.
 Bağımlılık yok (scipy gerekmez).
 
-Kullanım: python degerlendirme/b08_karsilastir.py [--dizin degerlendirme/sonuclar_colab] [--a qwen-taban] [--b varchat]
+Kullanım: python evaluation/e06_compare.py [--dizin evaluation/sonuclar_colab] [--a qwen-taban] [--b varchat]
                                                   [--yargic qwen2.5:32b] [--uyum qwen2.5:32b]
                                                   [--ciftler "qwen-taban>varchat,varchat>qwen2.5:14b"]
   --ciftler: eşleştirilmiş karşılaştırılacak model çiftleri ("A>B": B - A raporlanır; model adlarında ':' olduğu için ayraç '>');

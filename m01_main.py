@@ -33,7 +33,7 @@ except (AttributeError, ValueError):
 MODEL = "varchat-v2"                # grounded üretim: Qwen2.5-7B-Instruct + LoRA (501 örnek), birleştirilmiş Q4_K_M
                                     # (kurulum: models/Modelfile.varchat-v2; ham model için "qwen2.5:7b")
 SINIFLANDIRICI_MODEL = "qwen2.5:7b" # niyet_belirle ham modelde kalır: eğitim verisinde sınıflandırma örneği yok,
-                                    # yönlendirici ölçümü (b03, 39/39) ham modelle yapıldı
+                                    # yönlendirici ölçümü (e09, 39/39) ham modelle yapıldı
 
 # --- Üretim ayarları: TEK yerden. Her ollama.chat çağrısı bunları alır. ---
 # num_ctx        : bağlam penceresi (modelin "masası"). Ollama varsayılanı 4096; 5 makale özeti tek başına
@@ -482,7 +482,7 @@ def varyant_baglami_kur(varyant):
 def sistem_metni(varyant, makaleler, kademe="varyant", gen=None, veritabani=""):
     """Grounded system mesajı. Varyant modunda fine-tune eğitim verisiyle BİREBİR aynı (train/serve eşitliği);
     gen modunda 3. kural yumuşatılır (aksi halde 7B model 'varyantı özetle' sorusuna yalnızca ret cümlesiyle cevap veriyor).
-    Toplu üretim/ölçüm betikleri (b06) de bu fonksiyonu kullanır: canlı sistemle aynı metin."""
+    Toplu üretim/ölçüm betikleri (e04) de bu fonksiyonu kullanır: canlı sistemle aynı metin."""
     if kademe == "gen":
         kural3 = (f"- Kaynaklar '{varyant}' varyantının kendisini anmıyor (gen düzeyi). Varyantın etkisi, patojenitesi ya da "
                   f"hastalık ilişkisi hakkında iddia üretme; yalnızca {gen or 'ilgili gen'} geni hakkında kaynaklarda yazanı özetle. "

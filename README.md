@@ -61,20 +61,20 @@ Kaynak listesini model değil kod bastığı için makale uydurulamaz (cümle d�
 | `m06_clinvar.py` | ClinVar kaydını bulur, kanonik kaydı seçer, sınıflandırmaları yıldızıyla gösterir. |
 | `models/` | Yerel model dosyaları (repoda yalnız `Modelfile.varchat-v2`; GGUF ve adaptör repo dışı). |
 
-### Değerlendirme (`degerlendirme/`)
+### Değerlendirme (`evaluation/`)
 
 | Dosya | Ne yapar |
 |---|---|
-| `test_seti.py` | 45 girdi + 11 türetilmiş koordinat = 56; 4 katman (kanser hotspot, eski adlı kalıtsal, rsID/koordinat, literatürsüz); eğitim genleriyle kesişimsiz. |
-| `b04_dogru_cevap.py` | Her girdi için "bu varyantı anan makaleler" listesi (LitVar2 + PubTator3). |
-| `b05_arama_dondur.py`, `eski_hat/` | Aramayı dondurur, yeni ve eski hattın P@5'ini aynı tanımla ölçer; hakem kararlarını çevrimdışı uygular (`--hakem`). |
-| `b06_toplu_uret.py` | Donmuş kaynaklarla bir modelden 56 özet üretir (kaldığı yerden devam eder). |
-| `b07_sadakat.py` | Yargıç model her atıflı cümleyi kaynağına karşı yargılar (destekleniyor / desteklenmiyor / çelişiyor). |
-| `b08_karsilastir.py` | Modelleri girdi girdi eşleştirir: sadakat farkı + bootstrap güven aralığı, işaret testi, McNemar, yargıç uyumu (kappa). |
-| `b03_router.py` | Yönlendirici doğruluğu (39 mesaj). |
-| `denetim_testi.py` | Üretim sonrası denetimlerin model çağırmadan çalışan testleri. |
-| `colab_olcum.ipynb` | Colab'da: LoRA'yı birleştirip model dosyası üretir, modelleri aynı ortamda `b06` + `b07` ile ölçer. |
-| `colab_yargic.ipynb` | Colab'da: ham qwen2.5:14b ile üretim + bütün modelleri qwen2.5:32b yargıçla puanlama + `b08`. |
+| `e01_test_set.py` | 45 girdi + 11 türetilmiş koordinat = 56; 4 katman (kanser hotspot, eski adlı kalıtsal, rsID/koordinat, literatürsüz); eğitim genleriyle kesişimsiz. |
+| `e02_ground_truth.py` | Her girdi için "bu varyantı anan makaleler" listesi (LitVar2 + PubTator3). |
+| `e03_retrieval_eval.py`, `eski_hat/` | Aramayı dondurur, yeni ve eski hattın P@5'ini aynı tanımla ölçer; hakem kararlarını çevrimdışı uygular (`--hakem`). |
+| `e04_generate.py` | Donmuş kaynaklarla bir modelden 56 özet üretir (kaldığı yerden devam eder). |
+| `e05_faithfulness.py` | Yargıç model her atıflı cümleyi kaynağına karşı yargılar (destekleniyor / desteklenmiyor / çelişiyor). |
+| `e06_compare.py` | Modelleri girdi girdi eşleştirir: sadakat farkı + bootstrap güven aralığı, işaret testi, McNemar, yargıç uyumu (kappa). |
+| `e07_colab_measure.ipynb` | Colab'da: LoRA'yı birleştirip model dosyası üretir, modelleri aynı ortamda `e04` + `e05` ile ölçer. |
+| `e08_colab_judge.ipynb` | Colab'da: ham qwen2.5:14b ile üretim + bütün modelleri qwen2.5:32b yargıçla puanlama + `e06`. |
+| `e09_router_eval.py` | Yönlendirici doğruluğu (39 mesaj). |
+| `e10_check_tests.py` | Üretim sonrası denetimlerin model çağırmadan çalışan testleri. |
 | `sonuclar/` | Ölçüm girdileri: donmuş arama kaydı, doğru cevap listesi, hakem kararları (`hakem.jsonl`), özetler. |
 | `sonuclar_colab/` | Colab üretim/sadakat sonuçları (5 model, 7B ve 32B yargıç); `v1_` önekliler ilk eğitimin ölçüm koşusuna ait. |
 
@@ -129,10 +129,10 @@ GPU olmayan bilgisayarda bir özet birkaç dakika sürer.
 
 ## 4. Sonuçlar
 
-### Arama (5 Ekim 2026, `degerlendirme/sonuclar/arama_ozet_2026-10-05.json`)
+### Arama (5 Ekim 2026, `evaluation/sonuclar/arama_ozet_2026-10-05.json`)
 
 P@5 = seçilen ilk 5 makaleden doğru olanların oranı. Eski hat = Temmuz'daki kod (git `b87d8a8`), birebir.
-"Hakemli" sütunu otomatik listeye 14 insan hakem kararını ekler (`degerlendirme/sonuclar/hakem.jsonl`).
+"Hakemli" sütunu otomatik listeye 14 insan hakem kararını ekler (`evaluation/sonuclar/hakem.jsonl`).
 
 | Katman | Girdi | Yeni hat, otomatik | Eski hat, otomatik | Yeni hat, hakemli | Eski hat, hakemli |
 |---|---|---|---|---|---|
@@ -144,7 +144,7 @@ P@5 = seçilen ilk 5 makaleden doğru olanların oranı. Eski hat = Temmuz'daki 
 
 Literatürsüz 5 girdinin 5'inde sistem "gen düzeyi" moduna geçti.
 
-### Üretim (Colab L4/A100, aynı 56 girdi, `degerlendirme/sonuclar_colab/`)
+### Üretim (Colab L4/A100, aynı 56 girdi, `evaluation/sonuclar_colab/`)
 
 Sadakat = yargıcın "kaynakta destekleniyor" dediği iddiaların oranı (yalnız atıflı cümleler yargılanır).
 
@@ -156,7 +156,7 @@ Sadakat = yargıcın "kaynakta destekleniyor" dediği iddiaların oranı (yalnı
 | **varchat-v2 (501 denetlenmiş örnek)** | **0.828** | 0.810 | **%0,9** | **359** | 0 |
 | ham qwen2.5:14b | – | 0.831 | %42 | 177 | 0 |
 
-Eşleştirilmiş karşılaştırma (`b08`, %95 bootstrap güven aralığı):
+Eşleştirilmiş karşılaştırma (`e06`, %95 bootstrap güven aralığı):
 
 - varchat v1 → v2: +0.18 (7B yargıç, GA +0.12…+0.23), +0.10 (32B yargıç, GA +0.03…+0.17): veri denetimi ve büyütme
   ilk eğitimdeki düşüşü giderdi.

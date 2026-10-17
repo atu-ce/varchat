@@ -8,7 +8,7 @@ literatürü olmayan gen düzeyi girdiler (intron koordinatı).
 Kaynaklar UYGULAMANIN KENDİ HATTIYLA çekilir (m04.kaynaklari_getir): modele giden system mesajı ve ilk soru, canlı sistemle
 (m01.sistem_metni, m01.ilk_soru, m04.model_etiketi) birebir aynıdır -> eğitim/kullanım eşitliği.
 
-Kural: hiçbir gen test setinde (degerlendirme/test_seti.py, 56 girdi) ya da v3 eğitim verisinde yoktur (çeşitlilik + sızıntı yok).
+Kural: hiçbir gen test setinde (evaluation/e01_test_set.py, 56 girdi) ya da v3 eğitim verisinde yoktur (çeşitlilik + sızıntı yok).
 Test setinin donmuş arama kaydıyla ortak PMID varsa raporlanır.
 
 Çıktı: fine_tune/kaynaklar_v4.jsonl  (v3'ün kaynakları: arsiv/fine_tune_v3/kaynaklar.jsonl)
@@ -22,7 +22,7 @@ import time
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, KOK)
-sys.path.insert(0, os.path.join(KOK, "degerlendirme"))
+sys.path.insert(0, os.path.join(KOK, "evaluation"))
 try:
     sys.stdout.reconfigure(encoding="utf-8")
 except (AttributeError, ValueError):
@@ -31,10 +31,10 @@ except (AttributeError, ValueError):
 import m03_vep as m03
 import m01_main as app
 from m04_retrieval import kaynaklari_getir, model_etiketi
-from test_seti import EGITIM_GENLERI, KATMANLAR
+from e01_test_set import EGITIM_GENLERI, KATMANLAR
 
 CIKTI = os.path.join(KOK, "fine_tune", "kaynaklar_v4.jsonl")
-TEST_SNAPSHOT = os.path.join(KOK, "degerlendirme", "sonuclar", "arama_2026-10-05.jsonl")
+TEST_SNAPSHOT = os.path.join(KOK, "evaluation", "sonuclar", "arama_2026-10-05.jsonl")
 
 # (girdi, alan, biçim) — biçim: gen_degisim | eski_ad | ifade | rsid
 GIRDILER = [

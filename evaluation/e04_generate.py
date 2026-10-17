@@ -1,15 +1,15 @@
 """
 BENCHMARK 6 — TOPLU ÜRETİM (adım 9): dondurulmuş arama kaydı üzerinde, aynı ayarlarla, bir modelin özetlerini üretir.
 
-Girdi : degerlendirme/sonuclar/arama_<tarih>.jsonl  (b05: her girdi için seçilen makaleler + kademe; PubMed'e gidilmez)
-Çıktı : degerlendirme/sonuclar/uretim_<model>_<tarih>.jsonl  (girdi, katman, kademe, soru, system, cevap, denetimler, süre)
+Girdi : evaluation/sonuclar/arama_<tarih>.jsonl  (e03: her girdi için seçilen makaleler + kademe; PubMed'e gidilmez)
+Çıktı : evaluation/sonuclar/uretim_<model>_<tarih>.jsonl  (girdi, katman, kademe, soru, system, cevap, denetimler, süre)
 Kaldığı yerden devam eder: aynı model + aynı snapshot için yazılmış en yeni üretim dosyası bulunur ve içindeki girdiler atlanır
 (gece yarısını geçen ya da ertesi gün yeniden başlatılan koşu yeni dosyaya sıfırdan BAŞLAMAZ). CPU'da saatler sürer, gece çalıştırılır.
 
-Kullanım: python degerlendirme/b06_toplu_uret.py [model_adi] [--yeni]
+Kullanım: python evaluation/e04_generate.py [model_adi] [--yeni]
   model_adi: varsayılan m01.MODEL; örn. 'varchat' (fine-tune'lu model)
   --yeni   : var olan dosyaya devam etme, yeni tarihli dosya aç (aynı modeli ikinci kez ölçmek için)
-Ölçüm (sadakat, atıf, dil) b07'de yapılır; bu betik yalnızca üretir ve m01'in üretim-sonrası denetim sonuçlarını kaydeder.
+Ölçüm (sadakat, atıf, dil) e05'de yapılır; bu betik yalnızca üretir ve m01'in üretim-sonrası denetim sonuçlarını kaydeder.
 """
 
 import glob
@@ -47,7 +47,7 @@ def son_snapshot():
     """En son YAZILAN arama kaydı (ad sıralaması değil: aynı gün açılan arama_<tarih>_2.jsonl de doğru seçilsin)."""
     dosyalar = glob.glob(os.path.join(BURASI, "sonuclar", "arama_*.jsonl"))
     if not dosyalar:
-        raise SystemExit("Önce b05_arama_dondur.py çalıştırılmalı (arama_<tarih>.jsonl yok).")
+        raise SystemExit("Önce e03_retrieval_eval.py çalıştırılmalı (arama_<tarih>.jsonl yok).")
     return max(dosyalar, key=os.path.getmtime)
 
 

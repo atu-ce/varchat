@@ -5,7 +5,7 @@ Neden: atıf, cümle bölme, kesik cümle, çeviri düzeltmesi ve çelişki dene
 (atıfsız cümle oranı, geçersiz atıf, çelişki). Düzenli ifadeler (regex) küçük bir değişiklikle sessizce bozulabilir;
 bu dosya bilinen her durumu bir kez yazar ve kod değişince yeniden koşulur.
 
-Kullanım: python degerlendirme/denetim_testi.py      (hepsi geçerse çıkış kodu 0)
+Kullanım: python evaluation/e10_check_tests.py      (hepsi geçerse çıkış kodu 0)
 """
 
 import os
@@ -179,7 +179,7 @@ kontrol("rsID'siz koordinat", model_etiketi({"tur": "koordinat", "gen": "TP53", 
 # ---------------------------------------------------------------- tekrar döngüsü (Ollama 'token repeat limit reached')
 print("TEKRAR DÖNGÜSÜ")
 import ollama as _ollama
-import b07_sadakat as b07
+import e05_faithfulness as e05
 
 
 class _Cevap(dict):
@@ -220,15 +220,15 @@ try:
             (True, True))
     kaynak = [(1, {"baslik": "B", "ozet": "O"})]
     _ollama.chat = _sahte([DONGU, '{"karar": "DESTEKLENIYOR", "gerekce": "kaynakta var"}'])
-    kontrol("yargıç: döngüde ikinci denemede karar verir", b07.yargila("iddia", kaynak, "m")[::2], ("DESTEKLENIYOR", 1))
+    kontrol("yargıç: döngüde ikinci denemede karar verir", e05.yargila("iddia", kaynak, "m")[::2], ("DESTEKLENIYOR", 1))
     _ollama.chat = _sahte(["{bozuk", '{"karar": "CELISIYOR", "gerekce": "ters"}'])
-    kontrol("yargıç: geçersiz JSON'da ikinci denemede karar verir", b07.yargila("iddia", kaynak, "m")[::2], ("CELISIYOR", 1))
+    kontrol("yargıç: geçersiz JSON'da ikinci denemede karar verir", e05.yargila("iddia", kaynak, "m")[::2], ("CELISIYOR", 1))
     _ollama.chat = _sahte([DONGU, DONGU])
-    k, gerekce, d = b07.yargila("iddia", kaynak, "m")
+    k, gerekce, d = e05.yargila("iddia", kaynak, "m")
     kontrol("yargıç: iki deneme de başarısızsa BELIRSIZ + 'yargıç hatası', betik durmaz", (k, gerekce.startswith("yargıç hatası"), d),
             ("BELIRSIZ", True, 2))
     _ollama.chat = _sahte(['{"karar": "DESTEKLENMIYOR", "gerekce": "yok"}'])
-    kontrol("yargıç: normal durumda tek deneme", b07.yargila("iddia", kaynak, "m")[::2], ("DESTEKLENMIYOR", 0))
+    kontrol("yargıç: normal durumda tek deneme", e05.yargila("iddia", kaynak, "m")[::2], ("DESTEKLENMIYOR", 0))
 finally:
     _ollama.chat = _gercek_chat
     app.SON_BAGLAM.clear()
