@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VarChat Benzeri Genetik Varyant Asistanı — Proje Durumu</title>
+<style>
+  :root{
+    --ground:#f5f8f8; --card:#ffffff; --card-2:#f0f4f4;
+    --ink:#0e1618; --text:#33454a; --muted:#6a7c81; --hair:#e0e8e8;
+    --accent:#0c8a86; --accent-soft:#d7ecea;
+    --done:#2f9e5f; --done-soft:#e2f2e8;
+    --wait:#c1892e; --wait-soft:#f6ecd6;
+    --now:#3574c0;  --now-soft:#e0ebf7;
+    --gap:#bf5a43;  --gap-soft:#f6e3dd;
+    --shadow:0 1px 2px rgba(14,22,24,.05), 0 6px 20px rgba(14,22,24,.05);
+    --mono:ui-monospace,"Cascadia Code","Consolas",monospace;
+    --sans:-apple-system,"Segoe UI",system-ui,Roboto,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#0d1417; --card:#151f22; --card-2:#1b262a;
+      --ink:#eaf1f1; --text:#c2d0d2; --muted:#89999d; --hair:#26343a;
+      --accent:#2bb8b2; --accent-soft:#123033;
+      --done:#4bbf7c; --done-soft:#12291d;
+      --wait:#d6a54a; --wait-soft:#2c2413;
+      --now:#5b9be0; --now-soft:#11202f;
+      --gap:#d97a62; --gap-soft:#2c1a15;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 22px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0d1417; --card:#151f22; --card-2:#1b262a;
+    --ink:#eaf1f1; --text:#c2d0d2; --muted:#89999d; --hair:#26343a;
+    --accent:#2bb8b2; --accent-soft:#123033;
+    --done:#4bbf7c; --done-soft:#12291d;
+    --wait:#d6a54a; --wait-soft:#2c2413;
+    --now:#5b9be0; --now-soft:#11202f;
+    --gap:#d97a62; --gap-soft:#2c1a15;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 22px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"]{
+    --ground:#f5f8f8; --card:#ffffff; --card-2:#f0f4f4;
+    --ink:#0e1618; --text:#33454a; --muted:#6a7c81; --hair:#e0e8e8;
+    --accent:#0c8a86; --accent-soft:#d7ecea;
+    --done:#2f9e5f; --done-soft:#e2f2e8; --wait:#c1892e; --wait-soft:#f6ecd6;
+    --now:#3574c0; --now-soft:#e0ebf7; --gap:#bf5a43; --gap-soft:#f6e3dd;
+    --shadow:0 1px 2px rgba(14,22,24,.05), 0 6px 20px rgba(14,22,24,.05);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--ground); color:var(--text);
+    font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1040px; margin:0 auto; padding:0 22px}
+  h1,h2,h3{color:var(--ink); text-wrap:balance; line-height:1.2}
+  a{color:var(--accent)}
+  code,.mono{font-family:var(--mono)}
+  .eyebrow{
+    text-transform:uppercase; letter-spacing:.13em; font-size:.72rem;
+    font-weight:700; color:var(--accent); margin:0 0 .5rem
+  }
+
+  /* header */
+  header{
+    background:
+      radial-gradient(120% 140% at 90% -20%, var(--accent-soft) 0%, transparent 55%),
+      var(--card);
+    border-bottom:1px solid var(--hair);
+  }
+  .head-in{padding:40px 0 34px}
+  .kicker{font-family:var(--mono); font-size:.78rem; color:var(--accent); letter-spacing:.04em}
+  h1{font-size:clamp(1.7rem,4vw,2.5rem); margin:.35rem 0 .5rem; letter-spacing:-.02em}
+  .lede{font-size:1.06rem; max-width:60ch; color:var(--text); margin:.2rem 0 0}
+  .head-meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px}
+
+  /* pills */
+  .pill{
+    display:inline-flex; align-items:center; gap:6px; padding:3px 11px; border-radius:999px;
+    font-size:.76rem; font-weight:600; border:1px solid transparent; white-space:nowrap;
+  }
+  .pill .dot{width:7px;height:7px;border-radius:50%}
+  .p-done{background:var(--done-soft); color:var(--done)} .p-done .dot{background:var(--done)}
+  .p-wait{background:var(--wait-soft); color:var(--wait)} .p-wait .dot{background:var(--wait)}
+  .p-now{background:var(--now-soft); color:var(--now)}   .p-now .dot{background:var(--now)}
+  .p-gap{background:var(--gap-soft); color:var(--gap)}   .p-gap .dot{background:var(--gap)}
+
+  section{padding:38px 0; border-bottom:1px solid var(--hair)}
+  section:last-of-type{border-bottom:0}
+  h2{font-size:1.35rem; margin:0 0 .3rem}
+  .sub{color:var(--muted); margin:.1rem 0 1.4rem; max-width:70ch}
+
+  /* generic cards */
+  .grid{display:grid; gap:14px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:720px){ .g2,.g3{grid-template-columns:1fr} }
+  .card{
+    background:var(--card); border:1px solid var(--hair); border-radius:14px;
+    padding:16px 18px; box-shadow:var(--shadow);
+  }
+  .card h3{font-size:1rem; margin:.1rem 0 .35rem; display:flex; align-items:center; gap:8px}
+  .card p{margin:.2rem 0; font-size:.92rem}
+  .tag{font-family:var(--mono); font-size:.78rem; color:var(--accent); background:var(--accent-soft);
+       padding:1px 7px; border-radius:6px}
+
+  /* flow */
+  .flow{display:flex; flex-direction:column; gap:0; counter-reset:step}
+  .step{
+    position:relative; display:grid; grid-template-columns:44px 1fr auto; gap:14px; align-items:center;
+    background:var(--card); border:1px solid var(--hair); border-radius:12px; padding:12px 16px;
+  }
+  .step + .step{margin-top:0}
+  .connector{height:16px; width:2px; background:var(--hair); margin-left:43px}
+  .step .num{
+    width:34px;height:34px;border-radius:9px; background:var(--accent-soft); color:var(--accent);
+    display:grid;place-items:center; font-family:var(--mono); font-weight:700; font-size:.9rem;
+  }
+  .step .body b{color:var(--ink)}
+  .step .body span{display:block; color:var(--muted); font-size:.86rem}
+  .who{font-family:var(--mono); font-size:.72rem; color:var(--muted); text-align:right}
+  .note{
+    margin-top:14px; background:var(--accent-soft); color:var(--ink);
+    border-radius:10px; padding:11px 14px; font-size:.9rem; border:1px solid transparent;
+  }
+  .note b{color:var(--accent)}
+
+  /* stat tiles */
+  .stat{background:var(--card); border:1px solid var(--hair); border-radius:14px; padding:18px; box-shadow:var(--shadow)}
+  .stat .n{font-family:var(--mono); font-size:2.1rem; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; line-height:1}
+  .stat .n.ok{color:var(--done)} .stat .n.mid{color:var(--wait)}
+  .stat .l{font-size:.86rem; color:var(--muted); margin-top:6px}
+
+  table{width:100%; border-collapse:collapse; font-size:.9rem; margin-top:6px}
+  th,td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--hair); vertical-align:top}
+  th{font-size:.74rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
+  td .mono{font-size:.84rem}
+
+  /* list rows */
+  .rows{display:flex; flex-direction:column; gap:8px}
+  .row{display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--hair);
+       border-radius:11px; padding:11px 14px}
+  .row .mono{font-size:.82rem; color:var(--accent); min-width:112px}
+  .row .txt{flex:1; font-size:.9rem}
+  @media (max-width:560px){ .row{flex-wrap:wrap} .row .mono{min-width:auto} }
+
+  /* roadmap */
+  .phase{display:grid; grid-template-columns:26px 1fr auto; gap:12px; align-items:center;
+         padding:11px 4px; border-bottom:1px solid var(--hair)}
+  .phase:last-child{border-bottom:0}
+  .phase .pn{font-family:var(--mono); color:var(--muted); font-size:.85rem}
+  .phase .pt b{color:var(--ink)} .phase .pt span{color:var(--muted); font-size:.85rem}
+
+  .chips{display:flex; flex-wrap:wrap; gap:8px}
+  .chip{font-size:.82rem; font-family:var(--mono); background:var(--card-2); color:var(--text);
+        border:1px solid var(--hair); border-radius:8px; padding:4px 10px}
+
+  footer{padding:26px 0 60px; color:var(--muted); font-size:.85rem}
+
+  .toggle{
+    position:fixed; top:14px; right:14px; z-index:20; cursor:pointer;
+    background:var(--card); border:1px solid var(--hair); color:var(--text);
+    border-radius:999px; padding:7px 13px; font-size:.8rem; font-family:var(--sans); box-shadow:var(--shadow);
+  }
+  .toggle:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<button class="toggle" id="tg" aria-label="Temayı değiştir">◐ Tema</button>
+
+<header>
+  <div class="wrap head-in">
+    <div class="kicker">Yüksek Lisans Tezi · Bilgisayar Mühendisliği · Durum Panosu</div>
+    <h1>VarChat Benzeri Genetik Varyant Asistanı</h1>
+    <p class="lede">Bir genetik varyant girildiğinde ilgili bilimsel literatürü bulup <b>kaynaklı, uydurmasız</b> bir Türkçe özet üreten; tamamen yerelde çalışan bir RAG chatbot'u.</p>
+    <div class="head-meta">
+      <span class="pill p-done"><span class="dot"></span>Faz 1 · RAG hattı</span>
+      <span class="pill p-done"><span class="dot"></span>Faz 2 · Sohbet katmanı</span>
+      <span class="pill p-now"><span class="dot"></span>Faz 6 · Benchmark başladı</span>
+      <span class="pill p-wait"><span class="dot"></span>Fine-tune &amp; embedding beklemede</span>
+    </div>
+  </div>
+</header>
+
+<!-- AMAÇ / HEDEF -->
+<section id="amac">
+  <div class="wrap">
+    <p class="eyebrow">Amaç &amp; Hedef</p>
+    <h2>Neden ve ne yapıyoruz?</h2>
+    <p class="sub">Bir hasta dizilendiğinde binlerce varyant çıkar; her biri için yüzlerce makale taramak zahmetlidir. Referans araç <b>VarChat</b> (enGenome) bunu yapay zekâ ile otomatikleştirir.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h3>🎯 Hedef</h3>
+        <p>Kullanıcı bir <span class="tag">gen</span> / <span class="tag">rs...</span> / <span class="tag">chr1:...</span> girer → sistem ilgili makaleleri bulur → yerel model <b>kaynaklı</b> bir özet yazar → kullanıcı <b>takip soruları</b> sorabilir.</p>
+      </div>
+      <div class="card">
+        <h3>🧭 İlke</h3>
+        <p>Model <b>uydurmaz</b>: gerçek bilgi PubMed + VEP + ClinVar'dan gelir; model yalnızca <i>verilen kaynakları</i> özetler. Dışa bağımlı API yok, veri makinede kalır (gizli).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AKIŞ -->
+<section id="akis">
+  <div class="wrap">
+    <p class="eyebrow">Nasıl çalışıyor · Uçtan uca akış</p>
+    <h2>Sistem mimarisi</h2>
+    <p class="sub">Kullanıcı ne yazarsa, önce niyeti ayrılır; varyant sorusuysa doğrulama → anlamlandırma → literatür → üretim → ClinVar zincirinden geçer.</p>
+    <div class="flow">
+      <div class="step"><div class="num">0</div><div class="body"><b>Yönlendirici (Router)</b><span>selamlama / kendini-tanıt / konu-dışı / varyant ayrımı</span></div><div class="who">yerel model + kod</div></div>
+      <div class="connector"></div>
+      <div class="step"><div class="num">1</div><div class="body"><b>Validasyon</b><span>gen kimliği geçerli mi? "BRFA → BRAF mı?" (HGNC + Jaro-Winkler)</span></div><div class="who">kod</div></div>
+      <div class="connector"></div>
+      <div class="step"><div class="num">2</div><div class="body"><b>Anlamlandırma (VEP)</b><span>koordinat → gen / rsID / etki</span></div><div class="who">Ensembl VEP API</div></div>
+      <div class="connector"></div>
+      <div class="step"><div class="num">3</div><div class="body"><b>Retrieval (PubMed)</b><span>ilgili makaleler — "X bulundu, en alakalı 5 özetlendi"</span></div><div class="who">NCBI E-utilities</div></div>
+      <div class="connector"></div>
+      <div class="step"><div class="num">4</div><div class="body"><b>Üretim</b><span>makaleleri oku → kaynaklı [1][2] Türkçe özet</span></div><div class="who">qwen2.5:7b (yerel)</div></div>
+      <div class="connector"></div>
+      <div class="step"><div class="num">5</div><div class="body"><b>ClinVar katmanı</b><span>klinik önem (patojenik/benign) + hastalık — yalnızca kesin eşleşmede</span></div><div class="who">ClinVar API</div></div>
+      <div class="connector"></div>
+      <div class="step"><div class="num">6</div><div class="body"><b>Sohbet</b><span>aynı bağlam üzerinden takip soruları (hafıza)</span></div><div class="who">yerel model</div></div>
+    </div>
+    <div class="note"><b>Temel ilke:</b> Gerçek bilgi VEP + PubMed + ClinVar'dan gelir; model sadece yönlendirir ve kaynakları özetler — kafasından bilgi eklemez.</div>
+  </div>
+</section>
+
+<!-- YAPILANLAR -->
+<section id="yapilan">
+  <div class="wrap">
+    <p class="eyebrow">Yapılanlar · Çalışan sistem</p>
+    <h2>Tamamlanan bileşenler <span class="pill p-done" style="vertical-align:middle"><span class="dot"></span>çalışıyor</span></h2>
+    <p class="sub">Pipeline <code>c01</code>–<code>c06</code> olarak numaralandırılmış modüllerden oluşuyor; her biri tek iş yapıyor ve birbirine bağlanıyor.</p>
+    <div class="rows">
+      <div class="row"><span class="mono">c01_makale_getir</span><span class="txt">PubMed'den makale çekme (retrieval) + toplam sonuç sayısı</span><span class="pill p-done"><span class="dot"></span>✓</span></div>
+      <div class="row"><span class="mono">c02_varyant_anlamlandir</span><span class="txt">VEP ile koordinat → gen / rsID / etki</span><span class="pill p-done"><span class="dot"></span>✓</span></div>
+      <div class="row"><span class="mono">c03_varchat_gemini</span><span class="txt">Başlangıç sürümü: ilk RAG Gemini ile kuruldu (test/referans); asıl sistem yerel açık kaynağa geçti</span><span class="pill p-done"><span class="dot"></span>✓</span></div>
+      <div class="row"><span class="mono">c04_varchat_ollama</span><span class="txt"><b>ANA UYGULAMA</b> — yönlendirici + validasyon + RAG + ClinVar, tamamen yerel</span><span class="pill p-done"><span class="dot"></span>✓</span></div>
+      <div class="row"><span class="mono">c05_gen_validasyon</span><span class="txt">Yanlış gen yazımını yakalama + öneri (HGNC 45.019 sembol)</span><span class="pill p-done"><span class="dot"></span>✓</span></div>
+      <div class="row"><span class="mono">c06_clinvar</span><span class="txt">Klinik önem + hastalık; yalnızca tam-eşleşme doğrulanınca</span><span class="pill p-done"><span class="dot"></span>✓</span></div>
+    </div>
+    <div class="grid g3" style="margin-top:16px">
+      <div class="card"><h3>💬 Sohbet katmanı</h3><p>Selamlaşır, kendini tanıtır, konu dışını kibarca reddeder — VarChat gibi reddetmek yerine <b>konuşur ama konuda kalır</b>.</p></div>
+      <div class="card"><h3>🛡️ Grounding</h3><p>Sıkılaştırılmış prompt: "kaynakta yoksa uydurma, söyle". En kötü uydurmaları (klorofil vb.) engelledi.</p></div>
+      <div class="card"><h3>🔒 Güvenlik</h3><p>Konu-dışı yanıt <b>kod</b> tarafından sabit döner; sistemin tehlikeli yetkisi yok → jailbreak zararı sınırlı.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEGERLENDIRME -->
+<section id="degerlendirme">
+  <div class="wrap">
+    <p class="eyebrow">Değerlendirme · Benchmark <span style="color:var(--muted);letter-spacing:0;text-transform:none;font-weight:400">(VarChat'in hiç yapmadığı)</span></p>
+    <h2>İlk niceliksel ölçümler</h2>
+    <p class="sub">Sistemin doğruluğunu sayısal olarak ölçmeye başladık.</p>
+    <div class="grid g3">
+      <div class="stat"><div class="n ok">%98</div><div class="l">Retrieval — <b>gen-düzeyi</b> alaka<br><span class="mono" style="color:var(--muted)">8 varyant · 40 makale</span></div></div>
+      <div class="stat"><div class="n ok">%100</div><div class="l">Retrieval — <b>varyant-düzeyi</b> alaka<br><span class="mono" style="color:var(--muted)">bilinen (kolay) vakalar</span></div></div>
+      <div class="stat"><div class="n mid">~%80</div><div class="l">Faithfulness — <b>kaynağa sadakat</b><br><span class="mono" style="color:var(--muted)">3 özet · elle yargıç</span></div></div>
+    </div>
+    <table>
+      <thead><tr><th>Hata türü</th><th>Kaç özette</th><th>Sebep</th><th>Çözüm</th></tr></thead>
+      <tbody>
+        <tr><td><b>Dil bozulması</b><br><span class="mono">"mandible→kılçuk", "proliferation→kasvet"</span></td><td>3&nbsp;/&nbsp;3</td><td>7B modelin Türkçe sınırı</td><td>Daha büyük model</td></tr>
+        <tr><td><b>Halüsinasyon</b><br><span class="mono">uydurma fakt + kaynakla çelişki</span></td><td>1&nbsp;/&nbsp;3</td><td>Dağınık kaynak + zayıf model</td><td>Fine-tune + büyük model</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>Bulgu:</b> Retrieval güçlü; sistemin zayıflığı <b>üretim</b> tarafında — sürekli dil bozulması, ara sıra halüsinasyon. İkisi de beklemedeki iyileştirmelerin hedefinde.</div>
+  </div>
+</section>
+
+<!-- KALAN / BEKLEMEDE -->
+<section id="kalan">
+  <div class="wrap">
+    <p class="eyebrow">Kalan &amp; Beklemede</p>
+    <h2>Sıradaki ve bekleyen işler</h2>
+    <p class="sub">Bir kısmı hemen yapılabilir; bir kısmı kaynak (GPU / korpus / veri) gerektirdiği için beklemede.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h3><span class="pill p-wait"><span class="dot"></span>beklemede</span> Kendi retriever'ımız</h3>
+        <p>Embedding + semantik/hybrid arama. Kavram <b>öğrenildi ve test edildi</b> (bge-m3 ile anlam yakalama çalışıyor). Gerçeği için <b>~45M PubMed korpusu + GPU</b> gerekiyor.</p>
+      </div>
+      <div class="card">
+        <h3><span class="pill p-wait"><span class="dot"></span>beklemede</span> Fine-tune</h3>
+        <p>Distillation ile veri üretimi <b>kuruldu</b> (Gemini öğretmen). Ölçek için <b>GPU</b> gerekiyor. Türkçe kalitesini ve grounding'i düzeltecek.</p>
+      </div>
+      <div class="card">
+        <h3><span class="pill p-now"><span class="dot"></span>sırada</span> Benchmark'ı büyütmek</h3>
+        <p>Örneklemi 3→30-50 varyanta çıkarmak; nadir varyant / koordinat vakalarını da ölçmek.</p>
+      </div>
+      <div class="card">
+        <h3><span class="pill p-now"><span class="dot"></span>sırada</span> İyileştirmeler &amp; Web arayüzü</h3>
+        <p>Router kenar durumları (büyük modelle), çoklu-varyant karşılaştırma, ve en son <b>Streamlit web arayüzü</b> (demo).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YOL HARITASI -->
+<section id="yolharitasi">
+  <div class="wrap">
+    <p class="eyebrow">Yol Haritası · Fazlar</p>
+    <h2>Sekiz fazlık plan</h2>
+    <div class="card" style="padding:8px 18px">
+      <div class="phase"><span class="pn">1</span><div class="pt"><b>RAG hattı</b> <span>· anlamlandırma + retrieval + üretim + sohbet</span></div><span class="pill p-done"><span class="dot"></span>bitti</span></div>
+      <div class="phase"><span class="pn">2</span><div class="pt"><b>Yönlendirici + validasyon</b> <span>· sohbet katmanı</span></div><span class="pill p-done"><span class="dot"></span>bitti</span></div>
+      <div class="phase"><span class="pn">3</span><div class="pt"><b>Eğitim verisi</b> <span>· distillation</span></div><span class="pill p-wait"><span class="dot"></span>beklemede</span></div>
+      <div class="phase"><span class="pn">4</span><div class="pt"><b>Fine-tune</b> <span>· LoRA → GGUF → Ollama</span></div><span class="pill p-wait"><span class="dot"></span>beklemede</span></div>
+      <div class="phase"><span class="pn">5</span><div class="pt"><b>Modeli hatta takmak</b> <span>· beyni değiştir</span></div><span class="pill p-wait"><span class="dot"></span>sonra</span></div>
+      <div class="phase"><span class="pn">6</span><div class="pt"><b>Benchmark / değerlendirme</b> <span>· retrieval + faithfulness</span></div><span class="pill p-now"><span class="dot"></span>başladı</span></div>
+      <div class="phase"><span class="pn">7</span><div class="pt"><b>Kendi retriever</b> <span>· tam metin + chunking + hybrid</span></div><span class="pill p-wait"><span class="dot"></span>beklemede</span></div>
+      <div class="phase"><span class="pn">8</span><div class="pt"><b>Web arayüzü</b> <span>· Streamlit</span></div><span class="pill p-wait"><span class="dot"></span>en son</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEKNOLOJILER -->
+<section id="teknoloji">
+  <div class="wrap">
+    <p class="eyebrow">Kullanılan Teknolojiler</p>
+    <h2>Yığın</h2>
+    <p class="sub">Sıfırdan yazmak yerine güvenilir, ücretsiz ve açık araçların üstüne kurduk; "tutkalı" ve mantığı biz yazdık.</p>
+    <div class="chips">
+      <span class="chip">Python</span>
+      <span class="chip">PubMed · NCBI E-utilities</span>
+      <span class="chip">Ensembl VEP</span>
+      <span class="chip">ClinVar</span>
+      <span class="chip">HGNC (gen listesi)</span>
+      <span class="chip">Ollama</span>
+      <span class="chip">qwen2.5:7b (yerel LLM)</span>
+      <span class="chip">bge-m3 (embedding)</span>
+      <span class="chip">Google Gemini (öğretmen)</span>
+      <span class="chip">rapidfuzz (Jaro-Winkler)</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Proje durumu panosu · Referans araç: VarChat (enGenome, 2024). Bu bir <b>çalışan prototip</b>tir — iskelet sağlam, kalite iyileştirmeleri (büyük model + fine-tune) beklemede.
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('tg');
+    btn.addEventListener('click', function(){
+      var cur=root.getAttribute('data-theme');
+      if(!cur){ cur = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light'; }
+      root.setAttribute('data-theme', cur==='dark' ? 'light':'dark');
+    });
+  })();
+</script>
+</body>
+</html>
