@@ -54,12 +54,12 @@ Kaynak listesini model değil kod bastığı için makale uydurulamaz (cümle d�
 | Dosya | Ne yapar |
 |---|---|
 | `m01_main.py` | **Uygulama.** Sohbet döngüsü, yönlendirici, üretim, üretim sonrası denetimler. Diğer modülleri çağırır. |
-| `m02_hgnc.py` | Gen sembolü doğrulama (HGNC, 45.019 sembol; `genler.txt` ilk çalıştırmada indirilir) ve yazım önerisi. |
+| `m02_hgnc.py` | Gen sembolü doğrulama (HGNC, 45.018 sembol; `genler.txt` ilk çalıştırmada indirilir) ve yazım önerisi. |
 | `m03_vep.py` | Girdiyi Ensembl VEP ile anotasyon kartına çevirir (GRCh38, gerekirse GRCh37). |
 | `m04_retrieval.py` | Sorgu kurucu + alaka kapısı: PubMed'i kademeli arar, kaynakları `varyant` / `gen` diye etiketler. |
 | `m05_pubmed.py` | NCBI E-utilities (PubMed) istemcisi. |
 | `m06_clinvar.py` | ClinVar kaydını bulur, kanonik kaydı seçer, sınıflandırmaları yıldızıyla gösterir. |
-| `models/` | Yerel model dosyaları: `Modelfile.varchat-v2` (Ollama ayarı, repoda), `varchat-v2-Q4_K_M.gguf` (model, 4,7 GB) ve `varchat-lora-v2/` (eğitilmiş adaptör, 166 MB; model dosyasını yeniden üretmek için). Son ikisi repo dışı. |
+| `models/` | Yerel model dosyaları: `Modelfile.varchat-v2` (Ollama ayarı, repoda), `varchat-v2-Q4_K_M.gguf` (model, 4,7 GB) ve `varchat-lora-v2/` (eğitilmiş adaptör, 155 MB; model dosyasını yeniden üretmek için). Son ikisi repo dışı. |
 
 ### Değerlendirme (`evaluation/`)
 
