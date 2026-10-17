@@ -10,7 +10,7 @@ Yöntem (RAGAS'ın sadakat fikri, yerel yargıçla):
   4) Sadakat = DESTEKLENIYOR / yargılanan iddia; çelişki oranı ayrı (tıpta en ağır hata).
 Ek metrikler (e04'nın denetimlerinden): atıfsız cümle oranı, geçersiz atıf sayısı, yabancı alfabe oranı, kesilme, süre.
 Yargıç varsayılan olarak m01.MODEL (aynı model kendini yargılar — bilinen zayıflık; --yargic ile başka model verilebilir).
-İnsan kontrolü için 30 rastgele iddia sonuclar/insan_kontrol_<tarih>.csv'ye boş etiket sütunuyla yazılır (kappa için).
+Yargıcın doğruluğu ayrıca e11_judge_check.py ile daha güçlü bir yargıca karşı ölçülür.
 
 Kaynak metinleri, üretim satırının kendi 'snapshot' alanındaki arama kaydından okunur (en yeni arama dosyasından DEĞİL);
 satırın PMID listesi o kayıtla uyuşmazsa satır yargılanmaz (atıf numarası başka makaleye eşlenmesin).
@@ -20,11 +20,9 @@ Kullanım: python evaluation/e05_faithfulness.py [uretim_dosyasi] [--model MODEL
   uretim_dosyasi yoksa: --model verilmişse o modelin, verilmemişse herhangi bir modelin EN SON YAZILAN üretim dosyası.
 """
 
-import csv
 import glob
 import json
 import os
-import random
 import re
 import sys
 from datetime import date
@@ -247,16 +245,7 @@ def main():
         print(f"  {k:18} n={v['girdi']:2} iddia={v['iddia']:3} sadakat={v['sadakat']} çelişki={v['celiski_orani']} atıfsız={v['atifsiz_orani']} "
               f"geçersiz={v['gecersiz_atif']} cjk={v['cjk_bozuk']} kesilen={v['kesilen']} belirsiz={v['belirsiz']} "
               f"yargıç hatası={v['yargic_hatasi']} üretim hatası={v['uretim_hatasi']} süre={v['ort_sure_s']}s")
-    # ---- insan kontrolü örneklemi ----
-    havuz = [(h["girdi"], i) for h in hepsi for i in h["iddialar"] if i["karar"] in KARARLAR]
-    random.Random(42).shuffle(havuz)
-    insan_yolu = os.path.join(BURASI, "sonuclar", f"insan_kontrol_{etiket}.csv")
-    with open(insan_yolu, "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.writer(f, delimiter=";")
-        w.writerow(["girdi", "iddia", "atif", "yargic_karari", "yargic_gerekcesi", "INSAN_KARARI (DESTEKLENIYOR/DESTEKLENMIYOR/CELISIYOR)", "not"])
-        for g, i in havuz[:30]:
-            w.writerow([g, i["iddia"], ",".join(map(str, i["atif"])), i["karar"], i["gerekce"], "", ""])
-    print(f"Özet -> {ozet_yolu}\nİnsan kontrolü (30 iddia) -> {insan_yolu}")
+    print(f"Özet -> {ozet_yolu}")
 
 
 if __name__ == "__main__":

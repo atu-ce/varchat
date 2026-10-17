@@ -75,6 +75,7 @@ Kaynak listesini model değil kod bastığı için makale uydurulamaz (cümle d�
 | `e08_colab_judge.ipynb` | Colab'da: ham qwen2.5:14b ile üretim + bütün modelleri qwen2.5:32b yargıçla puanlama + `e06`. |
 | `e09_router_eval.py` | Yönlendirici doğruluğu (39 mesaj). |
 | `e10_check_tests.py` | Üretim sonrası denetimlerin model çağırmadan çalışan testleri. |
+| `e11_judge_check.py` | Yargıç kontrolü: bütün iddiaları kör paketlere böler, daha güçlü üçüncü yargıcın (Claude) kararlarını toplar, 7B/32B yargıcın doğruluğunu ve üçüncü yargıçla model sadakatini hesaplar. |
 | `sonuclar/` | Ölçüm girdileri: donmuş arama kaydı, doğru cevap listesi, hakem kararları (`hakem.jsonl`), özetler. |
 | `sonuclar_colab/` | Colab üretim/sadakat sonuçları (5 model, 7B ve 32B yargıç); `v1_` önekliler ilk eğitimin ölçüm koşusuna ait. |
 
@@ -146,29 +147,38 @@ Literatürsüz 5 girdinin 5'inde sistem "gen düzeyi" moduna geçti.
 
 ### Üretim (Colab L4/A100, aynı 56 girdi, `evaluation/sonuclar_colab/`)
 
-Sadakat = yargıcın "kaynakta destekleniyor" dediği iddiaların oranı (yalnız atıflı cümleler yargılanır).
+Sadakat = yargıcın "kaynakta destekleniyor" dediği iddiaların oranı (yalnız atıflı cümleler yargılanır). Üç yargıç:
+qwen2.5:7b ve qwen2.5:32b (`e05`) ve bütün 1.434 iddiayı kör (model adı ve öbür kararlar gizli) yeniden değerlendiren
+Claude Opus 5.5 (`e11_judge_check.py`; aynı tanımlar + iki netleştirme: kısmen destek ya da anlamı çözülemeyen Türkçe =
+desteklenmiyor). Claude etiketleri insan etiketi değildir; varchat'in eğitim örneklerini de Claude yazdığı için yanlılık riski not edilir.
 
-| Model | Sadakat (7B yargıç) | Sadakat (32B yargıç) | Atıfsız cümle | Desteklenen iddia (32B) | Çıplak "bilgi yok" |
-|---|---|---|---|---|---|
-| ham qwen2.5:7b | 0.763 | 0.769 | %34 | 176 | 9 |
-| qwen-taban (aynı ağırlıklar, bizim dönüştürme hattımız) | 0.806 | 0.848 | %33 | 189 | 10 |
-| varchat v1 (204 örnek) | 0.649 | 0.711 | %7 | 231 | 0 |
-| **varchat-v2 (501 denetlenmiş örnek)** | **0.828** | 0.810 | **%0,9** | **359** | 0 |
-| ham qwen2.5:14b | – | 0.831 | %42 | 177 | 0 |
+| Model | Sadakat 7B | Sadakat 32B | **Sadakat Claude** | Çelişki (Claude) | Atıfsız cümle | Desteklenen iddia (Claude) | Çıplak "bilgi yok" |
+|---|---|---|---|---|---|---|---|
+| ham qwen2.5:7b | 0.763 | 0.769 | 0.572 | %10,9 | %34 | 131 | 9 |
+| qwen-taban (aynı ağırlıklar, bizim dönüştürme hattımız) | 0.806 | 0.848 | **0.637** | %7,2 | %33 | 142 | 10 |
+| varchat v1 (204 örnek) | 0.649 | 0.711 | 0.356 | %12,6 | %7 | 116 | 0 |
+| **varchat-v2 (501 denetlenmiş örnek)** | **0.828** | 0.810 | 0.605 | %14,0 | **%0,9** | **268** | 0 |
+| ham qwen2.5:14b | – | 0.831 | 0.526 | %9,4 | %42 | 112 | 0 |
+
+**Yargıçların doğruluğu (Claude kararına göre, aynı iddialar):** 7B %61,5 aynı karar (kappa 0.25), 32B %64,8 (kappa 0.31).
+İki küçük yargıç da hoşgörülü: Claude'un desteksiz bulduğu bozuk ya da yanlış cümlelerin önemli kısmına "destekleniyor" demişler;
+mutlak sadakat değerleri bu yüzden 7B/32B sütunlarında şişkin. Sıralama ve aşağıdaki sonuçlar üç yargıçta da aynı yönde.
 
 Eşleştirilmiş karşılaştırma (`e06`, %95 bootstrap güven aralığı):
 
-- varchat v1 → v2: +0.18 (7B yargıç, GA +0.12…+0.23), +0.10 (32B yargıç, GA +0.03…+0.17): veri denetimi ve büyütme
-  ilk eğitimdeki düşüşü giderdi.
-- qwen-taban → v2: +0.02 / −0.04, iki aralık da sıfırı içeriyor: iddia başına sadakatte fark yok; v2 yaklaşık iki kat
-  desteklenen iddia üretiyor, neredeyse her cümleye atıf veriyor ve girdiyi "bilgi yok" diye geçiştirmiyor.
-- v2 → ham 14B: +0.02 (GA −0.05…+0.09): fark yok; 14B'nin 56 cevabından 7'si Çince/Arapçaya kayıyor.
-- 7B ve 32B yargıç uyumu orta (kappa 0.42–0.56).
+- varchat v1 → v2: +0.18 (7B, GA +0.12…+0.23), +0.10 (32B, GA +0.03…+0.17), **+0.25 (Claude, GA +0.18…+0.32)**: veri denetimi
+  ve büyütme ilk eğitimdeki düşüşü giderdi (üç yargıçta da anlamlı).
+- qwen-taban → v2: +0.02 / −0.04 / −0.03 (Claude, GA −0.12…+0.06): iddia başına sadakatte fark yok; v2 yaklaşık iki kat
+  desteklenen iddia üretiyor (268 / 142), neredeyse her cümleye atıf veriyor ve girdiyi "bilgi yok" diye geçiştirmiyor.
+  Atıfsız cümleler de desteksiz sayılırsa (Claude): v2 0.60, qwen-taban 0.42, ham 14B 0.31.
+- v2 → ham 14B: +0.02 (32B), −0.08 (Claude, GA −0.17…+0.02): fark yok; 14B'nin 56 cevabından 7'si Çince/Arapçaya kayıyor.
+- 7B ile 32B yargıcın birbirine uyumu orta (kappa 0.42–0.56).
 
-**Bilinen sorunlar (varchat-v2):** 32B yargıcın "çelişiyor" dediği 22 cümlenin ~19'u gerçek hata (rakam/özne karışması,
-ters yön, yanlış alel); gen düzeyi bir girdide (chr1:17001759:A>T) varyanta kaynakta olmayan bir hastalık ilişkisi yüklendi;
-Türkçe terimlerde bozulmalar var (sadakat ölçüsü bunu yakalamıyor). Yargıç doğruluğu için insan etiketi henüz yapılmadı
-(`sonuclar_colab/insan_kontrol_*.csv`).
+**Bilinen sorunlar (varchat-v2):** iddiaların %14'ü kaynakla çelişiyor (Claude; modeller arasında en yüksek oran): rakam ve
+özne karışması, ters yön, yanlış alel ya da hastalık. Daha uzun ve ayrıntılı yazdıkça hata fırsatı artıyor. Gen düzeyi bir girdide
+(chr1:17001759:A>T) varyanta kaynakta olmayan bir hastalık ilişkisi yüklendi. Türkçe terimlerde bozulmalar var.
+Kararların tamamı: `sonuclar_colab/yargic_kontrol.jsonl` (her iddia için 7B, 32B ve Claude kararı + Claude gerekçesi);
+özet: `yargic_kontrol_ozet.json`.
 
 ### Eğitim
 
@@ -181,7 +191,7 @@ Eğitim verisinin denetimi ve üretimi: `fine_tune/v4_kayit/README.md`.
 ## 5. Sıradaki işler
 
 1. Gen düzeyi kaynaklarda varyant adını anıp "bilgi yok" demeyen cümleleri silen kod denetimi.
-2. Yargıç güvenilirliği: `insan_kontrol_*.csv` dosyalarının elle etiketlenmesi.
+2. Çelişen iddiaları azaltmak (rakam/yön hataları): eğitim verisinde ya da üretim sonrası denetimde.
 3. Sistem yıldız alel adlarını (TPMT\*3A) ve eski numaralamayı (EZH2 Y641N = Y646N) bilmiyor; bu girdilerde P@5 düşük.
 4. Arama: gen kısaltması çakışması (APC = aktive protein C) bir girdide konu dışı kaynak getirdi.
 5. İsteğe bağlı: aynı veriyle 14B eğitimi.
