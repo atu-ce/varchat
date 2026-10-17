@@ -1,4 +1,4 @@
-google-genai==2.9.0
+# Sohbet uygulaması ve yerel ölçüm betikleri (Colab defterleri kendi paketlerini kurar)
 ollama==0.6.2
 python-dotenv==1.2.2
 rapidfuzz==3.14.5

@@ -12,7 +12,7 @@ PubTator3 anotasyonları, v1 makalelerinin başlık+özeti ve her makalenin hang
   - P@5             : ilk 5'in kaçı doğru / 5 (payda SABİT; eksik sonuç = yanlış, kullanıcıya 5 kaynak vaadi)
   - kesinlik(dönen) : doğru / dönen (yalnızca dönen makaleler; az döndürmek cezalandırılmaz)
   - doğru (oto)     : LitVar2 listesinde ∪ PubTator3 o makalede varyantı etiketlemiş (rsID / protein / cDNA / eski ad) ∪ kürasyon PMID'i
-  - doğru (hakem)   : oto ∪ insan hakem kararı (degerlendirme/hakem.jsonl; yoksa hakemli sütun = oto)
+  - doğru (hakem)   : oto ∪ insan hakem kararı (degerlendirme/sonuclar/hakem.jsonl; yoksa hakemli sütun = oto)
   - recall5_sinirli : yalnız LitVar ∪ kürasyon listesindeki isabetler / min(|liste|, 5)  (PubTator-only isabet recall'a girmez)
   - gen_etiketli_dogru: sistemin 'gen düzeyi' dediği ama listede doğru sayılan makaleler (liste tam metinden, sistem özetten okur)
   Otomatik doğru cevap listesi bir ALT SINIRDIR (tmVar 'GNASR201C', 'c-MetD1228N' gibi bitişik yazımları kaçırır);
@@ -51,7 +51,7 @@ from test_seti import BEKLENEN_KADEME
 
 BURASI = os.path.dirname(os.path.abspath(__file__))
 GT_DOSYA = os.path.join(BURASI, "sonuclar", "dogru_cevap.jsonl")
-HAKEM = os.path.join(BURASI, "hakem.jsonl")
+HAKEM = os.path.join(BURASI, "sonuclar", "hakem.jsonl")
 ESKI = os.path.join(BURASI, "eski_hat")
 PUBTATOR = "https://www.ncbi.nlm.nih.gov/research/pubtator3-api/"
 ADET = 5
@@ -206,7 +206,7 @@ def pubtator_bicimleri(gt, kayit):
 
 
 def hakem_yukle():
-    """degerlendirme/hakem.jsonl: {"girdi","pmid","karar":"varyant|gen|ilgisiz","kanit","tarih","hakem"} satırları (insan kararı)."""
+    """degerlendirme/sonuclar/hakem.jsonl: {"girdi","pmid","karar":"varyant|gen|ilgisiz","kanit","tarih","hakem"} satırları (insan kararı)."""
     h = {}
     if os.path.exists(HAKEM):
         for l in open(HAKEM, encoding="utf-8"):

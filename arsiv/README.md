@@ -1,0 +1,17 @@
+# Arşiv
+
+Projenin artık kullanılmayan ama kayıt olarak saklanan dosyaları. Buradaki betikler çalıştırılmak için değil, geçmişi
+göstermek içindir; taşındıkları için birbirlerini ya da kök klasördeki modülleri bulamayabilirler.
+
+| Dosya / klasör | Ne idi | Neden arşivde |
+|---|---|---|
+| `a01`-`a05` | İlk denemeler (Gemini, Ollama, sohbet, yönlendirici) | Yerlerini `c04` ve `degerlendirme/b03` aldı |
+| `c03_varchat_gemini.py` | Uygulamanın ilk sürümü (Gemini, bulut modeli) | Uygulama yerel modele (`c04`, Ollama) geçti |
+| `beklemede/` | Embedding denemesi, Gemini ile veri üretme denemesi, ilk küçük eğitim verisi | Kullanılmadı |
+| `degerlendirme/b01`, `b02`, `faithfulness_verisi.jsonl` | İlk arama ve sadakat ölçümleri | Yerlerini `b04`-`b07` aldı (b01 sorguyla döngüseldi) |
+| `degerlendirme/b09_ogretmen_denetimi.py` | Eğitim verisini yerel yargıçla denetleme | Denetim Claude alt ajanlarıyla yapıldı (`fine_tune/v4_kayit/`) |
+| `degerlendirme/gece_kos.ps1` | Yerelde gece boyu ölçüm | Bütün ölçümler Colab'da, aynı ortamda yapıldı |
+| `fine_tune_v3/` | Eğitim verisinin ilk hattı (v3, 204 örnek): kaynak çekme, öğretmen özetleri, takip soruları, birleştirme | v4 hattı (`fine_tune/kaynak_topla_v4.py`, `birlestir_v4.py`) yerini aldı; v3 verisi `fine_tune/egitim_verisi_v3.jsonl` |
+| `sonuclar_ilk_baseline/` | Ham qwen2.5:7b'nin ilk Colab ölçümü (kod 8442021) | Koordinat girdilerinin hepsini reddettiren hata sonradan düzeltildi; geçerli ölçüm `degerlendirme/sonuclar_colab/` |
+| `VarChat_Proje_Sunumu.html` | Temmuz 2026 proje durumu sunumu | Güncel değil |
+| `inj_sonuc.json` | Eylül 2026 istem saldırısı (prompt injection) denemesinin çıktısı | Tek seferlik deneme |

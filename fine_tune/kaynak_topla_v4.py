@@ -11,7 +11,7 @@ Kaynaklar UYGULAMANIN KENDİ HATTIYLA çekilir (c07.kaynaklari_getir): modele gi
 Kural: hiçbir gen test setinde (degerlendirme/test_seti.py, 56 girdi) ya da v3 eğitim verisinde yoktur (çeşitlilik + sızıntı yok).
 Test setinin donmuş arama kaydıyla ortak PMID varsa raporlanır.
 
-Çıktı: fine_tune/kaynaklar_v4.jsonl  (eski fine_tune/kaynaklar.jsonl'a DOKUNULMAZ)
+Çıktı: fine_tune/kaynaklar_v4.jsonl  (v3'ün kaynakları: arsiv/fine_tune_v3/kaynaklar.jsonl)
 Kullanım: python fine_tune/kaynak_topla_v4.py
 """
 
