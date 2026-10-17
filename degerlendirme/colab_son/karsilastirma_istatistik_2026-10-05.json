@@ -1,0 +1,312 @@
+{
+ "tarih": "2026-10-05",
+ "yargic": "qwen2.5:7b",
+ "dosyalar": {
+  "qwen2.5:7b": [
+   "uretim_qwen2.5-7b_2026-10-05.jsonl",
+   "sadakat_qwen2.5-7b_2026-10-05.jsonl"
+  ],
+  "qwen-taban": [
+   "uretim_qwen-taban_2026-10-05.jsonl",
+   "sadakat_qwen-taban_2026-10-05.jsonl"
+  ],
+  "varchat": [
+   "uretim_varchat_2026-10-05.jsonl",
+   "sadakat_varchat_2026-10-05.jsonl"
+  ]
+ },
+ "girdi": 56,
+ "tablo": {
+  "A_hotspot": {
+   "qwen2.5:7b": {
+    "girdi": 15,
+    "iddia": 65,
+    "sadakat": 0.862,
+    "celiski_orani": 0.0,
+    "atifsiz_orani": 0.298,
+    "yalniz_ret": 2,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 1,
+    "ort_kelime": 98.5,
+    "ort_cumle": 6.3,
+    "ort_sure_s": 12.5
+   },
+   "qwen-taban": {
+    "girdi": 15,
+    "iddia": 74,
+    "sadakat": 0.919,
+    "celiski_orani": 0.0,
+    "atifsiz_orani": 0.265,
+    "yalniz_ret": 2,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 1,
+    "ort_kelime": 113.9,
+    "ort_cumle": 6.8,
+    "ort_sure_s": 9.4
+   },
+   "varchat": {
+    "girdi": 15,
+    "iddia": 92,
+    "sadakat": 0.772,
+    "celiski_orani": 0.011,
+    "atifsiz_orani": 0.021,
+    "yalniz_ret": 0,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 0,
+    "ort_kelime": 116.7,
+    "ort_cumle": 6.3,
+    "ort_sure_s": 8.8
+   }
+  },
+  "B_germline_yaygin": {
+   "qwen2.5:7b": {
+    "girdi": 15,
+    "iddia": 75,
+    "sadakat": 0.8,
+    "celiski_orani": 0.013,
+    "atifsiz_orani": 0.336,
+    "yalniz_ret": 1,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 0,
+    "ort_kelime": 123.4,
+    "ort_cumle": 7.5,
+    "ort_sure_s": 18.0
+   },
+   "qwen-taban": {
+    "girdi": 15,
+    "iddia": 73,
+    "sadakat": 0.767,
+    "celiski_orani": 0.014,
+    "atifsiz_orani": 0.291,
+    "yalniz_ret": 1,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 0,
+    "ort_kelime": 117.8,
+    "ort_cumle": 6.9,
+    "ort_sure_s": 8.7
+   },
+   "varchat": {
+    "girdi": 15,
+    "iddia": 84,
+    "sadakat": 0.679,
+    "celiski_orani": 0.048,
+    "atifsiz_orani": 0.076,
+    "yalniz_ret": 0,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 1,
+    "ort_kelime": 119.8,
+    "ort_cumle": 6.1,
+    "ort_sure_s": 10.3
+   }
+  },
+  "C_kimlik": {
+   "qwen2.5:7b": {
+    "girdi": 10,
+    "iddia": 36,
+    "sadakat": 0.75,
+    "celiski_orani": 0.0,
+    "atifsiz_orani": 0.368,
+    "yalniz_ret": 2,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 0,
+    "ort_kelime": 87.2,
+    "ort_cumle": 5.7,
+    "ort_sure_s": 12.0
+   },
+   "qwen-taban": {
+    "girdi": 10,
+    "iddia": 32,
+    "sadakat": 0.812,
+    "celiski_orani": 0.0,
+    "atifsiz_orani": 0.396,
+    "yalniz_ret": 2,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 0,
+    "ort_kelime": 86.7,
+    "ort_cumle": 5.3,
+    "ort_sure_s": 6.2
+   },
+   "varchat": {
+    "girdi": 10,
+    "iddia": 58,
+    "sadakat": 0.586,
+    "celiski_orani": 0.034,
+    "atifsiz_orani": 0.094,
+    "yalniz_ret": 0,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 0,
+    "ort_kelime": 128.4,
+    "ort_cumle": 6.4,
+    "ort_sure_s": 9.5
+   }
+  },
+  "C_koordinat": {
+   "qwen2.5:7b": {
+    "girdi": 11,
+    "iddia": 30,
+    "sadakat": 0.667,
+    "celiski_orani": 0.0,
+    "atifsiz_orani": 0.388,
+    "yalniz_ret": 4,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 0,
+    "ort_kelime": 71.6,
+    "ort_cumle": 4.5,
+    "ort_sure_s": 10.2
+   },
+   "qwen-taban": {
+    "girdi": 11,
+    "iddia": 27,
+    "sadakat": 0.815,
+    "celiski_orani": 0.0,
+    "atifsiz_orani": 0.386,
+    "yalniz_ret": 5,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 0,
+    "ort_kelime": 63.9,
+    "ort_cumle": 4.0,
+    "ort_sure_s": 5.6
+   },
+   "varchat": {
+    "girdi": 11,
+    "iddia": 53,
+    "sadakat": 0.547,
+    "celiski_orani": 0.019,
+    "atifsiz_orani": 0.102,
+    "yalniz_ret": 0,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 0,
+    "ort_kelime": 105.5,
+    "ort_cumle": 5.4,
+    "ort_sure_s": 8.1
+   }
+  },
+  "D_literatursuz": {
+   "qwen2.5:7b": {
+    "girdi": 5,
+    "iddia": 22,
+    "sadakat": 0.5,
+    "celiski_orani": 0.0,
+    "atifsiz_orani": 0.312,
+    "yalniz_ret": 0,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 0,
+    "ort_kelime": 91.4,
+    "ort_cumle": 6.4,
+    "ort_sure_s": 12.7
+   },
+   "qwen-taban": {
+    "girdi": 5,
+    "iddia": 16,
+    "sadakat": 0.438,
+    "celiski_orani": 0.0,
+    "atifsiz_orani": 0.515,
+    "yalniz_ret": 0,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 0,
+    "ort_kelime": 103.8,
+    "ort_cumle": 6.6,
+    "ort_sure_s": 9.0
+   },
+   "varchat": {
+    "girdi": 5,
+    "iddia": 38,
+    "sadakat": 0.526,
+    "celiski_orani": 0.0,
+    "atifsiz_orani": 0.073,
+    "yalniz_ret": 0,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 0,
+    "ort_kelime": 150.0,
+    "ort_cumle": 8.2,
+    "ort_sure_s": 11.1
+   }
+  },
+  "TÜMÜ": {
+   "qwen2.5:7b": {
+    "girdi": 56,
+    "iddia": 228,
+    "sadakat": 0.763,
+    "celiski_orani": 0.004,
+    "atifsiz_orani": 0.336,
+    "yalniz_ret": 9,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 1,
+    "ort_kelime": 97.2,
+    "ort_cumle": 6.2,
+    "ort_sure_s": 13.4
+   },
+   "qwen-taban": {
+    "girdi": 56,
+    "iddia": 222,
+    "sadakat": 0.806,
+    "celiski_orani": 0.005,
+    "atifsiz_orani": 0.334,
+    "yalniz_ret": 10,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 1,
+    "ort_kelime": 99.4,
+    "ort_cumle": 6.0,
+    "ort_sure_s": 7.9
+   },
+   "varchat": {
+    "girdi": 56,
+    "iddia": 325,
+    "sadakat": 0.649,
+    "celiski_orani": 0.025,
+    "atifsiz_orani": 0.069,
+    "yalniz_ret": 0,
+    "dil_cokusu": 0,
+    "uretim_hatasi": 0,
+    "belirsiz": 1,
+    "ort_kelime": 120.4,
+    "ort_cumle": 6.2,
+    "ort_sure_s": 9.4
+   }
+  }
+ },
+ "eslestirilmis": {
+  "a": "qwen-taban",
+  "b": "varchat",
+  "girdi": 56,
+  "sadakat_fark_b_eksi_a": -0.157,
+  "sadakat_fark_guven_95": [
+   -0.231,
+   -0.083
+  ],
+  "sadakat_isaret_testi": {
+   "b_daha_iyi": 14,
+   "a_daha_iyi": 27,
+   "esit": 5,
+   "p": 0.0596
+  },
+  "atifsiz_isaret_testi": {
+   "b_daha_az_atifsiz": 34,
+   "a_daha_az_atifsiz": 6,
+   "p": 0.0
+  },
+  "yalniz_ret_mcnemar": {
+   "yalniz_a_reddetti": 10,
+   "yalniz_b_reddetti": 0,
+   "p": 0.002
+  }
+ },
+ "yargic_uyumu": {}
+}

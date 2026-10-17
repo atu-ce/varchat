@@ -1,0 +1,16 @@
+{
+ "tarih": "2026-10-05T09:04",
+ "gpu": [
+  "NVIDIA L4"
+ ],
+ "ollama": {
+  "version": "0.35.1"
+ },
+ "modeller": [
+  "NAME          ID              SIZE      MODIFIED      ",
+  "qwen2.5:7b    845dbda0ea48    4.7 GB    4 seconds ago    "
+ ],
+ "kod": [
+  "\u001b[33m04a948f\u001b[m\u001b[33m (\u001b[m\u001b[1;36mHEAD\u001b[m\u001b[33m -> \u001b[m\u001b[1;32mmain\u001b[m\u001b[33m)\u001b[m feat: Ollama LoRA adaptoru reddettigi icin birlestirme + GGUF hatti"
+ ]
+}

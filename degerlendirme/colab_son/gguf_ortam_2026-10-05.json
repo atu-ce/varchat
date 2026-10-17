@@ -1,0 +1,13 @@
+{
+ "tarih": "2026-10-05T09:15",
+ "llama_cpp": "\u001b[33m806eee984\u001b[m\u001b[33m (\u001b[m\u001b[1;36mHEAD\u001b[m\u001b[33m -> \u001b[m\u001b[1;32mmaster\u001b[m\u001b[33m, \u001b[m\u001b[1;31morigin/master\u001b[m\u001b[33m, \u001b[m\u001b[1;31morigin/HEAD\u001b[m\u001b[33m)\u001b[m vulkan: fix stale prealloc_y reuse across flash attention and soft_max (#29591)",
+ "donusturme_python": "/usr/bin/python3",
+ "dosyalar": {
+  "qwen-taban": {
+   "boyut": 4683074080
+  },
+  "varchat": {
+   "boyut": 4683073536
+  }
+ }
+}
