@@ -1,16 +1,17 @@
 """
-VarChat benzeri chatbot — TAMAMEN YEREL + YÖNLENDİRİCİ (ana uygulama).
+Genetik varyant sohbet asistanı — ANA UYGULAMA (yönlendirici + kaynaklı üretim + üretim sonrası denetimler).
 
-Gemini yok; kendi bilgisayarında qwen2.5:7b (Ollama) çalışır.
+Dil modeli bu bilgisayarda Ollama ile çalışır: varchat-v2 = Qwen2.5-7B-Instruct + bu projede eğitilen LoRA (bkz. MODEL).
+Bulut modeli (Gemini, GPT) kullanılmaz. İnternet yalnızca veri kaynakları için gerekir: PubMed, Ensembl VEP, ClinVar.
+
 Yönlendirici (router) sayesinde kullanıcı serbestçe yazabilir:
-  - SELAMLAMA / KENDINI_TANIT / KONU_DISI  -> doğrudan, KOD tarafından cevaplanır
-  - VARYANT                                 -> RAG hattına (anlamlandırma + kademeli PubMed araması + özet) gider
+  - SELAMLAMA / KENDINI_TANIT / KONU_DISI / BELIRSIZ -> doğrudan, KOD tarafından sabit metinle cevaplanır
+  - VARYANT -> RAG hattı: gen doğrulama (m02) -> anlamlandırma (m03) -> kademeli PubMed araması (m04, m05) -> ClinVar (m06) -> özet
+  - TAKIP   -> aktif varyantın AYNI kaynakları üzerinde, sohbet geçmişiyle birlikte sorulur (yeniden arama yapılmaz)
 
 Güvenlik notu: Konu dışı yanıt LLM'e bırakılmaz, kod sabit metin döndürür; ayrıca üretim
 yalnızca çekilen makalelere dayanır (grounded). Böylece "kuralları yok say" gibi
 denemelerin zararı sınırlıdır.
-
-İnternet yalnızca PubMed / VEP / ClinVar sorguları için gerekir.
 """
 
 import json
@@ -23,6 +24,7 @@ from m05_pubmed import kunye
 from m02_hgnc import gen_cikar, gen_gecerli_mi, GEN_LISTESI
 from m06_clinvar import clinvar_bilgisi, clinvar_satirlari
 from m04_retrieval import kaynaklari_getir, baglam_metni, model_etiketi   # kademeli arama + alaka kapısı (adım 4)
+from m04_retrieval import gen_adi, girdi_duzelt                           # takma adlar: p53 -> TP53, 'Faktör V Leiden' -> 'F5 Leiden'
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -32,8 +34,8 @@ except (AttributeError, ValueError):
 
 MODEL = "varchat-v2"                # grounded üretim: Qwen2.5-7B-Instruct + LoRA (501 örnek), birleştirilmiş Q4_K_M
                                     # (kurulum: models/Modelfile.varchat-v2; ham model için "qwen2.5:7b")
-SINIFLANDIRICI_MODEL = MODEL        # niyet_belirle de aynı model: e09 yönlendirici testinde varchat-v2 39/39
-                                    # (ham qwen2.5:7b de 39/39); tek model = bellekte tek 4,7 GB, model değiştirme beklemesi yok
+SINIFLANDIRICI_MODEL = MODEL        # niyet_belirle de aynı model: tek model = bellekte tek 4,7 GB, model değiştirme beklemesi yok.
+                                    # Yönlendirici doğruluğu (e09): geliştirme setinde 39/39, ayrı tutulan 80 mesajda 74/80 = %92,5
 
 # --- Üretim ayarları: TEK yerden. Her ollama.chat çağrısı bunları alır. ---
 # num_ctx        : bağlam penceresi (modelin "masası"). Ollama varsayılanı 4096; 5 makale özeti tek başına
@@ -57,7 +59,8 @@ SABLON_PAYI = 6          # Qwen chat şablonu: <|im_start|>rol ... <|im_end|> (~
 # Gözlenen kötü çeviriler: kod tarafında deterministik düzeltme (kalıcı çözüm fine-tune verisinde doğru terimler)
 YASAK_CEVIRI = [(re.compile(r"siki[şs]\s*hücre", re.IGNORECASE), "orak hücre")]
 
-# varyant_baglami_kur'un son çağrısının bilgisi: {'kademe', 'gen', 'varyant', 'n_kaynak', 'clinvar'} (imza değişmesin diye; e04_generate de kullanır)
+# varyant_baglami_kur'un son çağrısının bilgisi: {'kademe', 'gen', 'varyant', 'etiket', 'adlar', 'n_kaynak', 'clinvar', 'kart'}
+# (imza değişmesin diye; e04_generate de kullanır). 'etiket' modele verilen ad, 'adlar' varyantın bilinen bütün adları (yönlendirici için).
 SON_BAGLAM = {}
 # grounded_sor'un son cevabı için denetim sonuçları: {'gecersiz_atif', 'atifsiz_cumle', 'cumle', 'cjk_orani', 'yeniden_uretildi', 'bozuk',
 #   'kesik_cumle_atildi', 'celiski', 'girdi_token', 'cikti_token', 'bitis', 'sure_ms'}
@@ -290,16 +293,16 @@ def gecmisi_buda(gecmis):
 # Eski sürümde resepsiyonist içerideki toplantıyı görmüyordu: gen adı geçen her takip sorusu "yeni varyant" sayılıp
 # sohbet sıfırlanıyor, "kaynak 2 ne diyor?" konu dışı diye reddediliyordu.
 # ----------------------------------------------------------------------------------------------
-SELAM = {"merhaba", "selam", "selamlar", "günaydın", "iyi günler", "iyi akşamlar", "iyi geceler", "nasılsın",
-         "nasilsin", "hey", "hello", "hi", "sa", "selamün aleyküm", "kolay gelsin"}
+SELAM = {"merhaba", "merhabalar", "selam", "selamlar", "günaydın", "iyi günler", "iyi akşamlar", "iyi geceler", "nasılsın",
+         "nasilsin", "naber", "hey", "hello", "hi", "sa", "slm", "mrb", "selamün aleyküm", "selamun aleyküm", "kolay gelsin",
+         "hayırlı günler", "iyi çalışmalar"}
+# Selam sözcüklerinin yanında gelebilen, tek başına anlam taşımayan sözcükler ("merhaba hocam", "selam tekrar")
+SELAM_DOLGU = {"hocam", "dostum", "arkadaşım", "bot", "asistan", "tekrar", "yeniden", "herkese", "sana", "size", "ve", "de", "da"}
 KIMSIN = re.compile(r"\b(sen kimsin|kimsin|ne yapars[ıi]n|ne i[şs]e yarar|nesin sen|ad[ıi]n ne|neler yapabilirsin)\b", re.IGNORECASE)
 # Güçlü takip ipuçları: aktif sohbete AÇIK gönderme. Genel soru kelimeleri (hangi, kaç, neden) burada YOK;
 # onlar modele gider (aktif varyantı bilir). Aksi halde "İstanbul'un nüfusu kaç?" takip sanılıyordu.
 TAKIP_IPUCU = re.compile(r"\b(kaynak|kaynaklar|kaynağ\w*|özet|özetle|bu varyant\w*|bu mutasyon\w*|bunun|bunlar\w*|bununla|"
                          r"devam|daha kısa|daha uzun|kısaca|ingilizce|türkçe|yukarıda\w*|az önce)\b", re.IGNORECASE)
-# Açık konu-dışı ipuçları (aktif sohbet varken modelin KONU_DISI kararını korumak için)
-KONU_DISI_IPUCU = re.compile(r"\b(hava|dolar|euro|tl\b|döviz|şiir|hikaye|kod yaz|python|nüfus|tarif|yemek|futbol|maç|"
-                             r"film|şarkı|tatil|saat kaç|tarih\b)\w*", re.IGNORECASE)
 GONDERME = re.compile(r"\b(bu varyant\w*|bu mutasyon\w*|bunun|bununla|bu gen\w*)\b", re.IGNORECASE)
 _DEG_DESEN = r"(?:p\.)?(?:[A-Za-z][a-z]{2}\d+(?:[A-Za-z][a-z]{2}|del|dup|fs\*?\d*|Ter|\*|=)|[A-Za-z]\d+(?:[A-Za-z]|del|dup|fs\*?\d*|\*|=))"
 KIMLIK_RSID = re.compile(r"\brs\s?\d{3,}\b", re.IGNORECASE)
@@ -332,11 +335,27 @@ def ayni_varyant(kimlik, aktif):
         aktif_gen_cozulmus = ""
     if a in (aktif_gen, aktif_gen_cozulmus) and a:
         return True
+    # Aktif varyant rsID ya da koordinatla girildiyse çözülmüş adları da aynı varyanttır: 'chr7:140753336:A>T' konuşulurken
+    # 'BRAF V600E için ilaç var mı?' ya da 'rs113488022' yeni varyant DEĞİLDİR (eskiden yeni arama + yeni özet başlatıyordu)
+    if SON_BAGLAM.get("varyant") == aktif and SON_BAGLAM.get("adlar"):
+        adlar = {_normalize_kimlik(x) for x in SON_BAGLAM["adlar"]}
+        if a in adlar or (aktif_gen_cozulmus and a.startswith(aktif_gen_cozulmus) and a[len(aktif_gen_cozulmus):] in adlar):
+            return True
     return len(parcalar) > 1 and a == _normalize_kimlik(parcalar[-1])   # 'V600E' == aktif 'BRAF V600E'nin değişimi
 
 
+def varyant_adlari(kayit):
+    """Bir varyantın bilinen adları (m04 kaydından): kısa ve 3 harfli protein adı, diğer numaralama/aleller, rsID, cDNA.
+    SON_BAGLAM['adlar'] olarak saklanır; yönlendirici bununla takip sorusundaki 'V600E'nin aktif koordinatla aynı varyant olduğunu bilir."""
+    adaylar = [kayit.get("protein_kisa"), kayit.get("protein_3harf"), *(kayit.get("protein_diger") or []),
+               *(kayit.get("rsid") or []), kayit.get("cdna")]
+    return [a for a in dict.fromkeys(adaylar) if a and len(a) >= 3]
+
+
 def varyant_kimligi_bul(mesaj):
-    """Mesajın içinde rsID / koordinat / HGVS / gen+değişim / gen+ifade / büyük harfli gen adı arar. Yoksa None."""
+    """Mesajın içinde rsID / koordinat / HGVS / gen+değişim / gen+ifade / büyük harfli gen adı arar. Yoksa None.
+    Gen adı takma adsa resmi sembole çevrilir (gen_adi): 'p53 R175H' -> 'TP53 R175H', 'HER2 L755S' -> 'ERBB2 L755S'."""
+    mesaj = girdi_duzelt(mesaj)                                # 'Faktör V Leiden' -> 'F5 Leiden'
     m = KIMLIK_KOORD.search(mesaj)
     if m:
         return m.group(0).strip()
@@ -347,24 +366,41 @@ def varyant_kimligi_bul(mesaj):
     if m:
         return m.group(0).replace(" ", "").lower()
     for m in KIMLIK_GEN_DEG.finditer(mesaj):
-        gen = m.group(1).upper()
+        gen = gen_adi(m.group(1))
         if gen in GEN_LISTESI:
             return f"{gen} {m.group(2).replace('p.', '')}"
     for m in KIMLIK_GEN_IFADE.finditer(mesaj):                 # "MET exon 14 skipping", "F5 Leiden", "TERT promoter C228T"
-        gen = m.group(1).upper()
+        gen = gen_adi(m.group(1))
         if gen in GEN_LISTESI:
             return f"{gen} {m.group(2)}"
     # Yalnızca gen adı: kullanıcı BÜYÜK harfle yazmışsa ve HGNC'de varsa (MET/SET/CAT gibi sözcüklerle karışmasın diye)
     for tok in re.findall(r"\b[A-Z][A-Z0-9-]{2,14}\b", mesaj):
-        if tok in GEN_LISTESI and tok not in ("DNA", "RNA", "PCR", "MRI", "ACMG", "HGVS", "VEP"):
-            return tok
+        gen = gen_adi(tok)
+        if gen in GEN_LISTESI and tok not in ("DNA", "RNA", "PCR", "MRI", "ACMG", "HGVS", "VEP"):
+            return gen
     return None
+
+
+def yalniz_selam_mi(mesaj):
+    """Mesaj YALNIZCA selamlaşmadan mı oluşuyor? ('selam', 'Merhaba, nasılsın?', 'iyi günler hocam')
+    Selam sözcükleri TAM KELİME olarak aranır ve geriye dolgu sözcüklerinden başka bir şey kalmamalıdır.
+
+    Eski kural "mesaj 30 karakterden kısaysa ve bir selam sözcüğüyle BAŞLIYORSA selamdır" diyordu. Listede 'sa' ve 'hi' de olduğu
+    için 'sağkalım nasıl?', 'hiç tedavisi var mı?', 'HIV direnci CCR5' selam sayılıyor; 'merhaba BRAF V600E nedir' mesajında
+    varyant sorusu yutuluyordu (12 Kasım 2026 denetimi)."""
+    for m in {mesaj.lower(), _tr_kucuk(mesaj)}:               # 'İyi günler' (Türkçe İ) de 'HELLO' (İngilizce I) da yakalansın
+        kalan, bulunan = re.sub(r"[^\w\s]", " ", m), 0
+        for s in sorted(SELAM, key=len, reverse=True):         # önce uzun ifadeler ('selamün aleyküm', 'iyi günler')
+            kalan, n = re.subn(rf"(?<!\w){re.escape(s)}(?!\w)", " ", kalan)
+            bulunan += n
+        if bulunan and all(k in SELAM_DOLGU for k in kalan.split()):
+            return True
+    return False
 
 
 def kural_tabanli_niyet(mesaj, aktif_varyant=None):
     """Deterministik ön sınıflandırma. Emin olamazsa None (model karar verir)."""
-    m = mesaj.strip().lower().rstrip("!?. ")
-    if m in SELAM or (len(m) <= 30 and any(m.startswith(s) for s in SELAM)):
+    if yalniz_selam_mi(mesaj):
         return {"kategori": "SELAMLAMA", "varyant": "", "kaynak": "kural"}
     if KIMSIN.search(mesaj):
         return {"kategori": "KENDINI_TANIT", "varyant": "", "kaynak": "kural"}
@@ -377,9 +413,13 @@ def kural_tabanli_niyet(mesaj, aktif_varyant=None):
             return {"kategori": "TAKIP", "varyant": "", "kaynak": "kural"}
         return {"kategori": "VARYANT", "varyant": kimlik, "kaynak": "kural"}
     if aktif_varyant:
-        # Aktif varyantın yalnızca DEĞİŞİM adı geçiyorsa ("V600E kolon kanserinde ne yapar?") -> takip
+        # Aktif varyantın yalnızca DEĞİŞİM adı geçiyorsa ("V600E kolon kanserinde ne yapar?") -> takip.
+        # rsID/koordinat girdisinde değişim adı girdide yazmaz; çözülmüş adlar SON_BAGLAM['adlar']'dan gelir.
         parcalar = [p for p in re.split(r"[\s:/_-]+", aktif_varyant) if p]
-        if len(parcalar) > 1 and re.search(rf"(?<![A-Za-z0-9]){re.escape(parcalar[-1])}(?![A-Za-z0-9])", mesaj, re.IGNORECASE):
+        adlar = [parcalar[-1]] if len(parcalar) > 1 else []
+        if SON_BAGLAM.get("varyant") == aktif_varyant:
+            adlar += SON_BAGLAM.get("adlar") or []
+        if any(len(ad) >= 3 and re.search(rf"(?<![A-Za-z0-9]){re.escape(ad)}(?![A-Za-z0-9])", mesaj, re.IGNORECASE) for ad in adlar):
             return {"kategori": "TAKIP", "varyant": "", "kaynak": "kural"}
     if aktif_varyant and TAKIP_IPUCU.search(mesaj) and len(mesaj.split()) <= 25:
         return {"kategori": "TAKIP", "varyant": "", "kaynak": "kural"}
@@ -389,7 +429,10 @@ def kural_tabanli_niyet(mesaj, aktif_varyant=None):
 def niyet_belirle(mesaj, aktif_varyant=None):
     """Mesajı SELAMLAMA / KENDINI_TANIT / KONU_DISI / VARYANT / TAKIP olarak sınıflandırır (model);
     VARYANT ise gen/varyant kimliğini de çıkarır. Aktif varyant varsa modele söylenir."""
-    baglam = (f"ŞU AN AKTİF SOHBET: kullanıcıyla '{aktif_varyant}' varyantı konuşuluyor; kaynaklar ve özet ekranda.\n"
+    # rsID/koordinat girdisinde modele çözülmüş ad verilir ('HBB E7V (rs334)'): yalnız 'rs334' görürse 'HBB geni ne yapar?'
+    # sorusunun aynı varyantla ilgili olduğunu bilemez. Gen+değişim girdisinde etiket girdinin kendisidir (istem değişmez).
+    aktif_ad = (SON_BAGLAM.get("etiket") if SON_BAGLAM.get("varyant") == aktif_varyant else None) or aktif_varyant
+    baglam = (f"ŞU AN AKTİF SOHBET: kullanıcıyla '{aktif_ad}' varyantı konuşuluyor; kaynaklar ve özet ekranda.\n"
               if aktif_varyant else "Şu an aktif bir varyant sohbeti yok.\n")
     talimat = (
         "Sen bir genetik varyant asistanının niyet sınıflandırıcısısın.\n" + baglam +
@@ -425,9 +468,13 @@ def niyet_belirle(mesaj, aktif_varyant=None):
         kategori = "BELIRSIZ"
     if kategori == "VARYANT" and aktif_varyant and ayni_varyant(varyant, aktif_varyant):
         kategori, varyant = "TAKIP", ""                 # model 'BRAF' dedi ama aktif varyant BRAF V600E: takip
-    if kategori == "KONU_DISI" and aktif_varyant and not KONU_DISI_IPUCU.search(mesaj) and len(mesaj.split()) <= 12:
-        kategori = "TAKIP"      # aktif sohbette kısa, açıkça konu dışı olmayan soru ("orak hücre ile ilişkisi ne?") takiptir;
-                                # yanlışsa grounded model zaten 'bilgi yok' der (zararsız), konu dışı reddi ise bilgiyi keser
+    if kategori == "TAKIP" and not aktif_varyant:
+        kategori = "BELIRSIZ"                           # aktif varyant yokken takip olamaz (model bazen yine de TAKIP diyor)
+    # 12 Kasım 2026'da KALDIRILAN kural: "model KONU_DISI dedi ama aktif sohbet var ve mesaj kısa -> TAKIP say".
+    # Kural, 39 mesajlık geliştirme setini tutturmak için eklenmişti. Bağımsız 80 mesajlık sette 2 gerçek takip sorusunu kurtardı
+    # ama 3 gerçek konu dışı mesajı ('dün akşamki maç kaç kaç bitti', 'KPSS başvuruları ne zaman', 'yarın kar yağacak mı') üretim
+    # modeline gönderdi. Bu, dosyanın başındaki "konu dışı yanıt modele bırakılmaz" ilkesini çiğniyordu. Artık modelin kararı
+    # değiştirilmez; aktif sohbet varken KONU_DISI çıkarsa main() kullanıcıya soruyu nasıl yeniden yazacağını söyler.
     return {"kategori": kategori, "varyant": varyant, "kaynak": "model"}
 
 
@@ -456,13 +503,16 @@ def varyant_baglami_kur(varyant):
     except Exception as e:
         cv = None
         print(f"  (ClinVar'a ulaşılamadı: {type(e).__name__})")
-    SON_BAGLAM.update(varyant=varyant, gen=kayit.get("gen"), clinvar=cv, kart=kart, kademe=s["kademe"], n_kaynak=0)
+    SON_BAGLAM.update(varyant=varyant, gen=kayit.get("gen"), clinvar=cv, kart=kart, kademe=s["kademe"], n_kaynak=0,
+                      adlar=varyant_adlari(kayit))
     if s["kademe"] in ("yok", "hata") or not s["makaleler"]:
         return None, None
     say = s["sayilar"]
     print(f"  PubMed: varyanta özgü {say.get('varyant_toplam', 0)} makale"
           + (f", gen düzeyi {say['gen_toplam']}" if say.get("gen_toplam") is not None else "")
           + f"; {len(s['makaleler'])} kaynak seçildi ({s['kademe']} düzeyi).")
+    for satir in arama_aciklamasi(s):         # hangi sorgu, hangi sıra, sitede nasıl tekrarlanır
+        print(f"  {satir}")
     makaleler = s["makaleler"]
     gen = kayit.get("gen") or "ilgili gen"
     etiket = model_etiketi(kayit, varyant)        # modele 'chr1:...' değil 'MTHFR A222V (rs1801133; chr1:...)' verilir
@@ -477,6 +527,38 @@ def varyant_baglami_kur(varyant):
         veritabani = "VERİTABANI BİLGİSİ (kaynaklarla çelişirse çelişkiyi açıkça söyle): " + "; ".join(satirlar) + "\n\n"
     sistem = sistem_metni(etiket, makaleler, s["kademe"], gen, veritabani)
     return makaleler, sistem
+
+
+def arama_aciklamasi(s):
+    """Kaynakların NASIL bulunduğunu söyleyen satırlar: çalıştırılan sorgu, sıralama ölçütü ve aynı aramayı PubMed sitesinde
+    açan bağlantı. Amaç tekrarlanabilirlik: kullanıcı bağlantıya tıklayıp ('Sort by: Best match' seçiliyken) aynı listeyi görür.
+    s: m04.kaynaklari_getir çıktısı."""
+    sorgu, satirlar = s.get("sorgular") or {}, []
+    if sorgu.get("varyant"):
+        satirlar.append(f"Sorgu: {sorgu['varyant']}")
+        if sorgu.get("aday") == 0:
+            satirlar.append("Bu sorguyla PubMed'de eşleşen makale yok.")
+        else:
+            satirlar.append(f"Sıralama: PubMed 'Best Match' (en alakalı önce); ilk {sorgu.get('aday') or 10} adaydan, başlığında ya da "
+                            "özetinde varyant adı geçenler bu sırayla alındı.")
+        if sorgu.get("baglanti"):
+            satirlar.append(f"Aynı arama PubMed sitesinde: {sorgu['baglanti']}")
+    if sorgu.get("baglanti_gen"):             # gen düzeyi sorgu da çalıştıysa (varyanta özgü kaynak 5'e tamamlanamadı)
+        satirlar.append(f"Gen düzeyi sorgu: {sorgu['gen']} (aynı sıralama; ilk 10 adaydan gen adını ananlar alındı)")
+        satirlar.append(f"Aynı arama PubMed sitesinde: {sorgu['baglanti_gen']}")
+    return satirlar
+
+
+def kaynak_satiri(i, m):
+    """Kaynak listesinin bir satırı: başlık, künye, bağlantı ve makalenin NEREDEN geldiği (PubMed sırası ya da kürasyon listesi)."""
+    etiket = " (gen düzeyi)" if m.get("alaka") == "gen" else ""
+    if m.get("yol") == "kurasyon":
+        nereden = " (VEP'in bu varyanta bağladığı yayın listesinden)"
+    elif m.get("pubmed_sira"):
+        nereden = f" (PubMed {'gen sorgusu ' if m.get('yol') == 'gen_sorgusu' else ''}sırası: {m['pubmed_sira']})"
+    else:
+        nereden = ""
+    return f"[{i}] {m['baslik']}{etiket} — {kunye(m)} — https://pubmed.ncbi.nlm.nih.gov/{m['pmid']}/{nereden}"
 
 
 def sistem_metni(varyant, makaleler, kademe="varyant", gen=None, veritabani=""):
@@ -608,8 +690,15 @@ def main():
                       "bilimsel makaleleri bulup kaynaklı bir özet çıkarırım.\n")
                 continue
             if kategori == "KONU_DISI":
-                print("\nBot: Ben yalnızca genetik varyantlar için varım; bu tür sorulara "
-                      "cevap veremem.\n")
+                if grounded is not None:
+                    # Aktif sohbet varken sınıflandırıcı yanılmış olabilir (kısa bir takip sorusunu konu dışı sanmak). Soru yine de
+                    # üretim modeline GÖNDERİLMEZ; kullanıcıya kesin çalışan yol söylenir ('bu varyant' ifadesi kural katmanında takiptir).
+                    print(f"\nBot: Bu soruyu '{aktif_varyant}' ile ilgili göremediğim için cevaplamadım. İlgiliyse içinde "
+                          "'bu varyant' geçecek şekilde yeniden yazın (örn. 'bu varyantın tedavisi var mı?'). "
+                          "Ben yalnızca genetik varyantlar için varım.\n")
+                else:
+                    print("\nBot: Ben yalnızca genetik varyantlar için varım; bu tür sorulara "
+                          "cevap veremem.\n")
                 continue
             if kategori == "BELIRSIZ":
                 print("\nBot: Anlayamadım. Bir varyant (örn. BRAF V600E, rs334, chr7:140753336:A>T) ya da "
@@ -678,8 +767,7 @@ def main():
                     print("DİKKAT: Bu cevap dil bozukluğu içeriyor (yabancı alfabe); güvenilmez sayın, soruyu yeniden sorun.\n")
                 print("Kaynaklar:")
                 for i, m in enumerate(makaleler, start=1):
-                    etiket = " (gen düzeyi)" if m.get("alaka") == "gen" else ""
-                    print(f"[{i}] {m['baslik']}{etiket} — {kunye(m)} — https://pubmed.ncbi.nlm.nih.gov/{m['pmid']}/")
+                    print(kaynak_satiri(i, m))
                 # ClinVar klinik önem katmanı (üretimden önce çekildi; yalnızca güvenle doğrulanırsa gösterilir)
                 cv = SON_BAGLAM.get("clinvar")
                 if cv:

@@ -7,15 +7,18 @@ varyant hakkındaymış gibi özetliyordu. Kelime araması yazıma da duyarlıyd
 Akış:
   girdi -> varyant_kaydi()   : gen, rsID, protein değişimi (V600E ve Val600Glu), cDNA; koordinat/HGVS/rsID ise m03 kartı
         -> kaynaklari_getir() : 1) varyanta özgü PubMed sorgusu  "BRAF[tiab] AND (V600E[tiab] OR Val600Glu[tiab] OR rs113488022[tiab])"
-                                2) VEP/dbSNP'nin kürasyonlu PMID listesi (varyanta ÖZGÜ; metinde ad geçmese de dbSNP bağlamış)
+                                2) VEP'in bu varyanta bağladığı yayın listesi (dbSNP gönderimlerindeki atıflar + Europe PMC ve UCSC'nin
+                                   metin madenciliği; metinde ad geçmese de varyanta bağlanmış). Kodda adı 'kurasyon'; elle seçilmiş
+                                   bir liste DEĞİLDİR. VEP listeyi 1.024 karakterde keser (m03.VEP_PUBMED_SINIRI).
                                 3) yetmezse gen düzeyi sorgu  "BRAF[tiab] AND (variant* OR mutation* OR polymorphism*)"
-           her makale etiketlenir: 'varyant' (metinde varyant adı geçiyor) / 'kurasyon' (dbSNP bağlamış) /
+           her makale etiketlenir: 'varyant' (metinde varyant adı geçiyor) / 'kurasyon' (VEP'in listesinden) /
                                    'gen' (yalnızca gen adı) / 'ilgisiz'
            kademe: 'varyant' / 'gen' / 'yok'  -> ana uygulama gen düzeyinde dürüst uyarı verir.
 """
 
 import re
 import sys
+import urllib.parse
 
 import m03_vep as m03
 from m05_pubmed import makale_ara_ayrintili, makale_detaylari_al, kunye
@@ -28,8 +31,13 @@ except (AttributeError, ValueError):
 AMINO_1TO3 = {v: k for k, v in m03.AMINO_3TO1.items() if len(v) == 1 and v != "*"}
 AMINO_1TO3["*"] = "Ter"
 
-# Klinikte/literatürde yaygın takma adlar -> HGNC sembolü
-GEN_ALIAS = {"P53": "TP53", "HER2": "ERBB2", "MLL": "KMT2A", "CMYC": "MYC", "C-MYC": "MYC", "FACTOR": "F5", "CKIT": "KIT"}
+# Klinikte/literatürde yaygın takma adlar -> HGNC sembolü. Tek yer: gen doğrulama (m02) ve yönlendirici (m01) de bunu kullanır;
+# yoksa "HER2 L755S" doğrulamada "geçersiz gen, HERC2 mi demek istediniz?" diye geri çevrilir ve bu tabloya hiç ulaşılmaz.
+GEN_ALIAS = {"P53": "TP53", "HER2": "ERBB2", "HER-2": "ERBB2", "MLL": "KMT2A", "CMYC": "MYC", "C-MYC": "MYC",
+             "CKIT": "KIT", "C-KIT": "KIT", "C-MET": "MET", "K-RAS": "KRAS", "N-RAS": "NRAS", "H-RAS": "HRAS", "B-RAF": "BRAF"}
+# "Factor V Leiden" / "Faktör V Leiden": gen adı iki kelime. Eskiden "FACTOR" -> F5 takma adıyla çözülüyordu; bu, "Factor II",
+# "Factor VIII" gibi BAŞKA genleri de F5'e çeviriyordu. Artık yalnızca "V Leiden" ile birlikte geçen ifade F5'e çevrilir.
+FAKTOR_V_LEIDEN = re.compile(r"\bfa[ck]t[oö]r\s*(?:v|5)\s*leiden\b", re.IGNORECASE)
 # ClinVar/VEP numarası = literatür numarası + kaydırma (HBB: Glu7Val vs Glu6Val; başlangıç metiyonini sayılıyor mu?)
 ESKI_NUMARALAMA = {"HBB": 1}
 
@@ -85,11 +93,22 @@ def _eski_numaralama(kayit, yon):
         kayit["uyarilar"].append(f"{kayit['gen']} için farklı numaralama ({yeni}) da aranıyor.")
 
 
+def gen_adi(sembol):
+    """Takma adı HGNC sembolüne çevirir ('p53' -> 'TP53', 'HER2' -> 'ERBB2'); takma ad değilse büyük harfli hâli döner."""
+    s = (sembol or "").strip().upper()
+    return GEN_ALIAS.get(s, s)
+
+
+def girdi_duzelt(metin):
+    """Gen adı iki kelime olan yaygın yazımı tek sembole indirir: 'Faktör V Leiden' -> 'F5 Leiden'."""
+    return FAKTOR_V_LEIDEN.sub("F5 Leiden", metin or "")
+
+
 def varyant_kaydi(girdi):
     """Herhangi bir girdiyi yapısal kayda çevirir:
        {girdi, tur, gen, rsid[], protein_kisa, protein_3harf, protein_diger[], cdna, ek_terimler[], kart|None,
         pubmed_kurasyon[], uyarilar[], hata?}"""
-    g = re.sub(r"[\s?!.,;]+$", "", girdi.strip())                      # "BRAF V600E?" -> "BRAF V600E"
+    g = re.sub(r"[\s?!.,;]+$", "", girdi_duzelt(girdi.strip()))        # "BRAF V600E?" -> "BRAF V600E"
     g = re.sub(r"^rs\s+(\d+)$", r"rs\1", g, flags=re.IGNORECASE)      # "rs 334" -> "rs334"
     kayit = {"girdi": g, "tur": None, "gen": None, "rsid": [], "protein_kisa": None, "protein_3harf": None,
              "protein_diger": [], "cdna": None, "ek_terimler": [], "kart": None, "pubmed_kurasyon": [], "uyarilar": []}
@@ -116,7 +135,7 @@ def varyant_kaydi(girdi):
     m = GEN_DEGISIM.match(g)
     if m:
         kayit["tur"] = "gen_degisim"
-        kayit["gen"] = GEN_ALIAS.get(m.group("gen").upper(), m.group("gen").upper())
+        kayit["gen"] = gen_adi(m.group("gen"))
         degler = [d.strip() for d in re.split(r"\s*[/,]\s*", m.group("deg")) if d.strip()]
         kayit["protein_kisa"], kayit["protein_3harf"] = _protein_bicimleri(degler[0].replace("p.", ""))
         for d in degler[1:]:                                           # "EGFR L858R/T790M": ikinci değişim de aranır
@@ -128,7 +147,7 @@ def varyant_kaydi(girdi):
     # Gen + serbest ifade: "MET exon 14 skipping", "F5 Leiden", "BRCA1 5382insC", "KRAS G12C hangi kanserlerde"
     m = re.match(r"^(?P<gen>[A-Za-z][A-Za-z0-9-]{1,14})\b[\s:_/-]*(?P<geri>.*)$", g)
     kayit["tur"] = "gen"
-    kayit["gen"] = GEN_ALIAS.get((m.group("gen") if m else g.split()[0]).upper(), (m.group("gen") if m else g.split()[0]).upper())
+    kayit["gen"] = gen_adi(m.group("gen") if m else g.split()[0])
     geri = (m.group("geri") if m else "").strip(" :-_/")
     if geri:
         d = DEG_HERHANGI.search(geri)
@@ -191,6 +210,14 @@ def pubmed_sorgulari(kayit):
     return k1, k2
 
 
+def pubmed_baglantisi(sorgu):
+    """Aynı sorguyu PubMed sitesinde, aynı sırayla açan bağlantı (elle doğrulama için).
+    sort=relevance sitedeki 'Sort by: Best match' sırasıdır ve kodun E-utilities'e gönderdiği sort=relevance ile aynıdır
+    (NCBI, Kasım 2022: API ve site aynı arama altyapısını kullanır). Parametre bağlantıya açıkça yazılır, çünkü site kullanıcının
+    son seçtiği sırayı çerezde saklar; yazılmazsa daha önce 'Most recent' seçmiş biri farklı bir liste görür."""
+    return "https://pubmed.ncbi.nlm.nih.gov/?term=" + urllib.parse.quote(sorgu, safe="") + "&sort=relevance"
+
+
 def _normalize(metin):
     m = metin.lower().replace("*", "x")
     m = re.sub(r"\s*>\s*", ">", m)             # "c.20A > T" -> "c.20a>t"
@@ -247,6 +274,15 @@ def kaynaklari_getir(girdi, adet=5):
     sonuc["sorgular"] = {"varyant": k1, "gen": k2}
     secilen, gorulen = [], set()
 
+    def sirali_detay(pmidler, yol):
+        """Makale ayrıntılarını PubMed'in döndürdüğü SIRAYLA verir; her makaleye PubMed sırasını ve geldiği yolu yazar.
+        (EFetch kayıtları istenen sırayla döndürür; sıra burada ayrıca açıkça kurulur ki 'ilk 5' her zaman PubMed'in sırası olsun.)"""
+        sira = {p: i for i, p in enumerate(pmidler, start=1)}
+        ms = sorted(makale_detaylari_al(pmidler), key=lambda m: sira.get(m["pmid"], len(sira) + 1))
+        for m in ms:
+            m["pubmed_sira"], m["yol"] = sira.get(m["pmid"]), yol
+        return ms
+
     def ekle(makaleler, kabul=("varyant",), ust_etiket=None):
         for m in makaleler:
             if m["pmid"] in gorulen or m["ozet"] == "(özet yok)" or (m.get("baslik") or "").strip().lower() in ("[not available]", "(başlık yok)"):
@@ -272,23 +308,29 @@ def kaynaklari_getir(girdi, adet=5):
         kullanici_dusen = [d for d in s1["dusen"] if d.lower() in kayit["girdi"].lower()]
         if kullanici_dusen:
             sonuc["uyarilar"].append(f"PubMed şu ifadeleri bulamayıp sorgudan attı: {', '.join(kullanici_dusen)}")
+        sonuc["sorgular"]["aday"] = len(s1["pmidler"])          # PubMed'den istenen aday sayısı (ilk 10, Best Match sırasıyla)
+        sonuc["sorgular"]["baglanti"] = pubmed_baglantisi(k1)   # aynı sorguyu sitede açar (elle doğrulama)
         if s1["pmidler"]:
-            ekle(makale_detaylari_al(s1["pmidler"]), kabul=("varyant",))
-    # 2) Kürasyonlu PMID'ler (VEP/dbSNP): varyanta özgü; metinde ad geçmese de kabul (etiket 'kurasyon'); yeni yıl öne
+            ekle(sirali_detay(s1["pmidler"], "varyant_sorgusu"), kabul=("varyant",))
+    # 2) VEP'in varyanta bağladığı PMID'ler (dbSNP atıfları + metin madenciliği): metinde ad geçmese de kabul (etiket 'kurasyon');
+    #    önce metninde varyant adı geçenler, sonra yeni yıl öne
     if len(secilen) < adet and kayit.get("pubmed_kurasyon"):
         adaylar = [p for p in kayit["pubmed_kurasyon"] if p not in gorulen][:200]
         sonuc["sayilar"]["kurasyon"] = len(kayit["pubmed_kurasyon"])
         if adaylar:
             ms = makale_detaylari_al(adaylar)
             ms.sort(key=lambda m: (alaka_etiketi(m, kayit) != "varyant", -(int(m["yil"]) if str(m.get("yil", "")).isdigit() else 0)))
+            for m in ms:
+                m["pubmed_sira"], m["yol"] = None, "kurasyon"    # PubMed araması değil: VEP'in (dbSNP/ClinVar) bağladığı PMID
             ekle(ms, kabul=("varyant", "gen", "ilgisiz"), ust_etiket="kurasyon")
     varyant_sayisi = sum(m["alaka"] in ("varyant", "kurasyon") for m in secilen)
     # 3) Gen düzeyi (yalnızca boşluk kalırsa; 'ilgisiz' alınmaz)
     if len(secilen) < adet and k2:
         s2 = makale_ara_ayrintili(k2, adet * 2)
         sonuc["sayilar"]["gen_toplam"] = s2["toplam"]
+        sonuc["sorgular"]["baglanti_gen"] = pubmed_baglantisi(k2)
         if s2["pmidler"]:
-            ekle(makale_detaylari_al(s2["pmidler"]), kabul=("gen",))
+            ekle(sirali_detay(s2["pmidler"], "gen_sorgusu"), kabul=("gen",))
     sonuc["makaleler"] = secilen
     sonuc["kademe"] = "varyant" if varyant_sayisi else ("gen" if secilen else "yok")
     if sonuc["kademe"] == "gen":

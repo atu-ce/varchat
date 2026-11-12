@@ -19,6 +19,7 @@ from rapidfuzz import process
 from rapidfuzz.distance import JaroWinkler
 
 from m03_vep import girdi_turu
+from m04_retrieval import gen_adi, girdi_duzelt     # takma adlar (p53 -> TP53, HER2 -> ERBB2) ve 'Faktör V Leiden' -> 'F5 Leiden'
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -66,13 +67,15 @@ _GEN_LISTE = list(GEN_LISTESI)      # rapidfuzz için liste hali
 
 
 def gen_cikar(kimlik):
-    """Varyant kimliğinden gen sembolünü çıkarır. rsID / koordinat / HGVS için None döner."""
-    k = kimlik.strip()
+    """Varyant kimliğinden gen sembolünü çıkarır. rsID / koordinat / HGVS için None döner.
+    Yaygın takma adlar önce HGNC sembolüne çevrilir ('p53 R175H' -> 'TP53', 'HER2 L755S' -> 'ERBB2'); arama modülü (m04) de
+    aynı tabloyu kullanır. Çevrilmezse 'HER2' geçersiz sayılıyor ve benzerlik önerisi yanlış geni ('HERC2') gösteriyordu."""
+    k = girdi_duzelt(kimlik.strip())
     if re.match(r"^rs\d+$", k, re.IGNORECASE):
         return None                                 # rsID -> gen doğrulaması yok
     if girdi_turu(k):
         return None                                 # koordinat / HGVS -> VEP (m03) doğrular
-    return re.split(r"[\s:]", k)[0].upper()         # gen sembolü (ilk token)
+    return gen_adi(re.split(r"[\s:]", k)[0])        # gen sembolü (ilk token; takma adsa resmi sembol)
 
 
 def gen_gecerli_mi(gen):
