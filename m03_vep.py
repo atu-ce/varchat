@@ -49,6 +49,11 @@ AMINO_3TO1 = {
 }
 TUMLEYEN = str.maketrans("ACGT", "TGCA")
 KOMSU_ETKI = {"upstream_gene_variant", "downstream_gene_variant"}
+# VEP REST, bir varyanta bağlı yayın numaralarını (colocated_variants[].pubmed) virgülle birleştirilmiş hâli 1.024 karakteri
+# geçmeyecek şekilde KESER (belgelenmemiş; 12 Kasım 2026'da canlı gözlendi: rs113488022, rs334, rs1801133, rs1799853 hep tam 1.024).
+# Kesilen listenin SON numarası yarım kalabilir: rs113488022'de son numara 1244737 çıkıyor; bu, 8 haneli bir PMID'nin ilk 7 hanesi
+# ve 1976 tarihli, konuyla ilgisiz başka bir makalenin numarası. Sınıra dayanan listede son numara bu yüzden atılır.
+VEP_PUBMED_SINIRI = 1024
 
 # VCF tarzı yazım: [chr]7[:| |-|_]140753336[:| |-|_]?A[>|/|-]T  (kromozom 1-22, X, Y, M/MT; alel yalnızca ACGT)
 KOORDINAT = re.compile(
@@ -255,7 +260,7 @@ def kart_olustur(veri, surum, alt_sec=None):
                 protein_diger += [x for x in (p1x, p3x) if x and x not in protein_diger]
     cadd = next((t["cadd_phred"] for t in tcs if t.get("cadd_phred") is not None), None)
 
-    rsid, clin, pubmed, gnomad, en_sik_pop = [], [], [], None, None
+    rsid, clin, pubmed, gnomad, en_sik_pop, pubmed_kesik = [], [], [], None, None, False
     for c in veri.get("colocated_variants") or []:
         kimlik = str(c.get("id", ""))
         if kimlik.startswith("rs"):
@@ -278,7 +283,10 @@ def kart_olustur(veri, surum, alt_sec=None):
         elif c.get("clin_sig"):
             eslesen = list(c["clin_sig"])
         clin += [s for s in eslesen if s not in clin]
-        for p in c.get("pubmed") or []:
+        yayinlar = list(c.get("pubmed") or [])
+        if len(",".join(str(p) for p in yayinlar)) >= VEP_PUBMED_SINIRI:      # liste VEP tarafında kesilmiş: son numara yarım olabilir
+            yayinlar, pubmed_kesik = yayinlar[:-1], True
+        for p in yayinlar:
             if p not in pubmed:
                 pubmed.append(p)
         # frequencies sözlüğü clin_sig_allele'in aksine GİRDİNİN zincirindeki alelle anahtarlanır (canlı gözlem)
@@ -311,7 +319,9 @@ def kart_olustur(veri, surum, alt_sec=None):
         "gnomad_en_sik": en_sik_pop,
         "cadd": cadd,
         "klinik_onem": clin,        # VEP'in dbSNP/ClinVar'dan derlediği, alele özgü
-        "pubmed": pubmed,           # dbSNP/ClinVar kürasyonlu PMID'ler (varyanta ÖZGÜ)
+        "pubmed": pubmed,           # VEP'in bu varyanta bağladığı yayınlar: dbSNP gönderimlerindeki atıflar + Europe PMC ve UCSC'nin
+                                    # metin madenciliği (Ensembl belgesi). "Kürasyon" adı kodda kaldı ama liste elle seçilmiş DEĞİLDİR.
+        "pubmed_kesik": pubmed_kesik,   # True: VEP listeyi 1.024 karakterde kesti (çok atıf alan varyant); gerçek liste daha uzun
         "uyarilar": uyarilar,
     }
 
