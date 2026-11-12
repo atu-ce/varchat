@@ -233,6 +233,72 @@ finally:
     _ollama.chat = _gercek_chat
     app.SON_BAGLAM.clear()
 
+# ---------------------------------------------------------------- yönlendiricinin KURAL katmanı (model çağrılmaz)
+# 12 Kasım 2026 denetimi: "bir selam sözcüğüyle BAŞLAYAN kısa mesaj selamdır" kuralı, listede 'sa' ve 'hi' olduğu için
+# 'sağkalım nasıl?' ve 'hiç tedavisi var mı?' gibi soruları selam sayıyordu; takma adlar (HER2, p53) doğrulamada geri çevriliyordu.
+print("YÖNLENDİRİCİ — KURAL KATMANI")
+import m02_hgnc as m02
+import m04_retrieval as m04
+
+
+def kural(mesaj, aktif=None):
+    k = app.kural_tabanli_niyet(mesaj, aktif)
+    return (k["kategori"], k["varyant"]) if k else None
+
+
+for mesaj in ["merhaba", "Selam, nasılsın?", "İyi günler", "iyi günler hocam", "sa", "HELLO", "Günaydın!"]:
+    kontrol(f"yalnız selam -> SELAMLAMA: {mesaj!r}", kural(mesaj), ("SELAMLAMA", ""))
+for mesaj in ["sağkalım nasıl?", "sarkomda görülür mü?", "hiç tedavisi var mı?", "hipertansiyon yapar mı?", "histolojisi nasıl?",
+              "iyi günlerde kullanılır mı", "sanırım anlamadım", "heyecan verici mi?"]:
+    kontrol(f"selam sözcüğüyle BAŞLAYAN soru selam değildir (modele gider): {mesaj!r}", kural(mesaj, "BRAF V600E"), None)
+kontrol("selam + varyant sorusu: varyant yutulmaz", kural("merhaba BRAF V600E nedir"), ("VARYANT", "BRAF V600E"))
+kontrol("selam + takip sorusu: aktif varyantın takibi", kural("selam, bu varyantın tedavisi var mı?", "BRAF V600E"), ("TAKIP", ""))
+kontrol("büyük harfli hastalık kısaltması gen sanılmaz, gen bulunur", kural("HIV direnci CCR5"), ("VARYANT", "CCR5"))
+for mesaj, beklenen in [("p53 R175H nedir", "TP53 R175H"), ("HER2 L755S", "ERBB2 L755S"), ("c-MYC T58A", "MYC T58A"),
+                        ("CKIT D816V hangi hastalıkta", "KIT D816V"), ("Faktör V Leiden nedir?", "F5 Leiden"),
+                        ("Factor V Leiden", "F5 Leiden")]:
+    kontrol(f"takma ad resmi sembole çevrilir: {mesaj!r}", kural(mesaj), ("VARYANT", beklenen))
+    kontrol(f"  ... ve gen doğrulamasından geçer: {beklenen!r}", m02.gen_gecerli_mi(m02.gen_cikar(beklenen))[0], True)
+# Aktif varyant KOORDİNATLA girilmişken çözülmüş adlarıyla sorulan soru takiptir (yeni arama başlatmaz)
+KOORD = "chr7:140753336:A>T"
+app.SON_BAGLAM.clear()
+app.SON_BAGLAM.update(kademe="varyant", gen="BRAF", varyant=KOORD, etiket=f"BRAF V600E (rs113488022; {KOORD})",
+                      adlar=app.varyant_adlari({"protein_kisa": "V600E", "protein_3harf": "Val600Glu", "rsid": ["rs113488022"], "cdna": "c.1799T>A"}))
+for mesaj in ["BRAF V600E için ilaç var mı?", "V600E başka kanserlerde de var mı?", "rs113488022 ne demek", "BRAF p.Val600Glu aynı şey mi",
+              "BRAF geni ne iş yapar?"]:
+    kontrol(f"koordinat aktifken çözülmüş adla soru -> TAKIP: {mesaj!r}", kural(mesaj, KOORD), ("TAKIP", ""))
+kontrol("koordinat aktifken aynı gendeki BAŞKA değişim yeni varyanttır", kural("BRAF V600K nedir", KOORD), ("VARYANT", "BRAF V600K"))
+kontrol("koordinat aktifken başka gen yeni varyanttır", kural("KRAS G12C nedir", KOORD), ("VARYANT", "KRAS G12C"))
+app.SON_BAGLAM.clear()
+kontrol("bağlam yokken (başka varyantın adları) eşleşme yapılmaz", kural("V600E başka kanserlerde de var mı?", KOORD), None)
+
+kontrol("'Factor II' F5'e çevrilmez (eski 'FACTOR' -> F5 takma adı kaldırıldı)", m04.varyant_kaydi("Factor II G20210A")["gen"], "FACTOR")
+kontrol("takma ad kaydı: 'HER2 L755S' -> ERBB2, sorgu ERBB2 ile kurulur",
+        m04.pubmed_sorgulari(m04.varyant_kaydi("HER2 L755S"))[0], "ERBB2[tiab] AND (L755S[tiab] OR Leu755Ser[tiab])")
+kontrol("PubMed bağlantısı sorguyu URL'ye çevirir", m04.pubmed_baglantisi('BRAF[tiab] AND (V600E[tiab] OR "c.1799T>A"[tiab])'),
+        "https://pubmed.ncbi.nlm.nih.gov/?term=BRAF%5Btiab%5D%20AND%20%28V600E%5Btiab%5D%20OR%20%22c.1799T%3EA%22%5Btiab%5D%29&sort=relevance")
+kontrol("kaynak satırı PubMed sırasını gösterir",
+        app.kaynak_satiri(1, {"baslik": "B", "pmid": "1", "alaka": "varyant", "yol": "varyant_sorgusu", "pubmed_sira": 3}).endswith("(PubMed sırası: 3)"), True)
+
+# ---------------------------------------------------------------- anotasyon kartı: VEP'in kestiği yayın listesi
+# VEP REST 'pubmed' listesini 1.024 karakterde keser; son numara yarım kalıp BAŞKA bir makaleyi gösterebilir (rs113488022: 1244737).
+print("ANOTASYON KARTI — VEP YAYIN LİSTESİ")
+import m03_vep as m03
+
+
+def _kart(pubmed):
+    return m03.kart_olustur({"allele_string": "A/T", "transcript_consequences": [],
+                             "colocated_variants": [{"id": "rs1", "pubmed": pubmed}]}, "GRCh38")
+
+
+tam = [10000000 + i for i in range(113)] + [1244737]          # 113 x 8 hane + 113 virgül + 7 hane = 1.024 karakter
+kontrol("test verisi gerçekten sınırda (1.024 karakter)", len(",".join(map(str, tam))), m03.VEP_PUBMED_SINIRI)
+k = _kart(tam)
+kontrol("sınıra dayanan listede yarım kalmış olabilecek SON numara atılır", (len(k["pubmed"]), 1244737 in k["pubmed"], k["pubmed_kesik"]),
+        (113, False, True))
+k = _kart([9826708, 9140397])
+kontrol("kısa liste olduğu gibi kalır", (k["pubmed"], k["pubmed_kesik"]), ([9826708, 9140397], False))
+
 print()
 if basarisiz:
     print(f"{len(basarisiz)} test KALDI.")
