@@ -120,7 +120,7 @@ python m01_main.py
 (aynı sohbet şablonu). Linux satır sonuyla (LF) kalmalı; Windows satır sonu şablonu bozuyor.
 Ham modelle çalıştırmak için `ollama pull qwen2.5:7b` ve `m01_main.py`'de `MODEL = "qwen2.5:7b"`.
 
-İnternet PubMed, VEP ve ClinVar sorguları için gerekir. `.env` içinde NCBI anahtarı isteğe bağlıdır (bkz. `.env.example`).
+İnternet PubMed, VEP ve ClinVar sorguları için gerekir. `.env` içinde NCBI anahtarı ve NCBI'ye gönderilen iletişim e-postası isteğe bağlıdır (bkz. `.env.example`).
 GPU olmayan bilgisayarda bir özet birkaç dakika sürer.
 
 ---

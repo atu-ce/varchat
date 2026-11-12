@@ -9,7 +9,7 @@ v2 ile gelenler:
   - Yalnızca İngilizce özet alınır (Article/Abstract; OtherAbstract = yabancı dildeki özet, LLM'e gitmez); yapısal özet
     etiketleri korunur ("RESULTS: ..."); yıl, dergi, ilk yazar, yayın türü, geri çekilme durumu çekilir.
   - NCBI hız sınırı (anahtarsız 3 istek/sn) için istekler arasında bekleme; 429/5xx'te yeniden deneme (Retry-After);
-    .env'de NCBI_API_KEY varsa kullanılır (10 istek/sn).
+    .env'de NCBI_API_KEY varsa kullanılır (10 istek/sn). İletişim e-postası da .env'den okunur (NCBI_EMAIL); koda yazılmaz.
 """
 
 import os
@@ -35,7 +35,10 @@ except (AttributeError, ValueError):
 ESEARCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"   # arama -> PMID listesi
 EFETCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"     # PMID -> başlık, özet (XML)
 
-EMAIL = "yazilimbirimi@karacasutekstil.com.tr"   # NCBI etiketi (nazik kullanım)
+# NCBI, isteklerde 'tool' (programın adı) ve 'email' (geliştiricinin iletişim adresi) parametrelerini ister: bir sorun olursa
+# erişimi kesmeden önce haber verebilmek için. Adres koda YAZILMAZ (depo herkese açık); .env dosyasındaki NCBI_EMAIL'den okunur.
+# NCBI_EMAIL tanımlı değilse istek adressiz gider; arama yine çalışır.
+EMAIL = os.environ.get("NCBI_EMAIL", "").strip() or None
 TOOL = "varchat-tez-prototip"
 API_KEY = os.environ.get("NCBI_API_KEY", "").strip() or None
 ARALIK = 0.12 if API_KEY else 0.36               # istekler arası en az bekleme (10/sn ya da 3/sn)
@@ -46,7 +49,9 @@ GURULTU_TUR = ("Research Support", "Journal Article", "English Abstract")
 def ncbi_get(url, params, deneme=3):
     """NCBI'ye hız sınırına uyarak GET atar; 429/5xx ve ağ hatasında bekleyip yeniden dener."""
     global _son_istek
-    params = dict(params, email=EMAIL, tool=TOOL)
+    params = dict(params, tool=TOOL)
+    if EMAIL:
+        params["email"] = EMAIL
     if API_KEY:
         params["api_key"] = API_KEY
     son_hata = None
