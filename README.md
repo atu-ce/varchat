@@ -27,7 +27,7 @@ Mesaj
 [Anlamlandırma] koordinat, HGVS ya da rsID → VEP "anotasyon kartı": gen, protein değişimi,
  │              rsID, gnomAD sıklığı, CADD (çok alelli rsID'de ClinVar'da önemi olan alel seçilir)
  ▼
-[Bulucu]        PubMed'de kademeli arama: varyanta özgü sorgu → VEP'in kürasyonlu PMID'leri
+[Bulucu]        PubMed'de kademeli arama: varyanta özgü sorgu → VEP'in varyanta bağladığı yayınlar
  │              → gen düzeyi; her kaynak "varyant" / "gen düzeyi" diye etiketlenir
  ▼
 [Üretim]        özetler + kurallar tek bir system mesajına yazılır:
@@ -65,16 +65,16 @@ Kaynak listesini model değil kod bastığı için makale uydurulamaz (cümle d�
 
 | Dosya | Ne yapar |
 |---|---|
-| `e01_test_set.py` | 45 girdi + 11 türetilmiş koordinat = 56; 4 katman (kanser hotspot, eski adlı kalıtsal, rsID/koordinat, literatürsüz); eğitim genleriyle kesişimsiz. |
+| `e01_test_set.py` | 45 girdi + 11 türetilmiş koordinat = 56; 4 katman (kanser hotspot, eski adlı kalıtsal, rsID/koordinat, literatürsüz); 37 test geninin hiçbiri 105 eğitim geninde yok. 56 girdi 40 farklı varyanttır: 8 varyant birkaç yazımla (ad, rsID, koordinat) ayrı ayrı sorulur (`AYNI_VARYANT`). |
 | `e02_ground_truth.py` | Her girdi için "bu varyantı anan makaleler" listesi (LitVar2 + PubTator3). |
 | `e03_retrieval_eval.py` | Aramayı dondurur ve P@5'i ölçer; hakem kararlarını çevrimdışı uygular (`--hakem`). Eski hatla (v1) karşılaştırma donmuş kayıtta; eski hattın kodu git geçmişinde. |
 | `e04_generate.py` | Donmuş kaynaklarla bir modelden 56 özet üretir (kaldığı yerden devam eder). |
 | `e05_faithfulness.py` | Yargıç model her atıflı cümleyi kaynağına karşı yargılar (destekleniyor / desteklenmiyor / çelişiyor). |
-| `e06_compare.py` | Modelleri girdi girdi eşleştirir: sadakat farkı + bootstrap güven aralığı, işaret testi, McNemar, yargıç uyumu (kappa). |
+| `e06_compare.py` | Modelleri girdi girdi eşleştirir: sadakat, çelişki ve atıfsız cümle farkı + bootstrap güven aralığı (girdi bazlı ve varyant bazlı), işaret testi, McNemar, yargıç uyumu (kappa). |
 | `e07_colab_measure.ipynb` | Colab'da: LoRA'yı birleştirip model dosyası üretir, modelleri aynı ortamda `e04` + `e05` ile ölçer. |
 | `e08_colab_judge.ipynb` | Colab'da: ham qwen2.5:14b ile üretim + bütün modelleri qwen2.5:32b yargıçla puanlama + `e06`. |
-| `e09_router_eval.py` | Yönlendirici doğruluğu (39 mesaj). |
-| `e10_check_tests.py` | Üretim sonrası denetimlerin model çağırmadan çalışan testleri. |
+| `e09_router_eval.py` | Yönlendirici doğruluğu. 39 mesajlık geliştirme seti (kurallar buna bakılarak ayarlandı; regresyon testi) ve kodu görmemiş bir yazarın yazdığı 80'er mesajlık iki ayrı set (`e09_router_heldout.json`, `e09_router_heldout2.json`). |
+| `e10_check_tests.py` | Model çağırmadan çalışan 119 kontrol: üretim sonrası denetimler, yönlendirici kuralları, takma adlar, VEP yayın listesi. |
 | `e11_judge_check.py` | Yargıç kontrolü: bütün iddiaları kör paketlere böler, daha güçlü üçüncü yargıcın (Claude) kararlarını toplar, 7B/32B yargıcın doğruluğunu ve üçüncü yargıçla model sadakatini hesaplar. |
 | `results/` | Bütün ölçüm dosyaları. Girdiler: donmuş arama kaydı (`arama_*`), doğru cevap listesi, hakem kararları (`hakem.jsonl`). Çıktılar: modellerin cevapları (`uretim_*`), yargıç kararları (`sadakat_*`; `__yargic-qwen2.5-32b` ekli olanlar 32B yargıç), karşılaştırmalar (`karsilastirma_*`), üçüncü yargıç kontrolü (`yargic_kontrol*`), yönlendirici testleri (`router_<model>_*`), ortam kayıtları; `v1_` önekliler ilk eğitimin ölçüm koşusuna ait. |
 
@@ -107,7 +107,7 @@ pip install -r requirements.txt
 ```
 
 [Ollama](https://ollama.com) kurulu olmalı. Uygulama tek model kullanır: `varchat-v2` (cevap üretimi ve yönlendirici;
-yönlendirici testinde 39/39). `f02_colab_gguf.ipynb`'nin ürettiği `varchat-v2-Q4_K_M.gguf` dosyasını `models/` klasörüne koy, sonra:
+yönlendirici doğruluğu için bkz. bölüm 4). `f02_colab_gguf.ipynb`'nin ürettiği `varchat-v2-Q4_K_M.gguf` dosyasını `models/` klasörüne koy, sonra:
 
 ```bash
 cd models
@@ -129,9 +129,10 @@ GPU olmayan bilgisayarda bir özet birkaç dakika sürer.
 
 ### Arama (`evaluation/results/arama_ozet_2026-10-05.json`)
 
-P@5 = sistemin seçtiği ilk 5 makaleden kaçının gerçekten o varyantı anlattığı. "Otomatik": LitVar2, PubTator3 ve ClinVar
-kürasyon listesine göre; "hakemli": bu listenin kaçırdığı makaleler için 14 insan hakem kararı eklenmiş hâli
-(`evaluation/results/hakem.jsonl`).
+P@5 = sistemin seçtiği ilk 5 makaleden kaçının o varyantı andığı. "Otomatik": LitVar2, PubTator3 ve VEP'in varyanta bağladığı
+yayın listesine göre (isabetlerin 206'sı LitVar2, 26'sı PubTator3, 0'ı VEP listesinden); "hakemli": bu listenin kaçırdığı 14 makale için araştırmacının kararı eklenmiş hâli
+(`evaluation/results/hakem.jsonl`; adayları sistem işaretledi, bağımsız ikinci hakem yok). Ölçülen şey makalenin varyantı **anması**dır;
+makalenin soruya ne kadar yararlı olduğu ölçülmez.
 
 | Katman | Girdi | P@5 otomatik | P@5 hakemli |
 |---|---|---|---|
@@ -139,16 +140,16 @@ kürasyon listesine göre; "hakemli": bu listenin kaçırdığı makaleler için
 | B: eski adlı kalıtsal | 15 | 0.89 | 0.91 |
 | C: rsID | 10 | 0.96 | 1.00 |
 | C: koordinat (GRCh38/GRCh37) | 11 | 0.98 | 1.00 |
-| **A+B+C** | 51 | **0.91** | **0.94** |
+| **A+B+C** | 51 | **0.91** | **0.95** |
 
-D katmanı (literatürü olmayan 5 varyant): 5'inde de sistem "gen düzeyi" moduna geçti; varyanta özgü kaynak varmış gibi davranmadı.
+D katmanı (varyanta özgü yayını olmayan 5 girdi = 3 farklı varyant): 5'inde de sistem "gen düzeyi" moduna geçti; varyanta özgü kaynak varmış gibi davranmadı.
 
 ### Cevap kalitesi (`evaluation/results/`)
 
-**Nasıl ölçüldü:** 56 test girdisinin her biri için model, dondurulmuş aynı 5 makaleyle özet yazar (`e04`). Özetteki her atıflı
+**Nasıl ölçüldü:** 56 test girdisinin (40 farklı varyant) her biri için model, dondurulmuş aynı 5 makaleyle özet yazar (`e04`). Özetteki her atıflı
 cümle, gösterdiği makalenin başlık ve özetine karşı yargılanır: destekleniyor / desteklenmiyor / çelişiyor. Yargıç Claude Opus 5.5;
 değerlendirme kördür, cümlenin hangi modelden geldiği gizlidir (`e11_judge_check.py`). Otomatik Qwen yargıçlar (7B ve 32B) aynı
-cümlelerde Claude ile ancak %62-65 oranında aynı kararı verdi (kappa 0.25-0.31) ve bozuk ya da yanlış cümleleri çoğu zaman
+cümlelerde Claude ile ancak %61,5-64,8 oranında aynı kararı verdi (kappa 0.245-0.309) ve bozuk ya da yanlış cümleleri çoğu zaman
 "destekleniyor" saydı; ana ölçü bu yüzden Claude. Claude etiketleri insan etiketi değildir; eğitim örneklerini de Claude yazdığı
 için yanlılık riski vardır.
 
@@ -158,27 +159,40 @@ için yanlılık riski vardır.
 | Eğitimsiz Qwen2.5-7B | 0.637 | %7,2 | %33 | 142 | 10 | 0 |
 | Ham Qwen2.5-14B | 0.526 | %9,4 | %42 | 112 | 0 | 6 |
 
-Sadakat = desteklenen / yargılanan atıflı iddia; değerler 56 girdinin toplamı. Dil çöküşü = cevabın %2'sinden fazlası yabancı
-alfabe (Çince/Arapça).
+Sadakat = desteklenen / yargılanan atıflı iddia; değerler 56 girdinin toplamı. Dil çöküşü = cevaptaki harflerin
+%2'sinden fazlası Çince, Japonca ya da Korece (kod yalnız bu alfabeleri sayar; ölçülen cevaplarda başka bir alfabeye kayan olmadı).
 
-**Çıkarımlar** (eşleştirilmiş karşılaştırma, `e06`, %95 bootstrap güven aralığı):
+**Çıkarımlar** (eşleştirilmiş karşılaştırma, `e06`, %95 bootstrap güven aralığı; aynı varyantın farklı yazımları bağımsız gözlem
+olmadığı için aralıklar varyant bazlı yeniden örneklemeyle verilmiştir, girdi bazlı aralıklar `yargic_kontrol_ozet.json`'da):
 
 - **Eğitim cümle başına doğruluğu değiştirmedi:** varchat-v2 − eğitimsiz 7B = −0.03 (GA −0.12…+0.06). Kazandırdığı: cevap
   başına yaklaşık iki kat desteklenen bilgi (268'e 142), neredeyse her cümlede atıf (atıfsız cümle %0,9'a %33) ve hiçbir girdiyi
-  "bilgi yok" diye geçiştirmeme (0'a 10). Atıfsız cümleler de desteksiz sayılırsa: varchat-v2 0.60, eğitimsiz 7B 0.42.
-- **Ham 14B daha iyi değil:** 14B − varchat-v2 = −0.08 (GA −0.17…+0.02); cümlelerinin %42'si atıfsız, 6 cevabı yabancı alfabeye
+  "bilgi yok" diye geçiştirmeme (0'a 10 girdi; varyant bazında 0'a 7, p=0.016). Atıfsız cümleler de desteksiz sayılırsa:
+  varchat-v2 0.60, eğitimsiz 7B 0.42 (fark +0.18, GA +0.09…+0.26).
+- **Ham 14B daha iyi değil:** 14B − varchat-v2 = −0.08 (GA −0.20…+0.04); cümlelerinin %42'si atıfsız, 6 cevabı yabancı alfabeye
   kayıyor. İki kat donanım isteyen 14B yerine eğitilmiş 7B kullanılıyor.
-- **Bedeli:** varchat-v2 daha uzun ve ayrıntılı yazıyor; çelişen iddia oranı en yüksek onda (%14).
+- **Bedeli:** varchat-v2 daha uzun ve ayrıntılı yazıyor; çelişen iddia oranı en yüksek onda (%14; eğitimsiz 7B'ye göre fark
+  +0.07, GA +0.02…+0.12).
 
 **Bilinen sorunlar (varchat-v2):** çelişen iddialar rakam ve özne karışması, ters yön, yanlış alel ya da hastalık şeklinde.
 Gen düzeyi bir girdide (chr1:17001759:A>T) varyanta kaynakta olmayan bir hastalık ilişkisi yüklendi. Türkçe terimlerde bozulmalar
 var. Kararların tamamı `evaluation/results/yargic_kontrol.jsonl` (her iddia için Claude kararı ve gerekçesi), özet
 `yargic_kontrol_ozet.json`.
 
+### Yönlendirici (`evaluation/results/router_*`)
+
+Kurallar 39 mesajlık bir geliştirme setine bakılarak ayarlandı; o setteki 39/39 bir ölçüm değil, kod değişince eski davranışın
+bozulmadığını gösteren regresyon testidir. Ölçüm, yönlendiricinin kodunu görmemiş bir yazarın (Claude alt ajanı; yalnız kategori
+tanımları verildi) yazdığı ve kuralların ayarlanmasında kullanılmayan 80 mesajla yapıldı: **74/80 = %92,5**
+(`router_ayri2_varchat-v2_2026-11-12.json`). Bundan önceki ilk bağımsız sette doğruluk 68/80 = %85,0 çıkmış, hatalar incelenip iki
+mantık düzeltmesi yapılmıştı; o set bu yüzden artık geliştirme setidir. İki bağımsız seti aynı tür yazar aynı tanımlardan ürettiği
+için birbirlerine benzerler; gerçek kullanıcı mesajlarıyla ölçüm yapılmadı. Kalan hata türleri: gen sembolüyle aynı yazılan
+kelimeler ("ATM"), Türkçe yazılmış klinik adlar ("exon 7 delesyonu"), botun kendisi hakkındaki sorular.
+
 ### Eğitim (`fine_tune/results/v2/`)
 
 Qwen2.5-7B-Instruct, QLoRA (taban 4-bit, adaptör r=16, kayıp yalnız cevap tokenlarında). 501 örnek: 438 eğitim, 63 doğrulama;
-doğrulamadaki 14 gen eğitimde yok. 3 tur, Colab A100'de 26 dakika. Doğrulama kaybı turlara göre 0.717 → **0.684** → 0.708;
+doğrulamadaki 14 gen eğitimde yok (iki bölmenin kaynaklarında ortak tek bir makale var; 5 doğrulama örneğinde geçiyor). 3 tur, Colab A100'de 26 dakika. Doğrulama kaybı turlara göre 0.717 → **0.684** → 0.708;
 en düşük kayıplı 2. tur saklandı (3. turda ezber başlıyor).
 
 ---
