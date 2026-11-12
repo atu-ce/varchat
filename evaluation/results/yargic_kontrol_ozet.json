@@ -1,5 +1,6 @@
 {
  "tarih": "2026-10-17",
+ "hesap_tarihi": "2026-11-12",
  "ucuncu_yargic": "claude-opus-5.5",
  "kaynak": "yargic_kontrol.jsonl",
  "yargic_dogrulugu": {
@@ -196,6 +197,8 @@
     "girdi": 15,
     "iddia": 66,
     "sadakat": 0.636,
+    "desteklenen": 42,
+    "sadakat_tum_cumleler": 0.447,
     "celiski_orani": 0.106,
     "atifsiz_orani": 0.298,
     "yalniz_ret": 2,
@@ -210,6 +213,8 @@
     "girdi": 15,
     "iddia": 75,
     "sadakat": 0.613,
+    "desteklenen": 46,
+    "sadakat_tum_cumleler": 0.407,
     "celiski_orani": 0.107,
     "atifsiz_orani": 0.336,
     "yalniz_ret": 1,
@@ -224,6 +229,8 @@
     "girdi": 10,
     "iddia": 36,
     "sadakat": 0.583,
+    "desteklenen": 21,
+    "sadakat_tum_cumleler": 0.368,
     "celiski_orani": 0.028,
     "atifsiz_orani": 0.368,
     "yalniz_ret": 2,
@@ -238,6 +245,8 @@
     "girdi": 11,
     "iddia": 30,
     "sadakat": 0.433,
+    "desteklenen": 13,
+    "sadakat_tum_cumleler": 0.265,
     "celiski_orani": 0.133,
     "atifsiz_orani": 0.388,
     "yalniz_ret": 4,
@@ -252,6 +261,8 @@
     "girdi": 5,
     "iddia": 22,
     "sadakat": 0.409,
+    "desteklenen": 9,
+    "sadakat_tum_cumleler": 0.281,
     "celiski_orani": 0.227,
     "atifsiz_orani": 0.312,
     "yalniz_ret": 0,
@@ -266,6 +277,8 @@
     "girdi": 56,
     "iddia": 229,
     "sadakat": 0.572,
+    "desteklenen": 131,
+    "sadakat_tum_cumleler": 0.38,
     "celiski_orani": 0.109,
     "atifsiz_orani": 0.336,
     "yalniz_ret": 9,
@@ -282,6 +295,8 @@
     "girdi": 15,
     "iddia": 75,
     "sadakat": 0.747,
+    "desteklenen": 56,
+    "sadakat_tum_cumleler": 0.549,
     "celiski_orani": 0.04,
     "atifsiz_orani": 0.265,
     "yalniz_ret": 2,
@@ -296,6 +311,8 @@
     "girdi": 15,
     "iddia": 73,
     "sadakat": 0.616,
+    "desteklenen": 45,
+    "sadakat_tum_cumleler": 0.437,
     "celiski_orani": 0.096,
     "atifsiz_orani": 0.291,
     "yalniz_ret": 1,
@@ -310,6 +327,8 @@
     "girdi": 10,
     "iddia": 32,
     "sadakat": 0.625,
+    "desteklenen": 20,
+    "sadakat_tum_cumleler": 0.377,
     "celiski_orani": 0.0,
     "atifsiz_orani": 0.396,
     "yalniz_ret": 2,
@@ -324,6 +343,8 @@
     "girdi": 11,
     "iddia": 27,
     "sadakat": 0.407,
+    "desteklenen": 11,
+    "sadakat_tum_cumleler": 0.25,
     "celiski_orani": 0.148,
     "atifsiz_orani": 0.386,
     "yalniz_ret": 5,
@@ -338,6 +359,8 @@
     "girdi": 5,
     "iddia": 16,
     "sadakat": 0.625,
+    "desteklenen": 10,
+    "sadakat_tum_cumleler": 0.303,
     "celiski_orani": 0.125,
     "atifsiz_orani": 0.515,
     "yalniz_ret": 0,
@@ -352,6 +375,8 @@
     "girdi": 56,
     "iddia": 223,
     "sadakat": 0.637,
+    "desteklenen": 142,
+    "sadakat_tum_cumleler": 0.424,
     "celiski_orani": 0.072,
     "atifsiz_orani": 0.334,
     "yalniz_ret": 10,
@@ -368,6 +393,8 @@
     "girdi": 15,
     "iddia": 92,
     "sadakat": 0.478,
+    "desteklenen": 44,
+    "sadakat_tum_cumleler": 0.468,
     "celiski_orani": 0.087,
     "atifsiz_orani": 0.021,
     "yalniz_ret": 0,
@@ -382,6 +409,8 @@
     "girdi": 15,
     "iddia": 85,
     "sadakat": 0.271,
+    "desteklenen": 23,
+    "sadakat_tum_cumleler": 0.25,
     "celiski_orani": 0.176,
     "atifsiz_orani": 0.076,
     "yalniz_ret": 0,
@@ -396,6 +425,8 @@
     "girdi": 10,
     "iddia": 58,
     "sadakat": 0.345,
+    "desteklenen": 20,
+    "sadakat_tum_cumleler": 0.312,
     "celiski_orani": 0.121,
     "atifsiz_orani": 0.094,
     "yalniz_ret": 0,
@@ -410,6 +441,8 @@
     "girdi": 11,
     "iddia": 53,
     "sadakat": 0.396,
+    "desteklenen": 21,
+    "sadakat_tum_cumleler": 0.356,
     "celiski_orani": 0.075,
     "atifsiz_orani": 0.102,
     "yalniz_ret": 0,
@@ -424,6 +457,8 @@
     "girdi": 5,
     "iddia": 38,
     "sadakat": 0.211,
+    "desteklenen": 8,
+    "sadakat_tum_cumleler": 0.195,
     "celiski_orani": 0.184,
     "atifsiz_orani": 0.073,
     "yalniz_ret": 0,
@@ -438,6 +473,8 @@
     "girdi": 56,
     "iddia": 326,
     "sadakat": 0.356,
+    "desteklenen": 116,
+    "sadakat_tum_cumleler": 0.331,
     "celiski_orani": 0.126,
     "atifsiz_orani": 0.069,
     "yalniz_ret": 0,
@@ -454,6 +491,8 @@
     "girdi": 15,
     "iddia": 123,
     "sadakat": 0.618,
+    "desteklenen": 76,
+    "sadakat_tum_cumleler": 0.618,
     "celiski_orani": 0.146,
     "atifsiz_orani": 0.0,
     "yalniz_ret": 0,
@@ -468,6 +507,8 @@
     "girdi": 15,
     "iddia": 114,
     "sadakat": 0.605,
+    "desteklenen": 69,
+    "sadakat_tum_cumleler": 0.605,
     "celiski_orani": 0.184,
     "atifsiz_orani": 0.0,
     "yalniz_ret": 0,
@@ -482,6 +523,8 @@
     "girdi": 10,
     "iddia": 76,
     "sadakat": 0.592,
+    "desteklenen": 45,
+    "sadakat_tum_cumleler": 0.57,
     "celiski_orani": 0.105,
     "atifsiz_orani": 0.038,
     "yalniz_ret": 0,
@@ -496,6 +539,8 @@
     "girdi": 11,
     "iddia": 91,
     "sadakat": 0.659,
+    "desteklenen": 60,
+    "sadakat_tum_cumleler": 0.659,
     "celiski_orani": 0.11,
     "atifsiz_orani": 0.0,
     "yalniz_ret": 0,
@@ -510,6 +555,8 @@
     "girdi": 5,
     "iddia": 39,
     "sadakat": 0.462,
+    "desteklenen": 18,
+    "sadakat_tum_cumleler": 0.45,
     "celiski_orani": 0.128,
     "atifsiz_orani": 0.025,
     "yalniz_ret": 0,
@@ -524,6 +571,8 @@
     "girdi": 56,
     "iddia": 443,
     "sadakat": 0.605,
+    "desteklenen": 268,
+    "sadakat_tum_cumleler": 0.6,
     "celiski_orani": 0.14,
     "atifsiz_orani": 0.009,
     "yalniz_ret": 0,
@@ -540,6 +589,8 @@
     "girdi": 15,
     "iddia": 50,
     "sadakat": 0.56,
+    "desteklenen": 28,
+    "sadakat_tum_cumleler": 0.315,
     "celiski_orani": 0.08,
     "atifsiz_orani": 0.438,
     "yalniz_ret": 0,
@@ -554,6 +605,8 @@
     "girdi": 15,
     "iddia": 43,
     "sadakat": 0.372,
+    "desteklenen": 16,
+    "sadakat_tum_cumleler": 0.213,
     "celiski_orani": 0.163,
     "atifsiz_orani": 0.427,
     "yalniz_ret": 0,
@@ -568,6 +621,8 @@
     "girdi": 10,
     "iddia": 40,
     "sadakat": 0.675,
+    "desteklenen": 27,
+    "sadakat_tum_cumleler": 0.409,
     "celiski_orani": 0.05,
     "atifsiz_orani": 0.394,
     "yalniz_ret": 0,
@@ -582,6 +637,8 @@
     "girdi": 11,
     "iddia": 55,
     "sadakat": 0.455,
+    "desteklenen": 25,
+    "sadakat_tum_cumleler": 0.258,
     "celiski_orani": 0.073,
     "atifsiz_orani": 0.433,
     "yalniz_ret": 0,
@@ -596,6 +653,8 @@
     "girdi": 5,
     "iddia": 25,
     "sadakat": 0.64,
+    "desteklenen": 16,
+    "sadakat_tum_cumleler": 0.41,
     "celiski_orani": 0.12,
     "atifsiz_orani": 0.359,
     "yalniz_ret": 0,
@@ -610,6 +669,8 @@
     "girdi": 56,
     "iddia": 213,
     "sadakat": 0.526,
+    "desteklenen": 112,
+    "sadakat_tum_cumleler": 0.306,
     "celiski_orani": 0.094,
     "atifsiz_orani": 0.418,
     "yalniz_ret": 0,
@@ -647,6 +708,64 @@
     "yalniz_a_reddetti": 10,
     "yalniz_b_reddetti": 0,
     "p": 0.002
+   },
+   "kume_sayisi": 40,
+   "oran_farklari": {
+    "sadakat": {
+     "fark_b_eksi_a": -0.032,
+     "guven_95": [
+      -0.115,
+      0.057
+     ],
+     "guven_95_kume": [
+      -0.12,
+      0.059
+     ]
+    },
+    "celiski": {
+     "fark_b_eksi_a": 0.068,
+     "guven_95": [
+      0.014,
+      0.118
+     ],
+     "guven_95_kume": [
+      0.018,
+      0.121
+     ]
+    },
+    "atifsiz": {
+     "fark_b_eksi_a": -0.325,
+     "guven_95": [
+      -0.391,
+      -0.259
+     ],
+     "guven_95_kume": [
+      -0.397,
+      -0.254
+     ]
+    },
+    "sadakat_tum_cumleler": {
+     "fark_b_eksi_a": 0.176,
+     "guven_95": [
+      0.091,
+      0.26
+     ],
+     "guven_95_kume": [
+      0.088,
+      0.26
+     ]
+    }
+   },
+   "sadakat_isaret_testi_kume": {
+    "b_daha_iyi": 13,
+    "a_daha_iyi": 19,
+    "esit": 3,
+    "p": 0.3771
+   },
+   "yalniz_ret_mcnemar_kume": {
+    "yalniz_a_reddetti": 7,
+    "yalniz_b_reddetti": 0,
+    "p": 0.0156
    }
   },
   {
@@ -670,6 +789,64 @@
     "p": 0.0007
    },
    "yalniz_ret_mcnemar": {
+    "yalniz_a_reddetti": 0,
+    "yalniz_b_reddetti": 0,
+    "p": null
+   },
+   "kume_sayisi": 40,
+   "oran_farklari": {
+    "sadakat": {
+     "fark_b_eksi_a": 0.249,
+     "guven_95": [
+      0.181,
+      0.317
+     ],
+     "guven_95_kume": [
+      0.181,
+      0.318
+     ]
+    },
+    "celiski": {
+     "fark_b_eksi_a": 0.014,
+     "guven_95": [
+      -0.041,
+      0.07
+     ],
+     "guven_95_kume": [
+      -0.038,
+      0.069
+     ]
+    },
+    "atifsiz": {
+     "fark_b_eksi_a": -0.06,
+     "guven_95": [
+      -0.091,
+      -0.03
+     ],
+     "guven_95_kume": [
+      -0.096,
+      -0.025
+     ]
+    },
+    "sadakat_tum_cumleler": {
+     "fark_b_eksi_a": 0.268,
+     "guven_95": [
+      0.203,
+      0.332
+     ],
+     "guven_95_kume": [
+      0.2,
+      0.335
+     ]
+    }
+   },
+   "sadakat_isaret_testi_kume": {
+    "b_daha_iyi": 31,
+    "a_daha_iyi": 8,
+    "esit": 1,
+    "p": 0.0003
+   },
+   "yalniz_ret_mcnemar_kume": {
     "yalniz_a_reddetti": 0,
     "yalniz_b_reddetti": 0,
     "p": null
@@ -699,6 +876,64 @@
     "yalniz_a_reddetti": 0,
     "yalniz_b_reddetti": 0,
     "p": null
+   },
+   "kume_sayisi": 40,
+   "oran_farklari": {
+    "sadakat": {
+     "fark_b_eksi_a": -0.079,
+     "guven_95": [
+      -0.173,
+      0.016
+     ],
+     "guven_95_kume": [
+      -0.198,
+      0.043
+     ]
+    },
+    "celiski": {
+     "fark_b_eksi_a": -0.046,
+     "guven_95": [
+      -0.102,
+      0.008
+     ],
+     "guven_95_kume": [
+      -0.102,
+      0.01
+     ]
+    },
+    "atifsiz": {
+     "fark_b_eksi_a": 0.409,
+     "guven_95": [
+      0.329,
+      0.487
+     ],
+     "guven_95_kume": [
+      0.328,
+      0.483
+     ]
+    },
+    "sadakat_tum_cumleler": {
+     "fark_b_eksi_a": -0.294,
+     "guven_95": [
+      -0.365,
+      -0.222
+     ],
+     "guven_95_kume": [
+      -0.381,
+      -0.211
+     ]
+    }
+   },
+   "sadakat_isaret_testi_kume": {
+    "b_daha_iyi": 20,
+    "a_daha_iyi": 18,
+    "esit": 1,
+    "p": 0.8714
+   },
+   "yalniz_ret_mcnemar_kume": {
+    "yalniz_a_reddetti": 0,
+    "yalniz_b_reddetti": 0,
+    "p": null
    }
   },
   {
@@ -724,6 +959,64 @@
    "yalniz_ret_mcnemar": {
     "yalniz_a_reddetti": 1,
     "yalniz_b_reddetti": 2,
+    "p": 1.0
+   },
+   "kume_sayisi": 40,
+   "oran_farklari": {
+    "sadakat": {
+     "fark_b_eksi_a": 0.065,
+     "guven_95": [
+      -0.012,
+      0.139
+     ],
+     "guven_95_kume": [
+      -0.008,
+      0.134
+     ]
+    },
+    "celiski": {
+     "fark_b_eksi_a": -0.037,
+     "guven_95": [
+      -0.076,
+      0.003
+     ],
+     "guven_95_kume": [
+      -0.076,
+      0.001
+     ]
+    },
+    "atifsiz": {
+     "fark_b_eksi_a": -0.002,
+     "guven_95": [
+      -0.061,
+      0.06
+     ],
+     "guven_95_kume": [
+      -0.066,
+      0.064
+     ]
+    },
+    "sadakat_tum_cumleler": {
+     "fark_b_eksi_a": 0.044,
+     "guven_95": [
+      -0.016,
+      0.105
+     ],
+     "guven_95_kume": [
+      -0.019,
+      0.111
+     ]
+    }
+   },
+   "sadakat_isaret_testi_kume": {
+    "b_daha_iyi": 18,
+    "a_daha_iyi": 15,
+    "esit": 2,
+    "p": 0.7283
+   },
+   "yalniz_ret_mcnemar_kume": {
+    "yalniz_a_reddetti": 0,
+    "yalniz_b_reddetti": 1,
     "p": 1.0
    }
   }

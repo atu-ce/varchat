@@ -14,6 +14,9 @@ Kullanım:
   python evaluation/e11_judge_check.py ozet                                      -> results/yargic_kontrol_ozet.json
 Çıktı (tek dosya + özet): her satır bir model cevabındaki bir iddia: model, girdi, katman, iddia, atif,
   karar_7b (ham 14B için yok), karar_32b, karar_claude, gerekce_claude.
+Özet (yargic_kontrol_ozet.json): yargıç doğruluğu, model tablosu ve eşleştirilmiş karşılaştırmalar (e06.eslestir). Her fark için
+  girdi bazlı ve KÜME bazlı (56 girdi = 40 varyant) %95 güven aralığı birlikte yazılır; 'tarih' etiketlerin üretildiği gündür,
+  'hesap_tarihi' özetin son hesaplandığı gün.
 """
 
 import collections
@@ -40,6 +43,7 @@ OZET = os.path.join(SONUC, "yargic_kontrol_ozet.json")
 MODELLER = ["qwen2.5:7b", "qwen-taban", "varchat", "varchat-v2", "qwen2.5:14b"]
 KARARLAR = ("DESTEKLENIYOR", "DESTEKLENMIYOR", "CELISIYOR")
 UCUNCU = "claude-opus-5.5"
+ETIKET_TARIHI = "2026-10-17"      # Claude etiketlerinin üretildiği gün (özet yeniden hesaplansa da değişmez)
 CIFTLER = [("qwen-taban", "varchat-v2"), ("varchat", "varchat-v2"), ("varchat-v2", "qwen2.5:14b"), ("qwen2.5:7b", "qwen-taban")]
 
 YONERGE = """Sen titiz bir bilimsel yargıçsın. Her İDDİA, bir genetik varyant asistanının Türkçe cevabından alınmış tek bir cümledir;
@@ -147,8 +151,8 @@ def uyum(ciftler):
 
 def ozet():
     satirlar = [json.loads(l) for l in open(CIKTI, encoding="utf-8")]
-    sonuc = {"tarih": date.today().isoformat(), "ucuncu_yargic": UCUNCU, "kaynak": os.path.basename(CIKTI), "yargic_dogrulugu": {}, "tablo": {},
-             "eslestirilmis": []}
+    sonuc = {"tarih": ETIKET_TARIHI, "hesap_tarihi": date.today().isoformat(), "ucuncu_yargic": UCUNCU, "kaynak": os.path.basename(CIKTI),
+             "yargic_dogrulugu": {}, "tablo": {}, "eslestirilmis": []}
     print(f"YARGIÇ DOĞRULUĞU ({UCUNCU} kararına göre; aynı iddialar)")
     for ad, alan in (("qwen2.5:7b", "karar_7b"), ("qwen2.5:32b", "karar_32b")):
         hepsi = [(r[alan], r["karar_claude"]) for r in satirlar if r[alan] in KARARLAR]

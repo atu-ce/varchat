@@ -4,7 +4,11 @@ BENCHMARK 8 — MODEL KARŞILAŞTIRMASI (adım 9): e04 + e05 çıktılarından k
 Aynı 56 girdi, aynı istem, aynı yargıç; modeller girdi girdi eşleştirilir:
   - Sadakat (iddia düzeyi): kaynağın DESTEKLEDİĞİ iddia / yargılanan iddia. Fark için %95 bootstrap güven aralığı
     (girdiler yeniden örneklenir, 10.000 tekrar, tohum 42) ve işaret testi (girdi başına sadakat farkının yönü; kesin binom).
+  - Aynı güven aralığı çelişki oranı, atıfsız cümle oranı ve "atıfsız cümle de desteksiz sayılırsa" sadakat için de hesaplanır.
   - Atıfsız cümle oranı, çelişki, yalnızca ret ("bilgi yok") cevapları (McNemar, kesin binom), dil çöküşü, cevap uzunluğu.
+  - KÜME BAZLI sürüm (12 Kasım 2026): 56 girdi 40 farklı varyanttır (aynı varyant gen+değişim, rsID ve koordinat olarak ayrı ayrı
+    sorulur; e01.AYNI_VARYANT). Bu satırlar bağımsız gözlem değildir; her güven aralığı bir de VARYANTLAR yeniden örneklenerek
+    (küme bootstrap) verilir, işaret testi ve McNemar varyant başına bir gözlemle tekrarlanır. Tezde küme bazlı aralık esas alınır.
 Bağımlılık yok (scipy gerekmez).
 
 Kullanım: python evaluation/e06_compare.py [--dizin evaluation/results] [--a qwen-taban] [--b varchat]
@@ -83,7 +87,9 @@ def ozetle(olcu):
     y = sum(o["yarg"] for o in olcu)
     c = sum(o["cumle"] for o in olcu)
     n = len(olcu) or 1
-    return {"girdi": len(olcu), "iddia": y, "sadakat": round(sum(o["destek"] for o in olcu) / y, 3) if y else None,
+    d = sum(o["destek"] for o in olcu)
+    return {"girdi": len(olcu), "iddia": y, "sadakat": round(d / y, 3) if y else None,
+            "desteklenen": d, "sadakat_tum_cumleler": round(d / c, 3) if c else None,      # atıfsız cümle de desteksiz sayılırsa
             "celiski_orani": round(sum(o["celiski"] for o in olcu) / y, 3) if y else None,
             "atifsiz_orani": round(sum(o["atifsiz"] for o in olcu) / c, 3) if c else None,
             "yalniz_ret": sum(o["ret"] for o in olcu), "dil_cokusu": sum(o["cjk"] for o in olcu), "uretim_hatasi": sum(o["hata"] for o in olcu),
@@ -100,21 +106,53 @@ def binom_iki_yonlu(k, n):
     return round(min(1.0, p), 4)
 
 
-def bootstrap_fark(a_olcu, b_olcu, tekrar=10000, tohum=42):
-    """Sadakat farkı (B - A), iddia düzeyinde; girdiler eşleştirilmiş yeniden örneklenir. (fark, alt, üst)"""
+# Oran ölçüleri: ad -> (pay, payda). Hepsi "toplam pay / toplam payda" (girdiler üzerinden havuzlanmış oran).
+ORANLAR = {"sadakat": ("destek", "yarg"),            # desteklenen / yargılanan atıflı iddia
+           "celiski": ("celiski", "yarg"),           # kaynağıyla çelişen / yargılanan atıflı iddia
+           "atifsiz": ("atifsiz", "cumle"),          # atıfsız cümle / bütün cümleler
+           "sadakat_tum_cumleler": ("destek", "cumle")}   # atıfsız cümle de desteksiz sayılırsa: desteklenen / bütün cümleler
+
+
+def bootstrap_fark(a_olcu, b_olcu, tekrar=10000, tohum=42, pay="destek", payda="yarg", kumeler=None):
+    """Oran farkı (B - A) ve %95 yüzdelik bootstrap güven aralığı; varsayılan oran sadakattir (destek / yarg).
+    Girdiler eşleştirilmiş yeniden örneklenir: aynı girdi iki modelde de birlikte seçilir. (fark, alt, üst)
+
+    kumeler (girdilerle aynı sırada küme anahtarı listesi) verilirse GİRDİLER değil KÜMELER yeniden örneklenir: test setinde aynı
+    varyant birkaç yazımla geçer (56 satır = 40 varyant, e01.AYNI_VARYANT); bu satırlar bağımsız gözlem olmadığı için birlikte
+    girer ya da birlikte çıkar (küme bootstrap). Bağımsız sayılırsa güven aralığı olduğundan DAR çıkar."""
     rng = random.Random(tohum)
     n = len(a_olcu)
 
     def oran(liste):
-        y = sum(o["yarg"] for o in liste)
-        return sum(o["destek"] for o in liste) / y if y else 0.0
+        y = sum(o[payda] for o in liste)
+        return sum(o[pay] for o in liste) / y if y else 0.0
     fark = oran(b_olcu) - oran(a_olcu)
+    gruplar = None
+    if kumeler:
+        grup = {}
+        for i, k in enumerate(kumeler):
+            grup.setdefault(k, []).append(i)
+        gruplar = list(grup.values())
     farklar = []
     for _ in range(tekrar):
-        idx = [rng.randrange(n) for _ in range(n)]
+        if gruplar:
+            idx = [i for _ in range(len(gruplar)) for i in gruplar[rng.randrange(len(gruplar))]]
+        else:
+            idx = [rng.randrange(n) for _ in range(n)]
         farklar.append(oran([b_olcu[i] for i in idx]) - oran([a_olcu[i] for i in idx]))
     farklar.sort()
     return round(fark, 3), round(farklar[int(0.025 * tekrar)], 3), round(farklar[int(0.975 * tekrar)], 3)
+
+
+def kume_anahtarlari(girdiler):
+    """Her girdinin küme anahtarı (e01.kume_haritasi): aynı varyantın farklı yazımları aynı anahtarı alır."""
+    try:
+        from e01_test_set import kume_haritasi
+    except ImportError:                        # e06 başka klasörden içe aktarılırsa
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from e01_test_set import kume_haritasi
+    h = kume_haritasi()
+    return [h.get(g, g) for g in girdiler]
 
 
 def kappa(ciftler):
@@ -172,8 +210,40 @@ def eslestir(olcu, girdiler, a_ad, b_ad):
            "atifsiz_isaret_testi": {"b_daha_az_atifsiz": atif_art, "a_daha_az_atifsiz": atif_az, "p": binom_iki_yonlu(atif_art, atif_art + atif_az)},
            "yalniz_ret_mcnemar": {"yalniz_a_reddetti": ret_yalniz_a, "yalniz_b_reddetti": ret_yalniz_b,
                                   "p": binom_iki_yonlu(ret_yalniz_a, ret_yalniz_a + ret_yalniz_b)}}
-    print(f"\nEŞLEŞTİRİLMİŞ: {a_ad} -> {b_ad} ({len(girdiler)} girdi)")
-    print(f"   sadakat farkı {fark:+.3f}  (%95 bootstrap GA: {alt:+.3f} .. {ust:+.3f})")
+    # ---- Küme düzeyi (aynı varyantın farklı yazımları tek gözlem) + sadakat dışındaki oranların farkı
+    kume = kume_anahtarlari(girdiler)
+    grup = {}
+    for i, k in enumerate(kume):
+        grup.setdefault(k, []).append(i)
+    oranlar = {}
+    for ad, (pay, payda) in ORANLAR.items():
+        f, a1, u1 = bootstrap_fark(A, B, pay=pay, payda=payda)
+        _, a2, u2 = bootstrap_fark(A, B, pay=pay, payda=payda, kumeler=kume)
+        oranlar[ad] = {"fark_b_eksi_a": f, "guven_95": [a1, u1], "guven_95_kume": [a2, u2]}
+
+    def havuz(olculer, idx):                     # bir varyantın bütün yazımları birlikte: desteklenen / yargılanan
+        y = sum(olculer[i]["yarg"] for i in idx)
+        return sum(olculer[i]["destek"] for i in idx) / y if y else None
+    kume_cift = [(havuz(A, idx), havuz(B, idx)) for idx in grup.values()]
+    kume_cift = [(a, b) for a, b in kume_cift if a is not None and b is not None]
+    artan_k, azalan_k = sum(b > a for a, b in kume_cift), sum(b < a for a, b in kume_cift)
+    ret_a_k = sum(1 for idx in grup.values() if any(A[i]["ret"] for i in idx) and not any(B[i]["ret"] for i in idx))
+    ret_b_k = sum(1 for idx in grup.values() if any(B[i]["ret"] for i in idx) and not any(A[i]["ret"] for i in idx))
+    ist.update({"kume_sayisi": len(grup), "oran_farklari": oranlar,
+                "sadakat_isaret_testi_kume": {"b_daha_iyi": artan_k, "a_daha_iyi": azalan_k, "esit": len(kume_cift) - artan_k - azalan_k,
+                                              "p": binom_iki_yonlu(artan_k, artan_k + azalan_k)},
+                "yalniz_ret_mcnemar_kume": {"yalniz_a_reddetti": ret_a_k, "yalniz_b_reddetti": ret_b_k,
+                                            "p": binom_iki_yonlu(ret_a_k, ret_a_k + ret_b_k)}})
+    print(f"\nEŞLEŞTİRİLMİŞ: {a_ad} -> {b_ad} ({len(girdiler)} girdi = {len(grup)} farklı varyant); farklar {b_ad} eksi {a_ad}, %95 bootstrap GA")
+    for ad, etiket in (("sadakat", "sadakat"), ("celiski", "çelişki oranı"), ("atifsiz", "atıfsız cümle oranı"),
+                       ("sadakat_tum_cumleler", "sadakat (atıfsız cümle desteksiz sayılırsa)")):
+        o = oranlar[ad]
+        print(f"   {etiket}: fark {o['fark_b_eksi_a']:+.3f} | GA girdi bazlı {o['guven_95'][0]:+.3f} .. {o['guven_95'][1]:+.3f} | "
+              f"GA küme bazlı ({len(grup)} varyant) {o['guven_95_kume'][0]:+.3f} .. {o['guven_95_kume'][1]:+.3f}")
+    s = ist["sadakat_isaret_testi_kume"]
+    print(f"   varyant başına sadakat (küme): {b_ad} daha iyi {s['b_daha_iyi']}, {a_ad} daha iyi {s['a_daha_iyi']}, eşit {s['esit']} | işaret testi p={s['p']}")
+    s = ist["yalniz_ret_mcnemar_kume"]
+    print(f"   yalnız 'bilgi yok' (küme: varyantın herhangi bir yazımında): yalnız {a_ad} {s['yalniz_a_reddetti']}, yalnız {b_ad} {s['yalniz_b_reddetti']} | p={s['p']}")
     s = ist["sadakat_isaret_testi"]
     print(f"   girdi başına sadakat: {b_ad} daha iyi {s['b_daha_iyi']}, {a_ad} daha iyi {s['a_daha_iyi']}, eşit {s['esit']} | işaret testi p={s['p']}")
     s = ist["atifsiz_isaret_testi"]
