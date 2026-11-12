@@ -3,9 +3,27 @@ BENCHMARK 3 — Yönlendirici (router) doğruluğu.
 
 Soru: Resepsiyonist mesajları doğru odaya yolluyor mu?
 Etiketli mesaj seti (aktif varyant bağlamıyla) -> m01.niyet (kural + model) -> karışıklık matrisi + doğruluk.
-Sonuç evaluation/results/router_<tarih>.json dosyasına yazılır (tez tablosu için ham veri).
 
-Çalıştırma: python evaluation/e09_router_eval.py   (Ollama gerekir; ~40 mesaj, model çağrısı olanlar ~10-15 sn/mesaj CPU)
+ÜÇ SET VARDIR ve aynı şeyi ölçmezler. Kural: bir sete bakılarak kod değiştirildiyse o set artık "sınav" değildir.
+  - GELİŞTİRME seti (aşağıdaki SET, 39 mesaj): kurallar bu mesajlara bakılarak ayarlandı (Eylül 2026). Buradaki 39/39 bir
+    "sınav sonucu" DEĞİLDİR; kod değişince eski davranışın bozulmadığını gösteren geri dönüş (regresyon) testidir.
+  - AYRI SET A (e09_router_heldout.json, 80 mesaj): 12 Kasım 2026'da, yönlendiricinin kodunu ve geliştirme setini GÖRMEMİŞ
+    bağımsız bir yazar (Claude alt ajanı; yalnız kategori tanımları verildi) tarafından yazıldı. İLK ve dokunulmamış ölçüm:
+    68/80 = %85,0 (results/router_ayri_ilk-olcum_varchat-v2_2026-11-12.json). Hatalar incelendi ve iki mantık düzeltmesi yapıldı
+    (m01.niyet_belirle: "KONU_DISI -> TAKIP" çevirme kuralı kaldırıldı; aktif varyant yokken TAKIP -> BELIRSIZ).
+    Bu yüzden A seti de artık geliştirme setidir.
+  - AYRI SET B (e09_router_heldout2.json, 80 mesaj): düzeltmelerden SONRA, yine bağımsız bir yazara yazdırıldı. Kurallar bu sete
+    bakılarak ayarlanmaz; tezde yönlendirici doğruluğu olarak BU setin sonucu verilir. Kod yeniden değişirse yeni bir set gerekir.
+    Ölçüm (12 Kasım 2026, tek koşu): 74/80 = %92,5 (results/router_ayri2_varchat-v2_2026-11-12.json). Aynı kodla A seti 71/80,
+    geliştirme seti 39/39. Dikkat: A ve B'yi aynı tür yazar aynı tanımlardan üretti; 3 mesaj birebir aynı, birkaçı çok benzer.
+    B'nin sonucu bu yüzden bir miktar iyimser olabilir; gerçek kullanıcı mesajlarıyla ölçüm yapılmadı.
+Not: model kararı sıcaklık 0 ve sabit tohumla bile koşudan koşuya birebir aynı çıkmayabilir (12 Kasım: 38 mesajdan 1'i iki koşuda
+farklı sınıflandı); doğruluk bir iki mesaj oynayabilir.
+
+Çalıştırma (Ollama gerekir; modele giden mesajlar CPU'da ~5-20 sn sürer):
+  python evaluation/e09_router_eval.py           geliştirme seti -> results/router_<model>_<tarih>.json
+  python evaluation/e09_router_eval.py --ayri    ayrı set A      -> results/router_ayri_<model>_<tarih>.json
+  python evaluation/e09_router_eval.py --ayri2   ayrı set B      -> results/router_ayri2_<model>_<tarih>.json
 """
 
 import collections
@@ -73,44 +91,96 @@ SET = [
 ]
 
 
+# Aktif varyantın bağlamı. Gerçek kullanımda m01.varyant_baglami_kur SON_BAGLAM'a yazar: çözülmüş gen, modele verilen ad (etiket)
+# ve varyantın bilinen adları. Değerler 12 Kasım 2026'da canlı çıktıdan alındı (m04.varyant_kaydi + m01.varyant_adlari).
+AKTIF_BAGLAM = {
+    "BRAF V600E": {"gen": "BRAF", "etiket": "BRAF V600E", "adlar": ["V600E", "Val600Glu"]},
+    "rs334": {"gen": "HBB", "etiket": "HBB E7V (rs334)",
+              "adlar": ["E7V", "Glu7Val", "E7G", "Glu7Gly", "E7A", "Glu7Ala", "E6V", "Glu6Val", "rs334", "c.20A>T"]},
+    "KRAS G12C": {"gen": "KRAS", "etiket": "KRAS G12C", "adlar": ["G12C", "Gly12Cys"]},
+    "rs1801133": {"gen": "MTHFR", "etiket": "MTHFR A222V (rs1801133)",
+                  "adlar": ["A222V", "Ala222Val", "A222G", "Ala222Gly", "rs1801133", "c.665C>T"]},
+    "CFTR F508del": {"gen": "CFTR", "etiket": "CFTR F508del", "adlar": ["F508del", "Phe508del"]},
+    "chr7:140753336:A>T": {"gen": "BRAF", "etiket": "BRAF V600E (rs113488022; chr7:140753336:A>T)",
+                           "adlar": ["V600E", "Val600Glu", "rs113488022", "c.1799T>A"]},
+}
+AYRI_SETLER = {"ayri": os.path.join(os.path.dirname(os.path.abspath(__file__)), "e09_router_heldout.json"),
+               "ayri2": os.path.join(os.path.dirname(os.path.abspath(__file__)), "e09_router_heldout2.json")}
+
+
 def esit_varyant(cikan, beklenen):
     if beklenen is None:
         return True
     return app.ayni_varyant(cikan, beklenen) and app.ayni_varyant(beklenen, cikan)
 
 
+def ogeler_yukle(ayri):
+    """Seti ortak biçime çevirir: {mesaj, aktif, kabul: [kategori, ...], varyant}.
+    ayri: False/None = geliştirme seti; True ya da 'ayri' = ayrı set A; 'ayri2' = ayrı set B."""
+    if not ayri:
+        return [{"mesaj": m, "aktif": a, "kabul": [b], "varyant": v} for m, a, b, v in SET]
+    veri = json.load(open(AYRI_SETLER["ayri" if ayri is True else ayri], encoding="utf-8"))
+    return [{"mesaj": o["mesaj"], "aktif": o.get("aktif"), "kabul": list(o["kabul"]), "varyant": o.get("varyant") or None}
+            for o in veri["ogeler"]]
+
+
+def dogru_mu(n, kabul, bek_var):
+    kat = n["kategori"]
+    # GENEL (aktif varyant yokken genel genetik sorusu): sistem bir varyant UYDURMADIYSA doğrudur
+    if "GENEL" in kabul and kat in ("VARYANT", "KONU_DISI", "BELIRSIZ") and not n.get("varyant"):
+        return True
+    if kat not in kabul:
+        return False
+    return kat != "VARYANT" or esit_varyant(n.get("varyant"), bek_var)
+
+
 def main():
+    ayri = "ayri2" if "--ayri2" in sys.argv else ("ayri" if "--ayri" in sys.argv else None)
+    ogeler = ogeler_yukle(ayri)
     kayitlar, dogru = [], 0
     matris = collections.defaultdict(collections.Counter)
-    AKTIF_GEN = {"BRAF V600E": "BRAF", "rs334": "HBB"}       # gerçek kullanımda varyant_baglami_kur SON_BAGLAM'a yazar
-    for mesaj, aktif, beklenen, bek_var in SET:
+    sinif = collections.defaultdict(lambda: [0, 0])            # beklenen kategori -> [doğru, toplam]
+    for o in ogeler:
+        mesaj, aktif, kabul, bek_var = o["mesaj"], o["aktif"], o["kabul"], o["varyant"]
         app.SON_BAGLAM.clear()
         if aktif:
-            app.SON_BAGLAM.update(kademe="varyant", gen=AKTIF_GEN.get(aktif, aktif.split()[0]), varyant=aktif)
+            b = AKTIF_BAGLAM.get(aktif) or {"gen": aktif.split()[0], "etiket": aktif, "adlar": []}
+            app.SON_BAGLAM.update(kademe="varyant", varyant=aktif, **b)
         t = time.time()
         n = app.niyet(mesaj, aktif)
         sure = time.time() - t
         kat = n["kategori"]
-        if beklenen == "GENEL":
-            ok = kat in ("VARYANT", "KONU_DISI", "BELIRSIZ") and not n.get("varyant")
-        else:
-            ok = kat == beklenen and (kat != "VARYANT" or esit_varyant(n.get("varyant"), bek_var))
+        ok = dogru_mu(n, kabul, bek_var)
         dogru += ok
+        beklenen = "/".join(kabul)
         matris[beklenen][kat] += 1
+        sinif[beklenen][0] += ok
+        sinif[beklenen][1] += 1
         kayitlar.append({"mesaj": mesaj, "aktif": aktif, "beklenen": beklenen, "beklenen_varyant": bek_var,
                          "cikan": kat, "cikan_varyant": n.get("varyant"), "kaynak": n.get("kaynak"), "dogru": ok, "sure_s": round(sure, 1)})
-        print(f"{'OK ' if ok else 'HATA'} {n.get('kaynak', '?'):5} {sure:5.1f}s | aktif={aktif or '-':12} | {mesaj[:42]:42} -> {kat} {n.get('varyant') or ''}")
-    print(f"\nDoğruluk: {dogru}/{len(SET)} = %{100 * dogru / len(SET):.0f}")
+        print(f"{'OK ' if ok else 'HATA'} {n.get('kaynak', '?'):5} {sure:5.1f}s | aktif={aktif or '-':18} | {mesaj[:46]:46} -> {kat} {n.get('varyant') or ''}"
+              + ("" if ok else f"   (beklenen: {beklenen} {bek_var or ''})"))
+    print()
+    print(f"{ {'ayri': 'AYRI SET A', 'ayri2': 'AYRI SET B'}.get(ayri, 'GELİŞTİRME SETİ (regresyon)') } — Doğruluk: {dogru}/{len(ogeler)} = %{100 * dogru / len(ogeler):.1f}")
+    print("Kategori başına (beklenen -> doğru/toplam):")
+    for b, (d, top) in sorted(sinif.items()):
+        print(f"  {b:22} {d}/{top}")
     print("Karışıklık (beklenen -> çıkan):")
-    for b, c in matris.items():
-        print(f"  {b:14} {dict(c)}")
+    for b, c in sorted(matris.items()):
+        print(f"  {b:22} {dict(c)}")
     kural = sum(1 for k in kayitlar if k["kaynak"] == "kural")
-    print(f"Kural katmanı {kural}/{len(SET)} mesajı modele gitmeden çözdü.")
+    kural_dogru = sum(1 for k in kayitlar if k["kaynak"] == "kural" and k["dogru"])
+    print(f"Kural katmanı {kural}/{len(ogeler)} mesajı modele gitmeden çözdü ({kural_dogru} doğru); "
+          f"modele giden {len(ogeler) - kural} mesajın {dogru - kural_dogru} tanesi doğru.")
     klasor = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results")
     os.makedirs(klasor, exist_ok=True)
-    yol = os.path.join(klasor, f"router_{app.SINIFLANDIRICI_MODEL.replace(':', '-')}_{date.today().isoformat()}.json")
+    ad = f"router_{ayri + '_' if ayri else ''}{app.SINIFLANDIRICI_MODEL.replace(':', '-')}_{date.today().isoformat()}.json"
+    yol = os.path.join(klasor, ad)
     with open(yol, "w", encoding="utf-8") as f:
-        json.dump({"model": app.SINIFLANDIRICI_MODEL, "ayarlar": app.AYARLAR, "dogruluk": dogru / len(SET),
+        json.dump({"set": {"ayri": "ayri_A", "ayri2": "ayri_B"}.get(ayri, "gelistirme"), "model": app.SINIFLANDIRICI_MODEL, "ayarlar": app.AYARLAR,
+                   "dogruluk": dogru / len(ogeler), "dogru": dogru, "toplam": len(ogeler),
+                   "kategori_bazinda": {b: {"dogru": d, "toplam": top} for b, (d, top) in sorted(sinif.items())},
+                   "kural_katmani": {"cozdugu": kural, "dogru": kural_dogru},
                    "kayitlar": kayitlar}, f, ensure_ascii=False, indent=1)
     print(f"Kaydedildi -> {yol}")
 
