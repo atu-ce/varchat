@@ -1,0 +1,10 @@
+{
+ "transformers": "5.17.0",
+ "peft": "0.21.0",
+ "bitsandbytes": "0.50.2",
+ "accelerate": "1.15.0",
+ "datasets": "5.0.1",
+ "liger-kernel": "0.8.3",
+ "torch": "2.14.1+cu130",
+ "cuda": "13.0"
+}

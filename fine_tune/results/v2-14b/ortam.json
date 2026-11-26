@@ -1,0 +1,18 @@
+{
+ "tarih": "2026-11-24T13:32",
+ "model": "Qwen/Qwen2.5-14B-Instruct",
+ "tur": 3,
+ "tohum": 42,
+ "kod": "6107242 (HEAD -> main, origin/main, origin/HEAD) fix: f03 - T4 en basta durur, bellek ayari kart kullanilmadan once",
+ "veri_sha256": "7b974d73b1ed421a3aa84918c5d2cda1db9f008dc8d7e78aedca9fba66a1afb0",
+ "kart": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+ "kart_gb": 102,
+ "ram_gb": 190,
+ "en_yuksek_gpu_bellegi_gb": 19.9,
+ "liger": true,
+ "bf16": true,
+ "max_len": 4608,
+ "en_uzun_ornek": 4146,
+ "en_iyi_checkpoint": "/content/varchat-lora-14b/checkpoint-110",
+ "en_iyi_eval_loss": 0.5528457164764404
+}

@@ -299,6 +299,24 @@ kontrol("sınıra dayanan listede yarım kalmış olabilecek SON numara atılır
 k = _kart([9826708, 9140397])
 kontrol("kısa liste olduğu gibi kalır", (k["pubmed"], k["pubmed_kesik"]), ([9826708, 9140397], False))
 
+# ---------------------------------------------------------------- atıf duyarlılığı (ALCE citation recall), e13
+# Özetteki ana ölçü. Cevap başına desteklenen / bütün cümleler, sonra ortalama; cümlesi olmayan cevap (yalnız ret, üretim hatası) dışarıda.
+print("ATIF DUYARLILIĞI (ALCE) — e13")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import e13_judge_14b as e13
+
+_o = lambda destek, cumle: {"destek": destek, "cumle": cumle}
+kontrol("cevap başına ortalama; cümlesi olmayan cevap dışarıda: (2/4 + 3/3) / 2", e13.atif_duyarliligi_degeri([_o(2, 4), _o(0, 0), _o(3, 3)]),
+        (0.75, 2))
+kontrol("havuzlanmış oran değil: (1/1 + 1/9) / 2, 2/10 değil", round(e13.atif_duyarliligi_degeri([_o(1, 1), _o(1, 9)])[0], 4), 0.5556)
+kontrol("hiç cümlesi olmayan modelde değer yok", e13.atif_duyarliligi_degeri([_o(0, 0)]), (None, 0))
+if os.path.exists(e13.CIKTI2):
+    _olcu = e13.olculer_bugun(list(e13.HUCRE.values()), set(e13.ENGELLENEN))
+    _g = sorted(set.intersection(*(set(o) for o in _olcu.values())))
+    kontrol("gerçek veride özetteki dört hücre: 0.420 / 0.579 / 0.366 / 0.705 (44 girdi)",
+            (len(_g), [round(e13.atif_duyarliligi_degeri([_olcu[m][g] for g in _g])[0], 3) for m in e13.HUCRE.values()]),
+            (44, [0.42, 0.579, 0.366, 0.705]))
+
 print()
 if basarisiz:
     print(f"{len(basarisiz)} test KALDI.")

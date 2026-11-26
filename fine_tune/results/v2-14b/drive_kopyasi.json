@@ -1,0 +1,19 @@
+{
+ "tarih": "2026-11-24T13:32",
+ "kaynak": "/content/varchat-lora-14b",
+ "kod": "6107242 (HEAD -> main, origin/main, origin/HEAD) fix: f03 - T4 en basta durur, bellek ayari kart kullanilmadan once",
+ "dosyalar": {
+  "README.md": "bb9d0f2661d00abe4b0cb67fe9870ba98426297939b3594db7a3831a3606a28a",
+  "adapter_config.json": "268495fc7c8203b5f04576667c5d086abdf18bafedd2203ef739b80f7857b671",
+  "adapter_model.safetensors": "aadf61a487046f148dbf4d6174947379d50bc61d395a37625130e262976ab3f4",
+  "chat_template.jinja": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "dogrulama_varyantlari.json": "983499bfc7896ca0421c2ac7d5a361225bbcf2ff22669a5c04571027d5e2f199",
+  "log_history.json": "040f147faa810f34be3bdd18f88900e65bb756688955b24c0b8e1db76bf7609e",
+  "ortam.json": "c9ce1f2fb5feaeee4cb0b1a765a105c37d859709823394b86eda7f5231020927",
+  "surumler.json": "f7b1fcfb374f07087decc533c251f32d2f335f44c6919d0c97b79ecefc1a5c65",
+  "tokenizer.json": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8",
+  "tokenizer_config.json": "04b1682c59acbd057f4c9072297faa73d56fc9de053094c659cdb4c464f58f86",
+  "trainer_state_son.json": "3a9029775e5de1a5e3094a92546c696dcd500ea16f2dc898e68a305cd5210681",
+  "training_args.bin": "cf0bab691a1b29fd2e6c067234a54e148c1fdb7813ce03cff4a94df4584eb59c"
+ }
+}

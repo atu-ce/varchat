@@ -1,0 +1,24 @@
+{
+ "tarih": "2026-11-24T19:15",
+ "model": "varchat-14b",
+ "llama_cpp": "8345f33 (grafted, HEAD, tag: b11430) hexagon: matmul and flash-atten scalability updates (#29974)",
+ "llama_cpp_kimlik": "8345f333951c661d166b00e6f9362e553768f292",
+ "donusturme_python": "/usr/bin/python3",
+ "kart": "NVIDIA L4",
+ "kod": "623ea48 (origin/main, origin/HEAD) fix: e12 - llama.cpp surum kontrolu tam kimlikle (rev-parse)",
+ "taban_hf": "Qwen/Qwen2.5-14B-Instruct",
+ "taban_hf_surum": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+ "birlestirme": {
+  "adaptor": "/content/drive/MyDrive/varchat-14b/varchat-lora-14b",
+  "adaptor_sha256": "aadf61a487046f148dbf4d6174947379d50bc61d395a37625130e262976ab3f4",
+  "adaptor_ayar": {
+   "r": 16,
+   "lora_alpha": 32,
+   "lora_dropout": 0.05,
+   "peft_version": "0.21.0"
+  }
+ },
+ "dosya": "varchat-14b-Q4_K_M.gguf",
+ "boyut": 8988110272,
+ "sha256": "6dabc235362ed059816a905cd7841bc7d398e9e1c99186689b67678d269782fd"
+}

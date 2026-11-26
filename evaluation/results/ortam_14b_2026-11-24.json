@@ -1,0 +1,22 @@
+{
+ "tarih": "2026-11-24T19:23",
+ "gpu": "NVIDIA L4",
+ "ram_gb": 57,
+ "gpu_bos_gb_baslangic": 22.0,
+ "ollama": {
+  "version": "0.35.1"
+ },
+ "modeller": [
+  "NAME                   ID              SIZE      MODIFIED      ",
+  "varchat-14b:latest     da10437c48ea    9.0 GB    2 minutes ago    ",
+  "qwen14-taban:latest    6bd96a54b2ee    9.0 GB    3 minutes ago    ",
+  "qwen2.5:14b            7cdf5a0187d5    9.0 GB    5 minutes ago    "
+ ],
+ "ollama_ps": [
+  "NAME                  ID              SIZE     PROCESSOR    CONTEXT    UNTIL              ",
+  "varchat-14b:latest    da10437c48ea    10 GB    100% GPU     8192       4 minutes from now    "
+ ],
+ "kod": "623ea48 (origin/main, origin/HEAD) fix: e12 - llama.cpp surum kontrolu tam kimlikle (rev-parse)",
+ "sablon_sha256": "ad191f154b3a23521d7b5b18f2d554cd7dba7bddbdd62782d7b712fceec8366f",
+ "sablon_qwen2.5-7b_ile_ayni": true
+}
