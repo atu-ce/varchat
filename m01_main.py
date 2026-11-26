@@ -793,4 +793,9 @@ def main():
 
 
 if __name__ == "__main__":
+    # İsteğe bağlı model seçimi: python m01_main.py --model varchat-14b (kurulum: models/Modelfile.varchat-14b).
+    # Verilmezse MODEL (varchat-v2). Yönlendirici de aynı modeli kullanır; yönlendirici doğruluğu yalnız varchat-v2 ile ölçüldü.
+    if "--model" in sys.argv[1:]:
+        MODEL = SINIFLANDIRICI_MODEL = sys.argv[sys.argv.index("--model") + 1]
+    print(f"model: {MODEL}")
     main()
